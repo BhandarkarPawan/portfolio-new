@@ -11,8 +11,8 @@ const Email: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+    display: none;
     position: fixed;
-    display: flex;
     align-items: center;
     flex-direction: column;
     gap: 16px;
@@ -21,6 +21,10 @@ const Wrapper = styled.div`
     bottom: 0;
 
     color: ${({ theme }) => theme.colors.text.light};
+
+    ${QUERIES.tabletAndUp} {
+        display: flex;
+    }
 `;
 
 const Link = styled.a`
@@ -36,10 +40,7 @@ const Link = styled.a`
 `;
 
 const Line = styled.div`
-    display: none;
-
     ${QUERIES.tabletAndUp} {
-        display: block;
         border: 1px solid ${({ theme }) => theme.colors.text.light};
         height: 100px;
         width: 0px;
