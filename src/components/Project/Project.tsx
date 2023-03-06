@@ -1,24 +1,24 @@
 import { QUERIES } from "@/pages/breakpoints";
+import { GoOctoface } from "react-icons/go";
+import { IoOpen } from "react-icons/io5";
 import styled from "styled-components";
 
 export interface IProps {
-    degree: string;
-    school: string;
-    courses: string[];
-    start: number;
-    end: number;
-    gpa: string;
+    name: string;
+    techs: string[];
+    description: string;
+    github: string;
+    website: string;
     imgSrc: string;
     side: "left" | "right";
 }
 
-const College: React.FC<IProps> = ({
-    degree,
-    school,
-    courses,
-    start,
-    end,
-    gpa,
+const Project: React.FC<IProps> = ({
+    name,
+    techs,
+    description,
+    github,
+    website,
     imgSrc,
     side,
     ...delegated
@@ -26,27 +26,65 @@ const College: React.FC<IProps> = ({
     return (
         <Wrapper side={side} {...delegated}>
             <Stretch>
-                <Image src={imgSrc} alt={school} />
+                <Image src={imgSrc} alt={name} />
             </Stretch>
             <Info side={side}>
-                <Degree side={side}>{degree}</Degree>
-                <School side={side}>{school}</School>
-                <Courses side={side}>
-                    <Title>Courses</Title>
-                    {courses.map((course, i) => (
-                        <Course key={i}>{course}</Course>
+                <Feature side={side}>Featured Project</Feature>
+                <Name side={side}>{name}</Name>
+                <Description side={side}>{description}</Description>
+                <Techs side={side}>
+                    {techs.map((tech) => (
+                        <Tech key={tech}>{tech}</Tech>
                     ))}
-                </Courses>
-                <Data side={side}>
-                    <Time>
-                        {start} - {end}
-                    </Time>
-                    <GPA>GPA: {gpa}</GPA>
-                </Data>
+                </Techs>
+                <Links side={side}>
+                    <Github onClick={() => window.open(github)} />
+                    <Website onClick={() => window.open(website)} />
+                </Links>
             </Info>
         </Wrapper>
     );
 };
+
+const iconStyle = `
+    cursor: pointer;
+
+    ${QUERIES.tabletAndUp} {
+        font-size: 24px;
+    }
+`;
+
+const Links = styled.div<StyledProps>`
+    flex-shrink: 0;
+    display: flex;
+    gap: 32px;
+    margin-top: 16px;
+    color: ${({ theme }) => theme.colors.text.light};
+    margin-left: 32px;
+
+    ${QUERIES.tabletAndUp} {
+        margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
+        margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
+        align-self: ${({ side }) =>
+            side === "left" ? "flex-end" : "flex-start"};
+    }
+`;
+
+const Github = styled(GoOctoface)`
+    ${iconStyle}
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.primary};
+    }
+`;
+
+const Website = styled(IoOpen)`
+    ${iconStyle}
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.primary};
+    }
+`;
 
 interface StyledProps {
     side: "left" | "right";
@@ -76,8 +114,7 @@ const Stretch = styled.div`
 
 const Image = styled.img`
     margin-bottom: 32px;
-    max-width: 700px;
-    max-height: 500px;
+    max-width: 500px;
 
     ${QUERIES.tabletAndUp} {
         object-fit: cover;
@@ -104,11 +141,11 @@ const Info = styled.div<StyledProps>`
     }
 `;
 
-const Degree = styled.h3<StyledProps>`
+const Feature = styled.h3<StyledProps>`
     color: ${({ theme }) => theme.colors.primary};
-    font-weight: 400;
-
     margin-left: 32px;
+    font-size: calc(14 / 16 * 1rem);
+    margin-bottom: -4px;
 
     ${QUERIES.tabletAndUp} {
         margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
@@ -116,7 +153,14 @@ const Degree = styled.h3<StyledProps>`
     }
 `;
 
-const School = styled.h4<StyledProps>`
+const Tech = styled.li`
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.primary};
+    text-transform: lowercase;
+    font-size: calc(14 / 16 * 1rem);
+`;
+
+const Name = styled.h4<StyledProps>`
     font-size: calc(28 / 16 * 1rem);
     font-weight: 900;
     margin-bottom: 16px;
@@ -129,34 +173,17 @@ const School = styled.h4<StyledProps>`
     }
 `;
 
-const Courses = styled.ul<StyledProps>`
-    background-color: ${({ theme }) => theme.colors.background.light};
-    padding: 32px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    ${QUERIES.tabletAndUp} {
-        align-items: ${({ side }) =>
-            side === "left" ? "flex-end" : "flex-start"};
-    }
-`;
-
-const Title = styled.h2`
-    color: ${({ theme }) => theme.colors.primary};
-    margin-bottom: 8px;
-`;
-
-const Course = styled.li`
+const Description = styled.p<StyledProps>`
     font-weight: 400;
+    padding: 32px;
+    background-color: ${({ theme }) => theme.colors.background.light};
+    border-radius: 8px;
 `;
 
-const Data = styled.div<StyledProps>`
+const Techs = styled.ul<StyledProps>`
     margin-top: 16px;
     display: flex;
-    gap: 64px;
-    font-size: calc(20 / 16 * 1rem);
+    gap: 32px;
 
     margin-left: 32px;
 
@@ -168,12 +195,4 @@ const Data = styled.div<StyledProps>`
     }
 `;
 
-const Time = styled.p`
-    font-weight: 400;
-`;
-
-const GPA = styled.p`
-    color: ${({ theme }) => theme.colors.primary};
-`;
-
-export default College;
+export default Project;

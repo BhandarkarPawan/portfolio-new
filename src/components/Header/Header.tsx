@@ -64,6 +64,7 @@ const Banner = styled.div`
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.background.regular};
     padding: 8px 32px;
+    text-align: center;
 `;
 
 const Sidebar = styled.nav<{ show: boolean }>`

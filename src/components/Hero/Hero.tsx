@@ -26,12 +26,11 @@ const Hero = () => {
 const Wrapper = styled.div`
     grid-area: hero;
     max-width: min-content;
-    height: 100vh;
     margin: 32px;
-
     display: grid;
     align-content: center;
     justify-items: start;
+    height: 120vh;
 
     ${QUERIES.tabletAndUp} {
         display: flex;
@@ -39,7 +38,7 @@ const Wrapper = styled.div`
         align-items: flex-start;
         margin-left: 20vw;
         margin-top: 10vh;
-        height: calc(100vh - 250px);
+        height: calc(100vh - 280px);
     }
 `;
 
