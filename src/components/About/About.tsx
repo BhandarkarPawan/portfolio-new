@@ -1,0 +1,96 @@
+import Button from "@/components/Button/Button";
+import Highlight from "@/components/Highlight/Highlight";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import { QUERIES } from "@/pages/breakpoints";
+import styled from "styled-components";
+
+export interface IProps {
+    delegated?: any;
+}
+
+const About: React.FC<React.PropsWithChildren<IProps>> = ({
+    children,
+    ...delegated
+}) => {
+    return (
+        <Wrapper {...delegated}>
+            <AboutMe>
+                <SectionTitle label={"About Me "} side={"left"} />
+                <Description>
+                    Hi there! My name is Pawan , and I'm passionate about
+                    building full-stack web applications that are not only , but
+                    also easy for others to understand, extend, and integrate.
+                </Description>
+                <Description>
+                    I have 2+ years of experience working as a Full-Stack
+                    developer and recently, I’ve been diving deeper into UX
+                    design through my course work at Carnegie Mellon University.
+                    My goal is to not only write code that is{" "}
+                    <Highlight>clean, modular</Highlight>, and{" "}
+                    <Highlight>well-tested</Highlight> but to build products
+                    that are <Highlight>feasible</Highlight>,{" "}
+                    <Highlight>usable</Highlight> and{" "}
+                    <Highlight>useful</Highlight> to the customer.
+                </Description>
+                <Description>
+                    I'm always looking for new challenges and opportunities to
+                    learn and grow as a software engineer, and I'm excited to
+                    see what the future holds.
+                </Description>
+
+                <Download>Download Resume</Download>
+            </AboutMe>
+            <Picture src="images/pawan.png" />
+        </Wrapper>
+    );
+};
+
+const Wrapper = styled.div`
+    display: grid;
+    padding: 32px;
+    padding-bottom: 0px;
+    row-gap: 80px;
+    grid-template-areas:
+        "aboutme"
+        "picture";
+
+    ${QUERIES.tabletAndUp} {
+        grid-template-areas: "picture aboutme";
+        grid-template-columns: 1fr 1fr;
+        column-gap: 80px;
+    }
+`;
+
+const AboutMe = styled.div`
+    grid-area: aboutme;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    ${QUERIES.tabletAndUp} {
+        justify-self: start;
+        max-width: min(400px, 100%);
+    }
+`;
+
+const Description = styled.p`
+    font-weight: 400;
+`;
+
+const Picture = styled.img`
+    grid-area: picture;
+    justify-self: center;
+    width: 300px;
+
+    ${QUERIES.tabletAndUp} {
+        justify-self: end;
+        width: min(50vw, 500px);
+    }
+`;
+
+const Download = styled(Button)`
+    align-self: start;
+    margin-top: 32px;
+`;
+
+export default About;
