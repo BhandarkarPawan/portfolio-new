@@ -19,6 +19,7 @@ html{
 	}
 
 	--color-dark-primary: hsl(44, 100%, 69%);
+	--color-sticky: hsl(44, 78%, 62%);
 	--color-dark-text-regular: hsl(0, 0%, 100%);
 	--color-dark-text-light: hsla(0, 0%, 100%, 0.6);
 	--color-dark-text-dark: hsl(44, 100%, 69%);
