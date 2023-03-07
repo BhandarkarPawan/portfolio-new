@@ -2,6 +2,17 @@ import { QUERIES } from "@/pages/breakpoints";
 import { GoOctoface } from "react-icons/go";
 import { IoOpen } from "react-icons/io5";
 import styled from "styled-components";
+import {
+    Wrapper as CollegeWrapper,
+    Courses,
+    Data,
+    Degree,
+    Image,
+    Info,
+    School,
+    Stretch,
+} from "../College/College";
+import { HoverIconLink } from "../Socials/Socials";
 
 export interface IProps {
     name: string;
@@ -25,9 +36,9 @@ const Project: React.FC<IProps> = ({
 }) => {
     return (
         <Wrapper side={side} {...delegated}>
-            <Stretch>
+            <StretchedProject>
                 <Image src={imgSrc} alt={name} />
-            </Stretch>
+            </StretchedProject>
             <Info side={side}>
                 <Feature side={side}>Featured Project</Feature>
                 <Name side={side}>{name}</Name>
@@ -38,8 +49,12 @@ const Project: React.FC<IProps> = ({
                     ))}
                 </Techs>
                 <Links side={side}>
-                    <Github onClick={() => window.open(github)} />
-                    <Website onClick={() => window.open(website)} />
+                    <HoverIconLink href={github} target="_blank">
+                        <Github size={32} />
+                    </HoverIconLink>
+                    <HoverIconLink href={website} target="_blank">
+                        <Website size={32} />
+                    </HoverIconLink>
                 </Links>
             </Info>
         </Wrapper>
@@ -60,22 +75,30 @@ const Links = styled.div<StyledProps>`
     gap: 32px;
     margin-top: 16px;
     color: ${({ theme }) => theme.colors.text.light};
-    margin-left: 32px;
-
+    
     ${QUERIES.tabletAndUp} {
+        margin-left: 32px;
+    }
+
+    ${QUERIES.desktopAndUp} {
         margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
         margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
         align-self: ${({ side }) =>
             side === "left" ? "flex-end" : "flex-start"};
     }
+
+    &  > * {
+        transition var(--transition);
+    }
+`;
+
+const StretchedProject = styled(Stretch)`
+    display: flex;
+    justify-content: center;
 `;
 
 const Github = styled(GoOctoface)`
     ${iconStyle}
-
-    &:hover {
-        color: ${({ theme }) => theme.colors.primary};
-    }
 `;
 
 const Website = styled(IoOpen)`
@@ -90,109 +113,26 @@ interface StyledProps {
     side: "left" | "right";
 }
 
-const Wrapper = styled.div<StyledProps>`
-    display: flex;
-    isolation: isolate;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+const Wrapper = styled(CollegeWrapper)``;
 
-    ${QUERIES.tabletAndUp} {
-        flex-direction: ${({ side }) =>
-            side === "left" ? "row" : "row-reverse"};
-    }
-`;
+const Feature = styled(Degree)``;
 
-const Stretch = styled.div`
-    margin-left: -32px;
-    margin-right: -32px;
-    ${QUERIES.tabletAndUp} {
-        margin-left: 0;
-        margin-right: 0;
-    }
-`;
-
-const Image = styled.img`
-    margin-bottom: 32px;
-    max-width: 500px;
-
-    ${QUERIES.tabletAndUp} {
-        object-fit: cover;
-        z-index: 1;
-        display: block;
-        border-radius: 8px;
-        margin-bottom: 0;
-    }
-`;
-
-const Info = styled.div<StyledProps>`
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    width: 500px;
-
-    ${QUERIES.tabletAndUp} {
-        align-items: ${({ side }) =>
-            side === "left" ? "flex-end" : "flex-start"};
-        margin-left: ${({ side }) => (side === "left" ? "-32px" : "0")};
-        margin-right: ${({ side }) => (side === "right" ? "-32px" : "0")};
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-`;
-
-const Feature = styled.h3<StyledProps>`
-    color: ${({ theme }) => theme.colors.primary};
-    margin-left: 32px;
-    font-size: calc(14 / 16 * 1rem);
-    margin-bottom: -4px;
-
-    ${QUERIES.tabletAndUp} {
-        margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
-        margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
-    }
-`;
-
-const Tech = styled.li`
+const Tech = styled.p`
     font-weight: 400;
     color: ${({ theme }) => theme.colors.primary};
     text-transform: lowercase;
     font-size: calc(14 / 16 * 1rem);
 `;
 
-const Name = styled.h4<StyledProps>`
-    font-size: calc(28 / 16 * 1rem);
-    font-weight: 900;
-    margin-bottom: 16px;
+const Name = styled(School)``;
 
-    margin-left: 32px;
-
-    ${QUERIES.tabletAndUp} {
-        margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
-        margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
-    }
-`;
-
-const Description = styled.p<StyledProps>`
+const Description = styled(Courses)`
     font-weight: 400;
-    padding: 32px;
-    background-color: ${({ theme }) => theme.colors.background.light};
-    border-radius: 8px;
 `;
-
-const Techs = styled.ul<StyledProps>`
-    margin-top: 16px;
+const Techs = styled(Data)`
+    gap: 16px;
     display: flex;
-    gap: 32px;
-
-    margin-left: 32px;
-
-    ${QUERIES.tabletAndUp} {
-        margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
-        margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
-        align-self: ${({ side }) =>
-            side === "left" ? "flex-end" : "flex-start"};
-    }
+    flex-wrap: wrap;
 `;
 
 export default Project;

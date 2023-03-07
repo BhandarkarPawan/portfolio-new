@@ -11,19 +11,24 @@ const Email: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-    display: none;
     position: fixed;
+    display: none;
     align-items: center;
     flex-direction: column;
     gap: 16px;
+    width: 24px;
 
-    right: 52px;
     bottom: 0;
-
     color: ${({ theme }) => theme.colors.text.light};
+    cursor: pointer;
 
     ${QUERIES.tabletAndUp} {
         display: flex;
+        right: 24px;
+    }
+
+    ${QUERIES.desktopAndUp} {
+        right: 32px;
     }
 `;
 
@@ -33,9 +38,12 @@ const Link = styled.a`
     text-decoration: none;
     font-weight: 400;
     letter-spacing: 1px;
+    transition: var(--transition);
 
     &:hover {
         color: ${({ theme }) => theme.colors.primary};
+        transform: rotate(-90deg) translateX(50%) translateY(-10%)
+            translateX(8px) scale(1.05);
     }
 `;
 

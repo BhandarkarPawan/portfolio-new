@@ -1,4 +1,5 @@
 import College from "@/components/College";
+import { QUERIES } from "@/pages/breakpoints";
 import styled from "styled-components";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
@@ -9,15 +10,15 @@ const COLLEGES = [
         courses: [
             "Foundations of Software Engineering",
             "Data Science for Software Engineering",
-            "Software Requirements & Interaction Design",
-            "Human-Computer Interaction & User Experience",
+            "Software Requirements & Ix Design",
             // "Software Engineering Methods",
-            // "Software Verification & Testing",
+            "Software Verification & Testing",
+            "HCI & User Experience",
         ],
         start: 2022,
         end: 2023,
         gpa: "4.0",
-        imgSrc: "images/cmusv.jpeg",
+        imgSrc: "images/cmusv.png",
     },
     {
         degree: "Bachelor of Engineering in Computer Science",
@@ -39,37 +40,44 @@ const COLLEGES = [
 const Education: React.FC = () => {
     return (
         <Wrapper>
-            <Title label="Education" side="left" />
-            <CMU {...COLLEGES[0]} side="left" />
-            <NMAMIT {...COLLEGES[1]} side="right" />
+            <MaxWidthWrapper>
+                <ContraintedTitle label="Education" side="left" />
+                <College {...COLLEGES[0]} side="left" />
+            </MaxWidthWrapper>
+            <College {...COLLEGES[1]} side="right" />
         </Wrapper>
     );
 };
 
 const Wrapper = styled.div`
-    grid-area: education;
-
-    display: grid;
-    grid-template-columns: auto max-content auto;
-    row-gap: 64px;
-
-    padding: 64px 32px;
     background-color: ${({ theme }) => theme.colors.background.dark};
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    ${QUERIES.tabletAndUp} {
+        padding: 64px 64px;
+    }
+`;
+
+export const ContraintedTitle = styled(SectionTitle)`
+    width: 100%;
+    margin-bottom: 32px;
+    ${QUERIES.desktopAndUp} {
+        max-width: 650px;
+    }
+`;
+
+export const MaxWidthWrapper = styled.div`
+    ${QUERIES.desktopAndUp} {
+        max-width: max-content;
+        align-self: center;
+    }
 `;
 
 const Title = styled(SectionTitle)`
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-`;
-
-const CMU = styled(College)`
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-`;
-
-const NMAMIT = styled(College)`
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
+    margin-bottom: 32px;
 `;
 
 export default Education;

@@ -70,7 +70,7 @@ const Sticky = styled.div`
 const Input = styled.textarea`
     &::placeholder {
         color: var(--color-placeholder);
-    }
+        
 
     flex: 1;
     background-color: transparent;

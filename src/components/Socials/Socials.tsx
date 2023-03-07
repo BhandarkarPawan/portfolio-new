@@ -17,11 +17,21 @@ const CODEPEN_URL = "https://codepen.io/bhandarkarpawan";
 const Socials: React.FC = () => {
     return (
         <Wrapper>
-            <Github onClick={() => window.open(GITHUB_URL, "_blank")} />
-            <Instagram onClick={() => window.open(INSTAGRAM_URL, "_blank")} />
-            <Twitter onClick={() => window.open(TWITTER_URL, "_blank")} />
-            <Linkedin onClick={() => window.open(LINKEDIN_URL, "_blank")} />
-            <Codepen onClick={() => window.open(CODEPEN_URL, "_blank")} />
+            <HoverIconLink href={GITHUB_URL} target="_blank">
+                <GoOctoface />
+            </HoverIconLink>
+            <HoverIconLink href={INSTAGRAM_URL} target="_blank">
+                <AiFillInstagram />
+            </HoverIconLink>
+            <HoverIconLink href={TWITTER_URL} target="_blank">
+                <AiOutlineTwitter />
+            </HoverIconLink>
+            <HoverIconLink href={LINKEDIN_URL} target="_blank">
+                <FaLinkedinIn />
+            </HoverIconLink>
+            <HoverIconLink href={CODEPEN_URL} target="_blank">
+                <AiOutlineCodepen />
+            </HoverIconLink>
             <Line />
         </Wrapper>
     );
@@ -29,63 +39,36 @@ const Socials: React.FC = () => {
 
 const Wrapper = styled.div`
     position: fixed;
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
     gap: 16px;
+    font-size: 24px;
 
-    left: 52px;
     bottom: 0;
-
     color: ${({ theme }) => theme.colors.text.light};
-`;
-
-const iconStyle = `
-    display: none;
     cursor: pointer;
 
     ${QUERIES.tabletAndUp} {
-        display: block;
-        font-size: 24px;
+        display: flex;
+        left: 24px;
+    }
+
+    ${QUERIES.desktopAndUp} {
+        left: 32px;
     }
 `;
 
-const Github = styled(GoOctoface)`
-    ${iconStyle}
+export const HoverIconLink = styled.a`
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.text.light};
 
-    &:hover {
-        color: ${({ theme }) => theme.colors.primary};
+    & > * {
+        transition: var(--transition);
     }
-`;
 
-const Instagram = styled(AiFillInstagram)`
-    ${iconStyle}
-
-    &:hover {
-        color: ${({ theme }) => theme.colors.primary};
-    }
-`;
-
-const Twitter = styled(AiOutlineTwitter)`
-    ${iconStyle}
-
-    &:hover {
-        color: ${({ theme }) => theme.colors.primary};
-    }
-`;
-
-const Linkedin = styled(FaLinkedinIn)`
-    ${iconStyle}
-
-    &:hover {
-        color: ${({ theme }) => theme.colors.primary};
-    }
-`;
-
-const Codepen = styled(AiOutlineCodepen)`
-    ${iconStyle}
-
-    &:hover {
+    &:hover > * {
+        transform: scale(1.2) translateY(-4px);
         color: ${({ theme }) => theme.colors.primary};
     }
 `;

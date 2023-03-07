@@ -25,7 +25,8 @@ const Technical: React.FC = () => {
                 <Level>{Stars}</Level>
             </Display>
             <SkillList>
-                <TechnicalTitle label="Technical Skills" side="right" />
+                <TechnicalTitleDesktop label="Technical Skills" side="right" />
+                <TechnicalTitleMobile label="Technical Skills" side="left" />
                 <Options>
                     {SKILLS.map((skill, index) => (
                         <Option
@@ -48,14 +49,17 @@ interface OptionProps {
 }
 
 const Wrapper = styled.div`
-    grid-area: technical;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
-    padding: 32px;
     background-color: ${({ theme }) => theme.colors.background.dark};
+    padding: 32px;
 
     ${QUERIES.tabletAndUp} {
+        padding: 64px;
+    }
+
+    ${QUERIES.desktopAndUp} {
         flex-direction: row;
     }
 `;
@@ -65,28 +69,48 @@ const TechnicalTitle = styled(SectionTitle)`
     margin-bottom: 32px;
 `;
 
+const TechnicalTitleDesktop = styled(TechnicalTitle)`
+    display: none;
+
+    ${QUERIES.desktopAndUp} {
+        display: flex;
+    }
+`;
+
+const TechnicalTitleMobile = styled(TechnicalTitle)`
+    display: flex;
+
+    ${QUERIES.desktopAndUp} {
+        display: none;
+    }
+`;
+
 const Display = styled.div`
     display: flex;
     flex-direction: column;
     gap: 16px;
     background-color: ${({ theme }) => theme.colors.background.light};
-    border-radius: 0px;
+
     padding: 32px;
-    max-width: 700px;
     height: 320px;
 
     margin-left: -32px;
     margin-right: -32px;
+    border-radius: 0px;
 
     ${QUERIES.tabletAndUp} {
-        padding-right: 250px;
         margin-left: 0;
         margin-right: 0;
         border-radius: 8px;
     }
+
+    ${QUERIES.desktopAndUp} {
+        max-width: 700px;
+        padding-right: 250px;
+    }
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
     color: ${({ theme }) => theme.colors.primary};
 `;
 
@@ -101,26 +125,20 @@ const Level = styled.div`
 `;
 
 const SkillList = styled.div`
-    max-width: 600px;
     margin-top: 32px;
+    margin-bottom: 32px;
 
-    ${QUERIES.tabletAndUp} {
+    ${QUERIES.desktopAndUp} {
+        max-width: 600px;
         margin-left: -232px;
     }
 `;
 
 const Options = styled.ul`
-    max-width: 800px;
     gap: 8px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
-    ${QUERIES.tabletAndUp} {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 `;
 
 const Option = styled.li<OptionProps>`
@@ -128,9 +146,9 @@ const Option = styled.li<OptionProps>`
     background-color: ${({ theme, active }) =>
         active ? theme.colors.primary : theme.colors.text.light};
     color: ${({ theme }) => theme.colors.background.dark};
-    padding: 12px 32px;
-    font-size: calc(24 / 16 * 1rem);
     text-align: center;
+    padding: 4px 12px;
+    font-size: calc(12 / 16 * 1rem);
 
     ${QUERIES.tabletAndUp} {
         padding: 4px 32px;

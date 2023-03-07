@@ -1,7 +1,7 @@
 import Button from "@/components/Button/Button";
 import Highlight from "@/components/Highlight/Highlight";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import { QUERIES } from "@/pages/breakpoints";
+import { MIN_WIDTH, QUERIES } from "@/pages/breakpoints";
 import styled from "styled-components";
 
 export interface IProps {
@@ -17,7 +17,7 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
             <AboutMe>
                 <SectionTitle label={"About Me "} side={"left"} />
                 <Description>
-                    Hi there! My name is Pawan , and I'm passionate about
+                    Hi there! My name is Pawan , and I’m passionate about
                     building full-stack web applications that are not only , but
                     also easy for others to understand, extend, and integrate.
                 </Description>
@@ -33,14 +33,21 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
                     <Highlight>useful</Highlight> to the customer.
                 </Description>
                 <Description>
-                    I'm always looking for new challenges and opportunities to
-                    learn and grow as a software engineer, and I'm excited to
+                    I’m always looking for new challenges and opportunities to
+                    learn and grow as a software engineer, and I’m excited to
                     see what the future holds.
                 </Description>
 
                 <Download>Download Resume</Download>
             </AboutMe>
-            <Picture src="images/pawan.png" />
+            <Picture>
+                <Source media={MIN_WIDTH.desktop} srcSet="images/pawan.png" />
+                <Source
+                    media={MIN_WIDTH.tablet}
+                    srcSet="images/pawan-small.png"
+                />
+                <Image src="images/pawan.png" alt="Pawan Bhandarkar" />
+            </Picture>
         </Wrapper>
     );
 };
@@ -57,7 +64,13 @@ const Wrapper = styled.div`
     ${QUERIES.tabletAndUp} {
         grid-template-areas: "picture aboutme";
         grid-template-columns: 1fr 1fr;
+        column-gap: 0px;
+        padding: 64px;
+    }
+
+    ${QUERIES.desktopAndUp} {
         column-gap: 80px;
+        padding-bottom: 0px;
     }
 `;
 
@@ -77,16 +90,24 @@ const Description = styled.p`
     font-weight: 400;
 `;
 
-const Picture = styled.img`
+const Picture = styled.picture`
     grid-area: picture;
     justify-self: center;
     width: 300px;
 
     ${QUERIES.tabletAndUp} {
+        width: min(50vw, 250px);
+    }
+
+    ${QUERIES.desktopAndUp} {
         justify-self: end;
         width: min(50vw, 500px);
     }
 `;
+
+const Source = styled.source``;
+
+const Image = styled.img``;
 
 const Download = styled(Button)`
     align-self: start;

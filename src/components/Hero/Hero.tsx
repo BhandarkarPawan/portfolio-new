@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import { QUERIES } from "@/pages/breakpoints";
 import styled from "styled-components";
 import Highlight from "../Highlight";
+import Link from "../Link";
 
 const Hero = () => {
     return (
@@ -16,42 +17,67 @@ const Hero = () => {
                 sometimes designing) highly accessible, human-centered
                 applications for the web. Currently, I’m pursuing a Master’s
                 degree in Computer Science at{" "}
-                <Highlight>Carnegie Mellon University</Highlight>
+                <Link
+                    href="https://www.cmu.edu"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                >
+                    <Highlight>Carnegie Mellon University</Highlight>
+                </Link>
             </Text>
             <CallToAction>Get In Touch</CallToAction>
         </Wrapper>
     );
 };
-
 const Wrapper = styled.div`
-    grid-area: hero;
+    align-self: center;
     max-width: min-content;
+    min-height: calc(100vh - 150px);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 `;
 
 const Name = styled.h2`
     white-space: nowrap;
-    font-size: calc(40 / 16 * 1rem);
+    font-size: calc(35 / 16 * 1rem);
     margin-bottom: -16px;
 
     ${QUERIES.tabletAndUp} {
         font-size: calc(64 / 16 * 1rem);
         margin-bottom: -32px;
     }
+
+    ${QUERIES.desktopAndUp} {
+        font-size: calc(80 / 16 * 1rem);
+        margin-bottom: -32px;
+    }
 `;
 
 const SubText = styled.h3`
     color: ${({ theme }) => theme.colors.text.light};
-    font-size: calc(40 / 16 * 1rem);
+    font-size: calc(35 / 16 * 1rem);
     margin-bottom: 24px;
 
     ${QUERIES.tabletAndUp} {
         font-size: calc(64 / 16 * 1rem);
+    }
+
+    ${QUERIES.desktopAndUp} {
+        font-size: calc(80 / 16 * 1rem);
     }
 `;
 
 const Text = styled.p`
     color: ${({ theme }) => theme.colors.text.regular};
     font-weight: 400;
+    margin-bottom: -4px;
+
+    ${QUERIES.tabletAndUp} {
+        margin-bottom: -8px;
+    }
 `;
 
 const CallToAction = styled(Button)`

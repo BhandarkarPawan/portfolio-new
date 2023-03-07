@@ -1,7 +1,12 @@
+import About from "@/components/About";
+import Designs from "@/components/Designs";
+import Education from "@/components/Education";
 import Email from "@/components/Email";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
+import Technical from "@/components/Technical";
 import styled from "styled-components";
 
 export default function Home() {
@@ -12,11 +17,14 @@ export default function Home() {
             <Grid>
                 <Header />
                 <Hero />
-                {/* <About />
+                <About />
                 <Education />
                 <Technical />
                 <Projects />
                 <Designs />
+
+                {/* 
+                
                 <Contact />
                 <Footer /> */}
             </Grid>
@@ -25,7 +33,9 @@ export default function Home() {
 }
 
 const Grid = styled.div`
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
     grid-template-areas:
         "header"
         "banner"
@@ -36,5 +46,5 @@ const Grid = styled.div`
         "technical"
         "projects"
         "designs"
-        "contact";
+        "contact"; */
 `;

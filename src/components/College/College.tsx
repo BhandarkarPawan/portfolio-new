@@ -23,12 +23,15 @@ const College: React.FC<IProps> = ({
     side,
     ...delegated
 }) => {
+    const smallImg = imgSrc.replace(".png", "-small.png");
+
     return (
         <Wrapper side={side} {...delegated}>
             <Stretch>
                 <Image src={imgSrc} alt={school} />
             </Stretch>
             <Info side={side}>
+                <SmallImage src={smallImg} alt={school} />
                 <Degree side={side}>{degree}</Degree>
                 <School side={side}>{school}</School>
                 <Courses side={side}>
@@ -52,49 +55,73 @@ interface StyledProps {
     side: "left" | "right";
 }
 
-const Wrapper = styled.div<StyledProps>`
+export const Wrapper = styled.div<StyledProps>`
     display: flex;
     isolation: isolate;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
 
-    ${QUERIES.tabletAndUp} {
+    ${QUERIES.desktopAndUp} {
         flex-direction: ${({ side }) =>
             side === "left" ? "row" : "row-reverse"};
     }
 `;
 
-const Stretch = styled.div`
+export const Stretch = styled.div`
     margin-left: -32px;
     margin-right: -32px;
-    ${QUERIES.tabletAndUp} {
+
+    ${QUERIES.desktopAndUp} {
         margin-left: 0;
         margin-right: 0;
     }
 `;
 
-const Image = styled.img`
-    margin-bottom: 32px;
-    max-width: 700px;
+export const Image = styled.img`
+    width: 100%;
+    max-width: 650px;
     max-height: 500px;
+    object-fit: cover;
+    z-index: 1;
+    line-height: 0;
+    margin-bottom: 32px;
 
     ${QUERIES.tabletAndUp} {
-        object-fit: cover;
-        z-index: 1;
+        display: none;
+    }
+
+    ${QUERIES.desktopAndUp} {
         display: block;
         border-radius: 8px;
-        margin-bottom: 0;
     }
 `;
 
-const Info = styled.div<StyledProps>`
+const SmallImage = styled.img`
+    display: none;
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    right: 32px;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border-radius: 8px;
+
+    ${QUERIES.tabletAndUp} {
+        display: block;
+    }
+
+    ${QUERIES.desktopAndUp} {
+        display: none;
+    }
+`;
+
+export const Info = styled.div<StyledProps>`
     display: flex;
     flex-direction: column;
     z-index: 2;
-    width: 500px;
+    position: relative;
 
-    ${QUERIES.tabletAndUp} {
+    ${QUERIES.desktopAndUp} {
+        width: 500px;
         align-items: ${({ side }) =>
             side === "left" ? "flex-end" : "flex-start"};
         margin-left: ${({ side }) => (side === "left" ? "-32px" : "0")};
@@ -104,46 +131,63 @@ const Info = styled.div<StyledProps>`
     }
 `;
 
-const Degree = styled.h3<StyledProps>`
+export const Degree = styled.h4<StyledProps>`
     color: ${({ theme }) => theme.colors.primary};
     font-weight: 400;
-
-    margin-left: 32px;
+    font-size: calc(14 / 16 * 1rem);
 
     ${QUERIES.tabletAndUp} {
+        margin-left: 32px;
+        font-size: calc(16 / 16 * 1rem);
+    }
+
+    ${QUERIES.desktopAndUp} {
+        font-size: calc(18 / 16 * 1rem);
         margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
         margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
     }
 `;
 
-const School = styled.h4<StyledProps>`
-    font-size: calc(28 / 16 * 1rem);
+export const School = styled.h4<StyledProps>`
     font-weight: 900;
     margin-bottom: 16px;
-
-    margin-left: 32px;
+    font-size: calc(21 / 16 * 1rem);
 
     ${QUERIES.tabletAndUp} {
+        margin-left: 32px;
+        font-size: calc(24 / 16 * 1rem);
+    }
+
+    ${QUERIES.desktopAndUp} {
+        font-size: calc(28 / 16 * 1rem);
         margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
         margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
     }
 `;
 
-const Courses = styled.ul<StyledProps>`
+export const Courses = styled.ul<StyledProps>`
     background-color: ${({ theme }) => theme.colors.background.light};
     padding: 32px;
-    border-radius: 8px;
+
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin-left: -32px;
+    margin-right: -32px;
 
     ${QUERIES.tabletAndUp} {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 8px;
+    }
+
+    ${QUERIES.desktopAndUp} {
         align-items: ${({ side }) =>
             side === "left" ? "flex-end" : "flex-start"};
     }
 `;
 
-const Title = styled.h2`
+export const Title = styled.h3`
     color: ${({ theme }) => theme.colors.primary};
     margin-bottom: 8px;
 `;
@@ -152,15 +196,17 @@ const Course = styled.li`
     font-weight: 400;
 `;
 
-const Data = styled.div<StyledProps>`
+export const Data = styled.ul<StyledProps>`
     margin-top: 16px;
     display: flex;
     gap: 64px;
     font-size: calc(20 / 16 * 1rem);
 
-    margin-left: 32px;
-
     ${QUERIES.tabletAndUp} {
+        margin-left: 32px;
+    }
+
+    ${QUERIES.desktopAndUp} {
         margin-left: ${({ side }) => (side === "left" ? "0" : "32px")};
         margin-right: ${({ side }) => (side === "right" ? "0" : "32px")};
         align-self: ${({ side }) =>

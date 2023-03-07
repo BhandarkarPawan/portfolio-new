@@ -48,7 +48,6 @@ const Logo = styled(Image)`
 
 const Wrapper = styled.div`
     grid-area: header;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,6 +55,10 @@ const Wrapper = styled.div`
     padding: 8px 32px;
 
     ${QUERIES.tabletAndUp} {
+        padding: 12px 32px;
+    }
+
+    ${QUERIES.desktopAndUp} {
         padding: 16px 64px;
     }
 `;
@@ -63,9 +66,13 @@ const Wrapper = styled.div`
 const Navbar = styled.nav`
     display: none;
     align-items: center;
-    gap: 64px;
+
+    ${QUERIES.desktopAndUp} {
+        gap: 64px;
+    }
 
     ${QUERIES.tabletAndUp} {
+        gap: 36px;
         display: flex;
     }
 `;

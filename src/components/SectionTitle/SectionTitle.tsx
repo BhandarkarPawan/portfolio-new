@@ -1,3 +1,4 @@
+import { QUERIES } from "@/pages/breakpoints";
 import styled from "styled-components";
 
 export interface IProps {
@@ -24,9 +25,12 @@ const Wrapper = styled.h2<StyledProps>`
     color: ${({ theme }) => theme.colors.primary};
     display: flex;
     align-items: center;
-    gap: 32px;
-
     flex-direction: ${({ side }) => (side === "left" ? "row" : "row-reverse")};
+    gap: 16px;
+
+    ${QUERIES.tabletAndUp} {
+        gap: 32px;
+    }
 `;
 
 const Line = styled.div`

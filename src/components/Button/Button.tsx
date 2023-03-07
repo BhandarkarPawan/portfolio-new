@@ -1,3 +1,4 @@
+import { QUERIES } from "@/pages/breakpoints";
 import styled from "styled-components";
 
 export interface IProps {
@@ -17,7 +18,17 @@ const Wrapper = styled.button`
     background-color: transparent;
     border: 1px solid;
     border-radius: 8px;
-    padding: 16px 32px;
+    padding: 10px 16px;
+    transition: var(--transition);
+
+    ${QUERIES.tabletAndUp} {
+        padding: 16px 32px;
+    }
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.primary};
+        color: ${({ theme }) => theme.colors.background.light};
+    }
 `;
 
 export default Button;
