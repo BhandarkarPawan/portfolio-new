@@ -37,16 +37,27 @@ const Header = () => {
 };
 
 const Logo = styled(Image)`
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
+
+    ${QUERIES.tabletAndUp} {
+        width: 60px;
+        height: 60px;
+    }
 `;
 
 const Wrapper = styled.div`
     grid-area: header;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 32px;
+
+    padding: 8px 32px;
+
+    ${QUERIES.tabletAndUp} {
+        padding: 16px 64px;
+    }
 `;
 
 const Navbar = styled.nav`
@@ -63,8 +74,13 @@ const Banner = styled.div`
     grid-area: banner;
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.background.regular};
-    padding: 8px 32px;
+    padding: 8px 16px;
     text-align: center;
+    font-size: 14px;
+
+    ${QUERIES.tabletAndUp} {
+        padding: 8px 32px;
+    }
 `;
 
 const Sidebar = styled.nav<{ show: boolean }>`

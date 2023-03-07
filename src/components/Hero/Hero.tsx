@@ -26,25 +26,11 @@ const Hero = () => {
 const Wrapper = styled.div`
     grid-area: hero;
     max-width: min-content;
-    margin: 32px;
-    display: grid;
-    align-content: center;
-    justify-items: start;
-    height: 120vh;
-
-    ${QUERIES.tabletAndUp} {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 20vw;
-        margin-top: 10vh;
-        height: calc(100vh - 280px);
-    }
 `;
 
-const Name = styled.h1`
+const Name = styled.h2`
     white-space: nowrap;
-    font-size: calc(56 / 16 * 1rem);
+    font-size: calc(40 / 16 * 1rem);
     margin-bottom: -16px;
 
     ${QUERIES.tabletAndUp} {
@@ -53,9 +39,9 @@ const Name = styled.h1`
     }
 `;
 
-const SubText = styled.h2`
+const SubText = styled.h3`
     color: ${({ theme }) => theme.colors.text.light};
-    font-size: calc(56 / 16 * 1rem);
+    font-size: calc(40 / 16 * 1rem);
     margin-bottom: 24px;
 
     ${QUERIES.tabletAndUp} {
