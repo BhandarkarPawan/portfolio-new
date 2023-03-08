@@ -1,4 +1,4 @@
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import { useState } from "react";
 import styled from "styled-components";
 import SectionTitle from "../SectionTitle/SectionTitle";

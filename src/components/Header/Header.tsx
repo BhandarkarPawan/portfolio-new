@@ -1,5 +1,5 @@
 import Navigation from "@/components/Navigation";
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import { Squash as Hamburger } from "hamburger-react";
 import Image from "next/image";
 import { useState } from "react";

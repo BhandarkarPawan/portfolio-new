@@ -1,7 +1,7 @@
 import Button from "@/components/Button/Button";
 import Highlight from "@/components/Highlight/Highlight";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import { MIN_WIDTH, QUERIES } from "@/pages/breakpoints";
+import { MIN_WIDTH, QUERIES } from "breakpoints";
 import styled from "styled-components";
 
 export interface IProps {

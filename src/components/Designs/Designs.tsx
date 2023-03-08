@@ -1,4 +1,4 @@
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import Design from "../Design";
 import SectionTitle from "../SectionTitle/SectionTitle";

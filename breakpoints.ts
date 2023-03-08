@@ -1,4 +1,4 @@
-export const BREAKPOINTS = { tablet: 768, desktop: 1024, largeDesktop: 1280 };
+const BREAKPOINTS = { tablet: 768, desktop: 1024, largeDesktop: 1280 };
 
 const MIN_TABLET = `(min-width: ${BREAKPOINTS.tablet}px)`;
 const MIN_DESKTOP = `(min-width: ${BREAKPOINTS.desktop}px)`;
@@ -15,3 +15,5 @@ export const QUERIES = {
     desktopAndUp: `@media ${MIN_DESKTOP}`,
     largeDesktopAndUp: `@media ${MIN_LARGE_DESKTOP}`,
 };
+
+export default BREAKPOINTS;

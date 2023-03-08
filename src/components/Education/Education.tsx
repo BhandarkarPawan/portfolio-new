@@ -1,5 +1,5 @@
 import College from "@/components/College";
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import SectionTitle from "../SectionTitle/SectionTitle";
 

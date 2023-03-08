@@ -1,4 +1,4 @@
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import { ContraintedTitle, MaxWidthWrapper } from "../Education/Education";
 import Project from "../Project/Project";

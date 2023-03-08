@@ -1,4 +1,4 @@
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import { GoOctoface } from "react-icons/go";
 import { IoOpen } from "react-icons/io5";
 import styled from "styled-components";

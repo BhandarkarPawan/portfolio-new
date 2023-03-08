@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import Highlight from "../Highlight";
 import Link from "../Link";

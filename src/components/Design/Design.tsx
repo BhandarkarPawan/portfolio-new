@@ -1,4 +1,4 @@
-import { QUERIES } from "@/pages/breakpoints";
+import { QUERIES } from "breakpoints";
 import { RxFigmaLogo } from "react-icons/rx";
 import styled from "styled-components";
 import { Title } from "../College/College";
