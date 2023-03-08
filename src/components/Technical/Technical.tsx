@@ -153,6 +153,7 @@ const Option = styled.li<OptionProps>`
     text-align: center;
     padding: 4px 12px;
     font-size: calc(12 / 16 * 1rem);
+    transition: var(--transition);
 
     ${QUERIES.tabletAndUp} {
         padding: 4px 32px;

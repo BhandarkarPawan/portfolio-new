@@ -13,7 +13,6 @@ const Footer = ({ ...delegated }) => {
 };
 
 const Wrapper = styled.div`
-    margin-top: 128px;
     font-weight: 400;
     background-color: ${({ theme }) => theme.colors.footer};
     color: ${({ theme }) => theme.colors.primary};
