@@ -1,10 +1,8 @@
 import Navigation from "@/components/Navigation";
 import { QUERIES } from "breakpoints";
 import { Squash as Hamburger } from "hamburger-react";
-import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
-import logo from "../../../public/logo.svg";
 
 const Header = () => {
     const [showSidebar, setShowSidebar] = useState(false);
@@ -17,7 +15,7 @@ const Header = () => {
         <>
             <Overlay show={showSidebar} onClick={toggleSidebar} />
             <Wrapper>
-                <Logo src={logo} alt="Logo" />
+                <Logo src="/images/logo.png" alt="Logo" />
                 <Navbar>
                     <Navigation />
                 </Navbar>
@@ -36,13 +34,14 @@ const Header = () => {
     );
 };
 
-const Logo = styled(Image)`
-    width: 40px;
-    height: 40px;
+const Logo = styled.img`
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
 
     ${QUERIES.tabletAndUp} {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
 `;
 
