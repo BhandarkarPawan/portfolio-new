@@ -9,19 +9,19 @@ const PROJECTS = [
         name: "Kanban Task Manager",
         techs: ["React", "TypeScript", "NodeJS", "MongoDB", "Express"],
         description:
-            "Lorem ipsum dolor sit amet consectetur. Tincidunt vulputate blandit elit ultrices quis orci curabitur. Sit volutpat amet aliquet faucibus maecenas.Sit volutpat amet aliquet faucibus maecenas.",
+            "A Kanban task manager built based on a design from Frontend Mentor. It is a full stack application with a React frontend and a NodeJS backend. The app is accessible on both desktop and mobile devices.",
         github: "https://github.com/BhandarkarPawan/kanban-task-management",
         website: "https://kanbhan.netlify.app",
         imgSrc: "/images/kanban.png",
     },
     {
-        name: "Kanban Task Manager",
-        techs: ["React", "TypeScript", "Styled Components"],
+        name: "Emegergency Social Network",
+        techs: ["HTML", "CSS", "NodeJS", "MongoDB", "figma"],
         description:
-            "Lorem ipsum dolor sit amet consectetur. Tincidunt vulputate blandit elit ultrices quis orci curabitur. Sit volutpat amet aliquet faucibus maecenas.Sit volutpat amet aliquet faucibus maecenas.",
-        github: "https://github.com/BhandarkarPawan/kanban-task-management",
-        website: "https://kanbhan.netlify.app",
-        imgSrc: "/images/kanban.png",
+            "An emergency communication system for real-time SOS messaging during earthquakes. Built in a fast paced Agile environment with a team of 5. The app was designed and developed the project using Object Oriented Analysis and Programming principles.",
+        github: "",
+        website: "https://esn.onrender.com",
+        imgSrc: "/images/esn-app.png",
     },
 ];
 

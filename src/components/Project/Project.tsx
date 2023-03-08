@@ -35,7 +35,7 @@ const Project: React.FC<IProps> = ({
     ...delegated
 }) => {
     return (
-        <Wrapper side={side} {...delegated}>
+        <Wrapper side={side} {...delegated} id="projects">
             <StretchedProject>
                 <Image src={imgSrc} alt={name} />
             </StretchedProject>
@@ -49,9 +49,11 @@ const Project: React.FC<IProps> = ({
                     ))}
                 </Techs>
                 <Links side={side}>
-                    <HoverIconLink href={github} target="_blank">
-                        <Github size={32} />
-                    </HoverIconLink>
+                    {github.length > 0 && (
+                        <HoverIconLink href={github} target="_blank">
+                            <Github size={32} />
+                        </HoverIconLink>
+                    )}
                     <HoverIconLink href={website} target="_blank">
                         <Website size={32} />
                     </HoverIconLink>
@@ -95,6 +97,8 @@ const Links = styled.div<StyledProps>`
 const StretchedProject = styled(Stretch)`
     display: flex;
     justify-content: center;
+    max-width: 525px;
+    object-fit: cover;
 `;
 
 const Github = styled(GoOctoface)`

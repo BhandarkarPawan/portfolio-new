@@ -29,7 +29,7 @@ const DESIGNS = [
 
 const Designs: React.FC = () => {
     return (
-        <Wrapper>
+        <Wrapper id="designs">
             <DesktopTitle label="Figma Designs" side="right" />
             <MobileTitle label="Figma Designs" side="left" />
             <Articles>

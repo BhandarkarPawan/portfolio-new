@@ -91,6 +91,7 @@ const Banner = styled.div`
 `;
 
 const Sidebar = styled.nav<{ show: boolean }>`
+    z-index: 999;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -124,6 +125,7 @@ const MenuButton = styled.button`
 `;
 
 const Overlay = styled.div<{ show: boolean }>`
+    z-index: 998;
     position: fixed;
     top: 0;
     left: 0;

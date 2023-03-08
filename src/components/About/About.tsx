@@ -12,8 +12,12 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
     children,
     ...delegated
 }) => {
+    const downloadResume = () => {
+        window.open("/files/resume.pdf", "_blank");
+    };
+
     return (
-        <Wrapper {...delegated}>
+        <Wrapper {...delegated} id="about">
             <AboutMe>
                 <SectionTitle label={"About Me "} side={"left"} />
                 <Description>
@@ -38,7 +42,7 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
                     see what the future holds.
                 </Description>
 
-                <Download>Download Resume</Download>
+                <Download onClick={downloadResume}>Download Resume</Download>
             </AboutMe>
             <Picture>
                 <Source media={MIN_WIDTH.desktop} srcSet="images/pawan.png" />

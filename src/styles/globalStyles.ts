@@ -12,10 +12,12 @@ const GlobalStyles = createGlobalStyle`
 
 
 html{
-	scroll-behavior: smooth;
+	max-width: 100%;
+    overflow-x: hidden;
+	scroll-behavior: smooth !important;
 
 	@media(prefers-reduced-motion){
-		scroll-behavior: auto;
+		scroll-behavior: auto !important;
 	}
 
 	--color-dark-primary: hsl(44, 100%, 69%);
@@ -29,11 +31,7 @@ html{
 	--color-dark-background-dark: hsl(214, 36%, 18%);
 	--color-dark-background-light: hsl(214, 36%, 28%);
 	--color-footer: hsl(214, 36%, 12%);
-
 	--transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-
-	max-width: 100%;
-    overflow-x: hidden;
 }
 
 

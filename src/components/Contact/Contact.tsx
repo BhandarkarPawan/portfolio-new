@@ -17,7 +17,7 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
     const [message, setMessage] = useState("");
 
     return (
-        <Wrapper {...delegated}>
+        <Wrapper {...delegated} id="contact">
             <StretchedMaxWidthWrapper>
                 <MobileTitle label="Get In Touch" side="left" />
                 <Notepad>

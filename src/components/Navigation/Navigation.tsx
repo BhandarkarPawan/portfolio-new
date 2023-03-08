@@ -23,7 +23,8 @@ const NavLink = styled(Link)`
     font-size: calc(20 / 16 * 1rem);
 `;
 
-const DownloadLink = styled(NavLink)`
+const DownloadLink = styled.a`
+    text-decoration: none;
     color: ${({ theme }) => theme.colors.text.dark};
     font-size: calc(20 / 16 * 1rem);
     display: flex;
