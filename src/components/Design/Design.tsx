@@ -106,17 +106,17 @@ const ImageWrapper = styled.a`
         margin-top: -44px;
         width: 270px;
         height: 250px;
+
+        transition: var(--transition);
+        &:hover {
+            transform: translateY(-8px);
+        }
     }
 
     ${QUERIES.tabletAndUp} {
         margin-top: 0px;
         width: 250px;
         height: 250px;
-    }
-
-    transition: var(--transition);
-    &:hover {
-        transform: translateY(-8px);
     }
 `;
 

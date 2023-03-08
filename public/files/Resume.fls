@@ -1,7 +1,7 @@
-PWD /Users/pawanbhandarkar/projects/BhandarkarPawan/public/assets/files
+PWD /Users/pawanbhandarkar/projects/portfolio/public/files
 INPUT /opt/local/etc/texmf/texmf.cnf
 INPUT /opt/local/var/db/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /Users/pawanbhandarkar/projects/BhandarkarPawan/public/assets/files/Resume.tex
+INPUT /Users/pawanbhandarkar/projects/portfolio/public/files/Resume.tex
 OUTPUT Resume.log
 INPUT /opt/local/share/texmf-texlive/tex/latex/base/article.cls
 INPUT /opt/local/share/texmf-texlive/tex/latex/base/article.cls
