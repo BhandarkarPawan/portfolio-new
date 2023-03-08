@@ -5,6 +5,11 @@ import Highlight from "../Highlight";
 import Link from "../Link";
 
 const Hero = () => {
+    const scrollToContact = () => {
+        const contact = document.getElementById("contact");
+        contact!.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
         <Wrapper>
             <Text>
@@ -25,7 +30,7 @@ const Hero = () => {
                     <Highlight>Carnegie Mellon University</Highlight>
                 </Link>
             </Text>
-            <CallToAction>Get In Touch</CallToAction>
+            <CallToAction onClick={scrollToContact}>Get In Touch</CallToAction>
         </Wrapper>
     );
 };

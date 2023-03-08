@@ -22,8 +22,10 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
                 <SectionTitle label={"About Me "} side={"left"} />
                 <Description>
                     Hi there! My name is Pawan , and I’m passionate about
-                    building full-stack web applications that are not only , but
-                    also easy for others to understand, extend, and integrate.
+                    building full-stack web applications that are not only{" "}
+                    <Highlight>functional</Highlight> but also{" "}
+                    <Highlight>intuitive</Highlight> and{" "}
+                    <Highlight>visually stunning</Highlight>.
                 </Description>
                 <Description>
                     I have 2+ years of experience working as a Full-Stack
