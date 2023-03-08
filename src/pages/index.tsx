@@ -1,7 +1,9 @@
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Designs from "@/components/Designs";
 import Education from "@/components/Education";
 import Email from "@/components/Email";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -22,11 +24,8 @@ export default function Home() {
                 <Technical />
                 <Projects />
                 <Designs />
-
-                {/* 
-                
                 <Contact />
-                <Footer /> */}
+                <Footer />
             </Grid>
         </>
     );
@@ -35,16 +34,4 @@ export default function Home() {
 const Grid = styled.div`
     display: flex;
     flex-direction: column;
-    /* display: grid;
-    grid-template-areas:
-        "header"
-        "banner"
-        "hero"
-        "about"
-        "education"
-        "education"
-        "technical"
-        "projects"
-        "designs"
-        "contact"; */
 `;

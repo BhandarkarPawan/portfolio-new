@@ -19,16 +19,21 @@ html{
 	}
 
 	--color-dark-primary: hsl(44, 100%, 69%);
-	--color-sticky: hsl(44, 78%, 62%);
+	--color-dark-primary-hover: hsl(44, 100%, 69%, 0.9);
+	--color-sticky-top: hsl(54, 65%, 68%);	
+	--color-sticky-content: hsl(54, 84%, 71%);	
 	--color-dark-text-regular: hsl(0, 0%, 100%);
 	--color-dark-text-light: hsla(0, 0%, 100%, 0.6);
 	--color-dark-text-dark: hsl(44, 100%, 69%);
 	--color-dark-background-regular: hsl(214, 36%, 24%);
 	--color-dark-background-dark: hsl(214, 36%, 18%);
 	--color-dark-background-light: hsl(214, 36%, 28%);
+	--color-footer: hsl(214, 36%, 12%);
 
 	--transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
 
+	max-width: 100%;
+    overflow-x: hidden;
 }
 
 

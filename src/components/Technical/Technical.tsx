@@ -139,6 +139,10 @@ const Options = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    ${QUERIES.desktopAndUp} {
+        justify-content: flex-end;
+    }
 `;
 
 const Option = styled.li<OptionProps>`

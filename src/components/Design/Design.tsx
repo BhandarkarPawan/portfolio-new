@@ -1,5 +1,5 @@
 import { QUERIES } from "@/pages/breakpoints";
-import { FiFigma } from "react-icons/fi";
+import { RxFigmaLogo } from "react-icons/rx";
 import styled from "styled-components";
 import { Title } from "../College/College";
 import { HoverIconLink } from "../Socials/Socials";
@@ -14,12 +14,17 @@ export interface IProps {
 const Design: React.FC<IProps> = ({ imgSrc, description, name, url, side }) => {
     return (
         <Wrapper side={side}>
-            <Image src={imgSrc} alt={description} />
+            <ImageWrapper href={url} target="_blank">
+                <Image src={imgSrc} alt={description} />
+                <Overlay>
+                    <RxFigmaLogo size={56} />
+                </Overlay>
+            </ImageWrapper>
             <OuterWrapper>
                 <NameAndLink>
-                    <Title>{name}</Title>
+                    <RegularTitle>{name}</RegularTitle>
                     <HoverIconLink href={url} target="_blank">
-                        <FiFigma />
+                        <RxFigmaLogo size={32} />
                     </HoverIconLink>
                 </NameAndLink>
                 <Description side={side}>
@@ -35,6 +40,10 @@ interface StyledProps {
     side: "left" | "right";
 }
 
+const RegularTitle = styled(Title)`
+    font-size: calc(20 / 16 * 1rem);
+`;
+
 const Wrapper = styled.div<StyledProps>`
     isolation: isolate;
     display: flex;
@@ -43,8 +52,6 @@ const Wrapper = styled.div<StyledProps>`
 
     flex-direction: ${({ side }) => (side === "left" ? "row" : "row-reverse")};
 
-    /* margin-left: -32px;
-    margin-right: -32px; */
     ${QUERIES.tabletAndUp} {
     }
 
@@ -76,6 +83,64 @@ const NameAndLink = styled.div`
 
     ${QUERIES.desktopAndUp} {
         display: none;
+    }
+`;
+
+const ImageWrapper = styled.a`
+    position: static;
+    flex-shrink: 0;
+
+    ${QUERIES.desktopAndUp} {
+        position: relative;
+
+        z-index: 2;
+        border-radius: 8px;
+        overflow: hidden;
+        object-fit: cover;
+        line-height: 0;
+
+        width: 100px;
+        height: 100px;
+
+        top: 0px;
+        margin-top: -44px;
+        width: 270px;
+        height: 250px;
+    }
+
+    ${QUERIES.tabletAndUp} {
+        margin-top: 0px;
+        width: 250px;
+        height: 250px;
+    }
+
+    transition: var(--transition);
+    &:hover {
+        transform: translateY(-8px);
+    }
+`;
+
+const Overlay = styled.div`
+    display: none;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: black;
+
+    background-color: var(--color-dark-primary-hover);
+    transition: var(--transition);
+
+    &:hover {
+        opacity: 1;
+    }
+
+    ${QUERIES.desktopAndUp} {
+        display: grid;
+        place-items: center;
     }
 `;
 
@@ -114,7 +179,7 @@ const OuterWrapper = styled.div`
     margin-bottom: 16px;
 `;
 
-const Description = styled.p<StyledProps>`
+const Description = styled.div<StyledProps>`
     z-index: 1;
     background-color: ${({ theme }) => theme.colors.background.light};
     font-weight: 400;

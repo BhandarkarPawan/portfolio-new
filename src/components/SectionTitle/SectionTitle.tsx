@@ -20,7 +20,7 @@ interface StyledProps {
     side: "left" | "right";
 }
 
-const Wrapper = styled.h2<StyledProps>`
+const Wrapper = styled.div<StyledProps>`
     font-size: calc(24 / 16 * 1rem);
     color: ${({ theme }) => theme.colors.primary};
     display: flex;

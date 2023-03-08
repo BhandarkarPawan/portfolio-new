@@ -11,6 +11,7 @@ const DARK_THEME = {
             dark: "var(--color-dark-background-dark)",
             light: "var(--color-dark-background-light)",
         },
+        footer: "var(--color-footer)",
     },
 };
 

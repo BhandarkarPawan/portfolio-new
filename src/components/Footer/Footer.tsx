@@ -7,7 +7,7 @@ export interface IProps {
 const Footer = ({ ...delegated }) => {
     return (
         <Wrapper>
-            Designed and Developed by <strong>Pawan Bhandarkar</strong>
+            Designed and Developed by <strong> Pawan Bhandarkar</strong>
         </Wrapper>
     );
 };
@@ -15,10 +15,11 @@ const Footer = ({ ...delegated }) => {
 const Wrapper = styled.div`
     margin-top: 128px;
     font-weight: 400;
-    background-color: ${({ theme }) => theme.colors.background.dark};
+    background-color: ${({ theme }) => theme.colors.footer};
     color: ${({ theme }) => theme.colors.primary};
     padding: 16px;
     text-align: center;
+    font-size: calc(14 / 16 * 1rem);
 `;
 
 export default Footer;

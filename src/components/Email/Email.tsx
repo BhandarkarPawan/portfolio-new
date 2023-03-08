@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 
     ${QUERIES.tabletAndUp} {
         display: flex;
-        right: 24px;
+        right: 16px;
     }
 
     ${QUERIES.desktopAndUp} {

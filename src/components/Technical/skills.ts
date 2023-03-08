@@ -21,7 +21,7 @@ export const SKILLS = [
         name: "HTML5",
         level: 5,
         content:
-            "HTML5 is the latest evolution of the standard that defines HTML. The term represents two different concepts. It is a new version of the language HTML, with new elements, attributes, and behaviors, and a larger set of technologies that allows more diverse and powerful Web sites and applications.",
+            "It is a new version of the language HTML, with new elements, attributes, and behaviors, and a larger set of technologies that allows more diverse and powerful Web sites and applications.",
     },
     {
         name: "CSS3",
@@ -117,6 +117,6 @@ export const SKILLS = [
         name: "Figma",
         level: 4,
         content:
-            "Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows. Figma is primarily used to create user interfaces and user experiences for websites and mobile applications.",
+            "Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications. Figma is primarily used to create user interfaces and user experiences for websites and mobile applications.",
     },
 ];

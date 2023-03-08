@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 
     ${QUERIES.tabletAndUp} {
         display: flex;
-        left: 24px;
+        left: 16px;
     }
 
     ${QUERIES.desktopAndUp} {

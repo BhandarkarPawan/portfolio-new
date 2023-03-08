@@ -1,6 +1,8 @@
+import { QUERIES } from "@/pages/breakpoints";
 import { useState } from "react";
 import styled from "styled-components";
 import Button from "../Button/Button";
+import { MaxWidthWrapper } from "../Education/Education";
 import Highlight from "../Highlight/Highlight";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
@@ -16,16 +18,19 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
 
     return (
         <Wrapper {...delegated}>
-            <Notepad>
-                <Sticky />
-                <Input
-                    placeholder="Type your message here..."
-                    onChange={(e) => setMessage(e.target.value)}
-                    value={message}
-                />
-            </Notepad>
+            <StretchedMaxWidthWrapper>
+                <MobileTitle label="Get In Touch" side="left" />
+                <Notepad>
+                    <Sticky />
+                    <Input
+                        placeholder="Type your message here..."
+                        onChange={(e) => setMessage(e.target.value)}
+                        value={message}
+                    />
+                </Notepad>
+            </StretchedMaxWidthWrapper>
             <Info>
-                <TitleWrapper label="Get In Touch" side="right" />
+                <DesktopTitle label="Get In Touch" side="left" />
                 <Message>
                     If you would like to work together or discuss an opportunity
                     for work, please use the form or send me an email on{" "}
@@ -46,31 +51,45 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
 };
 
 const Wrapper = styled.div`
-    grid-area: contact;
-    place-self: center;
+    isolation: isolate;
     display: flex;
-    margin: 32px;
+    padding: 32px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    ${QUERIES.tabletAndUp} {
+        flex-direction: row;
+        padding: 64px;
+    }
 `;
 
 const Notepad = styled.div`
+    z-index: 2;
     height: 300px;
-    width: 428px;
-    background-color: ${({ theme }) => theme.colors.primary};
     display: flex;
     flex-direction: column;
     font-weight: 400;
+    background-color: var(--color-sticky-content);
+    width: 100%;
+`;
+
+const StretchedMaxWidthWrapper = styled(MaxWidthWrapper)`
+    display: grid;
+    place-items: center;
+    align-self: stretch;
 `;
 
 const Sticky = styled.div`
     width: 100%;
     height: 40px;
-    background-color: var(--color-sticky);
+    background-color: var(--color-sticky-top);
 `;
 
 const Input = styled.textarea`
     &::placeholder {
         color: var(--color-placeholder);
-        
+    }
 
     flex: 1;
     background-color: transparent;
@@ -78,29 +97,75 @@ const Input = styled.textarea`
     height: 100%;
     padding: 32px;
     color: black;
-    padding-right: 100px;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+
+    ${QUERIES.tabletAndUp} {
+        padding-right: 100px;
+    }
 `;
 
 const Info = styled.div`
-    margin-left: -68px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    ${QUERIES.desktopAndUp} {
+        gap: 32px;
+    }
 `;
 
-const TitleWrapper = styled(SectionTitle)`
-    margin-top: 32px;
-    margin-bottom: 16px;
-    margin-left: 100px;
+const MobileTitle = styled(SectionTitle)`
+    display: flex;
+    width: 100%;
+    margin-bottom: 32px;
+
+    ${QUERIES.tabletAndUp} {
+        display: none;
+    }
+`;
+
+const DesktopTitle = styled(SectionTitle)`
+    padding-left: 32px;
+    display: none;
+
+    ${QUERIES.tabletAndUp} {
+        display: flex;
+    }
 `;
 
 const Message = styled.p`
+    z-index: 1;
     background-color: ${({ theme }) => theme.colors.background.light};
-    max-width: 600px;
     padding: 32px;
-    border-radius: 8px;
+    margin-left: -32px;
+    margin-right: -32px;
+    font-weight: 600;
+    padding-top: 48px;
+    margin-top: -16px;
+
+    ${QUERIES.tabletAndUp} {
+        z-index: 2;
+        padding-top: 32px;
+        border-radius: 8px;
+        margin-right: 0px;
+        margin-left: -64px;
+        margin-top: 0px;
+        max-width: 500px;
+    }
 `;
 
 const StyledButton = styled(Button)`
-    margin-left: 100px;
-    margin-top: 16px;
+    align-self: flex-start;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    ${QUERIES.tabletAndUp} {
+        margin-left: 32px;
+    }
 `;
 
 export default Contact;
