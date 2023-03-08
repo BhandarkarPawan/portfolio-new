@@ -62,6 +62,7 @@ const Wrapper = styled.div`
 export const HoverIconLink = styled.a`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.text.light};
+    cursor: pointer;
 
     & > * {
         transition: var(--transition);
