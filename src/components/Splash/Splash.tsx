@@ -48,7 +48,7 @@ const Wrapper = styled.div<SplashProps>`
     }
 
     pointer-events: none;
-    animation: fadeOut 1s 4s ease-in-out forwards;
+    animation: fadeOut 500ms 4s ease-in-out forwards;
 `;
 
 const Logo = styled.img`
@@ -85,7 +85,7 @@ const Logo = styled.img`
         }
     }
 
-    animation: zoomIn 1s ease-in-out, zoomOut 1s 3s ease-in-out forwards;
+    animation: zoomIn 800ms ease-in-out, zoomOut 500ms 3s ease-in-out forwards;
 `;
 
 export default Splash;
