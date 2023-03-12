@@ -3,8 +3,8 @@ entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/pawanbhandarkar/projects/portfolio/public/files/Resume.tex
-(/Users/pawanbhandarkar/projects/portfolio/public/files/Resume.tex
+**/Users/pawanbhandarkar/projects/portfolio/public/files/Frontend.tex
+(/Users/pawanbhandarkar/projects/portfolio/public/files/Frontend.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (/opt/local/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -188,8 +188,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count271
 \l__pdf_internal_box=\box52
-) (./Resume.aux)
-\openout1 = `Resume.aux'.
+) (./Frontend.aux)
+\openout1 = `Frontend.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
 LaTeX Font Info:    ... okay on input line 113.
@@ -236,9 +236,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 113.
 LaTeX Info: Redefining \pageref on input line 113.
 LaTeX Info: Redefining \nameref on input line 113.
- (./Resume.out) (./Resume.out)
+ (./Frontend.out) (./Frontend.out)
 \@outlinefile=\write3
-\openout3 = `Resume.out'.
+\openout3 = `Frontend.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 116.
@@ -258,26 +258,26 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 151.
 [1
 
-{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Resume.aux)
+{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Frontend.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `Resume.out' has not changed.
+Package rerunfilecheck Info: File `Frontend.out' has not changed.
 (rerunfilecheck)             Checksum: DA6DCFC2F6C5AF57F2E0BF8DA94A8855;430.
  ) 
 Here is how much of TeX's memory you used:
- 9176 strings out of 480228
- 143032 string characters out of 5895605
- 463647 words of memory out of 5000000
- 27029 multiletter control sequences out of 15000+600000
+ 9175 strings out of 480228
+ 143055 string characters out of 5895605
+ 462657 words of memory out of 5000000
+ 27028 multiletter control sequences out of 15000+600000
  475491 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,11n,63p,511b,327s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,11n,63p,513b,327s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/opt/local/share/texmf-texlive/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/cm-super/sfrm0900.pfb>
-Output written on Resume.pdf (1 page, 152246 bytes).
+Output written on Frontend.pdf (1 page, 151031 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  7 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
