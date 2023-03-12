@@ -21,15 +21,6 @@ const Hero = () => {
         width: 0,
     });
 
-    const handleResize = () => {
-        setDimensions({
-            height: window.innerHeight,
-            width: window.innerWidth,
-        });
-
-        console.log(dimensions);
-    };
-
     // TODO: Refactor this into a custom hook
     const draw = (
         canvas: HTMLCanvasElement,
@@ -141,6 +132,35 @@ const Hero = () => {
         });
     };
 
+    const handleResize = () => {
+        setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth,
+        });
+
+        console.log("resize");
+    };
+
+    const debounce = (func: any, wait = 20, immediate = false) => {
+        let timeout: any;
+        return function () {
+            // @ts-ignore
+            let context = this,
+                args = arguments;
+            let later = function () {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+
+            let callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    const debouncedHandleResize = debounce(handleResize);
+
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -155,10 +175,10 @@ const Hero = () => {
         setCanvasHeight(currentRect.clientHeight - 25);
         setCanvasWidth(currentRect.clientWidth);
 
-        window.addEventListener("resize", handleResize);
+        window.addEventListener("resize", debouncedHandleResize);
 
         draw(canvas, ctx, left, top);
-    }, [canvasHeight, canvasWidth, handleResize]);
+    }, [canvasHeight, canvasWidth, dimensions, debouncedHandleResize]);
 
     return (
         <Wrapper ref={boundingRect}>
