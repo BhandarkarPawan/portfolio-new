@@ -16,6 +16,20 @@ const Hero = () => {
     const boundingRect = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
+    const [dimensions, setDimensions] = useState({
+        height: 0,
+        width: 0,
+    });
+
+    const handleResize = () => {
+        setDimensions({
+            height: window.innerHeight,
+            width: window.innerWidth,
+        });
+
+        console.log(dimensions);
+    };
+
     // TODO: Refactor this into a custom hook
     const draw = (
         canvas: HTMLCanvasElement,
@@ -141,8 +155,10 @@ const Hero = () => {
         setCanvasHeight(currentRect.clientHeight - 25);
         setCanvasWidth(currentRect.clientWidth);
 
+        window.addEventListener("resize", handleResize);
+
         draw(canvas, ctx, left, top);
-    }, [canvasHeight, canvasWidth]);
+    }, [canvasHeight, canvasWidth, handleResize]);
 
     return (
         <Wrapper ref={boundingRect}>
