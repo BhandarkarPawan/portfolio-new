@@ -3,6 +3,7 @@ import { QUERIES } from "breakpoints";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import styled from "styled-components";
+import { SocialIcons } from "../Socials/Socials";
 
 const Header = () => {
     const [showSidebar, setShowSidebar] = useState(false);
@@ -20,7 +21,12 @@ const Header = () => {
                     <Navigation />
                 </Navbar>
                 <Sidebar show={showSidebar}>
-                    <Navigation />
+                    <NavigationWrapper>
+                        <Navigation />
+                    </NavigationWrapper>
+                    <IconWrapper>
+                        <SocialIcons />
+                    </IconWrapper>
                 </Sidebar>
                 <MenuButton>
                     <Hamburger toggled={showSidebar} onToggle={toggleSidebar} />
@@ -33,6 +39,21 @@ const Header = () => {
         </>
     );
 };
+
+const NavigationWrapper = styled.div`
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+`;
+
+const IconWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    font-size: 24px;
+`;
 
 const Logo = styled.img`
     width: 60px;

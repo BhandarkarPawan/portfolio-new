@@ -8,30 +8,40 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { GoOctoface } from "react-icons/go";
 import styled from "styled-components";
 
-const GITHUB_URL = "http://github.com/BhandarkarPawan";
-const INSTAGRAM_URL = "https://www.instagram.com/radioactive.poop/";
-const TWITTER_URL = "https://twitter.com/BhandarkarPawan";
-const LINKEDIN_URL = "https://www.linkedin.com/in/bhandarkar";
-const CODEPEN_URL = "https://codepen.io/bhandarkarpawan";
+const enum ESocials {
+    GITHUB_URL = "http://github.com/BhandarkarPawan",
+    INSTAGRAM_URL = "https://www.instagram.com/radioactive.poop/",
+    TWITTER_URL = "https://twitter.com/BhandarkarPawan",
+    LINKEDIN_URL = "https://www.linkedin.com/in/bhandarkar",
+    CODEPEN_URL = "https://codepen.io/bhandarkarpawan",
+}
+
+export const SocialIcons: React.FC = () => {
+    return (
+        <>
+            <HoverIconLink href={ESocials.GITHUB_URL} target="_blank">
+                <GoOctoface />
+            </HoverIconLink>
+            <HoverIconLink href={ESocials.INSTAGRAM_URL} target="_blank">
+                <AiFillInstagram />
+            </HoverIconLink>
+            <HoverIconLink href={ESocials.TWITTER_URL} target="_blank">
+                <AiOutlineTwitter />
+            </HoverIconLink>
+            <HoverIconLink href={ESocials.LINKEDIN_URL} target="_blank">
+                <FaLinkedinIn />
+            </HoverIconLink>
+            <HoverIconLink href={ESocials.CODEPEN_URL} target="_blank">
+                <AiOutlineCodepen />
+            </HoverIconLink>
+        </>
+    );
+};
 
 const Socials: React.FC = () => {
     return (
         <Wrapper>
-            <HoverIconLink href={GITHUB_URL} target="_blank">
-                <GoOctoface />
-            </HoverIconLink>
-            <HoverIconLink href={INSTAGRAM_URL} target="_blank">
-                <AiFillInstagram />
-            </HoverIconLink>
-            <HoverIconLink href={TWITTER_URL} target="_blank">
-                <AiOutlineTwitter />
-            </HoverIconLink>
-            <HoverIconLink href={LINKEDIN_URL} target="_blank">
-                <FaLinkedinIn />
-            </HoverIconLink>
-            <HoverIconLink href={CODEPEN_URL} target="_blank">
-                <AiOutlineCodepen />
-            </HoverIconLink>
+            <SocialIcons />
             <Line />
         </Wrapper>
     );

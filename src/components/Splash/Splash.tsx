@@ -47,6 +47,7 @@ const Wrapper = styled.div<SplashProps>`
         }
     }
 
+    pointer-events: none;
     animation: fadeOut 1s 4s ease-in-out forwards;
 `;
 
