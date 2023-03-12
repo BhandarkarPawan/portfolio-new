@@ -175,11 +175,16 @@ const Hero = () => {
 };
 
 const Canvas = styled.canvas`
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     background-color: ${({ theme }) => theme.colors.background};
+
+    ${QUERIES.desktopAndUp} {
+        display: block;
+    }
 `;
 
 const Wrapper = styled.div`
