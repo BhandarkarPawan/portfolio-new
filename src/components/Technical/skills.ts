@@ -1,5 +1,11 @@
 export const SKILLS = [
     {
+        name: "AWS",
+        level: 3,
+        content:
+            "I used AWS to deploy my projects. I have experience with EC2, S3, ECS, ECR, Route53, CloudWatch, IAM, and more.",
+    },
+    {
         name: "TypeScript",
         level: 5,
         content:
