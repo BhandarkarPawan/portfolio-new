@@ -1,5 +1,5 @@
 import { QUERIES } from "breakpoints";
-import { GoOctoface } from "react-icons/go";
+import { FaGithubAlt } from "react-icons/fa";
 import { IoOpen } from "react-icons/io5";
 import Tilt from "react-parallax-tilt";
 import styled from "styled-components";
@@ -113,7 +113,7 @@ const StretchedProject = styled(Stretch)`
     object-fit: cover;
 `;
 
-const Github = styled(GoOctoface)`
+const Github = styled(FaGithubAlt)`
     ${iconStyle}
 `;
 

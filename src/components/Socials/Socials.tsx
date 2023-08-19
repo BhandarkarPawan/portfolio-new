@@ -4,8 +4,7 @@ import {
     AiOutlineCodepen,
     AiOutlineTwitter,
 } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
-import { GoOctoface } from "react-icons/go";
+import { FaGithubAlt, FaLinkedinIn } from "react-icons/fa";
 import styled from "styled-components";
 
 const enum ESocials {
@@ -20,7 +19,7 @@ export const SocialIcons: React.FC = () => {
     return (
         <>
             <HoverIconLink href={ESocials.GITHUB_URL} target="_blank">
-                <GoOctoface />
+                <FaGithubAlt />
             </HoverIconLink>
             <HoverIconLink href={ESocials.INSTAGRAM_URL} target="_blank">
                 <AiFillInstagram />
