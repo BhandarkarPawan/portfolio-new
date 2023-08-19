@@ -1,6 +1,7 @@
 import { QUERIES } from "breakpoints";
 import { GoOctoface } from "react-icons/go";
 import { IoOpen } from "react-icons/io5";
+import Tilt from "react-parallax-tilt";
 import styled from "styled-components";
 import {
     Wrapper as CollegeWrapper,
@@ -37,8 +38,19 @@ const Project: React.FC<IProps> = ({
     return (
         <Wrapper side={side} {...delegated} id="projects">
             <StretchedProject>
-                <Image src={imgSrc} alt={name} />
+                <Tilt
+                    tiltMaxAngleX={5}
+                    tiltMaxAngleY={5}
+                    glareEnable={true}
+                    glarePosition="top"
+                    glareMaxOpacity={0.2}
+                    glareBorderRadius="8px"
+                    gyroscope={true}
+                >
+                    <Image src={imgSrc} alt={name} />
+                </Tilt>
             </StretchedProject>
+
             <Info side={side}>
                 <Feature side={side}>Featured Project</Feature>
                 <Name side={side}>{name}</Name>
@@ -77,7 +89,7 @@ const Links = styled.div<StyledProps>`
     gap: 32px;
     margin-top: 16px;
     color: ${({ theme }) => theme.colors.text.light};
-    
+
     ${QUERIES.tabletAndUp} {
         margin-left: 32px;
     }
@@ -89,8 +101,8 @@ const Links = styled.div<StyledProps>`
             side === "left" ? "flex-end" : "flex-start"};
     }
 
-    &  > * {
-        transition var(--transition);
+    & > * {
+        transition: var(--transition);
     }
 `;
 
@@ -134,9 +146,8 @@ const Description = styled(Courses)`
     font-weight: 400;
 `;
 const Techs = styled(Data)`
-    gap: 16px;
+    gap: 24px;
     display: flex;
-    flex-wrap: wrap;
 `;
 
 export default Project;

@@ -1,4 +1,5 @@
 import { QUERIES } from "breakpoints";
+import Tilt from "react-parallax-tilt";
 import styled from "styled-components";
 
 export interface IProps {
@@ -28,7 +29,17 @@ const College: React.FC<IProps> = ({
     return (
         <Wrapper side={side} {...delegated}>
             <Stretch>
-                <Image src={imgSrc} alt={school} />
+                <Tilt
+                    tiltMaxAngleX={5}
+                    tiltMaxAngleY={5}
+                    glareEnable={true}
+                    glarePosition="top"
+                    glareMaxOpacity={0.3}
+                    glareBorderRadius="8px"
+                    gyroscope={true}
+                >
+                    <Image src={imgSrc} alt={school} />
+                </Tilt>
             </Stretch>
             <Info side={side}>
                 <SmallImage src={smallImg} alt={school} />
@@ -84,7 +95,6 @@ export const Image = styled.img`
     object-fit: cover;
     z-index: 1;
     line-height: 0;
-    margin-bottom: 32px;
 
     ${QUERIES.tabletAndUp} {
         display: none;
