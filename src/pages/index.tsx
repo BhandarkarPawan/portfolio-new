@@ -3,6 +3,7 @@ import Contact from "@/components/Contact";
 import Designs from "@/components/Designs";
 import Education from "@/components/Education";
 import Email from "@/components/Email";
+import Experiences from "@/components/Experiences";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -22,6 +23,7 @@ export default function Home() {
                 <Header />
                 <Hero />
                 <About />
+                <Experiences />
                 <Projects />
                 <Technical />
                 <Education />
