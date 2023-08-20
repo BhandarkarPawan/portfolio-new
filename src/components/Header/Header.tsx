@@ -33,8 +33,8 @@ const Header = () => {
                 </MenuButton>
             </Wrapper>
             <Banner>
-                I’m Open to work! I’m currently looking for a software
-                engineering internship for summer 2023.
+                I’m Open to work! I’m currently looking for a ful-time software
+                engineering role for 2024
             </Banner>
         </>
     );
