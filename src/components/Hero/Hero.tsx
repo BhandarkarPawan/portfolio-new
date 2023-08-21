@@ -92,6 +92,7 @@ const Hero = () => {
 
         function drawLine(line: ILine) {
             if (line.end_x === line.start_x && line.end_y === line.start_y) {
+                // Fill in a dot if the line has collapsed to a point
                 ctx.beginPath();
                 ctx.roundRect(
                     line.start_x - 2.5,
