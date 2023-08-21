@@ -59,12 +59,17 @@ const Wrapper = styled.div<StyledProps>`
         }
     }
 
-    opacity: 0;
-    animation: ${({ visible }) =>
-        visible ? "slideUp 0.5s ease-in forwards" : ""};
-    animation-delay: ${({ delay }) => (delay ? `${delay}ms` : "0ms")};
-    height: fit-content;
-    z-index: ${({ zIndex }) => (zIndex ? zIndex : 0)};
+    // Only apply the animation if user has not set prefer-reduced-motion
+    @media (prefers-reduced-motion: no-preference) {
+        opacity: 0;
+        animation: ${({ visible }) =>
+            visible ? "slideUp 0.5s ease-in forwards" : ""};
+        animation-delay: ${({ delay }) => (delay ? `${delay}ms` : "0ms")};
+        height: fit-content;
+        z-index: ${({ zIndex }) => (zIndex ? zIndex : 0)};
+    }
+
+    will-change: opacity, transform;
 `;
 
 export default SlideUp;

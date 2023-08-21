@@ -40,7 +40,7 @@ const Project: React.FC<IProps> = ({
         <Wrapper side={side} {...delegated} id="projects">
             <SlideUp>
                 <StretchedProject>
-                    <Tilt
+                    <TiltingImage
                         tiltMaxAngleX={5}
                         tiltMaxAngleY={5}
                         glareEnable={true}
@@ -50,7 +50,8 @@ const Project: React.FC<IProps> = ({
                         gyroscope={true}
                     >
                         <Image src={imgSrc} alt={name} />
-                    </Tilt>
+                    </TiltingImage>
+                    <StaticImage src={imgSrc} alt={name} />
                 </StretchedProject>
             </SlideUp>
 
@@ -130,6 +131,22 @@ const StretchedProject = styled(Stretch)`
 
 const Github = styled(FaGithubAlt)`
     ${iconStyle}
+`;
+
+const StaticImage = styled(Image)`
+    display: none;
+
+    @media (prefers-reduced-motion: reduce) {
+        display: block;
+    }
+`;
+
+const TiltingImage = styled(Tilt)`
+    display: block;
+
+    @media (prefers-reduced-motion: reduce) {
+        display: none;
+    }
 `;
 
 const Website = styled(IoOpen)`

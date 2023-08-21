@@ -235,6 +235,10 @@ const Canvas = styled.canvas`
     ${QUERIES.desktopAndUp} {
         display: block;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+        display: none;
+    }
 `;
 
 const Wrapper = styled.div`
