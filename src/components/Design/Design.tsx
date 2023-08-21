@@ -2,16 +2,25 @@ import { QUERIES } from "breakpoints";
 import { RxFigmaLogo } from "react-icons/rx";
 import styled from "styled-components";
 import { Title } from "../College/College";
+import SlideUp from "../SlideUp";
 import { HoverIconLink } from "../Socials/Socials";
 export interface IProps {
     imgSrc: string;
     description: string;
     name: string;
     url: string;
+    index: number;
     side: "left" | "right";
 }
 
-const Design: React.FC<IProps> = ({ imgSrc, description, name, url, side }) => {
+const Design: React.FC<IProps> = ({
+    imgSrc,
+    description,
+    name,
+    url,
+    side,
+    index,
+}) => {
     return (
         <Wrapper side={side}>
             <ImageWrapper href={url} target="_blank">
@@ -20,18 +29,20 @@ const Design: React.FC<IProps> = ({ imgSrc, description, name, url, side }) => {
                     <RxFigmaLogo size={56} />
                 </Overlay>
             </ImageWrapper>
-            <OuterWrapper>
-                <NameAndLink>
-                    <RegularTitle>{name}</RegularTitle>
-                    <HoverIconLink href={url} target="_blank">
-                        <RxFigmaLogo size={32} />
-                    </HoverIconLink>
-                </NameAndLink>
-                <Description side={side}>
-                    <DesignName>{name}</DesignName>
-                    {description}
-                </Description>
-            </OuterWrapper>
+            <SlideUp delay={index * 100 + 200}>
+                <OuterWrapper>
+                    <NameAndLink>
+                        <RegularTitle>{name}</RegularTitle>
+                        <HoverIconLink href={url} target="_blank">
+                            <RxFigmaLogo size={32} />
+                        </HoverIconLink>
+                    </NameAndLink>
+                    <Description side={side}>
+                        <DesignName>{name}</DesignName>
+                        {description}
+                    </Description>
+                </OuterWrapper>
+            </SlideUp>
         </Wrapper>
     );
 };

@@ -1,6 +1,7 @@
 import { QUERIES } from "breakpoints";
 import Tilt from "react-parallax-tilt";
 import styled from "styled-components";
+import SlideUp from "../SlideUp";
 
 export interface IProps {
     degree: string;
@@ -28,35 +29,45 @@ const College: React.FC<IProps> = ({
 
     return (
         <Wrapper side={side} {...delegated}>
-            <Stretch>
-                <Tilt
-                    tiltMaxAngleX={5}
-                    tiltMaxAngleY={5}
-                    glareEnable={true}
-                    glarePosition="top"
-                    glareMaxOpacity={0.3}
-                    glareBorderRadius="8px"
-                    gyroscope={true}
-                >
-                    <Image src={imgSrc} alt={school} />
-                </Tilt>
-            </Stretch>
+            <SlideUp>
+                <Stretch>
+                    <Tilt
+                        tiltMaxAngleX={5}
+                        tiltMaxAngleY={5}
+                        glareEnable={true}
+                        glarePosition="top"
+                        glareMaxOpacity={0.3}
+                        glareBorderRadius="8px"
+                        gyroscope={true}
+                    >
+                        <Image src={imgSrc} alt={school} />
+                    </Tilt>
+                </Stretch>
+            </SlideUp>
             <Info side={side}>
-                <SmallImage src={smallImg} alt={school} />
-                <Degree side={side}>{degree}</Degree>
-                <School side={side}>{school}</School>
+                <SlideUp delay={200}>
+                    <SmallImage src={smallImg} alt={school} />
+                </SlideUp>
+                <SlideUp delay={200}>
+                    <Degree side={side}>{degree}</Degree>
+                </SlideUp>
+                <SlideUp delay={200}>
+                    <School side={side}>{school}</School>
+                </SlideUp>
                 <Courses side={side}>
                     <Title>Courses</Title>
                     {courses.map((course, i) => (
                         <Course key={i}>{course}</Course>
                     ))}
                 </Courses>
-                <Data side={side}>
-                    <Time>
-                        {start} - {end}
-                    </Time>
-                    <GPA>GPA: {gpa}</GPA>
-                </Data>
+                <SlideUp delay={200}>
+                    <Data side={side}>
+                        <Time>
+                            {start} - {end}
+                        </Time>
+                        <GPA>GPA: {gpa}</GPA>
+                    </Data>
+                </SlideUp>
             </Info>
         </Wrapper>
     );

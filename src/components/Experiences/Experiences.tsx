@@ -2,105 +2,122 @@ import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import { ContraintedTitle, MaxWidthWrapper } from "../Education/Education";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import SlideUp from "../SlideUp";
 
 const Experiences: React.FC = () => {
     return (
         <Wrapper>
             <MaxWidthWrapper>
-                <ContraintedTitle label="Experiences" side="left" />
+                <SlideUp>
+                    <ContraintedTitle label="Experiences" side="left" />
+                </SlideUp>
                 <Items>
                     <TimeLine />
-                    <Item>
-                        <Image
-                            src="images/tunein.png"
-                            alt="tunein-radio"
-                        ></Image>
-                        <DotPrimary>
-                            <DotCore />
-                        </DotPrimary>
-                        <Connector />
-                        <Info>
-                            <MobileImage
+                    <SlideUp>
+                        <Item>
+                            <Image
                                 src="images/tunein.png"
                                 alt="tunein-radio"
-                            ></MobileImage>
-                            <Time>Jun 2023 - Aug 2023</Time>
-                            <Company>TuneIn Radio</Company>
-                            <Role>Software Engineer Intern, Platform</Role>
-                            <Description>
-                                Added support for live streaming metadata for
-                                over 120K radio stations, which contributes to
-                                enhanced user experience and content discovery
-                                for search on the TuneIn platform, while
-                                aligning with TuneIn’s core values - Customer
-                                Centricity, Operational Excellence and Teamwork.
-                            </Description>
-                        </Info>
-                    </Item>
+                            ></Image>
+                            <DotPrimary>
+                                <DotCore />
+                            </DotPrimary>
+                            <Connector />
+                            <Info>
+                                <MobileImage
+                                    src="images/tunein.png"
+                                    alt="tunein-radio"
+                                ></MobileImage>
+                                <Time>Jun 2023 - Aug 2023</Time>
+                                <Company>TuneIn Radio</Company>
+                                <Role>Software Engineer Intern, Platform</Role>
+                                <Description>
+                                    Added support for live streaming metadata
+                                    for over 120K radio stations, which
+                                    contributes to enhanced user experience and
+                                    content discovery for search on the TuneIn
+                                    platform, while aligning with TuneIn’s core
+                                    values - Customer Centricity, Operational
+                                    Excellence and Teamwork.
+                                </Description>
+                            </Info>
+                        </Item>
+                    </SlideUp>
                     <Item>
-                        <Image src="images/aibod.png" alt="team aibod"></Image>
-                        <Connector />
+                        <SlideUp>
+                            <Image
+                                src="images/aibod.png"
+                                alt="team aibod"
+                            ></Image>
+                            <Connector />
+                        </SlideUp>
                         <Infos>
-                            <Bullet>
-                                <DotPrimary>
-                                    <DotCore />
-                                </DotPrimary>
+                            <SlideUp>
+                                <Bullet>
+                                    <DotPrimary>
+                                        <DotCore />
+                                    </DotPrimary>
+                                    <Info>
+                                        <MobileImage
+                                            src="images/aibod.png"
+                                            alt="team aibod"
+                                        ></MobileImage>
+                                        <Time>Nov 2021 - Apr 2022</Time>
+                                        <Company>Team AIBOD Inc.</Company>
+                                        <Role>Software Engineer 2</Role>
+                                        <Description>
+                                            Led end-to-end development of
+                                            several full-stack projects,
+                                            including a microservice that
+                                            handles biometric payments for an
+                                            unmanned stored and a search system
+                                            for Kyushu Electric that allowed
+                                            their employees to manage inspection
+                                            information about buildings.
+                                        </Description>
+                                    </Info>
+                                </Bullet>
+                            </SlideUp>
+                            <SlideUp>
+                                <Bullet>
+                                    <DotSecondary>
+                                        <DotCore />
+                                    </DotSecondary>
+                                    <Info>
+                                        <Time>Jul 2020 - Oct 2021</Time>
+                                        <Role>Software Engineer 1</Role>
+                                        <Description>
+                                            Contributed to projects in various
+                                            capacities, including backend
+                                            development with NodeJS and Python,
+                                            Web GUI using React and TypeScript
+                                            and DevOps flows with AWS using EC2,
+                                            ECS, Docker and CloudWatch in a
+                                            fast-paced Agile/SCRUM environment
+                                        </Description>
+                                    </Info>
+                                </Bullet>
+                            </SlideUp>
+                            <SlideUp>
+                                <Bullet>
+                                    <DotSecondary>
+                                        <DotCore />
+                                    </DotSecondary>
+                                    <Info>
+                                        <Time>Feb 2020 - Jun 2020</Time>
+                                        <Role>Software Engineer Intern</Role>
 
-                                <Info>
-                                    <MobileImage
-                                        src="images/aibod.png"
-                                        alt="team aibod"
-                                    ></MobileImage>
-                                    <Time>Nov 2021 - Apr 2022</Time>
-                                    <Company>Team AIBOD Inc.</Company>
-                                    <Role>Software Engineer 2</Role>
-                                    <Description>
-                                        Led end-to-end development of several
-                                        full-stack projects, including a
-                                        microservice that handles biometric
-                                        payments for an unmanned stored and a
-                                        search system for Kyushu Electric that
-                                        allowed their employees to manage
-                                        inspection information about buildings.
-                                    </Description>
-                                </Info>
-                            </Bullet>
-                            <Bullet>
-                                <DotSecondary>
-                                    <DotCore />
-                                </DotSecondary>
-                                <Info>
-                                    <Time>Jul 2020 - Oct 2021</Time>
-                                    <Role>Software Engineer 1</Role>
-                                    <Description>
-                                        Contributed to projects in various
-                                        capacities, including backend
-                                        development with NodeJS and Python, Web
-                                        GUI using React and TypeScript and
-                                        DevOps flows with AWS using EC2, ECS,
-                                        Docker and CloudWatch in a fast-paced
-                                        Agile/SCRUM environment
-                                    </Description>
-                                </Info>
-                            </Bullet>
-                            <Bullet>
-                                <DotSecondary>
-                                    <DotCore />
-                                </DotSecondary>
-                                <Info>
-                                    <Time>Feb 2020 - Jun 2020</Time>
-                                    <Role>Software Engineer Intern</Role>
-
-                                    <Description>
-                                        Conducted AI Experiments that resulted
-                                        in a 7% accuracy improvement in the
-                                        KNN-supervised classifier. Fine tuned a
-                                        BERT-based model to automate support
-                                        requests in an apartment intercom
-                                        system.
-                                    </Description>
-                                </Info>
-                            </Bullet>
+                                        <Description>
+                                            Conducted AI Experiments that
+                                            resulted in a 7% accuracy
+                                            improvement in the KNN-supervised
+                                            classifier. Fine tuned a BERT-based
+                                            model to automate support requests
+                                            in an apartment intercom system.
+                                        </Description>
+                                    </Info>
+                                </Bullet>
+                            </SlideUp>
                         </Infos>
                     </Item>
                 </Items>

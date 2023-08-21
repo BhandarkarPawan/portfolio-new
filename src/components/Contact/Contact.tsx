@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import { MaxWidthWrapper } from "../Education/Education";
 import Highlight from "../Highlight/Highlight";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import SlideUp from "../SlideUp";
 
 export interface IProps {
     delegated?: any;
@@ -19,32 +20,42 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
     return (
         <Wrapper {...delegated} id="contact">
             <StretchedMaxWidthWrapper>
-                <MobileTitle label="Get In Touch" side="left" />
-                <Notepad>
-                    <Sticky />
-                    <Input
-                        placeholder="Type your message here..."
-                        onChange={(e) => setMessage(e.target.value)}
-                        value={message}
-                    />
-                </Notepad>
+                <SlideUp>
+                    <MobileTitle label="Get In Touch" side="left" />
+                </SlideUp>
+                <SlideUp>
+                    <Notepad>
+                        <Sticky />
+                        <Input
+                            placeholder="Type your message here..."
+                            onChange={(e) => setMessage(e.target.value)}
+                            value={message}
+                        />
+                    </Notepad>
+                </SlideUp>
             </StretchedMaxWidthWrapper>
             <Info>
-                <DesktopTitle label="Get In Touch" side="left" />
-                <Message>
-                    If you would like to work together or discuss an opportunity
-                    for work, please use the form or send me an email on{" "}
-                    <Highlight>pawan@bhandarkar.me</Highlight>
-                </Message>
-                <StyledButton
-                    onClick={() => {
-                        window.open(
-                            `mailto:pawan@bhandarkar.me?subject=Job Opportunity&body=${message}`
-                        );
-                    }}
-                >
-                    Send
-                </StyledButton>
+                <SlideUp>
+                    <DesktopTitle label="Get In Touch" side="left" />
+                </SlideUp>
+                <SlideUp zIndex={2}>
+                    <Message>
+                        If you would like to work together or discuss an
+                        opportunity for work, please use the form or send me an
+                        email on <Highlight>pawan@bhandarkar.me</Highlight>
+                    </Message>
+                </SlideUp>
+                <SlideUp>
+                    <StyledButton
+                        onClick={() => {
+                            window.open(
+                                `mailto:pawan@bhandarkar.me?subject=Job Opportunity&body=${message}`
+                            );
+                        }}
+                    >
+                        Send
+                    </StyledButton>
+                </SlideUp>
             </Info>
         </Wrapper>
     );

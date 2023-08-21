@@ -1,7 +1,9 @@
 import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import Design from "../Design";
+import { MaxWidthWrapper } from "../Education/Education";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import SlideUp from "../SlideUp";
 
 const DESIGNS = [
     {
@@ -30,21 +32,26 @@ const DESIGNS = [
 const Designs: React.FC = () => {
     return (
         <Wrapper id="designs">
-            <DesktopTitle label="Figma Designs" side="right" />
-            <MobileTitle label="Figma Designs" side="left" />
-            <Articles>
-                {DESIGNS.map((design, index) => (
-                    <Stretched key={index}>
-                        <Design
-                            imgSrc={design.imgSrc}
-                            description={design.description}
-                            name={design.name}
-                            url={design.url}
-                            side={index % 2 === 0 ? "left" : "right"}
-                        />
-                    </Stretched>
-                ))}
-            </Articles>
+            <MaxWidthWrapper>
+                <SlideUp fullWidth={true}>
+                    <DesktopTitle label="Figma Designs" side="right" />
+                    <MobileTitle label="Figma Designs" side="left" />
+                </SlideUp>
+                <Articles>
+                    {DESIGNS.map((design, index) => (
+                        <Stretched key={index}>
+                            <Design
+                                index={index}
+                                imgSrc={design.imgSrc}
+                                description={design.description}
+                                name={design.name}
+                                url={design.url}
+                                side={index % 2 === 0 ? "left" : "right"}
+                            />
+                        </Stretched>
+                    ))}
+                </Articles>
+            </MaxWidthWrapper>
         </Wrapper>
     );
 };

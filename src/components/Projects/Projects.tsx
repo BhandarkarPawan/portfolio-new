@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ContraintedTitle, MaxWidthWrapper } from "../Education/Education";
 import Project from "../Project/Project";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import SlideUp from "../SlideUp";
 
 const PROJECTS = [
     {
@@ -15,7 +16,7 @@ const PROJECTS = [
         imgSrc: "/images/kanban.png",
     },
     {
-        name: "Emegergency Social Network",
+        name: "Emergency Social Network",
         techs: ["HTML", "CSS", "NodeJS", "MongoDB", "figma"],
         description:
             "An emergency communication system for real-time SOS messaging during earthquakes. Built in a fast paced Agile environment with a team of 5. The app was designed and developed the project using Object Oriented Analysis and Programming principles.",
@@ -29,7 +30,9 @@ const Projects: React.FC = () => {
     return (
         <Wrapper>
             <MaxWidthWrapper>
-                <ContraintedTitle label="Things I've built" side="left" />
+                <SlideUp>
+                    <ContraintedTitle label="Things I've built" side="left" />
+                </SlideUp>
                 <Project {...PROJECTS[0]} side="left" />
             </MaxWidthWrapper>
             <Project {...PROJECTS[1]} side="right" />

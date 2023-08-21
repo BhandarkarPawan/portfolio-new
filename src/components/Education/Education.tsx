@@ -2,6 +2,7 @@ import College from "@/components/College";
 import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import SlideUp from "../SlideUp";
 
 const COLLEGES = [
     {
@@ -41,7 +42,9 @@ const Education: React.FC = () => {
     return (
         <Wrapper>
             <MaxWidthWrapper>
-                <ContraintedTitle label="Education" side="left" />
+                <SlideUp>
+                    <ContraintedTitle label="Education" side="left" />
+                </SlideUp>
                 <College {...COLLEGES[0]} side="left" />
             </MaxWidthWrapper>
             <College {...COLLEGES[1]} side="right" />

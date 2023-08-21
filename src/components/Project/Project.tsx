@@ -13,6 +13,7 @@ import {
     School,
     Stretch,
 } from "../College/College";
+import SlideUp from "../SlideUp";
 import { HoverIconLink } from "../Socials/Socials";
 
 export interface IProps {
@@ -37,38 +38,52 @@ const Project: React.FC<IProps> = ({
 }) => {
     return (
         <Wrapper side={side} {...delegated} id="projects">
-            <StretchedProject>
-                <Tilt
-                    tiltMaxAngleX={5}
-                    tiltMaxAngleY={5}
-                    glareEnable={true}
-                    glarePosition="top"
-                    glareMaxOpacity={0.2}
-                    glareBorderRadius="8px"
-                    gyroscope={true}
-                >
-                    <Image src={imgSrc} alt={name} />
-                </Tilt>
-            </StretchedProject>
+            <SlideUp>
+                <StretchedProject>
+                    <Tilt
+                        tiltMaxAngleX={5}
+                        tiltMaxAngleY={5}
+                        glareEnable={true}
+                        glarePosition="top"
+                        glareMaxOpacity={0.2}
+                        glareBorderRadius="8px"
+                        gyroscope={true}
+                    >
+                        <Image src={imgSrc} alt={name} />
+                    </Tilt>
+                </StretchedProject>
+            </SlideUp>
 
             <Info side={side}>
-                <Feature side={side}>Featured Project</Feature>
-                <Name side={side}>{name}</Name>
-                <Description side={side}>{description}</Description>
+                <SlideUp delay={200}>
+                    <Feature side={side}>Featured Project</Feature>
+                </SlideUp>
+                <SlideUp delay={200}>
+                    <Name side={side}>{name}</Name>
+                </SlideUp>
+                <SlideUp delay={200}>
+                    <Description side={side}>{description}</Description>
+                </SlideUp>
                 <Techs side={side}>
-                    {techs.map((tech) => (
-                        <Tech key={tech}>{tech}</Tech>
+                    {techs.map((tech, idx) => (
+                        <SlideUp delay={200 + idx * 100} key={tech}>
+                            <Tech key={tech}>{tech}</Tech>
+                        </SlideUp>
                     ))}
                 </Techs>
                 <Links side={side}>
-                    {github.length > 0 && (
-                        <HoverIconLink href={github} target="_blank">
-                            <Github size={32} />
+                    <SlideUp delay={200 + techs.length * 100}>
+                        {github.length > 0 && (
+                            <HoverIconLink href={github} target="_blank">
+                                <Github size={32} />
+                            </HoverIconLink>
+                        )}
+                    </SlideUp>
+                    <SlideUp delay={300 + techs.length * 100}>
+                        <HoverIconLink href={website} target="_blank">
+                            <Website size={32} />
                         </HoverIconLink>
-                    )}
-                    <HoverIconLink href={website} target="_blank">
-                        <Website size={32} />
-                    </HoverIconLink>
+                    </SlideUp>
                 </Links>
             </Info>
         </Wrapper>

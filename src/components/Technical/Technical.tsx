@@ -2,6 +2,7 @@ import { QUERIES } from "breakpoints";
 import { useState } from "react";
 import styled from "styled-components";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import SlideUp from "../SlideUp";
 import { SKILLS } from "./skills";
 
 const Technical: React.FC = () => {
@@ -19,24 +20,36 @@ const Technical: React.FC = () => {
 
     return (
         <Wrapper>
-            <Display>
-                <Title>{activeSkill.name}</Title>
-                <Content>{activeSkill.content}</Content>
-                <Level>{Stars}</Level>
-            </Display>
+            <SlideUp>
+                <Display>
+                    <Title>{activeSkill.name}</Title>
+                    <Content>{activeSkill.content}</Content>
+                    <Level>{Stars}</Level>
+                </Display>
+            </SlideUp>
             <SkillList>
-                <TechnicalTitleDesktop label="Technical Skills" side="right" />
-                <TechnicalTitleMobile label="Technical Skills" side="left" />
+                <SlideUp>
+                    <TechnicalTitleDesktop
+                        label="Technical Skills"
+                        side="right"
+                    />
+                    <TechnicalTitleMobile
+                        label="Technical Skills"
+                        side="left"
+                    />
+                </SlideUp>
                 <Options>
                     {SKILLS.map((skill, index) => (
-                        <Option
-                            key={skill.name}
-                            onClick={() => setActive(index)}
-                            onMouseEnter={() => setActive(index)}
-                            active={index === active}
-                        >
-                            {skill.name}
-                        </Option>
+                        <SlideUp key={skill.name} delay={200 + index * 100}>
+                            <Option
+                                key={skill.name}
+                                onClick={() => setActive(index)}
+                                onMouseEnter={() => setActive(index)}
+                                active={index === active}
+                            >
+                                {skill.name}
+                            </Option>
+                        </SlideUp>
                     ))}
                 </Options>
             </SkillList>
