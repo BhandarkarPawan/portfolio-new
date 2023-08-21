@@ -91,10 +91,23 @@ const Hero = () => {
         }
 
         function drawLine(line: ILine) {
-            ctx.beginPath();
-            ctx.moveTo(line.start_x, line.start_y);
-            ctx.lineTo(line.end_x, line.end_y);
-            ctx.stroke();
+            if (line.end_x === line.start_x && line.end_y === line.start_y) {
+                ctx.beginPath();
+                ctx.roundRect(
+                    line.start_x - 2.5,
+                    line.start_y - 2.5,
+                    5,
+                    5,
+                    999
+                );
+                ctx.fillStyle = "hsla(44, 100%, 69%, 0.3)";
+                ctx.fill();
+            } else {
+                ctx.beginPath();
+                ctx.moveTo(line.start_x, line.start_y);
+                ctx.lineTo(line.end_x, line.end_y);
+                ctx.stroke();
+            }
         }
 
         function updateAllLines(x: number, y: number) {
