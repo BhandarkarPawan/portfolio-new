@@ -35,7 +35,7 @@ const Wrapper = styled.div<SplashProps>`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1000;
+    z-index: 100;
     background-color: ${({ theme }) => theme.colors.background.dark};
 
     @keyframes fadeOut {

@@ -53,7 +53,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     gap: 16px;
     font-size: 24px;
-    z-index: 9999;
+    z-index: 50;
 
     bottom: 0;
     color: ${({ theme }) => theme.colors.text.light};
