@@ -6,8 +6,9 @@ import SlideUp from "../SlideUp";
 import { SKILLS } from "./skills";
 
 const Technical: React.FC = () => {
+    const sortedSkills = SKILLS.sort((a, b) => b.level - a.level);
     const [active, setActive] = useState(0);
-    const activeSkill = SKILLS[active];
+    const activeSkill = sortedSkills[active];
 
     const Stars = [];
     for (let i = 0; i < activeSkill.level; i++) {
@@ -40,7 +41,7 @@ const Technical: React.FC = () => {
                 </SlideUp>
                 <SlideUp>
                     <Options>
-                        {SKILLS.map((skill, index) => (
+                        {sortedSkills.map((skill, index) => (
                             <Option
                                 key={skill.name}
                                 onClick={() => setActive(index)}
