@@ -17,6 +17,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     gap: 16px;
     width: 24px;
+    z-index: 9999;
 
     bottom: 0;
     color: ${({ theme }) => theme.colors.text.light};
