@@ -38,9 +38,9 @@ const Technical: React.FC = () => {
                         side="left"
                     />
                 </SlideUp>
-                <Options>
-                    {SKILLS.map((skill, index) => (
-                        <SlideUp key={skill.name} delay={200 + index * 100}>
+                <SlideUp>
+                    <Options>
+                        {SKILLS.map((skill, index) => (
                             <Option
                                 key={skill.name}
                                 onClick={() => setActive(index)}
@@ -49,9 +49,9 @@ const Technical: React.FC = () => {
                             >
                                 {skill.name}
                             </Option>
-                        </SlideUp>
-                    ))}
-                </Options>
+                        ))}
+                    </Options>
+                </SlideUp>
             </SkillList>
         </Wrapper>
     );

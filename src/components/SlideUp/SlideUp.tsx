@@ -51,7 +51,7 @@ const Wrapper = styled.div<StyledProps>`
     @keyframes slideUp {
         from {
             opacity: 0;
-            transform: translateY(100%);
+            transform: translateY(min(50%, 40px));
         }
         to {
             opacity: 1;
@@ -64,7 +64,8 @@ const Wrapper = styled.div<StyledProps>`
         opacity: 0;
         animation: ${({ visible }) =>
             visible ? "slideUp 0.5s ease-in forwards" : ""};
-        animation-delay: ${({ delay }) => (delay ? `${delay}ms` : "0ms")};
+        animation-delay: ${({ delay }) =>
+            delay ? `${delay + 200}ms` : "200ms"};
         height: fit-content;
         z-index: ${({ zIndex }) => (zIndex ? zIndex : 0)};
     }
