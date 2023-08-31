@@ -89,6 +89,16 @@
     \end{tabular*}\vspace{-2pt}
 }
 
+
+\newcommand{\projectHeadingWithLink}[4]{
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+        \href{#4}{\color{blue}{#1}}
+        \hspace{-2pt} $\vert$ \hspace{-2pt} \small{\textit{#2}} 
+        & 
+        \textit{#3} \\
+    \end{tabular*}\vspace{-2pt}
+}
+
 \newcommand*{\skill}[2]{
   \textbf{#1 : }#2 \\
   \vspace{1pt}
@@ -149,9 +159,9 @@
 
 %-------- SKILLS------------
 \shortSection{Skills}
-\skill {Languages \hspace{4pt}}{TypeScript, Python, Go, C\#, GraphQL, Java, SQL, NoSQL}
-\skill {Tools\hspace{32pt}}{AWS, Kafka, Docker, Terraform, ActiveMQ, gRPC, Redis, New Relic}
-\skill {Frameworks}{React, Redux, NodeJS, Express, MongoDB, Flask, PostgreSQL}
+\skill {Languages \hspace{4pt}}{Python, Go, Java, C++, TypeScript, C\#, GraphQL}
+\skill {Tools\hspace{32pt}}{Redis, Kafka, Docker, Linux, AWS, Terraform, ActiveMQ, gRPC, New Relic}
+\skill {Frameworks}{PostgreSQL, React, Redux, NodeJS, Express, MongoDB, Flask, Tensorflow}
 \skill {Soft Skills\hspace{10pt}}{Communication (verbal and written), Leadership, Collaboration, Mentorship}
 
 
@@ -163,12 +173,12 @@
 {Software Engineer Intern, Platform}{Jun 2023 - Aug 2023}
 \vspace{2pt}
 \resumeItemListStart
-\resumeItemWithoutTitle{Pioneered subscription-based APIs via WebSockets on the GraphQL API gateway backed by microservices using gRPC communication in Go}
+\resumeItemWithoutTitle{Pioneered subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
 \resumeItemWithoutTitle{Expanded the C\# (.Net core) monolith codebase with support for live streaming metadata for over 120,000 radio stations}
-\resumeItemWithoutTitle{Deployed microservices to staging via CI/CD with Terraform and Kubernetes and monitored them using New Relic}
+\resumeItemWithoutTitle{Deployed microservices with Infrastructure as Code using Terraform and Kubernetes and monitored them using New Relic}
 \resumeItemWithoutTitle{Built data communication pipelines using Apache ActiveMQ and Redis Streams (AWS ElastiCache)}
 \resumeItemWithoutTitle{Wrote comprehensive test suites and load-tested the microservice using NBomber to ensure production-readiness}
-% \resumeItemWithoutTitle{Collaborated with Product and Data Engineering teams to plan and prioritize related Jira tickets }
+\resumeItemWithoutTitle{Collaborated with Product and Data Engineering teams to plan and prioritize related Jira tickets }
 \resumeItemListEnd
 
 \vspace{5pt}
@@ -210,10 +220,19 @@
 
 \shortSection{Projects}
 \vspace{3pt}
+\projectHeadingWithLink {Kanban Task Manager}{React, AWS, Docker, NodeJS, MongoDB}{Jan 2023 - Present}{https://kanbhan.com}
+\resumeItemListStart
+% \resumeItemWithoutTitle{Developed a highly accessible Kanban Task Manager using Client-Server architecture with React Hooks and Context API focussing on A11y, Semantic HTML, and ARIA labels, which ensured usability with screen readers such as Apple Voice-Over. Generated clear API documentation with API Blueprint and Postman.}
+\resumeItemWithoutTitle{Developed an accessible, responsive Kanban Task Manager using Client-Server architecture with React Hooks and Context API. Deployed to AWS EC2 using Docker and ECR with a CI/CD pipeline using Github Actions. Handled security with HTTPS/SSL on the AWS Load Balancer.}
+\resumeItemListEnd
+
+
+\vspace{3pt}
 \projectHeading {Incident Response}{AWS, Docker, React, Socket.IO, MongoDB, Jenkins, Jira}{Feb 2023 - May 2023}
 \resumeItemListStart
 \resumeItemWithoutTitle{Developed a communication platform for citizens and first responders during emergencies using Express.js, Socket.IO, and Mongoose. Refactored codebase and managed development in a scrum-of-scrums setting. Deployed the app using Docker, Jenkins, and AWS.}
 \resumeItemListEnd
+
 
 \vspace{3pt}
 \projectHeading {Emergency Social Network}{HTML, CSS, TypeScript, NodeJS, MongoDB}{Aug 2022 - Dec 2022}
@@ -221,18 +240,13 @@
 \resumeItemWithoutTitle{Built an emergency communication system for real-time SOS messaging during earthquakes with an MVC architecture. Utilized SCRUM and Kanban agile practices, object-oriented analysis (OOA) and test-driven development (TDD) in a fast-paced environment to create a user-friendly system with JSON-based RESTful APIs}
 \resumeItemListEnd
 
-% \projectHeading {Kanban Task Manager}{React, NodeJS, Styled-Components, Figma}{Jun 2022 - Present}
+
+% \vspace{3pt}
+% \projectHeading {Re:use}{React, Typescript, NodeJS, MongoDB, Figma}{Aug 2022 - Dec 2022}
 % \resumeItemListStart
-% \resumeItemWithoutTitle{Developed a highly accessible Kanban Task Manager using \textbf{Client-Server} architecture with \textbf{React Hooks} and \textbf{Context API} focussing on \textbf{A11y, Semantic HTML, and ARIA labels}, which ensured usability with screen readers such as Apple Voice-Over. Generated clear API documentation with \textbf{API Blueprint} and \textbf{Postman.}}
-% \resumeItemListEnd
-
-
-\vspace{3pt}
-\projectHeading {Re:use}{React, Typescript, NodeJS, MongoDB, Figma}{Aug 2022 - Dec 2022}
-\resumeItemListStart
-\resumeItemWithoutTitle{Led the development of the MVP for a Resource Management application in the donation industry by generating style guides in Figma, and converting user requirements into working software using the MERN Stack.}
+% \resumeItemWithoutTitle{Led the development of the MVP for a Resource Management application in the donation industry by generating style guides in Figma, and converting user requirements into working software using the MERN Stack.}
 % \resumeItemWithoutTitle{\textbf{Ideated} a solution for problems faced by the donation industry through \textbf{usability studies} and \textbf{contextual inquiries} with Stakeholders. Generated \textbf{affinity diagrams}, \textbf{personas}, and \textbf{story boards} to envision a solution using the Dual-Track Agile process. Worked as an interaction designer to drive user research/interviews, create a core product vision and build a MVP.}
-\resumeItemListEnd
+% \resumeItemListEnd
 
 % \vspace{3pt}
 % \projectHeading {Refriendo}{TypeScript, React, CSS, Figma}{Oct 2021 - Jul 2022}
