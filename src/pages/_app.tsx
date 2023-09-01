@@ -10,22 +10,16 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className="App">
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>My Portfolio</title>
+                <meta name="title" content="Portfolio" />
                 <meta
                     name="description"
                     content="I'm a full-stack engineer specializing in building (and sometimes designing) highly accessible, human-centered applications for the web."
                 />
-                <meta
-                    name="keywords"
-                    content="HTML, CSS, JavaScript, Go, React, TypeScript"
-                />
                 <meta name="image" content="/images/link-preview.png" />
-                <meta name="author" content="Pawan Bhandarkar" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
+                <meta content="https://bhandarkar.me/" />
+                <meta content="website" />
             </Helmet>
+
             <ThemeProvider theme={DARK_THEME}>
                 {/* Basic OG tags */}
                 <ResetStyles />
