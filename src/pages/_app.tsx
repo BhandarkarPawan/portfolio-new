@@ -9,7 +9,6 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <div className="App">
             <Helmet>
-                npm ERR! Cannot read properties of null (reading 'matches')
                 <meta name="title" property="og:title" content="Portfolio" />
                 <meta
                     name="description"
