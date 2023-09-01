@@ -10,7 +10,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className="App">
             <Head>
                 <meta charSet="utf-8" />
-                <meta name="title" property="og:title" content="Portfolio" />
+                <meta
+                    name="title"
+                    property="og:title"
+                    content="Pawan Bhandarkar"
+                />
                 <meta
                     name="description"
                     property="og:description"
