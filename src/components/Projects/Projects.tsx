@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
         <Wrapper>
             <MaxWidthWrapper>
                 <SlideUp>
-                    <ContraintedTitle label="Featured Projects" side="left" />
+                    <ContraintedTitle label="Things I've Built" side="left" />
                 </SlideUp>
                 <Project {...PROJECTS[0]} side="left" />
             </MaxWidthWrapper>
