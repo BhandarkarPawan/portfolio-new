@@ -169,7 +169,6 @@ export const Degree = styled.h4<StyledProps>`
 `;
 
 export const School = styled.h4<StyledProps>`
-    font-weight: 900;
     margin-bottom: 16px;
     font-size: calc(21 / 16 * 1rem);
 

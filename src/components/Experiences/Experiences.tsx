@@ -283,7 +283,6 @@ const Description = styled.p`
 `;
 
 export const Company = styled.h4`
-    font-weight: 900;
     font-size: calc(21 / 16 * 1rem);
 
     ${QUERIES.tabletAndUp} {

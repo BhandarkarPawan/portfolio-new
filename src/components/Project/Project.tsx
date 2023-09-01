@@ -179,6 +179,7 @@ const Description = styled(Courses)`
 const Techs = styled(Data)`
     gap: 24px;
     display: flex;
+    flex-wrap: wrap;
 `;
 
 export default Project;
