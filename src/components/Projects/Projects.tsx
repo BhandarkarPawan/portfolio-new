@@ -8,7 +8,7 @@ import SlideUp from "../SlideUp";
 const PROJECTS = [
     {
         name: "Kanban Task Manager",
-        techs: ["React", "Docker", "NodeJS", "MongoDB", "EC2", "ECS"],
+        techs: ["React", "Docker", "NodeJS", "MongoDB", "AWS"],
         description:
             "An accessible, responsive Kanban Task Manager built using Client-Server architecture with dynamic theming and drag-and-drop UI. Backend deployed on AWS and frontend on Netlify via CI/CD on using Github Actions. Security handled with HTTPS/SSL on AWS Application Load Balancer.",
         github: "https://github.com/BhandarkarPawan/kanban-task-management",
