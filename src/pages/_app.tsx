@@ -1,14 +1,14 @@
 import GlobalStyles from "@/styles/globalStyles";
 import ResetStyles from "@/styles/resetStyles";
 import type { AppProps } from "next/app";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import DARK_THEME from "theme";
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <div className="App">
-            <Helmet>
+            <Head>
                 <meta charSet="utf-8" />
                 <meta name="title" property="og:title" content="Portfolio" />
                 <meta
@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="canonical" href="https://bhandarkar.me" />
                 <meta property="og:url" content="https://bhandarkar.me" />
                 <meta property="og:type" content="website" />
-            </Helmet>
+            </Head>
 
             <ThemeProvider theme={DARK_THEME}>
                 {/* Basic OG tags */}
