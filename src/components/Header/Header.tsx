@@ -104,6 +104,7 @@ const Banner = styled.div`
     padding: 8px 16px;
     text-align: center;
     font-size: 14px;
+    font-weight: 900;
 
     ${QUERIES.tabletAndUp} {
         padding: 8px 32px;
