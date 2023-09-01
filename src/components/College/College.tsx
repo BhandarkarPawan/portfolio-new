@@ -155,6 +155,7 @@ export const Degree = styled.h4<StyledProps>`
     color: ${({ theme }) => theme.colors.primary};
     font-weight: 400;
     font-size: calc(14 / 16 * 1rem);
+    margin-top: 16px;
 
     ${QUERIES.tabletAndUp} {
         margin-left: 32px;
