@@ -33,7 +33,7 @@ const Header = () => {
                 </MenuButton>
             </Wrapper>
             <Banner>
-                I’m Open to work! I’m currently looking for a ful-time software
+                I’m Open to work! I’m currently looking for a full-time software
                 engineering role for 2024
             </Banner>
         </>
