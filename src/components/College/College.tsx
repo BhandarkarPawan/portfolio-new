@@ -38,7 +38,6 @@ const College: React.FC<IProps> = ({
                         glarePosition="top"
                         glareMaxOpacity={0.3}
                         glareBorderRadius="8px"
-                        gyroscope={true}
                     >
                         <Image src={imgSrc} alt={school} />
                     </Tilt>

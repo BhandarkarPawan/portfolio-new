@@ -47,7 +47,6 @@ const Project: React.FC<IProps> = ({
                         glarePosition="top"
                         glareMaxOpacity={0.2}
                         glareBorderRadius="8px"
-                        gyroscope={true}
                     >
                         <Image src={imgSrc} alt={name} />
                     </TiltingImage>
