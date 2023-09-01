@@ -10,14 +10,20 @@ export default function App({ Component, pageProps }: AppProps) {
         <div className="App">
             <Helmet>
                 <meta charSet="utf-8" />
-                <meta name="title" content="Portfolio" />
+                <meta name="title" property="og:title" content="Portfolio" />
                 <meta
                     name="description"
+                    property="og:description"
                     content="I'm a full-stack engineer specializing in building (and sometimes designing) highly accessible, human-centered applications for the web."
                 />
-                <meta name="image" content="/images/link-preview.png" />
-                <meta content="https://bhandarkar.me/" />
-                <meta content="website" />
+                <meta
+                    name="image"
+                    property="og:image"
+                    content="/images/link-preview.png"
+                />
+                <link rel="canonical" href="https://bhandarkar.me" />
+                <meta property="og:url" content="https://bhandarkar.me" />
+                <meta property="og:type" content="website" />
             </Helmet>
 
             <ThemeProvider theme={DARK_THEME}>
