@@ -9,21 +9,23 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <div className="App">
             <Helmet>
-                <meta name="title" property="og:title" content="Portfolio" />
+                <meta charSet="utf-8" />
+                <title>My Portfolio</title>
                 <meta
                     name="description"
-                    property="og:description"
                     content="I'm a full-stack engineer specializing in building (and sometimes designing) highly accessible, human-centered applications for the web."
                 />
                 <meta
-                    name="image"
-                    property="og:image"
-                    content="/images/link-preview.png"
+                    name="keywords"
+                    content="HTML, CSS, JavaScript, Go, React, TypeScript"
                 />
-                <meta property="og:url" content="https://bhandarkar.me/" />
-                <meta property="og:type" content="website" />
+                <meta name="image" content="/images/link-preview.png" />
+                <meta name="author" content="Pawan Bhandarkar" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
             </Helmet>
-
             <ThemeProvider theme={DARK_THEME}>
                 {/* Basic OG tags */}
                 <ResetStyles />
