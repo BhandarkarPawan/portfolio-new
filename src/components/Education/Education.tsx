@@ -9,6 +9,7 @@ const COLLEGES = [
         degree: "Master of Science in Software Engineering",
         school: "Carnegie Mellon University",
         courses: [
+            "Cloud Computing",
             "Foundations of Software Engineering",
             "Data Science for Software Engineering",
             "Software Requirements & Ix Design",

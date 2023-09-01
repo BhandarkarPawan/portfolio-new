@@ -8,9 +8,9 @@ import SlideUp from "../SlideUp";
 const PROJECTS = [
     {
         name: "Kanban Task Manager",
-        techs: ["React", "TypeScript", "NodeJS", "MongoDB", "Express"],
+        techs: ["React", "Docker", "NodeJS", "MongoDB", "EC2", "ECS"],
         description:
-            "A Kanban task manager built based on a design from Frontend Mentor. It is a full stack application with a React frontend and a NodeJS backend. The app is accessible on both desktop and mobile devices.",
+            "An accessible, responsive Kanban Task Manager built using Client-Server architecture with dynamic theming and drag-and-drop UI. Backend deployed on AWS and frontend on Netlify via CI/CD on using Github Actions. Security handled with HTTPS/SSL on AWS Application Load Balancer.",
         github: "https://github.com/BhandarkarPawan/kanban-task-management",
         website: "https://kanbhan.netlify.app",
         imgSrc: "/images/kanban.png",
@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
         <Wrapper>
             <MaxWidthWrapper>
                 <SlideUp>
-                    <ContraintedTitle label="Things I've built" side="left" />
+                    <ContraintedTitle label="Featured Projects" side="left" />
                 </SlideUp>
                 <Project {...PROJECTS[0]} side="left" />
             </MaxWidthWrapper>
