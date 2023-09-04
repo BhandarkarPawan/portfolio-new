@@ -124,7 +124,7 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
                 selectedProject &&
                 (createPortal(
                     <ModalWrapper>
-                        <Overlay onClick={() => setSelectedProject(null)} />
+                        {/* <Overlay onClick={() => setSelectedProject(null)} /> */}
                         <Modal>
                             <SelectedProject {...selectedProject} />
                         </Modal>
@@ -185,30 +185,40 @@ export const HighlightedProject = styled.div<{
     }
 `;
 
-const Overlay = styled.div`
+const ModalWrapper = styled.div`
+    ${QUERIES.tabletAndUp} {
+        display: none;
+    }
+
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    overflow-y: auto;
+    z-index: 999;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
     backdrop-filter: blur(4px);
 `;
 
+// const Overlay = styled.div`
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(0, 0, 0, 0.7);
+//     z-index: 2;
+//     backdrop-filter: blur(4px);
+// `;
+
 const Modal = styled.div`
-    position: fixed;
+    position: absolute;
     top: 16px;
     left: 16px;
     right: 16px;
-    bottom: 0;
+    bottom: 16px;
     z-index: 3;
-`;
-
-const ModalWrapper = styled.div`
-    ${QUERIES.tabletAndUp} {
-        display: none;
-    }
 `;
 
 const NonModalWrapper = styled.div`

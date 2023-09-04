@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
 
 html{
 	max-width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 	scroll-behavior: smooth !important;
 
 	@media(prefers-reduced-motion){
@@ -45,10 +45,15 @@ body {
 	margin-left: auto;
     margin-right: auto;
 	width: 100%;
+    overflow: hidden;
 
 	background-color: var(--color-dark-background-regular);
 	color: var(--color-dark-text-regular);
 }
+
+.App {
+    overflow: auto;
+} 
 
 `;
 
