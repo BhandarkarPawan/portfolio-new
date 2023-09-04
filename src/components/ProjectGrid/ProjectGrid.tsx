@@ -140,7 +140,10 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
 
     return (
         <Wrapper>
-            <SubTitle>Other Projects</SubTitle>
+            <SubTitle>
+                Other Projects
+                <SubText>Tap on a project to learn more about it!</SubText>
+            </SubTitle>
 
             <Grid {...delegated}>
                 {projects.map((project, idx) => {
@@ -326,6 +329,15 @@ export const BackButton = styled.button`
 
 export const CloseButton = styled.button`
     margin-left: auto;
+`;
+
+const SubText = styled.p`
+    color: white;
+    font-size: calc(18 / 16 * 1rem);
+
+    ${QUERIES.desktopAndUp} {
+        display: none;
+    }
 `;
 
 export const CloseIcon = styled(FaWindowClose)``;

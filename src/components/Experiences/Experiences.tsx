@@ -44,13 +44,13 @@ const Experiences: React.FC = () => {
                         </Item>
                     </SlideUp>
                     <Item>
-                        <SlideUp>
+                        <SlideUpFirm>
                             <Image
                                 src="images/aibod.png"
                                 alt="team aibod"
                             ></Image>
                             <Connector />
-                        </SlideUp>
+                        </SlideUpFirm>
                         <Infos>
                             <SlideUp>
                                 <Bullet>
@@ -150,6 +150,10 @@ const Items = styled.div`
     ${QUERIES.tabletAndUp} {
         gap: 80px;
     }
+`;
+
+const SlideUpFirm = styled(SlideUp)`
+    flex-shrink: 0;
 `;
 
 const Item = styled.div`
