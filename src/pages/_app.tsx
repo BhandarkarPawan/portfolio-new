@@ -2,7 +2,6 @@ import GlobalStyles from "@/styles/globalStyles";
 import ResetStyles from "@/styles/resetStyles";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Script from "next/script";
 import { ThemeProvider } from "styled-components";
 import DARK_THEME from "theme";
 
@@ -29,16 +28,20 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="canonical" href="https://bhandarkar.me" />
                 <meta property="og:url" content="https://bhandarkar.me" />
                 <meta property="og:type" content="website" />
-            </Head>
-            <Script src="https://www.googletagmanager.com/gtag/js?id=G-CWWXED2451" />
-            <Script id="google-analytics">
-                {`
+
+                <script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=G-CWWXED2451"
+                />
+                <script id="google-analytics">
+                    {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-CWWXED2451');
                 `}
-            </Script>
+                </script>
+            </Head>
 
             <ThemeProvider theme={DARK_THEME}>
                 {/* Basic OG tags */}
