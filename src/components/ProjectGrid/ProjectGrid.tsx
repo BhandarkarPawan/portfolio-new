@@ -1,5 +1,5 @@
 import { QUERIES } from "breakpoints";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { FaArrowLeft, FaWindowClose } from "react-icons/fa";
 import styled from "styled-components";
@@ -30,28 +30,47 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
         setDocumentMounted(true);
     }, []);
 
-    const calculateTranslationOnMouseEnter = (e: React.MouseEvent) => {
+    const calculateTranslationOnMouseEnter = (
+        e: React.MouseEvent,
+        bgRef: React.RefObject<HTMLDivElement>
+    ) => {
         const target = e.target as HTMLImageElement;
         const rect = target.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const translationX = (x - rect.width / 2) / 20;
         const translationY = (y - rect.height / 2) / 20;
+
+        // Calculate scale factor based on distance from center
+        const scaleFactor = Math.sqrt(
+            Math.pow(x - rect.width / 2, 2) + Math.pow(y - rect.height / 2, 2)
+        );
+
+        bgRef.current!.style.transform = `translate(${-translationX}px, ${-translationY}px)`;
         target.style.transform = `translate(${translationX}px, ${translationY}px) `;
     };
 
-    const clearTranslationOnMouseLeave = (e: React.MouseEvent) => {
+    const clearTranslationOnMouseLeave = (
+        e: React.MouseEvent,
+        bgRef: React.RefObject<HTMLDivElement>
+    ) => {
         const target = e.target as HTMLImageElement;
+        bgRef.current!.style.transform = `translate(0px, 0px) rotate(0deg)`;
         target.style.transform = `translate(0px, 0px) rotate(0deg)`;
     };
 
-    const updateTranslationOnMouseMove = (e: React.MouseEvent) => {
+    const updateTranslationOnMouseMove = (
+        e: React.MouseEvent,
+        bgRef: React.RefObject<HTMLDivElement>
+    ) => {
         const target = e.target as HTMLImageElement;
         const rect = target.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const translationX = (x - rect.width / 2) / 20;
         const translationY = (y - rect.height / 2) / 20;
+
+        bgRef.current!.style.transform = `translate(${-translationX}px, ${-translationY}px) `;
         target.style.transform = `translate(${translationX}px, ${translationY}px) `;
     };
 
@@ -110,10 +129,51 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
             </Info>
         </HighlightedProject>
     );
+    const refArray = [
+        useRef<HTMLDivElement>(null),
+        useRef<HTMLDivElement>(null),
+        useRef<HTMLDivElement>(null),
+        useRef<HTMLDivElement>(null),
+        useRef<HTMLDivElement>(null),
+        useRef<HTMLDivElement>(null),
+    ] as React.RefObject<HTMLDivElement>[];
 
     return (
         <Wrapper>
             <SubTitle>Other Projects</SubTitle>
+
+            <Grid {...delegated}>
+                {projects.map((project, idx) => {
+                    return (
+                        <ThumbnailWrapper key={idx}>
+                            <Background ref={refArray[idx]} />
+                            <ProjectThumbnail
+                                onClick={() => setSelectedProject(project)}
+                                onMouseEnter={(e) =>
+                                    calculateTranslationOnMouseEnter(
+                                        e,
+                                        refArray[idx]
+                                    )
+                                }
+                                onMouseLeave={(e) =>
+                                    clearTranslationOnMouseLeave(
+                                        e,
+                                        refArray[idx]
+                                    )
+                                }
+                                onMouseMove={(e) =>
+                                    updateTranslationOnMouseMove(
+                                        e,
+                                        refArray[idx]
+                                    )
+                                }
+                                src={project.imgSrc}
+                                alt={project.name}
+                            />
+                        </ThumbnailWrapper>
+                    );
+                })}
+            </Grid>
 
             {selectedProject && (
                 <NonModalWrapper>
@@ -131,22 +191,6 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
                     </ModalWrapper>,
                     document.body
                 ) as React.ReactPortal)}
-
-            <Grid {...delegated}>
-                {projects.map((project, idx) => {
-                    return (
-                        <ProjectThumbnail
-                            key={idx}
-                            onClick={() => setSelectedProject(project)}
-                            onMouseEnter={calculateTranslationOnMouseEnter}
-                            onMouseLeave={clearTranslationOnMouseLeave}
-                            onMouseMove={updateTranslationOnMouseMove}
-                            src={project.imgSrc}
-                            alt={project.name}
-                        />
-                    );
-                })}
-            </Grid>
         </Wrapper>
     );
 };
@@ -197,7 +241,7 @@ const ModalWrapper = styled.div`
     bottom: 0;
     overflow-y: auto;
     z-index: 999;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);
 `;
 
@@ -359,12 +403,33 @@ const Grid = styled.div`
 `;
 
 const ProjectThumbnail = styled.img`
-    cursor: pointer;
+    border-radius: 8px;
+    display: inline;
+    object-fit: cover;
+    height: 100%;
+    transition: transform 0.3s ease-in;
+    &:hover {
+        transition: transform 0.1s ease-out;
+    }
+    z-index: 2;
+`;
+
+const ThumbnailWrapper = styled.div`
+    position: relative;
     width: 100%;
     height: 100%;
-    display: inline-block;
-    object-fit: cover;
+    cursor: pointer;
+    z-index: 1;
+`;
+
+const Background = styled.div`
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
+    background-color: black;
+    opacity: 0.3;
+    position: absolute;
+    z-index: -1;
 
     transition: transform 0.3s ease-in;
     &:hover {
