@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta
                     name="image"
                     property="og:image"
-                    content="/images/link-preview.png"
+                    content="/images/hero.png"
                 />
                 <link rel="canonical" href="https://bhandarkar.me" />
                 <meta property="og:url" content="https://bhandarkar.me" />
