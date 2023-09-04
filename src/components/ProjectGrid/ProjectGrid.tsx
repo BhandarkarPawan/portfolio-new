@@ -139,7 +139,7 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
     ] as React.RefObject<HTMLDivElement>[];
 
     return (
-        <Wrapper>
+        <Wrapper id="other-projects">
             <SubTitle>
                 Other Projects
                 <SubText>Tap on a project to learn more about it!</SubText>

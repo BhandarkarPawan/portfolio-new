@@ -33,7 +33,7 @@ export interface IProps {
 
 const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
     return (
-        <Wrapper side={side} {...delegated} id="projects">
+        <Wrapper side={side} {...delegated}>
             <SlideUp>
                 <StretchedProject>
                     <TiltingImage

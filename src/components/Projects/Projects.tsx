@@ -100,7 +100,7 @@ const PROJECTS = [
 
 const Projects: React.FC = () => {
     return (
-        <Wrapper>
+        <Wrapper id="projects">
             <MaxWidthWrapper>
                 <SlideUp>
                     <ContraintedTitle label="Things I've Built" side="left" />
