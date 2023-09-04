@@ -201,17 +201,6 @@ const ModalWrapper = styled.div`
     backdrop-filter: blur(4px);
 `;
 
-// const Overlay = styled.div`
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     background: rgba(0, 0, 0, 0.7);
-//     z-index: 2;
-//     backdrop-filter: blur(4px);
-// `;
-
 const Modal = styled.div`
     position: absolute;
     top: 16px;
@@ -315,9 +304,9 @@ export const ProjectImage = styled.img`
     border-radius: 8px;
 
     width: 100%;
-    /* ${QUERIES.desktopAndUp} {
+    ${QUERIES.desktopAndUp} {
         height: 100%;
-    } */
+    }
 `;
 
 const WrappingTechs = styled(Techs)`
