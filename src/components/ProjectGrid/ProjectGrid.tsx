@@ -100,11 +100,11 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
                                 <Website size={32} />
                             </HoverIconLink>
                         </Links>
-                        <Techs side="right">
+                        <WrappingTechs side="right">
                             {selectedProject.techs.map((tech, idx) => (
                                 <Tech key={tech}>{tech}</Tech>
                             ))}
-                        </Techs>
+                        </WrappingTechs>
                     </FloatingFooter>
                 </Details>
             </Info>
@@ -136,13 +136,13 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
                 {projects.map((project, idx) => {
                     return (
                         <ProjectThumbnail
+                            key={idx}
                             onClick={() => setSelectedProject(project)}
                             onMouseEnter={calculateTranslationOnMouseEnter}
                             onMouseLeave={clearTranslationOnMouseLeave}
                             onMouseMove={updateTranslationOnMouseMove}
                             src={project.imgSrc}
                             alt={project.name}
-                            key={idx}
                         />
                     );
                 })}
@@ -303,12 +303,15 @@ export const Info = styled.div`
 export const ProjectImage = styled.img`
     object-fit: cover;
     border-radius: 8px;
-    flex-shrink: 0;
-    flex-shrink: 999999;
 
-    ${QUERIES.desktopAndUp} {
+    width: 100%;
+    /* ${QUERIES.desktopAndUp} {
         height: 100%;
-    }
+    } */
+`;
+
+const WrappingTechs = styled(Techs)`
+    flex-wrap: wrap;
 `;
 
 export const Details = styled.div`

@@ -141,8 +141,10 @@
 {Master of Science in Software Engineering; \textbf{GPA: 4.0/4.0} }{Dec 2023}{
     Cloud Computing,
     Foundations of Software Engineering,
-    Software Verification \& Testing,
-    Data Science
+    Software Requirements \& Interaction Design,
+    % Software Verification \& Testing,
+    Software Testing
+    % Data Science
 }
 
 \vspace{5pt}
@@ -159,9 +161,9 @@
 
 %-------- SKILLS------------
 \shortSection{Skills}
-\skill {Languages \hspace{4pt}}{Python, Go,TypeScript,  GraphQL, Java, C++, C\#}
-\skill {Tools\hspace{32pt}}{Redis, Kafka, Docker, Linux, AWS, Terraform, ActiveMQ, gRPC, New Relic}
-\skill {Frameworks}{React, Redux, NodeJS, Express, MongoDB, Flask, PostgreSQL}
+\skill {Languages \hspace{4pt}}{JavaScript, TypeScript, Python, Java, C++, C\#, Go, GraphQL}
+\skill {Tools\hspace{32pt}}{AWS, ActiveMQ, Azure, Docker, Kafka, Redis, Terraform, Kubernetes, Linux, gRPC, New Relic}
+\skill {Frameworks}{React v16+, Flask, PostgreSQL, Flutter, Redux, NodeJS, Express, MongoDB}
 \skill {Soft Skills\hspace{10pt}}{Communication (verbal and written), Leadership, Collaboration, Mentorship}
 
 
@@ -173,11 +175,14 @@
 {Software Engineer Intern, Platform}{Jun 2023 - Aug 2023}
 \vspace{2pt}
 \resumeItemListStart
-\resumeItemWithoutTitle{Pioneered subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
-\resumeItemWithoutTitle{Expanded the C\# (.Net core) monolith codebase with support for live streaming metadata for over 120,000 radio stations}
-\resumeItemWithoutTitle{Deployed microservices with Infrastructure as Code using Terraform and Kubernetes and monitored them using New Relic}
+
+% \resumeItemWithoutTitle{Pioneered subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
+\resumeItemWithoutTitle{Thrived in a fast-paced environment, pioneering subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
+
 \resumeItemWithoutTitle{Built data communication pipelines using Apache ActiveMQ and Redis Streams (AWS ElastiCache)}
-\resumeItemWithoutTitle{Wrote comprehensive test suites and load-tested the microservice using NBomber to ensure production-readiness}
+\resumeItemWithoutTitle{Wrote comprehensive test suites and load-tested the microservice to ensure production-readiness}
+\resumeItemWithoutTitle{Deployed microservices with Infrastructure as Code using Terraform and Kubernetes and monitored them using New Relic}
+\resumeItemWithoutTitle{Expanded the C\# (.Net core) monolith codebase with support for live streaming metadata for over 120,000 radio stations}
 \resumeItemWithoutTitle{Collaborated with Product and Data Engineering teams to plan and prioritize related Jira tickets }
 \resumeItemListEnd
 
@@ -187,10 +192,10 @@
 {Software Engineer 2}{Nov 2021 - Apr 2022}
 \vspace{2pt}
 \resumeItemListStart
-\resumeItemWithoutTitle{Led end-to-end development of a payment microservice with Python, Flask, and PostgreSQL with HTTPS/SSL for security}
-\resumeItemWithoutTitle{Developed a component library with React, CSS, and TypeScript for an unmanned store}
+\resumeItemWithoutTitle{Led the development of a payment microservice with Python, Flask, and PostgreSQL with HTTPS/SSL for enhanced security}
+\resumeItemWithoutTitle{Engineered a full-stack information management system using Python, SQL, GraphQL, and React v16}
+\resumeItemWithoutTitle{Developed a component library with React v16, CSS, and TypeScript for an unmanned store}
 \resumeItemWithoutTitle{Deployed applications using Docker and AWS (ECR + ECS) and configured CloudWatch for monitoring}
-\resumeItemWithoutTitle{Engineered a search system using Python, SQL, GraphQL, and React for Kyushu Electric}
 \resumeItemListEnd
 
 \vspace{2pt}
@@ -198,10 +203,10 @@
 {Software Engineer 1}{Feb 2020 - Oct 2021}
 \vspace{0pt}
 \resumeItemListStart
-\resumeItemWithoutTitle{Created a Python script and a Tkinter-based GUI-tool for annotating and visualizing images, increasing data pre-processing rate from 20 to 200 images/hour and improving team productivity}
+\resumeItemWithoutTitle{Reduced total API calls by 30\%, enhancing app functionality and contributing to business scalability}
 \resumeItemWithoutTitle{Integrated 30+ REST APIs leveraging API docs and Postman, resulting in enhanced app functionality}
+\resumeItemWithoutTitle{Created a Python script and a Tkinter-based GUI-tool for annotating and visualizing images, increasing data pre-processing rate from 20 to 200 images/hour and improving team productivity}
 \resumeItemWithoutTitle{Set up a Jenkins pipeline for CI/CD and supported DevOps with AWS (ECR, ECS, S3 and AWS Fargate)}
-\resumeItemWithoutTitle{Reduced total API calls by 30\% by implementing Redux for simplified state management on the frontend}
 \resumeItemListEnd
 
 % \vspace{2pt}
@@ -220,17 +225,23 @@
 
 \shortSection{Projects}
 \vspace{3pt}
-\projectHeadingWithLink {Kanban Task Manager}{React, AWS, Docker, NodeJS, MongoDB}{Jan 2023 - Present}{https://kanbhan.com}
+\projectHeadingWithLink {Kanban Task Manager}{React, EC2, ECR, Docker, NodeJS, MongoDB}{Jan 2023 - Present}{https://kanbhan.com}
 \resumeItemListStart
+
 % \resumeItemWithoutTitle{Developed a highly accessible Kanban Task Manager using Client-Server architecture with React Hooks and Context API focussing on A11y, Semantic HTML, and ARIA labels, which ensured usability with screen readers such as Apple Voice-Over. Generated clear API documentation with API Blueprint and Postman.}
-\resumeItemWithoutTitle{Developed an accessible, responsive Kanban Task Manager using Client-Server architecture with dynamic theming and drag-and-drop UI. Deployed to AWS EC2 using Docker and ECR with a CI/CD pipeline using Github Actions. Handled security with HTTPS/SSL on the AWS Load Balancer.}
+\resumeItemWithoutTitle{Developed a responsive web app with pixel perfect user interfaces based on Figma designs. Used Client-Server architecture with dynamic theming and drag-and-drop UI, focussing on A11y, ARIA and Semantic HTML. Deployed to AWS EC2 using Docker and ECR with a CI/CD pipeline using Github Actions. Handled security with HTTPS/SSL on the AWS Load Balancer}
 \resumeItemListEnd
 
 
 \vspace{3pt}
-\projectHeading {Incident Response}{AWS, Docker, React, Socket.IO, MongoDB, Jenkins, Jira}{Feb 2023 - May 2023}
+\projectHeading {Incident Response}{React, CloudFront, Docker, Socket.IO, MongoDB, Jenkins}{Feb 2023 - May 2023}
 \resumeItemListStart
-\resumeItemWithoutTitle{Developed a communication platform for citizens and first responders during emergencies using Express.js, Socket.IO, and Mongoose. Refactored codebase and managed development in a scrum-of-scrums setting. Deployed the app using Docker, Jenkins, and AWS.}
+
+% Backend
+% \resumeItemWithoutTitle{Developed a communication platform for citizens and first responders during emergencies using Express.js, Socket.IO, and Mongoose. Refactored codebase and managed development in a scrum-of-scrums setting. Deployed the app using Docker, Jenkins, and AWS}
+% Frontend
+\resumeItemWithoutTitle{Led the frontend development of a mobile-first communication platform for citizens and first responders during emergencies. Used Ant Design, Figma and Storybook for the UI, refactored the codebase and advised the team on best practices of UI development and accessibility. Deployed the app to S3 using Jenkins and CloudFront}
+
 \resumeItemListEnd
 
 
@@ -256,8 +267,8 @@
 
 %-------- AWARDS------------
 \shortSection{Awards \& Leadership}
-\skill{Graduate Teaching Assistant}{Software Requirements \& Interaction Design (CMU - Fall 2023)}
-\skill{Graduate Teaching Assistant}{Foundations of Software Engineering (CMU - Spring 2023)}
+\skill{Teaching Assistant}{Demonstrated strong leadership and team collaboration skills as a Graduate Teaching Assistant for three courses: Foundations of Software Engineering, Software Requirements \& Interaction Design and Introduction to Graduate Studies}
+% \skill{Graduate Teaching Assistant}{Foundations of Software Engineering (CMU - Spring 2023)}
 \skill{Student Leader}{ECE Graduate Organization (CMU - Fall 2022)}
 % \skill{Youth Icon (title)}{Won first place in a national public speaking competition among 5000 participants in March 2019.}
 
