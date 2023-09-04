@@ -16,26 +16,22 @@ import {
 import SlideUp from "../SlideUp";
 import { HoverIconLink } from "../Socials/Socials";
 
-export interface IProps {
+export interface IProject {
     name: string;
     techs: string[];
     description: string;
     github: string;
     website: string;
     imgSrc: string;
+    type: string;
+}
+
+export interface IProps {
+    project: IProject;
     side: "left" | "right";
 }
 
-const Project: React.FC<IProps> = ({
-    name,
-    techs,
-    description,
-    github,
-    website,
-    imgSrc,
-    side,
-    ...delegated
-}) => {
+const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
     return (
         <Wrapper side={side} {...delegated} id="projects">
             <SlideUp>
@@ -48,39 +44,42 @@ const Project: React.FC<IProps> = ({
                         glareMaxOpacity={0.2}
                         glareBorderRadius="8px"
                     >
-                        <Image src={imgSrc} alt={name} />
+                        <Image src={project.imgSrc} alt={project.name} />
                     </TiltingImage>
-                    <StaticImage src={imgSrc} alt={name} />
+                    <StaticImage src={project.imgSrc} alt={project.name} />
                 </StretchedProject>
             </SlideUp>
 
             <Info side={side}>
                 <SlideUp delay={200}>
-                    <Feature side={side}>Featured Project</Feature>
+                    <Feature side={side}>{project.type}</Feature>
                 </SlideUp>
                 <SlideUp delay={200}>
-                    <Name side={side}>{name}</Name>
+                    <Name side={side}>{project.name}</Name>
                 </SlideUp>
                 <SlideUp delay={200}>
-                    <Description side={side}>{description}</Description>
+                    <Description side={side}>{project.description}</Description>
                 </SlideUp>
                 <Techs side={side}>
-                    {techs.map((tech, idx) => (
+                    {project.techs.map((tech, idx) => (
                         <SlideUp delay={200 + idx * 100} key={tech}>
                             <Tech key={tech}>{tech}</Tech>
                         </SlideUp>
                     ))}
                 </Techs>
                 <Links side={side}>
-                    <SlideUp delay={200 + techs.length * 100}>
-                        {github.length > 0 && (
-                            <HoverIconLink href={github} target="_blank">
+                    <SlideUp delay={200 + project.techs.length * 100}>
+                        {project.github.length > 0 && (
+                            <HoverIconLink
+                                href={project.github}
+                                target="_blank"
+                            >
                                 <Github size={32} />
                             </HoverIconLink>
                         )}
                     </SlideUp>
-                    <SlideUp delay={300 + techs.length * 100}>
-                        <HoverIconLink href={website} target="_blank">
+                    <SlideUp delay={300 + project.techs.length * 100}>
+                        <HoverIconLink href={project.website} target="_blank">
                             <Website size={32} />
                         </HoverIconLink>
                     </SlideUp>
@@ -98,7 +97,7 @@ const iconStyle = `
     }
 `;
 
-const Links = styled.div<StyledProps>`
+export const Links = styled.div<StyledProps>`
     flex-shrink: 0;
     display: flex;
     gap: 32px;
@@ -128,7 +127,7 @@ const StretchedProject = styled(Stretch)`
     object-fit: cover;
 `;
 
-const Github = styled(FaGithubAlt)`
+export const Github = styled(FaGithubAlt)`
     ${iconStyle}
 `;
 
@@ -148,7 +147,7 @@ const TiltingImage = styled(Tilt)`
     }
 `;
 
-const Website = styled(IoOpen)`
+export const Website = styled(IoOpen)`
     ${iconStyle}
 
     &:hover {
@@ -162,24 +161,24 @@ interface StyledProps {
 
 const Wrapper = styled(CollegeWrapper)``;
 
-const Feature = styled(Degree)``;
+export const Feature = styled(Degree)``;
 
-const Tech = styled.p`
+export const Tech = styled.p`
     font-weight: 400;
     color: ${({ theme }) => theme.colors.primary};
     text-transform: lowercase;
     font-size: calc(14 / 16 * 1rem);
 `;
 
-const Name = styled(School)``;
+export const Name = styled(School)``;
 
-const Description = styled(Courses)`
+export const Description = styled(Courses)`
     font-weight: 400;
 `;
-const Techs = styled(Data)`
+export const Techs = styled(Data)`
     gap: 24px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 `;
 
 export default Project;

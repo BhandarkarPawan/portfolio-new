@@ -89,8 +89,8 @@ export const Wrapper = styled.div<StyledProps>`
 `;
 
 export const Stretch = styled.div`
-    margin-left: -32px;
-    margin-right: -32px;
+    /* margin-left: -32px;
+    margin-right: -32px; */
 
     ${QUERIES.desktopAndUp} {
         margin-left: 0;
