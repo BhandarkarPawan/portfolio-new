@@ -53,6 +53,7 @@ body {
 
 .App {
     overflow: auto;
+    overflow-x: hidden;
 } 
 
 `;
