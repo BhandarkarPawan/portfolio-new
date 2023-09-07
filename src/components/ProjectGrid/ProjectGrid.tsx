@@ -142,7 +142,7 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
         <Wrapper id="other-projects">
             <SubTitle>
                 Other Projects
-                <SubText>Tap on a project to learn more about it!</SubText>
+                <SubText>Tap on a project to learn more!</SubText>
             </SubTitle>
 
             <Grid {...delegated}>
