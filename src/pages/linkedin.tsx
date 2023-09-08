@@ -1,7 +1,7 @@
 export const getServerSideProps = async () => {
     return {
         redirect: {
-            destination: "https://www.linkedin.com/in/yourusername/",
+            destination: "https://www.linkedin.com/in/bhandarkar/",
             permanent: false,
         },
     };
