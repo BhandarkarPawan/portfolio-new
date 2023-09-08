@@ -343,20 +343,22 @@ const Grid = styled.div`
 `;
 
 const ProjectThumbnail = styled.img`
+    position: relative;
+    z-index: 1;
+
     border-radius: 8px;
     display: inline;
     object-fit: cover;
     height: 100%;
     transition: all 0.3s ease-in;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
 
     &:hover {
         cursor: pointer;
         transition: transform 0.1s ease-out;
         transform: translateY(-8px) scale(1.02);
-        box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.6);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
     }
-    z-index: 2;
 `;
 
 const ThumbnailWrapper = styled.div`
