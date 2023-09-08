@@ -15,6 +15,9 @@
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+
 
 
 \pagestyle{fancy}
@@ -121,9 +124,9 @@
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 
     \textbf{{\LARGE Pawan Bhandarkar}}\\
-    Mountain View, CA & Portfolio:\href{https://www.bhandarkar.me/}{ \color{blue}{https://bhandarkar.me}} \\
-    Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me}   &   Github:\href{https://github.com/BhandarkarPawan}{ \color{blue}{https://github.com/BhandarkarPawan}}\\
-    Mobile : +1(650)537-7341 &  Linkedin:\href{https://www.linkedin.com/in/bhandarkar/}{ \color{blue}{https://www.linkedin.com/in/bhandarkar}} \\
+    Mountain View, CA & \textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}} \\
+    Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me}   &   Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}\\
+    Mobile : +1(650)537-7341 &  Linkedin: \href{https://www.linkedin.com/in/bhandarkar/}{bhandarkar.me/linkedin} \\
 
 \end{tabular*}
 
@@ -161,8 +164,8 @@
 
 %-------- SKILLS------------
 \shortSection{Skills}
-\skill {Languages \hspace{4pt}}{JavaScript, TypeScript, Python, Java, C++, C\#, Go, GraphQL}
-\skill {Tools\hspace{32pt}}{AWS, ActiveMQ, Azure, Docker, Kafka, Redis, Terraform, Kubernetes, Linux, gRPC, New Relic}
+\skill {Languages \hspace{4pt}}{JavaScript (ECMAScript 6), TypeScript, Python, Java, C++, C\#, Go, GraphQL}
+\skill {Tools\hspace{32pt}}{Kafka, AWS, ActiveMQ, Azure, Docker, Redis, Terraform, Kubernetes, Linux, gRPC, New Relic}
 \skill {Frameworks}{React, Flask, PostgreSQL, Flutter, Redux, NodeJS, Express, MongoDB}
 \skill {Soft Skills\hspace{10pt}}{Communication (verbal and written), Leadership, Collaboration, Mentorship}
 
@@ -180,6 +183,7 @@
 % \resumeItemWithoutTitle{Thrived in a fast-paced environment, pioneering subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
 \resumeItemWithoutTitle{Spearheaded the development of subscription-based APIs using WebSockets, enhancing real-time data delivery for up to 7.5M monthly users. Utilized Test-Driven Development in Go to ensure a robust GraphQL API gateway}
 
+
 % \resumeItemWithoutTitle{Built data communication pipelines using Apache ActiveMQ and Redis Streams (AWS ElastiCache)}
 \resumeItemWithoutTitle{Engineered high-throughput data communication pipelines using Apache ActiveMQ and Redis Streams, processing over 2 million messages per day, with latencies under 30 ms, on AWS ElastiCache}
 
@@ -190,7 +194,11 @@
 \resumeItemWithoutTitle{Automated microservice deployment using Terraform and Kubernetes. Maintained 99.9\% uptime with New Relic monitoring}
 
 \resumeItemWithoutTitle{Expanded the C\# (.NET Core) monolith codebase with support for live streaming metadata for over 120,000 radio stations}
-\resumeItemWithoutTitle{Collaborated with Product and Data Engineering teams to plan and prioritize related Jira tickets }
+
+% \resumeItemWithoutTitle{Collaborated with Product and Data Engineering teams to plan and prioritize related Jira tickets }
+\resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
+
+
 \resumeItemListEnd
 
 \vspace{5pt}
@@ -203,13 +211,20 @@
 % \resumeItemWithoutTitle{Developed a component library with React v16, CSS, and TypeScript for an unmanned store}
 \resumeItemWithoutTitle{Created a React component library, reducing UI variants by 50\% to enhance consistency in the POS for an unmanned store}
 
-% \resumeItemWithoutTitle{Led the development of a payment microservice with Python, Flask, and PostgreSQL with HTTPS/SSL for enhanced security}
-\resumeItemWithoutTitle{Led the development of a payment microservice, handling 200 transactions per hour, with gRPC, Flask and PostgreSQL}
-
 % \resumeItemWithoutTitle{Engineered a full-stack information management system using Python, SQL, GraphQL, and React v16}
 \resumeItemWithoutTitle{Engineered an information management system for serving up to 150,000 users daily,  with React, Python, SQL and GraphQL}
 
-\resumeItemWithoutTitle{Deployed applications using Docker and AWS (ECR + ECS) and configured CloudWatch for monitoring}
+\resumeItemWithoutTitle{Conducted A/B tests to understand user behavior, tailoring the information management system to better suit user needs}
+
+\resumeItemWithoutTitle{Engaged in cross-functional meetings with PMs and designers to ensure alignment between user needs and development tasks}
+
+% \resumeItemWithoutTitle{Led the development of a payment microservice with Python, Flask, and PostgreSQL with HTTPS/SSL for enhanced security}
+\resumeItemWithoutTitle{Led the development of a payment microservice, handling 200 transactions per hour, with gRPC, Flask and PostgreSQL}
+
+% \resumeItemWithoutTitle{Deployed applications using Docker and AWS (ECR + ECS) and configured CloudWatch for monitoring}
+
+
+
 \resumeItemListEnd
 
 \vspace{2pt}
@@ -220,7 +235,7 @@
 \resumeItemWithoutTitle{Slashed total API calls by 80\% by pioneering the use of Redux, contributing to a 20\% improvement in app load times}
 \resumeItemWithoutTitle{Integrated 30+ RESTful APIs leveraging Apiary and Postman, resulting in enhanced app functionality}
 \resumeItemWithoutTitle{Set up a Jenkins CI/CD pipeline that automated 100+ weekly builds, while utilizing AWS services like ECR, ECS, S3, and AWS Fargate for seamless DevOps}
-\resumeItemWithoutTitle{Developed a Unet-based AI image annotation tool, elevating data pre-processing rates from 20 to 200+ images/hour}
+% \resumeItemWithoutTitle{Developed a Unet-based AI image annotation tool, elevating data pre-processing rates from 20 to 200+ images/hour}
 \resumeItemListEnd
 
 % \vspace{2pt}
