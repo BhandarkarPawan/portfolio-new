@@ -60,12 +60,12 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
                 </SlideUp>
             </AboutMe>
             <Picture>
-                <Source media={MIN_WIDTH.desktop} srcSet="images/pawan.png" />
+                <Source media={MIN_WIDTH.desktop} srcSet="images/pawan-2.png" />
                 <Source
                     media={MIN_WIDTH.tablet}
                     srcSet="images/pawan-small.png"
                 />
-                <Image src="images/pawan.png" alt="Pawan Bhandarkar" />
+                <Image src="images/pawan-2.png" alt="Pawan Bhandarkar" />
             </Picture>
         </Wrapper>
     );
