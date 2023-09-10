@@ -35,14 +35,15 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
                 <SlideUp>
                     <Description>
                         I have 2+ years of experience working as a Full-Stack
-                        developer and recently, I’ve been diving deeper into UX
-                        design through my course work at Carnegie Mellon
-                        University. My goal is to not only write code that is{" "}
-                        <Highlight>clean, modular</Highlight>, and{" "}
+                        developer and recently, I’ve been diving deeper into
+                        Cloud Technology through my course work at Carnegie
+                        Mellon University. My goal is to not only write code
+                        that is <Highlight>clean, modular</Highlight>, and{" "}
                         <Highlight>well-tested</Highlight> but to build products
-                        that are <Highlight>feasible</Highlight>,{" "}
-                        <Highlight>usable</Highlight> and{" "}
-                        <Highlight>useful</Highlight> to the customer.
+                        that are <Highlight>usable</Highlight>,{" "}
+                        <Highlight>performant</Highlight> and can{" "}
+                        <Highlight>scale</Highlight> to meet the needs of your
+                        dynamic business.
                     </Description>
                 </SlideUp>
                 <SlideUp>
