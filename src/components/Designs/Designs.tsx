@@ -16,7 +16,7 @@ const DESIGNS = [
     {
         name: "Refriendo",
         imgSrc: "/images/refriendo.png",
-        url: "https://www.figma.com/file/FpWVddCZKdJz5V7ADe4eb5/Refriendo?node-id=0%3A1",
+        url: "https://www.figma.com/proto/FpWVddCZKdJz5V7ADe4eb5/Refriendo?page-id=0%3A1&type=design&node-id=107-711&viewport=909%2C-2546%2C0.45&t=BMoWNBJdA12crgZP-1&scaling=scale-down&starting-point-node-id=107%3A711&show-proto-sidebar=1&mode=design",
         description:
             "Refriendo  was a freelancing project I took up for a startup in my home town. I designed the mobile UI using Figma and built the frontend using React and Ionic Capacitor.",
     },
