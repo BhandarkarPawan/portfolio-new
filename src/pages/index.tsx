@@ -33,7 +33,7 @@ export default function Home({
                     scrollDirection={scrollDirection}
                     toggleTheme={toggleTheme}
                 />
-                <Hero theme={theme} />
+                <Hero />
                 <About theme={theme} />
                 <Experiences />
                 <Projects />
