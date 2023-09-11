@@ -44,7 +44,9 @@ const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
                         glareMaxOpacity={0.2}
                         glareBorderRadius="8px"
                     >
-                        <Image src={project.imgSrc} alt={project.name} />
+                        <a href={project.website}>
+                            <Image src={project.imgSrc} alt={project.name} />
+                        </a>
                     </TiltingImage>
                     <StaticImage src={project.imgSrc} alt={project.name} />
                 </StretchedProject>

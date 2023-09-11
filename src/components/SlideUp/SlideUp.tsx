@@ -65,7 +65,7 @@ const Wrapper = styled.div<StyledProps>`
         animation: ${({ visible }) =>
             visible ? "slideUp 0.5s ease-in forwards" : ""};
         animation-delay: ${({ delay }) =>
-            delay ? `${delay + 200}ms` : "200ms"};
+            delay ? `${delay + 100}ms` : "100ms"};
         height: fit-content;
         z-index: ${({ zIndex }) => (zIndex ? zIndex : 0)};
     }
