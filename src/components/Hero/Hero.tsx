@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Highlight from "../Highlight";
 import Link from "../Link";
 
-const Hero = ({ theme }: { theme: "dark" | "light" }) => {
+const Hero = () => {
     const scrollToContact = () => {
         const contact = document.getElementById("contact");
         contact!.scrollIntoView({ behavior: "smooth" });
@@ -21,10 +21,7 @@ const Hero = ({ theme }: { theme: "dark" | "light" }) => {
         width: 0,
     });
 
-    const color =
-        theme === "dark"
-            ? "hsla(44, 100%, 69%, 0.3)"
-            : "hsla(202, 92%, 38%, 0.3)";
+    const color = "hsla(0, 0%, 60%, 0.5)";
 
     // TODO: Refactor this into a custom hook
     const draw = (
