@@ -16,7 +16,9 @@
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
+\usepackage{qrcode}
 \graphicspath{ {./} }
+\usepackage{multirow} % For multirow support
 
 
 
@@ -122,14 +124,11 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-
-    \textbf{{\LARGE Pawan Bhandarkar}}\\
-    Mountain View, CA & \textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}} \\
-    Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me}   &   Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}\\
-    Mobile : +1(650)537-7341 &  Linkedin: \href{https://www.linkedin.com/in/bhandarkar/}{bhandarkar.me/linkedin} \\
-
+    \textbf{{\LARGE Pawan Bhandarkar}} & \makebox[0pt][r]{\multirow{4}{*}{\qrcode[height=0.6in]{https://bhandarkar.me}}} \\
+    Mountain View, CA & \makebox[0pt][r]{\textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}}}\hspace{5.4em} \\
+    Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me} & \makebox[0pt][r]{Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}}\hspace{5.4em} \\
+    Mobile : +1(650)537-7341 & \makebox[0pt][r]{Linkedin: \href{https://www.linkedin.com/in/bhandarkar/}{bhandarkar.me/linkedin}}\hspace{5.4em} \\
 \end{tabular*}
-
 
 %-----------SUMMARY-----------------
 % \shortSection {Summary}
@@ -181,19 +180,18 @@
 
 % \resumeItemWithoutTitle{Pioneered subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
 % \resumeItemWithoutTitle{Thrived in a fast-paced environment, pioneering subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
-\resumeItemWithoutTitle{Spearheaded the development of subscription-based APIs using WebSockets, enhancing real-time data delivery for up to 7.5M monthly users. Utilized Test-Driven Development in Go to ensure a robust GraphQL API gateway}
-
+\resumeItemWithoutTitle{Enhanced real-time data delivery for up to \textbf{7.5 Million monthly users} by spearheading the development of subscription-based APIs using WebSockets. Utilized Test-Driven Development in Go to ensure a robust GraphQL API gateway}
 
 % \resumeItemWithoutTitle{Built data communication pipelines using Apache ActiveMQ and Redis Streams (AWS ElastiCache)}
-\resumeItemWithoutTitle{Engineered high-throughput data communication pipelines using Apache ActiveMQ and Redis Streams, processing over 2 million messages per day, with latencies under 30 ms, on AWS ElastiCache}
+\resumeItemWithoutTitle{Engineered high-throughput data communication pipelines, processing over \textbf{2 Million messages per day} with latencies under \textbf{30 ms} using Apache ActiveMQ and Redis Streams on AWS ElastiCache}
 
 % \resumeItemWithoutTitle{Wrote comprehensive test suites and load-tested the microservice to ensure production-readiness}
-\resumeItemWithoutTitle{Achieved 95\% code coverage with test suites and load-tested for 100,000 concurrent requests to ensure production readiness}
+\resumeItemWithoutTitle{Achieved \textbf{95\% code coverage} with testing and load-tested \textbf{100,000 concurrent requests} to ensure production readiness}
 
 % \resumeItemWithoutTitle{Deployed microservices with Infrastructure as Code using Terraform and Kubernetes and monitored them using New Relic}
-\resumeItemWithoutTitle{Automated microservice deployment using Terraform and Kubernetes. Maintained 99.9\% uptime with New Relic monitoring}
+\resumeItemWithoutTitle{Automated microservice deployment with Terraform and Kubernetes. Maintained \textbf{99.9\% uptime} with New Relic monitoring}
 
-\resumeItemWithoutTitle{Expanded the C\# (.NET Core) monolith codebase with support for live streaming metadata for over 120,000 radio stations}
+\resumeItemWithoutTitle{Expanded the legacy C\# (.NET Core) monolith with support for live streaming metadata for over \textbf{120,000 radio stations}}
 
 % \resumeItemWithoutTitle{Collaborated with Product and Data Engineering teams to plan and prioritize related Jira tickets }
 \resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
@@ -209,17 +207,18 @@
 \resumeItemListStart
 
 % \resumeItemWithoutTitle{Developed a component library with React v16, CSS, and TypeScript for an unmanned store}
-\resumeItemWithoutTitle{Created a React component library, reducing UI variants by 50\% to enhance consistency in the POS for an unmanned store}
+\resumeItemWithoutTitle{Created a React component library, \textbf{elimitating 50\% of UI variants}, enhancing consistency in a POS system}
 
 % \resumeItemWithoutTitle{Engineered a full-stack information management system using Python, SQL, GraphQL, and React v16}
-\resumeItemWithoutTitle{Engineered an information management system for serving up to 150,000 users daily,  with React, Python, SQL and GraphQL}
+\resumeItemWithoutTitle{Engineered an information management system for serving up to \textbf{150,000 users daily},  with Python, SQL and GraphQL}
+
+% \resumeItemWithoutTitle{Led the development of a payment microservice with Python, Flask, and PostgreSQL with HTTPS/SSL for enhanced security}
+\resumeItemWithoutTitle{Led the development of a payment microservice, handling \textbf{200 transactions per hour}, with gRPC, Flask and PostgreSQL}
 
 \resumeItemWithoutTitle{Conducted A/B tests to understand user behavior, tailoring the information management system to better suit user needs}
 
 \resumeItemWithoutTitle{Engaged in cross-functional meetings with PMs and designers to ensure alignment between user needs and development tasks}
 
-% \resumeItemWithoutTitle{Led the development of a payment microservice with Python, Flask, and PostgreSQL with HTTPS/SSL for enhanced security}
-\resumeItemWithoutTitle{Led the development of a payment microservice, handling 200 transactions per hour, with gRPC, Flask and PostgreSQL}
 
 % \resumeItemWithoutTitle{Deployed applications using Docker and AWS (ECR + ECS) and configured CloudWatch for monitoring}
 
@@ -232,9 +231,9 @@
 {Software Engineer 1}{Feb 2020 - Oct 2021}
 \vspace{0pt}
 \resumeItemListStart
-\resumeItemWithoutTitle{Slashed total API calls by 80\% by pioneering the use of Redux, contributing to a 20\% improvement in app load times}
-\resumeItemWithoutTitle{Integrated 30+ RESTful APIs leveraging Apiary and Postman, resulting in enhanced app functionality}
-\resumeItemWithoutTitle{Set up a Jenkins CI/CD pipeline that automated 100+ weekly builds, while utilizing AWS services like ECR, ECS, S3, and AWS Fargate for seamless DevOps}
+\resumeItemWithoutTitle{\textbf{Slashed total API calls by 80\%} by pioneering the use of Redux, contributing to a \textbf{20\% improvement} in app load times}
+\resumeItemWithoutTitle{\textbf{Integrated 30+ RESTful APIs} leveraging Apiary and Postman, resulting in enhanced app functionality}
+\resumeItemWithoutTitle{Set up a Jenkins CI/CD pipeline that automated \textbf{100+ weekly builds}, while utilizing AWS services like ECR, ECS, S3, and AWS Fargate for seamless DevOps}
 % \resumeItemWithoutTitle{Developed a Unet-based AI image annotation tool, elevating data pre-processing rates from 20 to 200+ images/hour}
 \resumeItemListEnd
 
@@ -253,30 +252,43 @@
 
 
 \shortSection{Projects}
-\vspace{3pt}
-\projectHeadingWithLink {Kanban Task Manager}{React, EC2, ECR, Docker, NodeJS, MongoDB}{Jan 2023 - Present}{https://kanbhan.com}
-\resumeItemListStart
 
-% \resumeItemWithoutTitle{Developed a highly accessible Kanban Task Manager using Client-Server architecture with React Hooks and Context API focussing on A11y, Semantic HTML, and ARIA labels, which ensured usability with screen readers such as Apple Voice-Over. Generated clear API documentation with API Blueprint and Postman}
-\resumeItemWithoutTitle{Developed a responsive web app with pixel perfect user interfaces based on Figma designs. Used Client-Server architecture with dynamic theming and drag-and-drop UI, focusing on A11y, ARIA and Semantic HTML. Deployed to AWS EC2 using Docker and ECR with a CI/CD pipeline using Github Actions. Handled security with HTTPS/SSL on the AWS Load Balancer}
-\resumeItemListEnd
 
 
 \vspace{3pt}
 \projectHeading {Incident Response}{React, CloudFront, Docker, Socket.IO, MongoDB, Jenkins}{Feb 2023 - May 2023}
 \resumeItemListStart
 
-% Backend
-% \resumeItemWithoutTitle{Developed a communication platform for citizens and first responders during emergencies using Express.js, Socket.IO, and Mongoose. Refactored codebase and managed development in a scrum-of-scrums setting. Deployed the app using Docker, Jenkins, and AWS}
-% Frontend
+% % Backend
+% % \resumeItemWithoutTitle{Developed a communication platform for citizens and first responders during emergencies using Express.js, Socket.IO, and Mongoose. Refactored codebase and managed development in a scrum-of-scrums setting. Deployed the app using Docker, Jenkins, and AWS}
+% % Frontend
 \resumeItemWithoutTitle{Led the frontend development of a mobile-first communication platform for citizens and first responders during emergencies. Used Ant Design, Figma and Storybook for the UI, refactored the codebase and advised the team on best practices in UI development and accessibility. Deployed the app to S3 using Jenkins and CloudFront}
 \resumeItemListEnd
 
 
+% \vspace{3pt}
+% \projectHeading {Emergency Social Network}{HTML, CSS, TypeScript, NodeJS, MongoDB}{Aug 2022 - Dec 2022}
+% \resumeItemListStart
+% \resumeItemWithoutTitle{Built an emergency communication system for real-time SOS messaging during earthquakes with an MVC architecture. Utilized SCRUM and Kanban agile practices, object-oriented analysis (OOA) and test-driven development (TDD) in a fast-paced environment to create a user-friendly system with JSON-based RESTful APIs}
+% \resumeItemListEnd
+
+
 \vspace{3pt}
-\projectHeading {Emergency Social Network}{HTML, CSS, TypeScript, NodeJS, MongoDB}{Aug 2022 - Dec 2022}
+\projectHeading {Kanban Task Manager}{React, EC2, ECR, Docker, NodeJS, MongoDB}{Jan 2023 - Jun 2023}
 \resumeItemListStart
-\resumeItemWithoutTitle{Built an emergency communication system for real-time SOS messaging during earthquakes with an MVC architecture. Utilized SCRUM and Kanban agile practices, object-oriented analysis (OOA) and test-driven development (TDD) in a fast-paced environment to create a user-friendly system with JSON-based RESTful APIs}
+% \resumeItemWithoutTitle{Developed a highly accessible Kanban Task Manager using Client-Server architecture with React Hooks and Context API focussing on A11y, Semantic HTML, and ARIA labels, which ensured usability with screen readers such as Apple Voice-Over. Generated clear API documentation with API Blueprint and Postman}
+\resumeItemWithoutTitle{Developed a responsive web app with pixel perfect user interfaces based on Figma designs. Used Client-Server architecture with dynamic theming and drag-and-drop UI, focusing on A11y, ARIA and Semantic HTML. Deployed to AWS EC2 using Docker and ECR with a CI/CD pipeline using Github Actions. Handled security with HTTPS/SSL on the AWS Load Balancer}
+\resumeItemListEnd
+
+
+
+
+
+
+\vspace{3pt}
+\projectHeading {Cloud Resource Optimization}{AWS, Terraform, Python}{Sept 2023 - Present}
+\resumeItemListStart
+\resumeItemWithoutTitle{Engineered an AWS-based auto-scaling solution simulating 24-hour traffic in 24 minutes for a web service. Utilized Auto Scaling Groups, CloudWatch Alarms, and Load Balancers to dynamically manage CPU utilization and traffic. Deployed and versioned the infrastructure using Terraform and a CI/CD pipeline}
 \resumeItemListEnd
 
 
