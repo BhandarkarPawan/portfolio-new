@@ -141,8 +141,7 @@ const Overlay = styled.div`
     width: 100%;
     height: 100%;
     color: black;
-
-    background-color: var(--color-dark-primary-hover);
+    background-color: ${({ theme }) => theme.colors.background.hover};
     transition: var(--transition);
 
     &:hover {

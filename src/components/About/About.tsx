@@ -7,15 +7,24 @@ import SlideUp from "../SlideUp";
 
 export interface IProps {
     delegated?: any;
+    theme: "dark" | "light";
 }
 
 const About: React.FC<React.PropsWithChildren<IProps>> = ({
     children,
+    theme,
     ...delegated
 }) => {
     const downloadResume = () => {
         window.open("/files/resume.pdf", "_blank");
     };
+
+    const aboutUrl =
+        theme === "light" ? "images/pawan-2-light.png" : "images/pawan-2.png";
+    const aboutUrlSmall =
+        theme === "light"
+            ? "images/pawan-small-light.png"
+            : "images/pawan-small.png";
 
     return (
         <Wrapper {...delegated} id="about">
@@ -60,12 +69,12 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
                 </SlideUp>
             </AboutMe>
             <Picture>
-                <Source media={MIN_WIDTH.desktop} srcSet="images/pawan-2.png" />
+                <Source media={MIN_WIDTH.desktop} srcSet={aboutUrl} />
                 <Source
                     media={MIN_WIDTH.tablet}
                     srcSet="images/pawan-small.png"
                 />
-                <Image src="images/pawan-2.png" alt="Pawan Bhandarkar" />
+                <Image src={aboutUrl} alt="Pawan Bhandarkar" />
             </Picture>
         </Wrapper>
     );

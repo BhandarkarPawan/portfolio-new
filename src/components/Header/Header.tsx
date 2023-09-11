@@ -2,19 +2,26 @@ import Navigation from "@/components/Navigation";
 import { QUERIES } from "breakpoints";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 import styled from "styled-components";
 import { SocialIcons } from "../Socials/Socials";
 
 const Header = ({
     scrollDirection,
+    theme,
+    toggleTheme,
 }: {
     scrollDirection: "up" | "down" | undefined;
+    theme: "light" | "dark";
+    toggleTheme: () => void;
 }) => {
     const [showSidebar, setShowSidebar] = useState(false);
     const toggleSidebar = () => {
         setShowSidebar((prev) => !prev);
     };
 
+    const logoUrl =
+        theme === "light" ? "/images/logo-light.png" : "/images/logo.png";
     return (
         <>
             <Overlay show={showSidebar} onClick={toggleSidebar}>
@@ -28,12 +35,30 @@ const Header = ({
                 </Sidebar>
             </Overlay>
             <Wrapper scrollDirection={scrollDirection}>
-                <Logo src="/images/logo.png" alt="Logo" />
+                {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
+
+                <Logo src={logoUrl} alt="Logo" />
                 <Navbar>
                     <Navigation />
+                    <DarkModeSwitch
+                        style={{ marginLeft: "2em" }}
+                        checked={theme === "dark"}
+                        onChange={toggleTheme}
+                        size={24}
+                    />
                 </Navbar>
 
                 <MenuButton>
+                    <DarkModeSwitch
+                        style={{
+                            marginLeft: "auto",
+                            alignSelf: "center",
+                            marginRight: "1em",
+                        }}
+                        checked={theme === "dark"}
+                        onChange={toggleTheme}
+                        size={32}
+                    />
                     <Hamburger toggled={showSidebar} onToggle={toggleSidebar} />
                 </MenuButton>
             </Wrapper>
@@ -158,7 +183,7 @@ const Sidebar = styled.nav<{ show: boolean }>`
 `;
 
 const MenuButton = styled.button`
-    display: block;
+    display: flex;
 
     ${QUERIES.tabletAndUp} {
         display: none;

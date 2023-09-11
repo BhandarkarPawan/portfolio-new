@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Highlight from "../Highlight";
 import Link from "../Link";
 
-const Hero = () => {
+const Hero = ({ theme }: { theme: "dark" | "light" }) => {
     const scrollToContact = () => {
         const contact = document.getElementById("contact");
         contact!.scrollIntoView({ behavior: "smooth" });
@@ -21,6 +21,11 @@ const Hero = () => {
         width: 0,
     });
 
+    const color =
+        theme === "dark"
+            ? "hsla(44, 100%, 69%, 0.3)"
+            : "hsla(202, 92%, 38%, 0.3)";
+
     // TODO: Refactor this into a custom hook
     const draw = (
         canvas: HTMLCanvasElement,
@@ -33,7 +38,7 @@ const Hero = () => {
 
         ctx.beginPath();
         ctx.lineWidth = 5;
-        ctx.strokeStyle = "hsla(44, 100%, 69%, 0.3)";
+        ctx.strokeStyle = color;
         ctx.lineCap = "round";
 
         interface ILine {
@@ -101,7 +106,7 @@ const Hero = () => {
                     5,
                     999
                 );
-                ctx.fillStyle = "hsla(44, 100%, 69%, 0.3)";
+                ctx.fillStyle = color;
                 ctx.fill();
             } else {
                 ctx.beginPath();

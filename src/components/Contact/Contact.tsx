@@ -98,10 +98,6 @@ const Sticky = styled.div`
 `;
 
 const Input = styled.textarea`
-    &::placeholder {
-        color: var(--color-placeholder);
-    }
-
     flex: 1;
     background-color: transparent;
     border: none;
@@ -150,7 +146,7 @@ const DesktopTitle = styled(SectionTitle)`
 
 const Message = styled.p`
     z-index: 1;
-    background-color: ${({ theme }) => theme.colors.background.light};
+    background-color: ${({ theme }) => theme.colors.background.dark};
     padding: 32px;
     margin-left: -32px;
     margin-right: -32px;

@@ -15,8 +15,12 @@ import styled from "styled-components";
 
 export default function Home({
     scrollDirection,
+    theme,
+    toggleTheme,
 }: {
     scrollDirection: "up" | "down" | undefined;
+    theme: "light" | "dark";
+    toggleTheme: () => void;
 }) {
     return (
         <>
@@ -24,9 +28,13 @@ export default function Home({
             <Socials />
             <Email />
             <Grid>
-                <Header scrollDirection={scrollDirection} />
-                <Hero />
-                <About />
+                <Header
+                    theme={theme}
+                    scrollDirection={scrollDirection}
+                    toggleTheme={toggleTheme}
+                />
+                <Hero theme={theme} />
+                <About theme={theme} />
                 <Experiences />
                 <Projects />
                 <Technical />

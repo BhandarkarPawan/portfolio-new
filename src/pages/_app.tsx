@@ -2,13 +2,19 @@ import GlobalStyles from "@/styles/globalStyles";
 import ResetStyles from "@/styles/resetStyles";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import DARK_THEME from "theme";
+import { DARK_THEME, LIGHT_THEME } from "theme";
 
 export default function App({ Component, pageProps }: AppProps) {
     const [lastScrollTop, setLastScrollTop] = useState<number>(0);
     const [scrollDirection, setScrollDirection] = useState<string>();
+
+    const [theme, setTheme] = useState<"light" | "dark">("dark");
+    const toggleTheme = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    };
+    const activeTheme = theme === "light" ? LIGHT_THEME : DARK_THEME;
 
     const ref = useRef<HTMLDivElement>(null);
     const handleScroll = () => {
@@ -26,6 +32,31 @@ export default function App({ Component, pageProps }: AppProps) {
         }
         setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
     };
+
+    const [documentMounted, setDocumentMounted] = useState(false);
+    // run after document mounted
+    useEffect(() => {
+        setDocumentMounted(true);
+    }, []);
+
+    if (documentMounted) {
+        const body = document.querySelector("body");
+        if (body) {
+            body.style.backgroundColor = activeTheme.colors.background.regular;
+            body.style.color = activeTheme.colors.text.regular;
+        }
+    }
+
+    // return (
+    //     <div>
+    //         <DarkModeSwitch
+    //             style={{ marginBottom: "2rem" }}
+    //             checked={theme === "dark"}
+    //             onChange={toggleTheme}
+    //             size={80}
+    //         />
+    //     </div>
+    // );
 
     return (
         <div className="App" onScroll={handleScroll} ref={ref}>
@@ -64,11 +95,16 @@ export default function App({ Component, pageProps }: AppProps) {
                 </script>
             </Head>
 
-            <ThemeProvider theme={DARK_THEME}>
+            <ThemeProvider theme={activeTheme}>
                 {/* Basic OG tags */}
                 <ResetStyles />
                 <GlobalStyles />
-                <Component {...pageProps} scrollDirection={scrollDirection} />
+                <Component
+                    {...pageProps}
+                    scrollDirection={scrollDirection}
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                />
             </ThemeProvider>
         </div>
     );

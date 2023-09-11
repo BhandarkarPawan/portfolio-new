@@ -14,6 +14,7 @@ declare module "styled-components" {
                 regular: string;
                 dark: string;
                 light: string;
+                hover: string;
             };
             footer: string;
         };
