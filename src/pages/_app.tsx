@@ -2,12 +2,33 @@ import GlobalStyles from "@/styles/globalStyles";
 import ResetStyles from "@/styles/resetStyles";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useRef, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import DARK_THEME from "theme";
 
 export default function App({ Component, pageProps }: AppProps) {
+    const [lastScrollTop, setLastScrollTop] = useState<number>(0);
+    const [scrollDirection, setScrollDirection] = useState<string>();
+
+    const ref = useRef<HTMLDivElement>(null);
+    const handleScroll = () => {
+        const scrollTop = ref.current?.scrollTop || 0;
+        // only update if the scroll is more than 5px
+        if (Math.abs(scrollTop - lastScrollTop) < 100) {
+            return;
+        }
+
+        console.log(scrollTop, lastScrollTop);
+        if (scrollTop > lastScrollTop) {
+            setScrollDirection("down");
+        } else {
+            setScrollDirection("up");
+        }
+        setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
+    };
+
     return (
-        <div className="App">
+        <div className="App" onScroll={handleScroll} ref={ref}>
             <Head>
                 <meta charSet="utf-8" />
                 <meta
@@ -47,7 +68,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 {/* Basic OG tags */}
                 <ResetStyles />
                 <GlobalStyles />
-                <Component {...pageProps} />
+                <Component {...pageProps} scrollDirection={scrollDirection} />
             </ThemeProvider>
         </div>
     );

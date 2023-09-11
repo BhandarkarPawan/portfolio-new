@@ -5,21 +5,19 @@ import { useState } from "react";
 import styled from "styled-components";
 import { SocialIcons } from "../Socials/Socials";
 
-const Header = () => {
+const Header = ({
+    scrollDirection,
+}: {
+    scrollDirection: "up" | "down" | undefined;
+}) => {
     const [showSidebar, setShowSidebar] = useState(false);
-
     const toggleSidebar = () => {
         setShowSidebar((prev) => !prev);
     };
 
     return (
         <>
-            <Overlay show={showSidebar} onClick={toggleSidebar} />
-            <Wrapper>
-                <Logo src="/images/logo.png" alt="Logo" />
-                <Navbar>
-                    <Navigation />
-                </Navbar>
+            <Overlay show={showSidebar} onClick={toggleSidebar}>
                 <Sidebar show={showSidebar}>
                     <NavigationWrapper>
                         <Navigation />
@@ -28,6 +26,13 @@ const Header = () => {
                         <SocialIcons />
                     </IconWrapper>
                 </Sidebar>
+            </Overlay>
+            <Wrapper scrollDirection={scrollDirection}>
+                <Logo src="/images/logo.png" alt="Logo" />
+                <Navbar>
+                    <Navigation />
+                </Navbar>
+
                 <MenuButton>
                     <Hamburger toggled={showSidebar} onToggle={toggleSidebar} />
                 </MenuButton>
@@ -66,20 +71,36 @@ const Logo = styled.img`
     }
 `;
 
-const Wrapper = styled.div`
+interface IStyledProps {
+    scrollDirection: "up" | "down" | undefined;
+}
+
+const Wrapper = styled.div<IStyledProps>`
+    position: sticky;
+    top: 0;
+    background-color: ${({ theme }) => theme.colors.background.blur};
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     grid-area: header;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
 
-    padding: 8px 32px;
+    padding: 8px 16px;
+
+    transform: translateY(
+        ${({ scrollDirection }) => (scrollDirection === "down" ? "-100%" : "0")}
+    );
 
     ${QUERIES.tabletAndUp} {
-        padding: 12px 32px;
+        padding: 8px 32px;
     }
 
     ${QUERIES.desktopAndUp} {
-        padding: 16px 64px;
+        padding-left: 64px;
+        padding-right: 64px;
     }
 `;
 
@@ -145,7 +166,7 @@ const MenuButton = styled.button`
 `;
 
 const Overlay = styled.div<{ show: boolean }>`
-    z-index: 998;
+    z-index: 1000;
     position: fixed;
     top: 0;
     left: 0;

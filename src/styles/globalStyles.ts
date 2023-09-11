@@ -29,6 +29,7 @@ html{
 	--color-dark-text-dark: hsl(44, 100%, 69%);
 	--color-dark-background-regular: hsl(214, 36%, 24%);
 	--color-dark-background-dark: hsl(214, 36%, 18%);
+    --color-dark-background-blur: hsl(214, 36%, 24%, 0.75);
 	--color-dark-background-light: hsl(214, 36%, 28%);
 	--color-footer: hsl(214, 36%, 12%);
 	--transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);

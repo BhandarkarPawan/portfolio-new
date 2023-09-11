@@ -35,7 +35,7 @@ const Wrapper = styled.div<SplashProps>`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 100;
+    z-index: 999999999;
     background-color: ${({ theme }) => theme.colors.background.dark};
 
     @keyframes fadeOut {
@@ -48,7 +48,7 @@ const Wrapper = styled.div<SplashProps>`
     }
 
     pointer-events: none;
-    animation: fadeOut 500ms 4s ease-in-out forwards;
+    animation: fadeOut 500ms 3s ease-in-out forwards;
 `;
 
 const Logo = styled.img`
@@ -85,7 +85,7 @@ const Logo = styled.img`
         }
     }
 
-    animation: zoomIn 800ms ease-in-out, zoomOut 500ms 3s ease-in-out forwards;
+    animation: zoomIn 800ms ease-in-out, zoomOut 500ms 2s ease-in-out forwards;
 `;
 
 export default Splash;

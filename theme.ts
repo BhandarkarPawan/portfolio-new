@@ -7,6 +7,7 @@ const DARK_THEME = {
             dark: "var(--color-dark-text-dark)",
         },
         background: {
+            blur: "var(--color-dark-background-blur)",
             regular: "var(--color-dark-background-regular)",
             dark: "var(--color-dark-background-dark)",
             light: "var(--color-dark-background-light)",

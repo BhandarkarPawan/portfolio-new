@@ -10,6 +10,7 @@ declare module "styled-components" {
                 dark: string;
             };
             background: {
+                blur: string;
                 regular: string;
                 dark: string;
                 light: string;

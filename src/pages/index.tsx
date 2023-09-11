@@ -13,14 +13,18 @@ import Splash from "@/components/Splash";
 import Technical from "@/components/Technical";
 import styled from "styled-components";
 
-export default function Home() {
+export default function Home({
+    scrollDirection,
+}: {
+    scrollDirection: "up" | "down" | undefined;
+}) {
     return (
         <>
             <Splash />
             <Socials />
             <Email />
             <Grid>
-                <Header />
+                <Header scrollDirection={scrollDirection} />
                 <Hero />
                 <About />
                 <Experiences />
