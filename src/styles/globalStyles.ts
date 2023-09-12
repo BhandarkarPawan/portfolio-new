@@ -61,6 +61,8 @@ body {
 	width: 100%;
     overflow: hidden;
 
+    background-color: var(--color-dark-background-regular);
+	color: var(--color-dark-text-regular);
 }
 
 .App {
