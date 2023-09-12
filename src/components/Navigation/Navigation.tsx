@@ -5,10 +5,22 @@ import styled from "styled-components";
 const Navigation = () => {
     return (
         <>
-            <NavLink href="#about">about</NavLink>
-            <NavLink href="#projects">projects</NavLink>
-            <NavLink href="#designs">designs</NavLink>
-            <NavLink href="#contact">contact</NavLink>
+            <NavLink href="#about">
+                <LinkText>about</LinkText>
+                about
+            </NavLink>
+            <NavLink href="#projects">
+                <LinkText>projects</LinkText>
+                projects
+            </NavLink>
+            <NavLink href="#designs">
+                <LinkText>designs</LinkText>
+                designs
+            </NavLink>
+            <NavLink href="#contact">
+                <LinkText>contact</LinkText>
+                contact
+            </NavLink>
             <DownloadLink href="files/resume.pdf" download>
                 resume
                 <FaDownload />
@@ -18,9 +30,15 @@ const Navigation = () => {
 };
 
 const NavLink = styled(Link)`
+    position: relative;
     text-decoration: none;
     color: ${({ theme }) => theme.colors.text.regular};
     font-size: calc(20 / 16 * 1rem);
+`;
+
+const LinkText = styled.p`
+    position: absolute;
+    color: ${({ theme }) => theme.colors.text.regular};
 `;
 
 const DownloadLink = styled.a`

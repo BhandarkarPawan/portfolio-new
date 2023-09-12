@@ -189,7 +189,7 @@ const ModalWrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     z-index: 999;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);

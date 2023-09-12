@@ -32,6 +32,24 @@ export default function App({ Component, pageProps }: AppProps) {
         setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
     };
 
+    const debounce = (func: any, wait = 100, immediate = false) => {
+        let timeout: any;
+        return function () {
+            // @ts-ignore
+            let context = this,
+                args = arguments;
+            let later = function () {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+
+            let callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
     const [documentMounted, setDocumentMounted] = useState(false);
     // run after document mounted
     useEffect(() => {
@@ -46,19 +64,8 @@ export default function App({ Component, pageProps }: AppProps) {
         }
     }
 
-    // return (
-    //     <div>
-    //         <DarkModeSwitch
-    //             style={{ marginBottom: "2rem" }}
-    //             checked={theme === "dark"}
-    //             onChange={toggleTheme}
-    //             size={80}
-    //         />
-    //     </div>
-    // );
-
     return (
-        <div className="App" onScroll={handleScroll} ref={ref}>
+        <div className="App" onScroll={debounce(handleScroll)} ref={ref}>
             <Head>
                 <meta charSet="utf-8" />
                 <meta
@@ -95,7 +102,6 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
 
             <ThemeProvider theme={activeTheme}>
-                {/* Basic OG tags */}
                 <ResetStyles />
                 <GlobalStyles />
                 <Component

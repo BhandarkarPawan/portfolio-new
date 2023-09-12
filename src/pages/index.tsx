@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Designs from "@/components/Designs";
+import Dots from "@/components/Dots";
 import Education from "@/components/Education";
 import Email from "@/components/Email";
 import Experiences from "@/components/Experiences";
@@ -11,6 +12,7 @@ import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
 import Splash from "@/components/Splash";
 import Technical from "@/components/Technical";
+import { useRef } from "react";
 import styled from "styled-components";
 
 export default function Home({
@@ -22,6 +24,7 @@ export default function Home({
     theme: "light" | "dark";
     toggleTheme: () => void;
 }) {
+    const boundingRect = useRef<HTMLDivElement>(null);
     return (
         <>
             <Splash />
@@ -33,7 +36,11 @@ export default function Home({
                     scrollDirection={scrollDirection}
                     toggleTheme={toggleTheme}
                 />
-                <Hero />
+                <DotWrapper ref={boundingRect}>
+                    <Dots boundingRect={boundingRect} />
+                    <Hero />
+                </DotWrapper>
+
                 <About theme={theme} />
                 <Experiences />
                 <Projects />
@@ -46,6 +53,15 @@ export default function Home({
         </>
     );
 }
+
+const DotWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: ${({ theme }) => theme.colors.background};
+`;
 
 const Grid = styled.div`
     display: flex;
