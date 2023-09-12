@@ -37,8 +37,8 @@ const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
             <SlideUp>
                 <StretchedProject>
                     <TiltingImage
-                        tiltMaxAngleX={5}
-                        tiltMaxAngleY={5}
+                        tiltMaxAngleX={3}
+                        tiltMaxAngleY={3}
                         glareEnable={true}
                         glarePosition="top"
                         glareMaxOpacity={0.2}

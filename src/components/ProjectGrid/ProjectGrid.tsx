@@ -2,6 +2,7 @@ import { QUERIES } from "breakpoints";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { FaArrowLeft, FaWindowClose } from "react-icons/fa";
+import Tilt from "react-parallax-tilt";
 import styled from "styled-components";
 import { School } from "../College/College";
 import {
@@ -46,10 +47,20 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
                 </CloseButton>
             </Toolbar>
             <Info>
-                <ProjectImage
-                    src={selectedProject?.imgSrc}
-                    alt={selectedProject?.name}
-                />
+                <CustomTilt
+                    tiltMaxAngleX={3}
+                    tiltMaxAngleY={3}
+                    // glareEnable={false}
+                    glareEnable={true}
+                    glarePosition="top"
+                    glareMaxOpacity={0.3}
+                    glareBorderRadius="12px"
+                >
+                    <ProjectImage
+                        src={selectedProject?.imgSrc}
+                        alt={selectedProject?.name}
+                    />
+                </CustomTilt>
                 <Details>
                     <FloatingHeader>
                         <Name side="right">{selectedProject.name}</Name>
@@ -96,13 +107,20 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
             <Grid {...delegated}>
                 {projects.map((project, idx) => {
                     return (
-                        <ProjectThumbnail
-                            selected={!!selectedProject}
+                        <Tilt
                             key={idx}
-                            onClick={() => setSelectedProject(project)}
-                            src={project.imgSrc}
-                            alt={project.name}
-                        />
+                            tiltMaxAngleX={3}
+                            tiltMaxAngleY={3}
+                            glareEnable={false}
+                        >
+                            <ProjectThumbnail
+                                selected={!!selectedProject}
+                                key={idx}
+                                onClick={() => setSelectedProject(project)}
+                                src={project.imgSrc}
+                                alt={project.name}
+                            />
+                        </Tilt>
                     );
                 })}
             </Grid>
@@ -285,12 +303,20 @@ export const Info = styled.div`
 `;
 
 export const ProjectImage = styled.img`
-    object-fit: cover;
-    border-radius: 8px;
-
     width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+`;
+
+const CustomTilt = styled(Tilt)`
+    border-radius: 8px;
     ${QUERIES.desktopAndUp} {
         height: 100%;
+    }
+
+    ${QUERIES.desktopAndUp} {
+        min-width: max-content;
     }
 `;
 

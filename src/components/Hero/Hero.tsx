@@ -153,8 +153,6 @@ const Hero = () => {
             height: window.innerHeight,
             width: window.innerWidth,
         });
-
-        console.log("resize");
     };
 
     const debounce = (func: any, wait = 20, immediate = false) => {

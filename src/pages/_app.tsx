@@ -24,7 +24,6 @@ export default function App({ Component, pageProps }: AppProps) {
             return;
         }
 
-        console.log(scrollTop, lastScrollTop);
         if (scrollTop > lastScrollTop) {
             setScrollDirection("down");
         } else {
