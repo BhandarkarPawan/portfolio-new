@@ -97,6 +97,7 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
                 {projects.map((project, idx) => {
                     return (
                         <ProjectThumbnail
+                            selected={!!selectedProject}
                             key={idx}
                             onClick={() => setSelectedProject(project)}
                             src={project.imgSrc}
@@ -142,7 +143,7 @@ export const HighlightedProject = styled.div<{
     background-color: ${({ theme }) => theme.colors.background.light};
 
     /* opacity: 0.9; */
-    padding: 32px;
+    padding: 24px;
     border-radius: 8px;
 
     ${QUERIES.tabletAndUp} {
@@ -342,7 +343,7 @@ const Grid = styled.div`
     }
 `;
 
-const ProjectThumbnail = styled.img`
+const ProjectThumbnail = styled.img<{ selected: boolean }>`
     position: relative;
     z-index: 1;
 
@@ -352,6 +353,8 @@ const ProjectThumbnail = styled.img`
     height: 100%;
     transition: all 0.3s ease-in;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+
+    opacity: ${(props) => (props.selected ? 0 : 1)};
 
     &:hover {
         cursor: pointer;
