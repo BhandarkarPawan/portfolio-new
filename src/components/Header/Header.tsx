@@ -91,7 +91,7 @@ const Logo = styled.img`
     flex-shrink: 0;
 
     ${QUERIES.tabletAndUp} {
-        width: 80px;
+        width: 84px;
         height: 80px;
     }
 `;

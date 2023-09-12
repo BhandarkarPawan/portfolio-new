@@ -57,7 +57,7 @@ const Logo = styled.img`
     flex-shrink: 0;
 
     ${QUERIES.tabletAndUp} {
-        width: 150px;
+        width: 154px;
         height: 150px;
     }
 
