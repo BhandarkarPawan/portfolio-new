@@ -52,7 +52,7 @@ const Wrapper = styled.div<SplashProps>`
 `;
 
 const Logo = styled.img`
-    width: 100px;
+    width: 104px;
     height: 100px;
     flex-shrink: 0;
 

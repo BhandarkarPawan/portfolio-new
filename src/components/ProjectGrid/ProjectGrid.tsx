@@ -260,7 +260,7 @@ export const CloseButton = styled.button`
 `;
 
 const SubText = styled.p`
-    color: white;
+    color: ${({ theme }) => theme.colors.text.light};
     font-size: calc(18 / 16 * 1rem);
 
     ${QUERIES.desktopAndUp} {

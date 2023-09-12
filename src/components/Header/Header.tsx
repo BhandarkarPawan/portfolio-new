@@ -86,7 +86,7 @@ const IconWrapper = styled.div`
 `;
 
 const Logo = styled.img`
-    width: 60px;
+    width: 63px;
     height: 60px;
     flex-shrink: 0;
 
