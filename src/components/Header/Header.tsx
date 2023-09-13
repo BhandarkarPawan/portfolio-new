@@ -86,13 +86,13 @@ const IconWrapper = styled.div`
 `;
 
 const Logo = styled.img`
-    width: 63px;
-    height: 60px;
+    width: 43px;
+    height: 41px;
     flex-shrink: 0;
 
     ${QUERIES.tabletAndUp} {
-        width: 84px;
-        height: 80px;
+        width: 55px;
+        height: 52px;
     }
 `;
 

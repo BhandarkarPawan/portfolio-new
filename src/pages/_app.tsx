@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
     const handleScroll = () => {
         const scrollTop = ref.current?.scrollTop || 0;
         // only update if the scroll is more than 5px
-        if (Math.abs(scrollTop - lastScrollTop) < 100) {
+        if (Math.abs(scrollTop - lastScrollTop) < 20) {
             return;
         }
 
@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
         setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
     };
 
-    const debounce = (func: any, wait = 100, immediate = false) => {
+    const debounce = (func: any, wait = 50, immediate = false) => {
         let timeout: any;
         return function () {
             // @ts-ignore
