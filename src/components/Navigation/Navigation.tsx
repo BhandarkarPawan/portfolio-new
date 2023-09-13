@@ -38,7 +38,14 @@ const NavLink = styled(Link)`
 
 const LinkText = styled.p`
     position: absolute;
-    color: ${({ theme }) => theme.colors.text.regular};
+    color: ${({ theme }) => theme.colors.primary};
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    transition: clip-path 0.4s ease-out;
+
+    ${NavLink}:hover & {
+        transition: clip-path 0.3s ease-in;
+        clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+    }
 `;
 
 const DownloadLink = styled.a`
