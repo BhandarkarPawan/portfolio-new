@@ -63,12 +63,17 @@ const Header = ({
                 </MenuButton>
             </Wrapper>
             <Banner>
-                I’m Open to work! I’m currently looking for a full-time software
-                engineering role for 2024
+                I&apos;m currently building something awesome at{" "}
+                <A href="https://www.convergelab.ai/">Convergelab.ai</A>
             </Banner>
         </>
     );
 };
+
+const A = styled.a`
+    text-decoration: underline;
+    color: ${({ theme }) => theme.colors.background.dark};
+`;
 
 const NavigationWrapper = styled.div`
     margin-top: auto;

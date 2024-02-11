@@ -16,6 +16,33 @@ const Experiences: React.FC = () => {
                     <SlideUp>
                         <Item>
                             <Image
+                                src="images/converge.png"
+                                alt="converge-lab"
+                            ></Image>
+                            <DotPrimary>
+                                <DotCore />
+                            </DotPrimary>
+                            <Connector />
+                            <Info>
+                                <MobileImage
+                                    src="images/converge.png"
+                                    alt="converge-lab"
+                                ></MobileImage>
+                                <Time>Jan 2024 - Present</Time>
+                                <Company>Converge Lab</Company>
+                                <Role>Software Engineer</Role>
+                                <Description>
+                                    Building a platform that serves as an AI
+                                    Co-Designer for Hardware Engineers to
+                                    accelerate the design process of hardware
+                                    circuits and systems
+                                </Description>
+                            </Info>
+                        </Item>
+                    </SlideUp>
+                    <SlideUp>
+                        <Item>
+                            <Image
                                 src="images/tunein.png"
                                 alt="tunein-radio"
                             ></Image>
