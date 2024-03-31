@@ -16,54 +16,55 @@ import { useRef } from "react";
 import styled from "styled-components";
 
 export default function Home({
-    scrollDirection,
-    theme,
-    toggleTheme,
+  scrollDirection,
+  theme,
+  toggleTheme,
 }: {
-    scrollDirection: "up" | "down" | undefined;
-    theme: "light" | "dark";
-    toggleTheme: () => void;
+  scrollDirection: "up" | "down" | undefined;
+  theme: "light" | "dark";
+  toggleTheme: () => void;
 }) {
-    const boundingRect = useRef<HTMLDivElement>(null);
-    return (
-        <>
-            <Splash />
-            <Socials />
-            <Email />
-            <Grid>
-                <Header
-                    theme={theme}
-                    scrollDirection={scrollDirection}
-                    toggleTheme={toggleTheme}
-                />
-                <DotWrapper ref={boundingRect}>
-                    <Dots boundingRect={boundingRect} />
-                    <Hero />
-                </DotWrapper>
+  const boundingRect = useRef<HTMLDivElement>(null);
 
-                <About theme={theme} />
-                <Experiences />
-                <Projects />
-                <Technical />
-                <Education />
-                <Designs />
-                <Contact />
-                <Footer />
-            </Grid>
-        </>
-    );
+  return (
+    <>
+      <Splash />
+      <Socials />
+      <Email />
+      <Grid>
+        <Header
+          theme={theme}
+          scrollDirection={scrollDirection}
+          toggleTheme={toggleTheme}
+        />
+        <DotWrapper ref={boundingRect}>
+          <Dots boundingRect={boundingRect} />
+          <Hero />
+        </DotWrapper>
+
+        <About theme={theme} />
+        <Experiences />
+        <Projects />
+        <Technical />
+        <Education />
+        <Designs />
+        <Contact />
+        <Footer />
+      </Grid>
+    </>
+  );
 }
 
 const DotWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-color: ${({ theme }) => theme.colors.background};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 const Grid = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
