@@ -11,11 +11,10 @@ export function updateLine(
   x: number,
   y: number,
   xOffset: number,
-  yOffset: number
+  yOffset: number,
 ) {
   const dx = x - xOffset - line.start_x + window.scrollX;
   const dy = y - yOffset - line.start_y + window.scrollY;
-
 
   const length = Math.sqrt(dx * dx + dy * dy);
 
@@ -36,15 +35,18 @@ export function updateAllLines(
   x: number,
   y: number,
   xOffset: number,
-  yOffset: number
+  yOffset: number,
 ) {
   lines.forEach((line) => {
     updateLine(line, x, y, xOffset, yOffset);
   });
-
 }
 
-export function drawLine(ctx: CanvasRenderingContext2D, line: ILine, color: string) {
+export function drawLine(
+  ctx: CanvasRenderingContext2D,
+  line: ILine,
+  color: string,
+) {
   if (line.end_x === line.start_x && line.end_y === line.start_y) {
     // Fill in a dot if the line has collapsed to a point
     ctx.beginPath();
@@ -69,7 +71,11 @@ export function areLinesEqual(line1: ILine, line2: ILine) {
   );
 }
 
-export function drawAllLines(ctx: CanvasRenderingContext2D, lines: ILine[], color:string) {
+export function drawAllLines(
+  ctx: CanvasRenderingContext2D,
+  lines: ILine[],
+  color: string,
+) {
   lines.forEach((line, i) => {
     drawLine(ctx, line, color);
   });
@@ -77,7 +83,7 @@ export function drawAllLines(ctx: CanvasRenderingContext2D, lines: ILine[], colo
 
 export function clearCanvas(
   ctx: CanvasRenderingContext2D,
-  canvas: HTMLCanvasElement
+  canvas: HTMLCanvasElement,
 ) {
   ctx.clearRect(0, 0, canvas!.width, canvas!.height);
 }
@@ -114,7 +120,11 @@ export const getLines = (canvas: HTMLCanvasElement) => {
   return lines;
 };
 
-export const draw = (ctx: CanvasRenderingContext2D, lines: ILine[], color: string) => {
+export const draw = (
+  ctx: CanvasRenderingContext2D,
+  lines: ILine[],
+  color: string,
+) => {
   ctx.beginPath();
   ctx.lineWidth = 5;
   ctx.strokeStyle = color;
@@ -122,7 +132,6 @@ export const draw = (ctx: CanvasRenderingContext2D, lines: ILine[], color: strin
 
   drawAllLines(ctx, lines, color);
 };
-
 
 export const debounce = (func: any, wait = 20, immediate = false) => {
   let timeout: any;
@@ -151,16 +160,14 @@ export type MouseHandlerProps = {
   color: string;
 };
 
-export const getMouseMoveHandler = (
-  {
-    canvas,
-    ctx,
-    xOffset,
-    yOffset,
-    lines,
-    color,
-  }: MouseHandlerProps,
-) => {
+export const getMouseMoveHandler = ({
+  canvas,
+  ctx,
+  xOffset,
+  yOffset,
+  lines,
+  color,
+}: MouseHandlerProps) => {
   const handleMouse = (event: MouseEvent) => {
     // get the current mouse position relative to the canvas
     let x = event.clientX - canvas.offsetLeft;
@@ -175,16 +182,14 @@ export const getMouseMoveHandler = (
   return handleMouse;
 };
 
-export const getMouseLeaveHandler = (
-  {
-    canvas,
-    ctx,
-    xOffset,
-    yOffset,
-    lines,
-    color,
-  }: MouseHandlerProps,
-) => {
+export const getMouseLeaveHandler = ({
+  canvas,
+  ctx,
+  xOffset,
+  yOffset,
+  lines,
+  color,
+}: MouseHandlerProps) => {
   const handleLeave = (event: MouseEvent) => {
     // clear the canvas
     clearCanvas(ctx, canvas);
