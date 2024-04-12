@@ -20,7 +20,7 @@ html{
 		scroll-behavior: auto !important;
 	}
 
-    --color-sticky-top: hsl(54, 65%, 68%);	
+	--color-sticky-top: hsl(54, 65%, 68%);	
 	--color-sticky-content: hsl(54, 84%, 71%);	
 
 	--color-dark-primary: hsl(44, 100%, 69%);

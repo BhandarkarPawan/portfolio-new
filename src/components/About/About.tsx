@@ -1,4 +1,4 @@
-import Button from "@/components/Button/Button";
+import Button from "@/components/Button";
 import Highlight from "@/components/Highlight/Highlight";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { MIN_WIDTH, QUERIES } from "breakpoints";
