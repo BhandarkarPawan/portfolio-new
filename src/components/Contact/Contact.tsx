@@ -38,7 +38,7 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
         <SlideUp>
           <DesktopTitle label="Get In Touch" side="left" />
         </SlideUp>
-        <SlideUp zIndex={2}>
+        <SlideUp>
           <Message>
             If you would like to work together or discuss an opportunity for
             work, please use the form or send me an email on{" "}
@@ -49,7 +49,7 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
           <StyledButton
             onClick={() => {
               window.open(
-                `mailto:pawan@bhandarkar.me?subject=Job Opportunity&body=${message}`,
+                `mailto:pawan@bhandarkar.me?subject=Job Opportunity&body=${message}`
               );
             }}
           >

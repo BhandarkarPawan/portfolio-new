@@ -1,20 +1,16 @@
 import Button from "@/components/Button";
 import Highlight from "@/components/Highlight/Highlight";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import { MIN_WIDTH, QUERIES } from "breakpoints";
-import styled from "styled-components";
-import SlideUp from "../SlideUp";
+import { MIN_WIDTH } from "breakpoints";
+import SlideUp from "@/components/SlideUp";
+import styles from "./About.module.css";
 
-export interface IProps {
-  delegated?: any;
+interface Props {
   theme: "dark" | "light";
+  delegated?: any;
 }
 
-const About: React.FC<React.PropsWithChildren<IProps>> = ({
-  children,
-  theme,
-  ...delegated
-}) => {
+const About = ({ theme, ...delegated }: Props) => {
   const downloadResume = () => {
     window.open("/files/resume.pdf", "_blank");
   };
@@ -27,22 +23,22 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
       : "images/pawan-small.png";
 
   return (
-    <Wrapper {...delegated} id="about">
-      <AboutMe>
+    <div className={styles.about} {...delegated} id="about">
+      <div className={styles.aboutme}>
         <SlideUp>
-          <SectionTitle label={"About Me "} side={"left"} />
+          <SectionTitle side={"left"}>About Me</SectionTitle>
         </SlideUp>
         <SlideUp>
-          <Description>
+          <p className={styles.description}>
             Hi there! My name is Pawan, and I’m passionate about building
             full-stack web applications that are not only{" "}
             <Highlight>functional</Highlight> but also{" "}
             <Highlight>intuitive</Highlight> and{" "}
             <Highlight>visually stunning</Highlight>.
-          </Description>
+          </p>
         </SlideUp>
         <SlideUp>
-          <Description>
+          <p className={styles.description}>
             I have 2+ years of experience working as a Full-Stack developer and
             recently, I’ve been diving deeper into Cloud Technology through my
             course work at Carnegie Mellon University. My goal is to not only
@@ -51,88 +47,28 @@ const About: React.FC<React.PropsWithChildren<IProps>> = ({
             <Highlight>usable</Highlight>, <Highlight>performant</Highlight> and
             can <Highlight>scale</Highlight> to meet the needs of your dynamic
             business.
-          </Description>
+          </p>
         </SlideUp>
         <SlideUp>
-          <Description>
+          <p className={styles.description}>
             I’m always looking for new challenges and opportunities to learn and
             grow as a software engineer, and I’m excited to see what the future
             holds.
-          </Description>
+          </p>
         </SlideUp>
         <SlideUp>
-          <Download onClick={downloadResume}>Download Resume</Download>
+          <Button className={styles.download} onClick={downloadResume}>
+            Download Resume
+          </Button>
         </SlideUp>
-      </AboutMe>
-      <Picture>
-        <Source media={MIN_WIDTH.desktop} srcSet={aboutUrl} />
-        <Source media={MIN_WIDTH.tablet} srcSet="images/pawan-small.png" />
-        <Image src={aboutUrl} alt="Pawan Bhandarkar" />
-      </Picture>
-    </Wrapper>
+      </div>
+      <picture className={styles.picture}>
+        <source media={MIN_WIDTH.desktop} srcSet={aboutUrl} />
+        <source media={MIN_WIDTH.tablet} srcSet="images/pawan-small.png" />
+        <img src={aboutUrl} alt="Pawan Bhandarkar" />
+      </picture>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  display: grid;
-  padding: 32px;
-  padding-bottom: 0px;
-  row-gap: 80px;
-  grid-template-areas:
-    "aboutme"
-    "picture";
-
-  ${QUERIES.tabletAndUp} {
-    grid-template-areas: "picture aboutme";
-    grid-template-columns: 1fr 1fr;
-    column-gap: 0px;
-    padding: 64px;
-  }
-
-  ${QUERIES.desktopAndUp} {
-    column-gap: 80px;
-    padding-bottom: 0px;
-  }
-`;
-
-const AboutMe = styled.div`
-  grid-area: aboutme;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  ${QUERIES.tabletAndUp} {
-    justify-self: start;
-    max-width: min(400px, 100%);
-  }
-`;
-
-const Description = styled.p`
-  font-weight: 400;
-`;
-
-const Picture = styled.picture`
-  grid-area: picture;
-  justify-self: center;
-  width: 300px;
-
-  ${QUERIES.tabletAndUp} {
-    width: min(50vw, 250px);
-  }
-
-  ${QUERIES.desktopAndUp} {
-    justify-self: end;
-    width: min(50vw, 500px);
-  }
-`;
-
-const Source = styled.source``;
-
-const Image = styled.img``;
-
-const Download = styled(Button)`
-  align-self: start;
-  margin-top: 32px;
-`;
 
 export default About;

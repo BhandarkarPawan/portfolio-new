@@ -1,0 +1,23 @@
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(min(50%, 40px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.slideup {
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .slideUp {
+    opacity: 0;
+    animation: slideUp 0.5s ease-in forwards;
+    animation-delay: attr(data-delay);
+    height: fit-content;
+  }
+}
