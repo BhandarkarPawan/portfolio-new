@@ -1,8 +1,9 @@
 import College from "@/components/College";
 import { QUERIES } from "breakpoints";
 import styled from "styled-components";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import SlideUp from "../SlideUp";
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import { ConstrainedTitle } from "@/components/SectionTitle";
 
 const COLLEGES = [
   {
@@ -20,7 +21,7 @@ const COLLEGES = [
     start: 2022,
     end: 2023,
     gpa: "4.0",
-    imgSrc: "images/cmusv.png",
+    imgSrc: "/images/cmusv.png",
   },
   {
     degree: "Bachelor of Engineering in Computer Science",
@@ -35,7 +36,7 @@ const COLLEGES = [
     start: 2016,
     end: 2020,
     gpa: "4.0",
-    imgSrc: "images/nmamit.png",
+    imgSrc: "/images/nmamit.png",
   },
 ];
 
@@ -44,7 +45,7 @@ const Education: React.FC = () => {
     <Wrapper>
       <MaxWidthWrapper>
         <SlideUp>
-          <ContraintedTitle label="Education" side="left" />
+          <ConstrainedTitle side="left">Education</ConstrainedTitle>
         </SlideUp>
         <College {...COLLEGES[0]} side="left" />
       </MaxWidthWrapper>
@@ -63,25 +64,6 @@ const Wrapper = styled.div`
   ${QUERIES.tabletAndUp} {
     padding: 64px 64px;
   }
-`;
-
-export const ContraintedTitle = styled(SectionTitle)`
-  width: 100%;
-  margin-bottom: 32px;
-  ${QUERIES.desktopAndUp} {
-    max-width: 650px;
-  }
-`;
-
-export const MaxWidthWrapper = styled.div`
-  ${QUERIES.desktopAndUp} {
-    max-width: max-content;
-    align-self: center;
-  }
-`;
-
-const Title = styled(SectionTitle)`
-  margin-bottom: 32px;
 `;
 
 export default Education;

@@ -7,12 +7,24 @@ interface Props extends ComponentProps<"div"> {
   delegated?: any;
 }
 
-const SectionTitle = ({ side, children, ...delegated }: Props) => {
+const SectionTitle = ({ side, children, className, ...delegated }: Props) => {
   return (
-    <div className={clsx(styles.sectionTitle, styles[side])} {...delegated}>
+    <div
+      className={clsx(styles.sectionTitle, styles[side], className)}
+      {...delegated}
+    >
       {children}
       <hr className={styles.line} />
     </div>
+  );
+};
+
+export const ConstrainedTitle = ({ className, ...delegated }: Props) => {
+  return (
+    <SectionTitle
+      className={clsx(styles.constrained, className)}
+      {...delegated}
+    />
   );
 };
 

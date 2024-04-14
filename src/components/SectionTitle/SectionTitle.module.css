@@ -24,3 +24,8 @@
   flex-grow: 1;
   border-bottom: 1px solid;
 }
+
+.constrained {
+  max-width: 650px;
+  margin-bottom: 32px;
+}

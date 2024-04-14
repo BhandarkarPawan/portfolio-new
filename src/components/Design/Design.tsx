@@ -1,9 +1,9 @@
 import { QUERIES } from "breakpoints";
 import { RxFigmaLogo } from "react-icons/rx";
 import styled from "styled-components";
-import { Title } from "../College/College";
-import SlideUp from "../SlideUp";
+import SlideUp from "@/components/SlideUp";
 import { HoverIconLink } from "../Socials/Socials";
+import Title from "../Title";
 export interface IProps {
   imgSrc: string;
   description: string;

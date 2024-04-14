@@ -1,11 +1,11 @@
 import { QUERIES } from "breakpoints";
 import { useState } from "react";
 import styled from "styled-components";
-import Button from "../Button/Button";
-import { MaxWidthWrapper } from "../Education/Education";
+import Button from "@/components/Button";
 import Highlight from "../Highlight/Highlight";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import SlideUp from "../SlideUp";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 export interface IProps {
   delegated?: any;
@@ -21,7 +21,7 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
     <Wrapper {...delegated} id="contact">
       <StretchedMaxWidthWrapper>
         <SlideUp>
-          <MobileTitle label="Get In Touch" side="left" />
+          <MobileTitle side="left">Get In Touch</MobileTitle>
         </SlideUp>
         <SlideUp>
           <Notepad>
@@ -36,7 +36,7 @@ const Contact: React.FC<React.PropsWithChildren<IProps>> = ({
       </StretchedMaxWidthWrapper>
       <Info>
         <SlideUp>
-          <DesktopTitle label="Get In Touch" side="left" />
+          <DesktopTitle side="left">Get In Touch</DesktopTitle>
         </SlideUp>
         <SlideUp>
           <Message>

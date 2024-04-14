@@ -1,7 +1,7 @@
 import { QUERIES } from "breakpoints";
 import styled from "styled-components";
 import Design from "../Design";
-import { MaxWidthWrapper } from "../Education/Education";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import SlideUp from "../SlideUp";
 
@@ -33,9 +33,9 @@ const Designs: React.FC = () => {
   return (
     <Wrapper id="designs">
       <MaxWidthWrapper>
-        <SlideUp fullWidth={true}>
-          <DesktopTitle label="Figma Designs" side="right" />
-          <MobileTitle label="Figma Designs" side="left" />
+        <SlideUp>
+          <DesktopTitle side="right">Figma Designs</DesktopTitle>
+          <MobileTitle side="left">Figma Designs</MobileTitle>
         </SlideUp>
         <Articles>
           {DESIGNS.map((design, index) => (

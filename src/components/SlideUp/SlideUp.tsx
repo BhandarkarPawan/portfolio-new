@@ -16,6 +16,7 @@ const SlideUp = ({ children, delay, ...delegated }: Props) => {
     }
   }, [inView]);
 
+  // TODO: avoid needed extra dom here, pass classnames to children directly
   return (
     <div ref={ref}>
       {visible ? (

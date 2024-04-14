@@ -1,20 +1,9 @@
 import { QUERIES } from "breakpoints";
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
-import { FaArrowLeft, FaWindowClose } from "react-icons/fa";
+import { FaWindowClose } from "react-icons/fa";
 import Tilt from "react-parallax-tilt";
 import styled from "styled-components";
-import { School } from "../College/College";
-import {
-  Feature,
-  Github,
-  IProject,
-  Links,
-  Tech,
-  Techs,
-  Website,
-} from "../Project/Project";
-import { HoverIconLink } from "../Socials/Socials";
+import { IProject } from "@/components/Project";
 
 export interface IProps {
   projects: IProject[];
@@ -32,62 +21,6 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
   }, []);
 
   const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
-
-  const SelectedProject = (selectedProject: IProject) => (
-    <HighlightedProject isProjectSelected={selectedProject !== null}>
-      <Toolbar>
-        <BackButton onClick={() => setSelectedProject(null)}>
-          <BackArrow />
-          Back
-        </BackButton>
-        <CloseButton onClick={() => setSelectedProject(null)}>
-          <CloseIcon />
-        </CloseButton>
-      </Toolbar>
-      <Info>
-        <CustomTilt
-          tiltMaxAngleX={3}
-          tiltMaxAngleY={3}
-          // glareEnable={false}
-          glareEnable={true}
-          glarePosition="top"
-          glareMaxOpacity={0.3}
-          glareBorderRadius="12px"
-        >
-          <ProjectImage
-            src={selectedProject?.imgSrc}
-            alt={selectedProject?.name}
-          />
-        </CustomTilt>
-        <Details>
-          <FloatingHeader>
-            <Name side="right">{selectedProject.name}</Name>
-            <Feature side="right">{selectedProject.type}</Feature>
-          </FloatingHeader>
-          <Description>{selectedProject.description}</Description>
-
-          <FloatingFooter>
-            <Links side="right">
-              {selectedProject.github.length > 0 && (
-                <HoverIconLink href={selectedProject.github} target="_blank">
-                  <Github size={32} />
-                </HoverIconLink>
-              )}
-
-              <HoverIconLink href={selectedProject.website} target="_blank">
-                <Website size={32} />
-              </HoverIconLink>
-            </Links>
-            <WrappingTechs side="right">
-              {selectedProject.techs.map((tech, idx) => (
-                <Tech key={tech}>{tech}</Tech>
-              ))}
-            </WrappingTechs>
-          </FloatingFooter>
-        </Details>
-      </Info>
-    </HighlightedProject>
-  );
 
   return (
     <Wrapper id="other-projects">
@@ -116,23 +49,6 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
           );
         })}
       </Grid>
-
-      {selectedProject && (
-        <NonModalWrapper>
-          <SelectedProject {...selectedProject} />
-        </NonModalWrapper>
-      )}
-      {documentMounted &&
-        selectedProject &&
-        (createPortal(
-          <ModalWrapper>
-            {/* <Overlay onClick={() => setSelectedProject(null)} /> */}
-            <Modal>
-              <SelectedProject {...selectedProject} />
-            </Modal>
-          </ModalWrapper>,
-          document.body,
-        ) as React.ReactPortal)}
     </Wrapper>
   );
 };
@@ -171,73 +87,6 @@ export const HighlightedProject = styled.div<{
   }
 `;
 
-const ModalWrapper = styled.div`
-  ${QUERIES.tabletAndUp} {
-    display: none;
-  }
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* overflow-y: auto; */
-  z-index: 999;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-`;
-
-const Modal = styled.div`
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  z-index: 3;
-`;
-
-const NonModalWrapper = styled.div`
-  display: none;
-
-  ${QUERIES.tabletAndUp} {
-    display: block;
-  }
-`;
-
-const FloatingHeader = styled.div`
-  ${QUERIES.tabletAndUp} {
-    position: absolute;
-    top: -8px;
-    left: 32px;
-    right: 32px;
-
-    transform: translateY(-100%);
-    flex-direction: row;
-  }
-
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  align-items: baseline;
-`;
-
-const FloatingFooter = styled.div`
-  ${QUERIES.tabletAndUp} {
-    position: absolute;
-    bottom: -8px;
-    left: 0px;
-    right: 32px;
-    transform: translateY(100%);
-
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: baseline;
-  }
-
-  display: flex;
-  flex-direction: column-reverse;
-`;
-
 export const Description = styled.div`
   font-weight: 400;
 
@@ -247,10 +96,6 @@ export const Description = styled.div`
     margin-top: 0px;
     margin-left: 32px;
   }
-`;
-
-const Name = styled(School)`
-  margin: 0px;
 `;
 
 export const Toolbar = styled.div`
@@ -312,17 +157,11 @@ const CustomTilt = styled(Tilt)`
   }
 `;
 
-const WrappingTechs = styled(Techs)`
-  flex-wrap: wrap;
-`;
-
 export const Details = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
-
-const BackArrow = styled(FaArrowLeft)``;
 
 const Wrapper = styled.div`
   display: flex;
@@ -379,29 +218,6 @@ const ProjectThumbnail = styled.img<{ selected: boolean }>`
     transition: transform 0.1s ease-out;
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
-  }
-`;
-
-const ThumbnailWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  z-index: 1;
-`;
-
-const Background = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  background-color: black;
-  opacity: 0.3;
-  position: absolute;
-  z-index: -1;
-
-  transition: transform 0.3s ease-in;
-  &:hover {
-    transition: transform 0.1s ease-out;
   }
 `;
 

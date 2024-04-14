@@ -1,16 +1,13 @@
-import styled from "styled-components";
+import styles from "./Template.module.css";
 
-export interface IProps {
-  delegated?: any;
-}
+interface Props extends React.ComponentProps<"div"> {}
 
-const Template: React.FC<React.PropsWithChildren<IProps>> = ({
-  children,
-  ...delegated
-}) => {
-  return <Wrapper {...delegated}>{children}</Wrapper>;
+const Template = ({ children, ...delegated }: Props) => {
+  return (
+    <div className={styles.template} {...delegated}>
+      {children}
+    </div>
+  );
 };
-
-const Wrapper = styled.div``;
 
 export default Template;
