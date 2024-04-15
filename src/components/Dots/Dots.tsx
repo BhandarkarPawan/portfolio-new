@@ -1,5 +1,4 @@
 import { RefObject, useEffect, useRef } from "react";
-import styled from "styled-components";
 import {
   draw,
   getLines,
@@ -82,7 +81,5 @@ const Template: React.FC<React.PropsWithChildren<IProps>> = ({
     />
   );
 };
-
-const Wrapper = styled.canvas``;
 
 export default React.memo(Template);
