@@ -1,9 +1,7 @@
 import College from "@/components/College";
-import { QUERIES } from "breakpoints";
-import styled from "styled-components";
-import SlideUp from "../SlideUp";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import { ConstrainedTitle } from "@/components/SectionTitle";
+import styles from "./Education.module.css";
 
 const COLLEGES = [
   {
@@ -42,28 +40,16 @@ const COLLEGES = [
 
 const Education: React.FC = () => {
   return (
-    <Wrapper>
+    <div className={styles.education}>
       <MaxWidthWrapper>
-        <SlideUp>
-          <ConstrainedTitle side="left">Education</ConstrainedTitle>
-        </SlideUp>
-        <College {...COLLEGES[0]} side="left" />
+        <ConstrainedTitle side="left">Education</ConstrainedTitle>
+        <div className={styles.collegeList}>
+          <College {...COLLEGES[0]} side="left" />
+          <College {...COLLEGES[1]} side="right" />
+        </div>
       </MaxWidthWrapper>
-      <College {...COLLEGES[1]} side="right" />
-    </Wrapper>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.dark};
-  padding: 32px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-
-  ${QUERIES.tabletAndUp} {
-    padding: 64px 64px;
-  }
-`;
 
 export default Education;

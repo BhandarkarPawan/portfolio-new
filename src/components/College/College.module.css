@@ -43,14 +43,16 @@
 
 @media (min-width: 1024px) {
   .college.left {
-    flex-direction: row-reverse;
-  }
-
-  .college.right {
     flex-direction: row;
   }
 
+  .college.right {
+    flex-direction: row-reverse;
+  }
+
   .image {
+    width: auto;
+    height: 400px;
     display: block;
     border-radius: 8px;
   }
@@ -82,13 +84,13 @@
   }
 
   .degree.left .school.left .data.left {
-    margin-left: 0px;
-    margin-right: 32px;
+    margin-left: 32px;
+    margin-right: 0px;
   }
 
   .degree.right .school.right .data.right {
-    margin-left: 32px;
-    margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 32px;
   }
 
   .school {
@@ -156,8 +158,8 @@
 
   display: flex;
   flex-direction: column;
-  margin-left: -32px;
-  margin-right: -32px;
+  /* margin-left: -32px;
+  margin-right: -32px; */
 }
 
 .course {
