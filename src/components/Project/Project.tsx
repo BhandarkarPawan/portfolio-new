@@ -1,4 +1,4 @@
-import { HoverIconLink } from "@/components/Socials";
+import { IconLink } from "@/components/Socials";
 import styles from "./Project.module.css";
 import Tilt from "react-parallax-tilt";
 import clsx from "clsx";
@@ -67,13 +67,13 @@ const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
         </ul>
         <ul className={clsx(styles.links, styles[side])}>
           {project.github.length > 0 && (
-            <HoverIconLink href={project.github} target="_blank">
+            <IconLink href={project.github} target="_blank">
               <FaGithub size={32} />
-            </HoverIconLink>
+            </IconLink>
           )}
-          <HoverIconLink href={project.website} target="_blank">
+          <IconLink href={project.website} target="_blank">
             <IoOpen size={32} />
-          </HoverIconLink>
+          </IconLink>
         </ul>
       </div>
     </div>

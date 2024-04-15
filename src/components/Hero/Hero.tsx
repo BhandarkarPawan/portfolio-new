@@ -15,7 +15,7 @@ const Hero = () => {
         <Highlight>Hi, my name is</Highlight>
       </p>
       <h2 className={styles.name}>Pawan Bhandarkar.</h2>
-      <h3 className={styles.subtext}>I build for everyone</h3>
+      <h3 className={styles.subText}>I build for everyone</h3>
       <p className={styles.description}>
         I’m a full-stack engineer specialising in building (and sometimes
         designing) highly accessible, human-centered applications for the web.

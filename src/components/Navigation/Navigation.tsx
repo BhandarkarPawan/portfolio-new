@@ -1,60 +1,32 @@
 import Link from "next/link";
 import { FaDownload } from "react-icons/fa";
-import styled from "styled-components";
+import styles from "./Navigation.module.css";
 
 const Navigation = () => {
   return (
     <>
-      <NavLink href="#about">
-        <LinkText>about</LinkText>
+      <Link className={styles.navLink} href="#about">
+        <p className={styles.navText}>about</p>
         about
-      </NavLink>
-      <NavLink href="#projects">
-        <LinkText>projects</LinkText>
+      </Link>
+      <Link className={styles.navLink} href="#projects">
+        <p className={styles.navText}>projects</p>
         projects
-      </NavLink>
-      <NavLink href="#designs">
-        <LinkText>designs</LinkText>
+      </Link>
+      <Link className={styles.navLink} href="#designs">
+        <p className={styles.navText}>designs</p>
         designs
-      </NavLink>
-      <NavLink href="#contact">
-        <LinkText>contact</LinkText>
+      </Link>
+      <Link className={styles.navLink} href="#contact">
+        <p className={styles.navText}>contact</p>
         contact
-      </NavLink>
-      <DownloadLink href="files/resume.pdf" download>
+      </Link>
+      <a className={styles.downloadLink} href="files/resume.pdf" download>
         resume
         <FaDownload />
-      </DownloadLink>
+      </a>
     </>
   );
 };
-
-const NavLink = styled(Link)`
-  position: relative;
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.text.regular};
-  font-size: calc(20 / 16 * 1rem);
-`;
-
-const LinkText = styled.p`
-  position: absolute;
-  color: ${({ theme }) => theme.colors.primary};
-  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-  transition: clip-path 0.4s ease-out;
-
-  ${NavLink}:hover & {
-    transition: clip-path 0.3s ease-in;
-    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-  }
-`;
-
-const DownloadLink = styled.a`
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.text.dark};
-  font-size: calc(20 / 16 * 1rem);
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-`;
 
 export default Navigation;

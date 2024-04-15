@@ -1,5 +1,5 @@
 import { RxFigmaLogo } from "react-icons/rx";
-import { HoverIconLink } from "@/components/Socials";
+import { IconLink } from "@/components/Socials";
 import Title from "../Title";
 import Image from "next/image";
 import styles from "./Design.module.css";
@@ -38,9 +38,9 @@ const Design: React.FC<IProps> = ({
       <div className={styles.outerWrapper}>
         <div className={styles.nameAndLink}>
           <Title className={styles.designName}>{name}</Title>
-          <HoverIconLink href={url} target="_blank">
+          <IconLink href={url} target="_blank">
             <RxFigmaLogo size={32} />
-          </HoverIconLink>
+          </IconLink>
         </div>
         <div className={clsx(styles.description, styles[side])}>
           <Title className={styles.designName}>{name}</Title>

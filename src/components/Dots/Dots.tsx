@@ -14,7 +14,7 @@ export interface IProps {
   boundingRect: RefObject<HTMLDivElement>;
 }
 
-const Template: React.FC<React.PropsWithChildren<IProps>> = ({
+const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
   children,
   boundingRect,
   ...delegated
@@ -82,4 +82,4 @@ const Template: React.FC<React.PropsWithChildren<IProps>> = ({
   );
 };
 
-export default React.memo(Template);
+export default React.memo(Dots);

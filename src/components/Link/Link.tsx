@@ -1,5 +1,5 @@
-import styled from "styled-components";
-
+import styles from "./Link.module.css";
+import NextLink from "next/link";
 export interface IProps {
   delegated?: any;
   href: string;
@@ -11,13 +11,11 @@ const Link: React.FC<React.PropsWithChildren<IProps>> = ({
   children,
   ...delegated
 }) => {
-  return <Wrapper {...delegated}>{children}</Wrapper>;
+  return (
+    <NextLink className={styles.link} {...delegated}>
+      {children}
+    </NextLink>
+  );
 };
-
-const Wrapper = styled.a`
-  color: ${({ theme }) => theme.colors.primary};
-  font-weight: 600;
-  text-decoration: none;
-`;
 
 export default Link;
