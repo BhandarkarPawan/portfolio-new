@@ -29,3 +29,11 @@
   max-width: 650px;
   margin-bottom: 32px;
 }
+
+.desktop {
+  display: none;
+}
+
+.mobile {
+  display: flex;
+}

@@ -28,4 +28,16 @@ export const ConstrainedTitle = ({ className, ...delegated }: Props) => {
   );
 };
 
+export const DesktopTitle = ({ className, ...delegated }: Props) => {
+  return (
+    <SectionTitle className={clsx(styles.desktop, className)} {...delegated} />
+  );
+};
+
+export const MobileTitle = ({ className, ...delegated }: Props) => {
+  return (
+    <SectionTitle className={clsx(styles.mobile, className)} {...delegated} />
+  );
+};
+
 export default SectionTitle;

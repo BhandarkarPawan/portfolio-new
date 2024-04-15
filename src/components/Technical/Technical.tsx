@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SectionTitle from "@/components/SectionTitle";
+import { DesktopTitle, MobileTitle } from "@/components/SectionTitle";
 import SKILLS from "@/data/skills.json";
 import styles from "./Technical.module.css";
 import clsx from "clsx";
@@ -27,18 +27,12 @@ const Technical: React.FC = () => {
       </div>
 
       <div className={styles.skillList}>
-        <SectionTitle
-          className={clsx(styles.technicalTitle, styles.desktop)}
-          side="right"
-        >
+        <DesktopTitle className={clsx(styles.technicalTitle)} side="left">
           Technical Skills
-        </SectionTitle>
-        <SectionTitle
-          className={clsx(styles.technicalTitle, styles.mobile)}
-          side="left"
-        >
+        </DesktopTitle>
+        <MobileTitle className={clsx(styles.technicalTitle)} side="right">
           Technical Skills
-        </SectionTitle>
+        </MobileTitle>
 
         <ul className={styles.options}>
           {sortedSkills.map((skill, index) => (

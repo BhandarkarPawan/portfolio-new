@@ -1,3 +1,70 @@
+.image {
+  width: 100%;
+  max-width: 650px;
+  max-height: 500px;
+  object-fit: cover;
+  z-index: 1;
+  line-height: 0;
+}
+
+.smallImage {
+  display: none;
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  right: 32px;
+  border: 2px solid var(--color-dark-primary);
+  border-radius: 8px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  position: relative;
+}
+
+.degree {
+  color: var(--color-dark-primary);
+  font-weight: 400;
+  font-size: calc(14 / 16 * 1rem);
+  margin-top: 16px;
+}
+
+.school {
+  margin-bottom: 16px;
+  font-size: calc(21 / 16 * 1rem);
+}
+
+.courses {
+  background-color: var(--color-dark-background-light);
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  margin-left: -32px;
+  margin-right: -32px;
+}
+
+.course {
+  font-weight: 400;
+}
+
+.data {
+  margin-top: 16px;
+  display: flex;
+  gap: 64px;
+  font-size: calc(20 / 16 * 1rem);
+}
+
+.time {
+  font-weight: 400;
+}
+
+.gpa {
+  color: var(--color-dark-primary);
+}
+
 .college {
   display: flex;
   isolation: isolate;
@@ -112,71 +179,4 @@
   .data.right {
     align-items: flex-start;
   }
-}
-
-.image {
-  width: 100%;
-  max-width: 650px;
-  max-height: 500px;
-  object-fit: cover;
-  z-index: 1;
-  line-height: 0;
-}
-
-.smallImage {
-  display: none;
-  height: 120px;
-  width: 120px;
-  position: absolute;
-  right: 32px;
-  border: 2px solid var(--color-dark-primary);
-  border-radius: 8px;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
-  position: relative;
-}
-
-.degree {
-  color: var(--color-dark-primary);
-  font-weight: 400;
-  font-size: calc(14 / 16 * 1rem);
-  margin-top: 16px;
-}
-
-.school {
-  margin-bottom: 16px;
-  font-size: calc(21 / 16 * 1rem);
-}
-
-.courses {
-  background-color: var(--color-dark-background-light);
-  padding: 32px;
-
-  display: flex;
-  flex-direction: column;
-  /* margin-left: -32px;
-  margin-right: -32px; */
-}
-
-.course {
-  font-weight: 400;
-}
-
-.data {
-  margin-top: 16px;
-  display: flex;
-  gap: 64px;
-  font-size: calc(20 / 16 * 1rem);
-}
-
-.time {
-  font-weight: 400;
-}
-
-.gpa {
-  color: var(--color-dark-primary);
 }
