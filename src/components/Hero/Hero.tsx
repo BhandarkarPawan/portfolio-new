@@ -1,8 +1,7 @@
 import Button from "@/components/Button";
-import { QUERIES } from "breakpoints";
-import styled from "styled-components";
-import Highlight from "../Highlight";
-import Link from "../Link";
+import Highlight from "@/components/Highlight";
+import Link from "@/components/Link";
+import styles from "./Hero.module.css";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -11,13 +10,13 @@ const Hero = () => {
   };
 
   return (
-    <ContentWrapper>
-      <Text>
+    <div className={styles.hero}>
+      <p className={styles.text}>
         <Highlight>Hi, my name is</Highlight>
-      </Text>
-      <Name>Pawan Bhandarkar.</Name>
-      <SubText>I build for everyone</SubText>
-      <Text>
+      </p>
+      <h2 className={styles.name}>Pawan Bhandarkar.</h2>
+      <h3 className={styles.subtext}>I build for everyone</h3>
+      <p className={styles.description}>
         I’m a full-stack engineer specialising in building (and sometimes
         designing) highly accessible, human-centered applications for the web.
         Currently, I’m pursuing a Master’s degree in Computer Science at{" "}
@@ -28,68 +27,12 @@ const Hero = () => {
         >
           <Highlight>Carnegie Mellon University</Highlight>
         </Link>
-      </Text>
-      <CallToAction onClick={scrollToContact}>Get In Touch</CallToAction>
-    </ContentWrapper>
+      </p>
+      <Button className={styles.callToAction} onClick={scrollToContact}>
+        Get In Touch
+      </Button>
+    </div>
   );
 };
-
-const ContentWrapper = styled.div`
-  align-self: center;
-  max-width: min-content;
-  min-height: calc(100vh - 150px);
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 2;
-  pointer-events: none;
-`;
-
-const Name = styled.h2`
-  white-space: nowrap;
-  font-size: calc(35 / 16 * 1rem);
-  margin-bottom: -16px;
-
-  ${QUERIES.tabletAndUp} {
-    font-size: calc(64 / 16 * 1rem);
-    margin-bottom: -32px;
-  }
-
-  ${QUERIES.desktopAndUp} {
-    font-size: calc(80 / 16 * 1rem);
-    margin-bottom: -32px;
-  }
-`;
-
-const SubText = styled.h3`
-  color: ${({ theme }) => theme.colors.text.light};
-  font-size: calc(35 / 16 * 1rem);
-  margin-bottom: 24px;
-
-  ${QUERIES.tabletAndUp} {
-    font-size: calc(64 / 16 * 1rem);
-  }
-
-  ${QUERIES.desktopAndUp} {
-    font-size: calc(80 / 16 * 1rem);
-  }
-`;
-
-const Text = styled.p`
-  color: ${({ theme }) => theme.colors.text.regular};
-  font-weight: 400;
-  margin-bottom: -4px;
-
-  ${QUERIES.tabletAndUp} {
-    margin-bottom: -8px;
-  }
-`;
-
-const CallToAction = styled(Button)`
-  margin-top: 32px;
-  pointer-events: all;
-`;
 
 export default Hero;
