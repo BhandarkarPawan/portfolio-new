@@ -6,7 +6,7 @@ interface Props extends ComponentProps<"button"> {}
 
 const Button: React.FC<Props> = ({ children, className, ...delegated }) => {
   return (
-    <button className={clsx(className, styles.button)} {...delegated}>
+    <button className={clsx(styles.button, className)} {...delegated}>
       {children}
     </button>
   );

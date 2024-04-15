@@ -2,7 +2,6 @@ import Navigation from "@/components/Navigation";
 import { QUERIES } from "breakpoints";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import styled from "styled-components";
 import { SocialIcons } from "../Socials/Socials";
 
@@ -40,16 +39,16 @@ const Header = ({
         <Logo src={logoUrl} alt="Logo" />
         <Navbar>
           <Navigation />
-          <DarkModeSwitch
+          {/* <DarkModeSwitch
             style={{ marginLeft: "2em" }}
             checked={theme === "dark"}
             onChange={toggleTheme}
             size={24}
-          />
+          /> */}
         </Navbar>
 
         <MenuButton>
-          <DarkModeSwitch
+          {/* <DarkModeSwitch
             style={{
               marginLeft: "auto",
               alignSelf: "center",
@@ -58,7 +57,7 @@ const Header = ({
             checked={theme === "dark"}
             onChange={toggleTheme}
             size={32}
-          />
+          /> */}
           <Hamburger toggled={showSidebar} onToggle={toggleSidebar} />
         </MenuButton>
       </Wrapper>
