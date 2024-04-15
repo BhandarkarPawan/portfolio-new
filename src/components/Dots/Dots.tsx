@@ -1,4 +1,3 @@
-import { QUERIES } from "breakpoints";
 import { RefObject, useEffect, useRef } from "react";
 import styled from "styled-components";
 import {
@@ -9,6 +8,7 @@ import {
   MouseHandlerProps,
 } from "./helpers";
 import React from "react";
+import styles from "./Dots.module.css";
 
 export interface IProps {
   delegated?: any;
@@ -73,24 +73,16 @@ const Template: React.FC<React.PropsWithChildren<IProps>> = ({
     setCanvasWidth(canvasWidth);
   }, [boundingRect.current]);
 
-  return <Wrapper ref={canvasRef} width={canvasWidth} height={canvasHeight} />;
+  return (
+    <canvas
+      className={styles.canvas}
+      ref={canvasRef}
+      width={canvasWidth}
+      height={canvasHeight}
+    />
+  );
 };
 
-const Wrapper = styled.canvas`
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: ${({ theme }) => theme.colors.background};
-
-  ${QUERIES.desktopAndUp} {
-    display: block;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    display: none;
-  }
-`;
+const Wrapper = styled.canvas``;
 
 export default React.memo(Template);
