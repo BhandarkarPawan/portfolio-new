@@ -1,24 +1,14 @@
-import styled from "styled-components";
+import styles from "./Footer.module.css";
+import React from "react";
 
-export interface IProps {
-  delegated?: any;
-}
+type props = React.ComponentProps<"footer">;
 
 const Footer = ({ ...delegated }) => {
   return (
-    <Wrapper>
+    <footer className={styles.footer} {...delegated}>
       Designed and Developed by <strong> Pawan Bhandarkar</strong>
-    </Wrapper>
+    </footer>
   );
 };
-
-const Wrapper = styled.div`
-  font-weight: 400;
-  background-color: ${({ theme }) => theme.colors.footer};
-  color: ${({ theme }) => theme.colors.primary};
-  padding: 16px;
-  text-align: center;
-  font-size: calc(14 / 16 * 1rem);
-`;
 
 export default Footer;
