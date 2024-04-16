@@ -1,5 +1,5 @@
 import College from "@/components/College";
-import MaxWidthWrapper from "../MaxWidthWrapper";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ConstrainedTitle } from "@/components/SectionTitle";
 import styles from "./Education.module.css";
 

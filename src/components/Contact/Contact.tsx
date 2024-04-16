@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Highlight from "../Highlight/Highlight";
+import Highlight from "@/components/Highlight";
 import styles from "./Contact.module.css";
 import { DesktopTitle, MobileTitle } from "@/components/SectionTitle";
 import Button from "@/components/Button";

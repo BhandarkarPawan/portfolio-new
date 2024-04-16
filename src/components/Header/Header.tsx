@@ -1,28 +1,20 @@
 import Navigation from "@/components/Navigation";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import { SocialIcons } from "../Socials/Socials";
+import { SocialIcons } from "@/components/Socials";
 import styles from "./Header.module.css";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-const Header = ({
-  scrollDirection,
-  theme,
-  toggleTheme,
-}: {
-  scrollDirection: "up" | "down" | undefined;
-  theme: "light" | "dark";
-  toggleTheme: () => void;
-}) => {
+const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const toggleSidebar = () => {
     setShowSidebar((prev) => !prev);
   };
 
-  const logoUrl =
-    theme === "light" ? "/images/logo-light.png" : "/images/logo.png";
+  const logoUrl = "/images/logo.png";
+
   return (
     <>
       <div
@@ -38,7 +30,7 @@ const Header = ({
           </div>
         </aside>
       </div>
-      <div className={clsx(styles.wrapper, styles[scrollDirection || ""])}>
+      <div className={clsx(styles.wrapper)}>
         <Image
           className={styles.logo}
           width={43}

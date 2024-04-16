@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   draw,
   getLines,
@@ -11,15 +11,14 @@ import styles from "./Dots.module.css";
 
 export interface IProps {
   delegated?: any;
-  boundingRect: RefObject<HTMLDivElement>;
 }
 
 const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
   children,
-  boundingRect,
   ...delegated
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const boundingRect = useRef<HTMLDivElement>(null);
   const [canvasWidth, setCanvasWidth] = React.useState(0);
   const [canvasHeight, setCanvasHeight] = React.useState(0);
 
@@ -40,7 +39,6 @@ const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
     const ctx = context;
 
     const lines = getLines(canvas);
-    console.log("lines: ", lines);
     const mouseHandlerProps: MouseHandlerProps = {
       canvas: canvas,
       ctx: context,
@@ -73,12 +71,15 @@ const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
   }, [boundingRect.current]);
 
   return (
-    <canvas
-      className={styles.canvas}
-      ref={canvasRef}
-      width={canvasWidth}
-      height={canvasHeight}
-    />
+    <div className={styles.wrapper} ref={boundingRect}>
+      <canvas
+        className={styles.canvas}
+        ref={canvasRef}
+        width={canvasWidth}
+        height={canvasHeight}
+      />
+      {children}
+    </div>
   );
 };
 

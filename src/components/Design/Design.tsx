@@ -1,6 +1,6 @@
 import { RxFigmaLogo } from "react-icons/rx";
 import { IconLink } from "@/components/Socials";
-import Title from "../Title";
+import Title from "@/components/Title";
 import Image from "next/image";
 import styles from "./Design.module.css";
 import clsx from "clsx";

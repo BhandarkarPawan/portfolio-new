@@ -1,4 +1,4 @@
-import { useState } from "react";
+"use client";
 import styles from "./Splash.module.css";
 import Image from "next/image";
 
@@ -10,13 +10,7 @@ const Splash: React.FC<React.PropsWithChildren<IProps>> = ({
   children,
   ...delegated
 }) => {
-  setTimeout(() => {
-    setDisplay(false);
-  }, 5000);
-
-  const [display, setDisplay] = useState(true);
-
-  return display ? (
+  return (
     <div className={styles.splash} {...delegated}>
       <Image
         className={styles.logo}
@@ -26,11 +20,7 @@ const Splash: React.FC<React.PropsWithChildren<IProps>> = ({
         alt="Logo"
       />
     </div>
-  ) : null;
+  );
 };
-
-interface SplashProps {
-  show: boolean;
-}
 
 export default Splash;

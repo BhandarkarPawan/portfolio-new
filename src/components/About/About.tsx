@@ -6,21 +6,16 @@ import SlideUp from "@/components/SlideUp";
 import styles from "./About.module.css";
 
 interface Props {
-  theme: "dark" | "light";
   delegated?: any;
 }
 
-const About = ({ theme, ...delegated }: Props) => {
+const About = ({ ...delegated }: Props) => {
   const downloadResume = () => {
     window.open("/files/resume.pdf", "_blank");
   };
 
-  const aboutUrl =
-    theme === "light" ? "images/pawan-2-light.png" : "images/pawan-2.png";
-  const aboutUrlSmall =
-    theme === "light"
-      ? "images/pawan-small-light.png"
-      : "images/pawan-small.png";
+  const aboutUrl = "images/pawan-2.png";
+  const aboutUrlSmall = "images/pawan-small.png";
 
   return (
     <div className={styles.about} {...delegated} id="about">
