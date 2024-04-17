@@ -53,7 +53,7 @@
 
 .option {
   cursor: pointer;
-  background-color: var(--color--light-dark-text-light);
+  background-color: var(--color-text-light);
   color: var(--color-background-dark);
   text-align: center;
   padding: 4px 12px;
