@@ -6,14 +6,41 @@ import styles from "./Header.module.css";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import useDebounce from "@/hooks/use-debounce";
 
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
+  const [scrollY, setScrollY] = useDebounce(0, 100);
+  const [previousScrollY, setPreviousScrollY] = useState(0);
   const toggleSidebar = () => {
     setShowSidebar((prev) => !prev);
   };
 
   const logoUrl = "/images/logo.png";
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      window.addEventListener("scroll", () => {
+        setScrollY(window.scrollY);
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
+
+  React.useEffect(() => {
+    if (scrollY < previousScrollY || scrollY === 0) {
+      setShowHeader(true);
+    } else {
+      setShowHeader(false);
+    }
+    setPreviousScrollY(scrollY);
+  }, [scrollY]);
 
   return (
     <>
@@ -30,7 +57,7 @@ const Header = () => {
           </div>
         </aside>
       </div>
-      <div className={clsx(styles.wrapper)}>
+      <div className={clsx(styles.wrapper, showHeader && styles.show)}>
         <Image
           className={styles.logo}
           width={43}

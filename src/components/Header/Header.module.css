@@ -37,7 +37,7 @@
 
 /* Wrapper styling */
 .wrapper {
-  /* position: sticky; */
+  position: sticky;
   top: 0;
   background-color: var(--color-dark-background-blur);
   backdrop-filter: blur(10px);
@@ -52,13 +52,13 @@
 }
 
 @media (min-width: 768px) {
-  /* .wrapper {
+  .wrapper {
     padding: 8px 32px;
     transform: translateY(-100%);
   }
   .wrapper.show {
     transform: translateY(0);
-  } */
+  }
 }
 
 @media (min-width: 1024px) {
