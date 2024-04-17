@@ -34,7 +34,7 @@ const Header = () => {
   });
 
   React.useEffect(() => {
-    if (scrollY < previousScrollY || scrollY === 0) {
+    if (scrollY < previousScrollY || scrollY < 64) {
       setShowHeader(true);
     } else {
       setShowHeader(false);
