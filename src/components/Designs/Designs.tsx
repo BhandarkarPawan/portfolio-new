@@ -13,6 +13,7 @@ const Designs: React.FC = () => {
         <div className={styles.designList}>
           {DESIGNS.map((design, index) => (
             <Design
+              key={design.name}
               index={index}
               imgSrc={design.imgSrc}
               description={design.description}

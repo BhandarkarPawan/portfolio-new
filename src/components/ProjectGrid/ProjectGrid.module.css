@@ -36,11 +36,11 @@
 
 .subTitle {
   margin-bottom: 32px;
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
 }
 
 .subText {
-  color: var(--color-dark-text-light);
+  color: var(--color-text-light);
   font-size: calc(18 / 16 * 1rem);
 }
 

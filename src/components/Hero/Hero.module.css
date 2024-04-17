@@ -32,7 +32,7 @@
 }
 
 .subText {
-  color: var(--color-dark-text-light);
+  color: var(--color-text-light);
   font-size: calc(35 / 16 * 1rem);
   margin-bottom: 24px;
 }
@@ -50,7 +50,7 @@
 }
 
 .text {
-  color: var(--color-dark-text-regular);
+  color: var(--color-text-regular);
   font-weight: 400;
   margin-bottom: -4px;
 }

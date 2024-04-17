@@ -1,6 +1,6 @@
 .sectionTitle {
   font-size: calc(24 / 16 * 1rem);
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   gap: 16px;

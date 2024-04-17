@@ -13,7 +13,7 @@
   width: 120px;
   position: absolute;
   right: 32px;
-  border: 2px solid var(--color-dark-primary);
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .degree {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
   font-weight: 400;
   font-size: calc(14 / 16 * 1rem);
   margin-top: 16px;
@@ -37,7 +37,7 @@
 }
 
 .courses {
-  background-color: var(--color-dark-background-light);
+  background-color: var(--color-background-light);
   padding: 32px;
 
   display: flex;
@@ -62,7 +62,7 @@
 }
 
 .gpa {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
 }
 
 .college {

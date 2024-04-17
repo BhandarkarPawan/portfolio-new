@@ -40,7 +40,7 @@
   right: 0;
   bottom: 0;
   z-index: 999999999;
-  background-color: var(--color-dark-background-dark);
+  background-color: var(--color-background-dark);
 
   pointer-events: none;
   animation: fadeOut 500ms 3s ease-in-out forwards;

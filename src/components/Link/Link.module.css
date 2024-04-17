@@ -1,5 +1,5 @@
 .link {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
   font-weight: 600;
   text-decoration: none;
   pointer-events: all;

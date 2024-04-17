@@ -1,5 +1,5 @@
 .projects {
-  background-color: var(--color-dark-background-dark);
+  background-color: var(--color-background-dark);
   padding: 32px 32px;
   display: flex;
   flex-direction: column;

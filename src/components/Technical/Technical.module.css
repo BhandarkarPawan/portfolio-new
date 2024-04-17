@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
-  background-color: var(--color-dark-background-dark);
+  background-color: var(--color-background-dark);
   padding: 32px;
 }
 
@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: var(--color-dark-background-light);
+  background-color: var(--color-background-light);
 
   padding: 32px;
   height: 320px;
@@ -26,7 +26,7 @@
 }
 
 .title {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
 }
 
 .content {
@@ -54,7 +54,7 @@
 .option {
   cursor: pointer;
   background-color: var(--color--light-dark-text-light);
-  color: var(--color-dark-background-dark);
+  color: var(--color-background-dark);
   text-align: center;
   padding: 4px 12px;
   font-size: calc(12 / 16 * 1rem);
@@ -63,19 +63,19 @@
 }
 
 .active {
-  background-color: var(--color-dark-primary);
+  background-color: var(--color-primary);
 }
 
 .star {
   width: 16px;
   height: 16px;
-  background-color: var(--color-dark-primary);
+  background-color: var(--color-primary);
   border-radius: 50%;
   margin-right: 4px;
 }
 
 .star.empty {
-  background-color: var(--color-dark-text-light);
+  background-color: var(--color-text-light);
 }
 
 @media (min-width: 768px) {

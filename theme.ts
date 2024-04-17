@@ -1,37 +1,58 @@
-export const DARK_THEME = {
+type Theme = {
   colors: {
-    primary: "var(--color-dark-primary)",
+    primary: string;
+    primaryHover: string;
     text: {
-      regular: "var(--color-dark-text-regular)",
-      light: "var(--color-dark-text-light)",
-      dark: "var(--color-dark-text-dark)",
+      regular: string;
+      light: string;
+      dark: string;
+    };
+    background: {
+      blur: string;
+      regular: string;
+      dark: string;
+      light: string;
+    };
+    footer: string;
+  };
+};
+
+export const DARK_THEME: Theme = {
+  colors: {
+    primary: "hsl(44, 100%, 69%)",
+    primaryHover: "hsl(44, 100%, 69%, 0.9)",
+    text: {
+      regular: "hsl(0, 0%, 100%)",
+      light: "hsla(0, 0%, 100%, 0.6)",
+      dark: "hsl(44, 100%, 69%)",
     },
     background: {
-      blur: "var(--color-dark-background-blur)",
-      regular: "var(--color-dark-background-regular)",
-      dark: "var(--color-dark-background-dark)",
-      light: "var(--color-dark-background-light)",
-      hover: "var(--color-dark-primary-hover)",
+      blur: "hsl(214, 36%, 24%, 0.75)",
+      regular: "hsl(214, 36%, 24%)",
+      dark: "hsl(214, 36%, 18%)",
+      light: "hsl(214, 36%, 28%)",
     },
-    footer: "var(--color-footer)",
+    footer: "hsl(214, 36%, 12%)",
   },
 };
 
-export const LIGHT_THEME = {
+export const LIGHT_THEME: Theme = {
   colors: {
-    primary: "var(--color--light-dark-primary)",
+    primary: "hsl(202, 92%, 38%)",
+    primaryHover: "hsla(202, 92%, 38%, 0.9)",
     text: {
-      regular: "var(--color--light-dark-text-regular)",
-      light: "var(--color--light-dark-text-light)",
-      dark: "var(--color--light-dark-text-dark)",
+      regular: "hsl(0, 0%, 0%)",
+      light: "hsl(202, 20%, 60%)",
+      dark: "hsl(202, 92%, 38%)",
     },
     background: {
-      blur: "var(--color--light-dark-background-blur)",
-      regular: "var(--color--light-dark-background-regular)",
-      dark: "var(--color--light-dark-background-dark)",
-      light: "var(--color--light-dark-background-light)",
-      hover: "var(--color--light-dark-primary-hover)",
+      blur: "hsla(0, 0%, 100%, 0.75)",
+      regular: "hsl(0, 0%, 100%)",
+      dark: "hsl(202, 42%, 91%)",
+      light: "hsl(202, 42%, 100%)",
     },
-    footer: "var(--color--light-footer)",
+    footer: "hsl(0, 0%, 88%)",
   },
 };
+
+export default Theme;

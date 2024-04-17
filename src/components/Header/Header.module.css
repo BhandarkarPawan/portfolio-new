@@ -1,7 +1,7 @@
 /* Link styling */
 .aLink {
   text-decoration: underline;
-  color: var(--color-dark-background-dark);
+  color: var(--color-background-dark);
 }
 
 /* Navigation wrapper */
@@ -39,7 +39,7 @@
 .wrapper {
   position: sticky;
   top: 0;
-  background-color: var(--color-dark-background-blur);
+  background-color: var(--color-background-blur);
   backdrop-filter: blur(10px);
   z-index: 999;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -90,8 +90,8 @@
 /* Banner styling */
 .banner {
   grid-area: banner;
-  background-color: var(--color-dark-primary);
-  color: var(--color-dark-background-regular);
+  background-color: var(--color-primary);
+  color: var(--color-background-regular);
   padding: 8px 16px;
   text-align: center;
   font-size: 14px;
@@ -115,7 +115,7 @@
   right: 0;
   bottom: 0;
   width: 80%;
-  background-color: var(--color-dark-background-regular);
+  background-color: var(--color-background-regular);
   padding: 32px;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;

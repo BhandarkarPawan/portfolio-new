@@ -45,7 +45,7 @@
 
 .message {
   z-index: 1;
-  background-color: var(--color-dark-background-dark);
+  background-color: var(--color-background-dark);
   padding: 32px;
   margin-left: -32px;
   margin-right: -32px;

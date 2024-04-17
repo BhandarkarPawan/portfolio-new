@@ -1,5 +1,4 @@
 "use client";
-
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Designs from "@/components/Designs";
@@ -19,7 +18,6 @@ import styles from "./Home.module.css";
 const App = () => {
   return (
     <>
-      <Splash />
       <Socials />
       <Email />
       <div className={styles.grid}>
@@ -36,6 +34,7 @@ const App = () => {
         <Contact />
         <Footer />
       </div>
+      <Splash />
     </>
   );
 };

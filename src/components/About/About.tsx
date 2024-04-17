@@ -3,6 +3,7 @@ import Highlight from "@/components/Highlight/Highlight";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { MIN_WIDTH } from "breakpoints";
 import styles from "./About.module.css";
+import { useTheme } from "@/context/ThemeContext";
 
 interface Props {
   delegated?: any;
@@ -13,8 +14,7 @@ const About = ({ ...delegated }: Props) => {
     window.open("/files/resume.pdf", "_blank");
   };
 
-  const aboutUrl = "images/pawan-2.png";
-  const aboutUrlSmall = "images/pawan-small.png";
+  const { aboutUrl, aboutUrlSmall } = useTheme();
 
   return (
     <div className={styles.about} {...delegated} id="about">
@@ -48,7 +48,7 @@ const About = ({ ...delegated }: Props) => {
       </div>
       <picture className={styles.picture}>
         <source media={MIN_WIDTH.desktop} srcSet={aboutUrl} />
-        <source media={MIN_WIDTH.tablet} srcSet="images/pawan-small.png" />
+        <source media={MIN_WIDTH.tablet} srcSet={aboutUrlSmall} />
         <img src={aboutUrl} alt="Pawan Bhandarkar" />
       </picture>
     </div>

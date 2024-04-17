@@ -10,7 +10,6 @@
     "nc": "new-component"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
     "@next/third-parties": "^14.2.1",
     "@types/node": "18.14.0",
     "@types/react": "18.0.28",
@@ -24,12 +23,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "react-intersection-observer": "^9.5.2",
     "react-parallax-tilt": "^1.7.161",
     "react-toggle-dark-mode": "^1.1.1",
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "new-component": "^5.0.2"
   }
 }

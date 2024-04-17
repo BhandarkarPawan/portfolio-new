@@ -8,7 +8,7 @@
   z-index: 50;
 
   bottom: 0;
-  color: var(--color-dark-text-light);
+  color: var(--color-text-light);
   cursor: pointer;
 }
 
@@ -25,7 +25,7 @@
 
 .iconLink {
   text-decoration: none;
-  color: var(--color-dark-text-light);
+  color: var(--color-text-light);
   cursor: pointer;
 }
 
@@ -35,7 +35,7 @@
 
 .iconLink:hover > * {
   transform: scale(1.2) translateY(-4px);
-  color: var(--color-dark-primary-hover);
+  color: var(--color-primary-hover);
 }
 
 .line {
@@ -45,7 +45,7 @@
 @media (min-width: 768px) {
   .line {
     display: block;
-    border: 1px solid var(--color-dark-text-light);
+    border: 1px solid var(--color-text-light);
     height: 100px;
     width: 0px;
   }

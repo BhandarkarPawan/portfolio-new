@@ -2,6 +2,7 @@ import Head from "next/head";
 import "../styles/global.css";
 import "../styles/reset.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -25,7 +26,9 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         />
       </Head>
       <GoogleAnalytics gaId="G-CWWXED2451" />
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

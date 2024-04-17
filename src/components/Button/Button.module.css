@@ -1,5 +1,5 @@
 .button {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
   background-color: transparent;
   border: 1px solid;
   border-radius: 8px;
@@ -8,8 +8,8 @@
 }
 
 .button:hover {
-  background-color: var(--color-dark-primary);
-  color: var(--color-dark-background-light);
+  background-color: var(--color-primary);
+  color: var(--color-background-light);
 }
 
 @media (min-width: 768px) {

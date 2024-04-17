@@ -8,7 +8,7 @@
   z-index: 50;
 
   bottom: 0;
-  color: var(--color-dark-text-light);
+  color: var(--color-text-light);
   cursor: pointer;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .link {
-  color: var(--color-dark-text-light);
+  color: var(--color-text-light);
   transform: rotate(-90deg) translateX(50%) translateY(-10%);
   text-decoration: none;
   font-weight: 400;
@@ -35,14 +35,14 @@
 }
 
 .link:hover {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
   transform: rotate(-90deg) translateX(50%) translateY(-10%) translateX(8px)
     scale(1.05);
 }
 
 @media (min-width: 768px) {
   .line {
-    border: 1px solid var(--color-dark-text-light);
+    border: 1px solid var(--color-text-light);
     height: 100px;
     width: 0px;
   }

@@ -21,7 +21,7 @@
 }
 
 .description {
-  background-color: var(--color-dark-background-light);
+  background-color: var(--color-background-light);
   padding: 32px;
 
   display: flex;
@@ -48,7 +48,7 @@
 }
 
 .feature {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
   font-weight: 400;
   font-size: calc(14 / 16 * 1rem);
   margin-top: 16px;
@@ -56,7 +56,7 @@
 
 .tech {
   font-weight: 400;
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
   text-transform: lowercase;
   font-size: calc(14 / 16 * 1rem);
 }
@@ -82,7 +82,7 @@
   display: flex;
   gap: 32px;
   margin-top: 16px;
-  color: var(--color-dark-text-regular);
+  color: var(--color-text-regular);
 }
 
 .links > * {
@@ -90,7 +90,7 @@
 }
 
 .website:hover {
-  color: var(--color-dark-primary);
+  color: var(--color-primary);
 }
 
 @media (min-width: 768px) {

@@ -8,17 +8,19 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useDebounce from "@/hooks/use-debounce";
+import ThemeToggle from "../ThemeToggle";
+import { useTheme } from "@/context/ThemeContext";
 
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
   const [scrollY, setScrollY] = useDebounce(0, 100);
   const [previousScrollY, setPreviousScrollY] = useState(0);
+  const { logoUrl } = useTheme();
+
   const toggleSidebar = () => {
     setShowSidebar((prev) => !prev);
   };
-
-  const logoUrl = "/images/logo.png";
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -67,15 +69,11 @@ const Header = () => {
         />
         <nav className={styles.navbar}>
           <Navigation />
-          {/* <DarkModeSwitch
-            style={{ marginLeft: "2em" }}
-            checked={theme === "dark"}
-            onChange={toggleTheme}
-            size={24}
-          /> */}
+          <ThemeToggle />
         </nav>
 
         <div className={styles.menuButton}>
+          <ThemeToggle />
           {/* <DarkModeSwitch
             style={{
               marginLeft: "auto",
