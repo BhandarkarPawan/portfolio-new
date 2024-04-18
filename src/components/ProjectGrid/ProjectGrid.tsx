@@ -1,4 +1,3 @@
-import Tilt from "react-parallax-tilt";
 import { IProject } from "@/components/Project";
 import styles from "./ProjectGrid.module.css";
 import Image from "next/image";
@@ -21,21 +20,14 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
       <div className={styles.grid} {...delegated}>
         {projects.map((project, idx) => {
           return (
-            <Tilt
+            <Image
+              className={styles.projectThumbnail}
+              height={300}
+              width={300}
               key={idx}
-              tiltMaxAngleX={3}
-              tiltMaxAngleY={3}
-              glareEnable={false}
-            >
-              <Image
-                className={styles.projectThumbnail}
-                height={400}
-                width={300}
-                key={idx}
-                src={project.imgSrc}
-                alt={project.name}
-              />
-            </Tilt>
+              src={project.imgSrc}
+              alt={project.name}
+            />
           );
         })}
       </div>

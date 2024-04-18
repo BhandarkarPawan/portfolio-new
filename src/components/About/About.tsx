@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/Button";
 import Highlight from "@/components/Highlight/Highlight";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";

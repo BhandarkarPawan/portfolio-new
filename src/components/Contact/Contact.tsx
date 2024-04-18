@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import Highlight from "@/components/Highlight";
 import styles from "./Contact.module.css";

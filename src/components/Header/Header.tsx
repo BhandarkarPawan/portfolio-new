@@ -1,6 +1,6 @@
+"use client";
 import Navigation from "@/components/Navigation";
 import { Squash as Hamburger } from "hamburger-react";
-import { useState } from "react";
 import { SocialIcons } from "@/components/Socials";
 import styles from "./Header.module.css";
 import clsx from "clsx";
@@ -8,14 +8,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useDebounce from "@/hooks/use-debounce";
-import ThemeToggle from "../ThemeToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
 
 const Header = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [showHeader, setShowHeader] = useState(false);
+  const [showSidebar, setShowSidebar] = React.useState(false);
+  const [showHeader, setShowHeader] = React.useState(false);
+  const [previousScrollY, setPreviousScrollY] = React.useState(0);
   const [scrollY, setScrollY] = useDebounce(0, 100);
-  const [previousScrollY, setPreviousScrollY] = useState(0);
   const { logoUrl } = useTheme();
 
   const toggleSidebar = () => {

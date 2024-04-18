@@ -1,4 +1,3 @@
-import Tilt from "react-parallax-tilt";
 import styles from "./College.module.css";
 import Image from "next/image";
 import clsx from "clsx";
@@ -31,22 +30,13 @@ const College: React.FC<IProps> = ({
   return (
     <div className={clsx(styles.college, styles[side])} {...delegated}>
       <div className={styles.stretch}>
-        <Tilt
-          tiltMaxAngleX={3}
-          tiltMaxAngleY={3}
-          glareEnable={true}
-          glarePosition="top"
-          glareMaxOpacity={0.3}
-          glareBorderRadius="8px"
-        >
-          <Image
-            className={styles.image}
-            height={300}
-            width={400}
-            src={imgSrc}
-            alt={school}
-          />
-        </Tilt>
+        <Image
+          className={styles.image}
+          height={300}
+          width={400}
+          src={imgSrc}
+          alt={school}
+        />
       </div>
       <div className={clsx(styles.info, styles[side])}>
         <Image

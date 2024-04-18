@@ -1,6 +1,5 @@
 import { IconLink } from "@/components/Socials";
 import styles from "./Project.module.css";
-import Tilt from "react-parallax-tilt";
 import clsx from "clsx";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
@@ -24,25 +23,15 @@ const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
   return (
     <div className={clsx(styles.project, styles[side])} {...delegated}>
       <div className={styles.stretch}>
-        <Tilt
-          className={styles.tilt}
-          tiltMaxAngleX={3}
-          tiltMaxAngleY={3}
-          glareEnable={true}
-          glarePosition="top"
-          glareMaxOpacity={0.2}
-          glareBorderRadius="8px"
-        >
-          <a href={project.website}>
-            <Image
-              className={styles.tiltingImage}
-              src={project.imgSrc}
-              alt={project.name}
-              width={400}
-              height={300}
-            />
-          </a>
-        </Tilt>
+        <a href={project.website}>
+          <Image
+            className={styles.tiltingImage}
+            src={project.imgSrc}
+            alt={project.name}
+            width={400}
+            height={300}
+          />
+        </a>
         <Image
           width={100}
           height={100}

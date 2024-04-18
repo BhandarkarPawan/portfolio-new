@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { DesktopTitle, MobileTitle } from "@/components/SectionTitle";
 import SKILLS from "@/data/skills.json";
