@@ -74,10 +74,10 @@ export const IconLink = ({
 
 const Socials: React.FC = () => {
   return (
-    <div className={styles.socials}>
+    <address className={styles.socials}>
       <SocialIcons />
       <div className={styles.line} />
-    </div>
+    </address>
   );
 };
 
