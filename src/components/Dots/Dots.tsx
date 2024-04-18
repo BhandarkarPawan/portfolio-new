@@ -1,14 +1,13 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import {
-  draw,
-  getLines,
+  drawLines,
   getMouseLeaveHandler,
   getMouseMoveHandler,
-  MouseHandlerProps,
-} from "./helpers";
+} from "./Dots.helpers";
 import React from "react";
 import styles from "./Dots.module.css";
+import useDebounce from "@/hooks/use-debounce";
 
 export interface IProps {
   delegated?: any;
@@ -20,56 +19,52 @@ const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const boundingRect = useRef<HTMLDivElement>(null);
+  const [yOffset, setYOffset] = useDebounce(0, 100);
   const [canvasWidth, setCanvasWidth] = React.useState(0);
   const [canvasHeight, setCanvasHeight] = React.useState(0);
 
-  const color = "hsla(0, 0%, 60%, 0.5)";
+  React.useEffect(() => {
+    const props = drawLines(canvasRef, boundingRect);
+    if (!props) return;
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    const handleMouseMove = getMouseMoveHandler(props);
+    const handleMouseLeave = getMouseLeaveHandler(props);
 
-    const context = canvas.getContext("2d");
-    if (!context) return;
-
-    const currentRect = boundingRect.current;
-
-    if (!currentRect) return;
-    const { top, left } = currentRect.getBoundingClientRect();
-
-    const ctx = context;
-
-    const lines = getLines(canvas);
-    const mouseHandlerProps: MouseHandlerProps = {
-      canvas: canvas,
-      ctx: context,
-      xOffset: left,
-      yOffset: top,
-      lines: lines,
-      color: color,
-    };
-
-    const handleMouseMove = getMouseMoveHandler(mouseHandlerProps);
-    const handleMouseLeave = getMouseLeaveHandler(mouseHandlerProps);
-
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("mouseleave", handleMouseLeave);
-
-    draw(ctx, lines, color);
+    props.canvas.addEventListener("mousemove", handleMouseMove);
+    props.canvas.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      canvas.removeEventListener("mousemove", handleMouseMove);
-      canvas.removeEventListener("mouseleave", handleMouseLeave);
+      props.canvas.removeEventListener("mousemove", handleMouseMove);
+      props.canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [boundingRect.current, canvasRef.current]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const currentRect = boundingRect.current;
     const canvasHeight = currentRect ? currentRect.clientHeight - 25 : 0;
     const canvasWidth = currentRect ? currentRect.clientWidth : 0;
     setCanvasHeight(canvasHeight);
     setCanvasWidth(canvasWidth);
-  }, [boundingRect.current]);
+  }, [canvasRef]);
+
+  // React.useEffect(() => {
+  //   const handleScroll = () => {
+  //     setYOffset(window.scrollY);
+  //   };
+
+  //   const handleResize = () => {
+  //     console.log("resizing");
+  //     setYOffset(window.scrollY + 1);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("resize", handleResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div className={styles.wrapper} ref={boundingRect}>

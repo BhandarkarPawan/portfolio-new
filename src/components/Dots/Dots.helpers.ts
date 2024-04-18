@@ -6,15 +6,42 @@ export interface ILine {
   length: number;
 }
 
+export const drawLines = (
+  canvasRef: React.RefObject<HTMLCanvasElement>,
+  boundingRect: React.RefObject<HTMLDivElement>
+) => {
+  const color = "hsla(0, 0%, 60%, 0.5)";
+  const canvas = canvasRef.current;
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const currentRect = boundingRect.current;
+  if (!currentRect) return;
+
+  const { top, left } = currentRect.getBoundingClientRect();
+
+  const lines = getLines(canvas);
+  draw(ctx, lines, color);
+  return {
+    boundingRect: currentRect,
+    canvas: canvas,
+    ctx: ctx,
+    lines: lines,
+    color: color,
+  } as MouseHandlerProps;
+};
+
 export function updateLine(
   line: ILine,
   x: number,
   y: number,
   xOffset: number,
-  yOffset: number,
+  yOffset: number
 ) {
-  const dx = x - xOffset - line.start_x + window.scrollX;
-  const dy = y - yOffset - line.start_y + window.scrollY;
+  const dx = x - xOffset - line.start_x;
+  const dy = y - yOffset - line.start_y;
 
   const length = Math.sqrt(dx * dx + dy * dy);
 
@@ -35,7 +62,7 @@ export function updateAllLines(
   x: number,
   y: number,
   xOffset: number,
-  yOffset: number,
+  yOffset: number
 ) {
   lines.forEach((line) => {
     updateLine(line, x, y, xOffset, yOffset);
@@ -45,7 +72,7 @@ export function updateAllLines(
 export function drawLine(
   ctx: CanvasRenderingContext2D,
   line: ILine,
-  color: string,
+  color: string
 ) {
   if (line.end_x === line.start_x && line.end_y === line.start_y) {
     // Fill in a dot if the line has collapsed to a point
@@ -74,7 +101,7 @@ export function areLinesEqual(line1: ILine, line2: ILine) {
 export function drawAllLines(
   ctx: CanvasRenderingContext2D,
   lines: ILine[],
-  color: string,
+  color: string
 ) {
   lines.forEach((line, i) => {
     drawLine(ctx, line, color);
@@ -83,7 +110,7 @@ export function drawAllLines(
 
 export function clearCanvas(
   ctx: CanvasRenderingContext2D,
-  canvas: HTMLCanvasElement,
+  canvas: HTMLCanvasElement
 ) {
   ctx.clearRect(0, 0, canvas!.width, canvas!.height);
 }
@@ -123,7 +150,7 @@ export const getLines = (canvas: HTMLCanvasElement) => {
 export const draw = (
   ctx: CanvasRenderingContext2D,
   lines: ILine[],
-  color: string,
+  color: string
 ) => {
   ctx.beginPath();
   ctx.lineWidth = 5;
@@ -152,26 +179,27 @@ export const debounce = (func: any, wait = 20, immediate = false) => {
 };
 
 export type MouseHandlerProps = {
+  boundingRect: HTMLDivElement;
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
-  xOffset: number;
-  yOffset: number;
   lines: ILine[];
   color: string;
 };
 
 export const getMouseMoveHandler = ({
+  boundingRect,
   canvas,
   ctx,
-  xOffset,
-  yOffset,
   lines,
   color,
 }: MouseHandlerProps) => {
   const handleMouse = (event: MouseEvent) => {
     // get the current mouse position relative to the canvas
-    let x = event.clientX - canvas.offsetLeft;
-    let y = event.clientY - canvas.offsetTop;
+    let x = event.clientX;
+    let y = event.clientY;
+
+    const { top: yOffset, left: xOffset } =
+      boundingRect.getBoundingClientRect();
 
     // clear the canvas
     clearCanvas(ctx, canvas);
@@ -183,17 +211,18 @@ export const getMouseMoveHandler = ({
 };
 
 export const getMouseLeaveHandler = ({
+  boundingRect,
   canvas,
   ctx,
-  xOffset,
-  yOffset,
   lines,
   color,
 }: MouseHandlerProps) => {
   const handleLeave = (event: MouseEvent) => {
     // clear the canvas
     clearCanvas(ctx, canvas);
-    updateAllLines(lines, 999999, 999999, xOffset, yOffset);
+    const { top: yOffset, left: xOffset } =
+      boundingRect.getBoundingClientRect();
+    updateAllLines(lines, 999999, 999999, xOffset, -yOffset);
     drawAllLines(ctx, lines, color);
   };
 
