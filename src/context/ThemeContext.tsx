@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { DARK_THEME, LIGHT_THEME } from "theme";
+import { DARK_THEME, LIGHT_THEME } from "../theme";
 
 interface ThemeContextValue {
   theme: string;
@@ -41,8 +41,8 @@ const ThemeProvider = ({ children }: Props) => {
     setSelectedTheme(selectedTheme === "light" ? "dark" : "light");
   };
 
-  const theme = selectedTheme === "light" ? LIGHT_THEME : DARK_THEME;
   React.useEffect(() => {
+    const theme = selectedTheme === "light" ? LIGHT_THEME : DARK_THEME;
     const root = document.documentElement;
     root.style.setProperty("--color-primary", theme.colors.primary);
     root.style.setProperty("--color-primary-hover", theme.colors.primaryHover);
@@ -67,7 +67,7 @@ const ThemeProvider = ({ children }: Props) => {
     );
     root.style.setProperty("--color-footer", theme.colors.footer);
     window.localStorage.setItem("theme", selectedTheme);
-  }, [theme]);
+  }, [selectedTheme]);
 
   const value =
     selectedTheme === "light"

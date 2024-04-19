@@ -42,7 +42,7 @@ const Header = () => {
       setShowHeader(false);
     }
     setPreviousScrollY(scrollY);
-  }, [scrollY]);
+  }, [scrollY, previousScrollY]);
 
   return (
     <>

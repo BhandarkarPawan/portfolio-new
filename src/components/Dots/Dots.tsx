@@ -37,7 +37,7 @@ const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
       props.canvas.removeEventListener("mousemove", handleMouseMove);
       props.canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [boundingRect.current, canvasRef.current]);
+  }, [boundingRect, canvasRef]);
 
   React.useEffect(() => {
     const currentRect = boundingRect.current;
@@ -46,25 +46,6 @@ const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
     setCanvasHeight(canvasHeight);
     setCanvasWidth(canvasWidth);
   }, [canvasRef]);
-
-  // React.useEffect(() => {
-  //   const handleScroll = () => {
-  //     setYOffset(window.scrollY);
-  //   };
-
-  //   const handleResize = () => {
-  //     console.log("resizing");
-  //     setYOffset(window.scrollY + 1);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   window.addEventListener("resize", handleResize);
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   return (
     <div className={styles.wrapper} ref={boundingRect}>
