@@ -84,6 +84,9 @@ export function drawLine(
     ctx.beginPath();
     ctx.moveTo(line.start_x, line.start_y);
     ctx.lineTo(line.end_x, line.end_y);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
     ctx.stroke();
   }
 }
