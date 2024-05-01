@@ -37,7 +37,7 @@ const Dots: React.FC<React.PropsWithChildren<IProps>> = ({
       props.canvas.removeEventListener("mousemove", handleMouseMove);
       props.canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [boundingRect.current, canvasRef.current]);
+  }, [boundingRect, canvasRef]);
 
   React.useEffect(() => {
     const currentRect = boundingRect.current;

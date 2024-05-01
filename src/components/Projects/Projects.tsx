@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
   return (
     <div className={styles.projects} id="projects">
       <MaxWidthWrapper>
-        <ConstrainedTitle side="left">Things I've Built</ConstrainedTitle>
+        <ConstrainedTitle side="left">Things I&apos;ve Built</ConstrainedTitle>
         <div className={styles.projectList}>
           <Project project={PROJECTS[0]} side="right" />
           <Project project={PROJECTS[1]} side="left" />
