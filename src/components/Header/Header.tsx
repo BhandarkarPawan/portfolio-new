@@ -11,7 +11,7 @@ import useDebounce from "@/hooks/use-debounce";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/context/ThemeContext";
 
-const Header = () => {
+const Header = ({ initialTheme }: { initialTheme: string }) => {
   const [showSidebar, setShowSidebar] = React.useState(false);
   const [showHeader, setShowHeader] = React.useState(false);
   const [previousScrollY, setPreviousScrollY] = React.useState(0);
@@ -69,11 +69,11 @@ const Header = () => {
         />
         <nav className={styles.navbar}>
           <Navigation />
-          <ThemeToggle />
+          <ThemeToggle initialTheme={initialTheme} />
         </nav>
 
         <div className={styles.menuButton}>
-          <ThemeToggle />
+          <ThemeToggle initialTheme={initialTheme} />
           {/* <DarkModeSwitch
             style={{
               marginLeft: "auto",

@@ -1,26 +1,22 @@
 "use client";
 import React from "react";
-import { DARK_THEME, LIGHT_THEME } from "../theme";
 
 interface ThemeContextValue {
-  theme: string;
-  toggleTheme: () => void;
+  setTheme: (theme: string) => void;
   logoUrl: string;
   aboutUrl: string;
   aboutUrlSmall: string;
 }
 
 const DARK_THEME_CONTEXT_VALUE: ThemeContextValue = {
-  theme: "dark",
-  toggleTheme: () => {},
+  setTheme: () => {},
   logoUrl: "/images/logo.png",
   aboutUrl: "/images/pawan-2.png",
   aboutUrlSmall: "/images/pawan-small.png",
 };
 
 const LIGHT_THEME_CONTEXT_VALUE: ThemeContextValue = {
-  theme: "light",
-  toggleTheme: () => {},
+  setTheme: () => {},
   logoUrl: "/images/logo-light.png",
   aboutUrl: "/images/pawan-2-light.png",
   aboutUrlSmall: "/images/pawan-small-light.png",
@@ -30,44 +26,12 @@ const ThemeContext = React.createContext<ThemeContextValue>(
   DARK_THEME_CONTEXT_VALUE
 );
 
-interface Props extends React.PropsWithChildren<{}> {}
+interface Props extends React.PropsWithChildren<{}> {
+  initialTheme: string;
+}
 
-const ThemeProvider = ({ children }: Props) => {
-  const [selectedTheme, setSelectedTheme] = React.useState(
-    window.localStorage.getItem("theme") || "dark"
-  );
-
-  const toggleTheme = () => {
-    setSelectedTheme(selectedTheme === "light" ? "dark" : "light");
-  };
-
-  React.useEffect(() => {
-    const theme = selectedTheme === "light" ? LIGHT_THEME : DARK_THEME;
-    const root = document.documentElement;
-    root.style.setProperty("--color-primary", theme.colors.primary);
-    root.style.setProperty("--color-primary-hover", theme.colors.primaryHover);
-    root.style.setProperty("--color-text-regular", theme.colors.text.regular);
-    root.style.setProperty("--color-text-light", theme.colors.text.light);
-    root.style.setProperty("--color-text-dark", theme.colors.text.dark);
-    root.style.setProperty(
-      "--color-background-light",
-      theme.colors.background.light
-    );
-    root.style.setProperty(
-      "--color-background-regular",
-      theme.colors.background.regular
-    );
-    root.style.setProperty(
-      "--color-background-dark",
-      theme.colors.background.dark
-    );
-    root.style.setProperty(
-      "--color-background-blur",
-      theme.colors.background.blur
-    );
-    root.style.setProperty("--color-footer", theme.colors.footer);
-    window.localStorage.setItem("theme", selectedTheme);
-  }, [selectedTheme]);
+const ThemeProvider = ({ initialTheme, children }: Props) => {
+  const [selectedTheme, setSelectedTheme] = React.useState(initialTheme);
 
   const value =
     selectedTheme === "light"
@@ -75,7 +39,7 @@ const ThemeProvider = ({ children }: Props) => {
       : DARK_THEME_CONTEXT_VALUE;
 
   return (
-    <ThemeContext.Provider value={{ ...value, toggleTheme }}>
+    <ThemeContext.Provider value={{ ...value, setTheme: setSelectedTheme }}>
       {children}
     </ThemeContext.Provider>
   );
