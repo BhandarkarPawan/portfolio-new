@@ -1,6 +1,6 @@
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import React from "react";
-import { DARK_COLORS, LIGHT_COLORS } from "theme";
+import { DARK_COLORS, LIGHT_COLORS } from "@/theme";
 import Cookie from "js-cookie";
 import { useTheme } from "@/context/ThemeContext";
 
