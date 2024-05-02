@@ -4,7 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
-import { DARK_COLORS, LIGHT_COLORS } from "theme";
+import { DARK_COLORS, LIGHT_COLORS } from "@/theme";
 
 export const metadata: Metadata = {
   title: "Pawan Bhandarkar",
