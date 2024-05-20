@@ -10,6 +10,7 @@ import Paragraph from "@/components/Paragraph";
 import BlogTitle from "@/components/BlogTitle";
 import BlogText from "@/components/BlogText";
 import SideBySideCode from "@/components/SideBySideCode";
+import Caption from "@/components/Caption";
 import styles from "./blogPost.module.css";
 
 const getBlogData = React.cache(async (slug: string) => {
@@ -31,10 +32,11 @@ async function BlogPost({ params }: Props) {
         <MDXRemote
           source={content}
           components={{
+            Caption,
             pre: CodeBlock,
+            SideBySideCode,
             ImageWithAttribution,
             ImageWithCaption,
-            SideBySideCode,
             h1: (props) => (
               <BlogTitle publishedOn={frontmatter.publishedOn} {...props} />
             ),

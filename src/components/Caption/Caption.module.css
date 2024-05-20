@@ -1,4 +1,6 @@
 .caption {
   font-size: 12px;
   color: var(--color-text-light);
+  align-self: center;
+  text-align: center;
 }
