@@ -1,0 +1,4 @@
+.readableWidthWrapper {
+  max-width: min(100%, 65ch);
+  margin: 0 auto;
+}

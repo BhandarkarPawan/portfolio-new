@@ -30,7 +30,7 @@ const ThemeToggle = ({ children, initialTheme, ...delegated }: Props) => {
 
     // 3.1 — Edit the data-attribute, so that we can apply CSS
     // conditionally based on the theme.
-    root.setAttribute("data-color-theme", nextTheme);
+    root.setAttribute("data-theme", nextTheme);
 
     // 3.2 — Swap out the actual colors on the <html> tag.
     //       We do this by iterating over each CSS variable
@@ -39,8 +39,6 @@ const ThemeToggle = ({ children, initialTheme, ...delegated }: Props) => {
       root.style.setProperty(key, value);
     });
   }
-
-  console.log(theme);
 
   return (
     <DarkModeSwitch

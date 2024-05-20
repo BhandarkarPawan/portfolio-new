@@ -1,0 +1,14 @@
+.blogTitle {
+  margin: 2rem 0;
+  align-items: center;
+}
+
+.date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+.blogCardTitle {
+  color: var(--color-text-regular);
+}

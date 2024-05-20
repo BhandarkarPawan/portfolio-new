@@ -6,7 +6,6 @@ import Education from "@/components/Education";
 import Email from "@/components/Email";
 import Experiences from "@/components/Experiences";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
@@ -23,7 +22,6 @@ const App = () => {
       <Socials />
       <Email />
       <div className={styles.grid}>
-        <Header initialTheme={savedTheme} />
         <Dots>
           <Hero />
         </Dots>
@@ -34,9 +32,7 @@ const App = () => {
         <Education />
         <Designs />
         <Contact />
-        <Footer />
       </div>
-      <Splash />
     </>
   );
 };

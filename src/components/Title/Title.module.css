@@ -1,4 +1,30 @@
 .title {
   color: var(--color-primary);
-  margin-bottom: 8px;
+}
+
+.h1 {
+  color: var(--color-text-regular);
+  font-size: 2rem;
+}
+
+.h2 {
+  font-size: 1.5rem;
+}
+
+.h3 {
+  font-size: 1.25rem;
+}
+
+.h4 {
+  font-size: 1rem;
+}
+
+.h5 {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.h6 {
+  font-size: 0.75rem;
+  font-weight: 400;
 }

@@ -1,17 +1,17 @@
-"use client";
-import { useTheme } from "@/context/ThemeContext";
 import styles from "./Splash.module.css";
 import Image from "next/image";
+import Cookies from "js-cookie";
 
 export interface IProps {
+  logoUrl: string;
   delegated?: any;
 }
 
 const Splash: React.FC<React.PropsWithChildren<IProps>> = ({
+  logoUrl,
   children,
   ...delegated
 }) => {
-  const { logoUrl } = useTheme();
   return (
     <div className={styles.splash} {...delegated}>
       <Image

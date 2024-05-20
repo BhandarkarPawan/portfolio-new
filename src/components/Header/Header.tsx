@@ -35,10 +35,12 @@ const Header = ({ initialTheme }: { initialTheme: string }) => {
     };
   });
 
+  console.log(showHeader);
   React.useEffect(() => {
-    if (scrollY < previousScrollY || scrollY < 64) {
+    const headerHeight = 64;
+    if (scrollY < previousScrollY || scrollY < headerHeight) {
       setShowHeader(true);
-    } else {
+    } else if (scrollY > previousScrollY) {
       setShowHeader(false);
     }
     setPreviousScrollY(scrollY);
@@ -60,13 +62,15 @@ const Header = ({ initialTheme }: { initialTheme: string }) => {
         </aside>
       </div>
       <div className={clsx(styles.wrapper, showHeader && styles.show)}>
-        <Image
-          className={styles.logo}
-          width={43}
-          height={41}
-          src={logoUrl}
-          alt="Logo"
-        />
+        <Link href="/">
+          <Image
+            className={styles.logo}
+            width={43}
+            height={41}
+            src={logoUrl}
+            alt="Logo"
+          />
+        </Link>
         <nav className={styles.navbar}>
           <Navigation />
           <ThemeToggle initialTheme={initialTheme} />

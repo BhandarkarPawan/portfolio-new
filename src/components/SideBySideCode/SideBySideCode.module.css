@@ -1,0 +1,29 @@
+.sideBySideCode {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.caption {
+  font-size: 12px;
+  color: var(--color-text-light);
+}
+
+.sideBySideCodeWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .sideBySideCode {
+    flex-direction: row;
+    gap: 1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sideBySideCode {
+    max-width: initial;
+  }
+}

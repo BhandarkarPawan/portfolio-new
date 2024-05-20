@@ -11,6 +11,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 32px;
+  font-weight: 800;
 }
 
 /* Icon wrapper */
@@ -37,8 +38,10 @@
 
 /* Wrapper styling */
 .wrapper {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   background-color: var(--color-background-blur);
   backdrop-filter: blur(10px);
   z-index: 999;
@@ -72,6 +75,7 @@
 .navbar {
   display: none;
   align-items: center;
+  font-weight: 800;
 }
 
 @media (min-width: 1024px) {
@@ -95,6 +99,9 @@
   padding: 8px 16px;
   text-align: center;
   font-size: 14px;
+  font-weight: 800;
+  margin-top: 64px;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
