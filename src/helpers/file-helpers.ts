@@ -4,13 +4,15 @@ import matter from "gray-matter";
 import { BlogPost } from "./types";
 
 export async function getBlogPostList() {
-  const fileNames = await readDirectory("/content");
+  const contentDir = path.join(process.cwd(), "content");
+  const fileNames = await readDirectory(contentDir);
   const blogPosts: BlogPost[] = [];
 
   for (let fileName of fileNames) {
     try {
-      const rawContent = await readFile(`/content/${fileName}/content.mdx`);
-
+      const rawContent = await readFile(
+        path.join(contentDir, fileName, "content.mdx")
+      );
       const { data: frontmatter } = matter(rawContent);
 
       blogPosts.push({
@@ -29,17 +31,18 @@ export async function getBlogPostList() {
 }
 
 export async function loadBlogPost(slug: string) {
-  const rawContent = await readFile(`/content/${slug}/content.mdx`);
+  const contentDir = path.join(process.cwd(), "content");
+  const rawContent = await readFile(path.join(contentDir, slug, "content.mdx"));
 
   const { data: frontmatter, content } = matter(rawContent);
 
   return { frontmatter, content };
 }
 
-function readFile(localPath: string) {
-  return fs.readFile(path.join(process.cwd(), localPath), "utf8");
+function readFile(filePath: string) {
+  return fs.readFile(filePath, "utf8");
 }
 
-function readDirectory(localPath: string) {
-  return fs.readdir(path.join(process.cwd(), localPath));
+function readDirectory(dirPath: string) {
+  return fs.readdir(dirPath);
 }
