@@ -79,10 +79,10 @@
 
 \newcommand{\educationHeading}[5]{
     \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & {#2} \\
-        \textit{\small #3} & \textit{\small #4} \\
+        \textbf{#1} & \small #2 \\
+        #3 & \textit{\small #4} \\
     \end{tabular*}
-    \small{\textbf{Courses :}{#5}}
+    \small{\textbf{Affiliations:}{#5}}
 }
 
 \newcommand{\projectHeading}[3]{
@@ -127,10 +127,10 @@
 
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 
-    \textbf{{\LARGE Pawan Bhandarkar}}\\
-    Mountain View, CA & \textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}} \\
-    Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me}   &   Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}\\
-    Mobile : +1(650)537-7341 &  Linkedin: \href{https://www.linkedin.com/in/bhandarkar/}{bhandarkar.me/linkedin} \\
+  \textbf{{\LARGE Pawan Bhandarkar}}\\
+  Redwood City, CA & \textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}} \\
+  Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me}   &   Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}\\
+  Mobile : +1(650)537-7341 &  Linkedin: \href{https://www.linkedin.com/in/bhandarkar/}{bhandarkar.me/linkedin} \\
 
 \end{tabular*}
 
@@ -151,124 +151,74 @@
 %-----------EDUCATION-----------------
 \shortSection{Education}
 \educationHeading
-{Carnegie Mellon University}{Mountain View, CA}
-{Master of Science in Software Engineering; \textbf{GPA: 4.0/4.0} }{Dec 2023}{
-    Cloud Computing,
-    Foundations of Software Engineering,
-    Software Requirements \& Interaction Design,
-    % Software Verification \& Testing,
-    Software Testing
-    % Data Science
+{Carnegie Mellon University}{Pittsburgh, PA}
+{Master's in Software Engineering}{Dec 2023}{
+  Graduate Teaching Assistant, Research Associate
 }
-
-\vspace{5pt}
-
-\educationHeading
-{NMAM Institute of Technology }{Nitte, India}
-{Bachelor of Computer Science;  \textbf{GPA: 9.8/10} (top 1\%, Class of 2020) }{Apr 2020}{
-    Data Structures \& Algorithms,
-    Object Oriented Modelling \& Design,
-    Operating Systems,
-    RDBMS
-}
-
-
-%-------- SKILLS------------
-\shortSection{Skills}
-\skill {Languages \hspace{4pt}}{Python, JavaScript, TypeScript, Go, Java, C\#, C++, GraphQL}
-\skill {Tools\hspace{32pt}}{Kafka, AWS, ActiveMQ, Azure, Docker, Redis, Terraform, Kubernetes, Linux, gRPC, New Relic}
-\skill {Frameworks}{React, Redux, NodeJS, Flask, PostgreSQL, OpenAI, Express, MongoDB, Tailwind}
-\skill {Soft Skills\hspace{10pt}}{Communication (verbal and written), Leadership, Collaboration, Mentorship}
-
 
 
 %-----------EXPERIENCE-----------------
 \shortSection{Experience}
+\vspace{5pt}
 \resumeSubheading
-{TuneIn Radio}{San Francisco, USA}
+{Converge Lab}{Sunnyvale, CA}
+{Founding Engineer}{Jan 2024 - Present}
+\vspace{2pt}
+\resumeItemListStart
+\resumeItemWithoutTitle{Built an LLM-powered hardware co-designer that allows Field Application Engineers to find, compare, and evaluate electronic components using natural-language}
+\resumeItemWithoutTitle{Designed and developed a frontend with generative UI, feedback for AI evaluation, tiered access control, and more, with state managed via Hooks + Context API and errors monitored via LogRocket}
+\resumeItemWithoutTitle{Contributed to developing a RAG backend with tools like Pinecone and Elasticsearch for context retrieval, DynamoDB for storage, and Langchain for the agent.}
+\resumeItemWithoutTitle{Rapidly iterated on prompt engineering using unit tests for the LLM calls as well as the providers' API consoles}
+\resumeItemWithoutTitle{Developed data extraction pipelines in Python for online processing of EC datasheets and use in LLM context}
+\resumeItemListEnd
+
+\resumeSubheading
+{TuneIn Radio}{San Francisco, CA}
 {Software Engineer Intern, Platform}{Jun 2023 - Aug 2023}
 \vspace{2pt}
 \resumeItemListStart
-
-% \resumeItemWithoutTitle{Pioneered subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
-% \resumeItemWithoutTitle{Thrived in a fast-paced environment, pioneering subscription-based APIs via WebSockets through Test-Driven Development on the GraphQL API gateway backed by microservices using gRPC communication in Go}
-\resumeItemWithoutTitle{Enhanced real-time data delivery for up to \textbf{7.5 Million monthly users} by spearheading the development of subscription-based APIs using WebSockets. Utilized Test-Driven Development in Go to ensure a robust GraphQL API gateway}
-
-% \resumeItemWithoutTitle{Built data communication pipelines using Apache ActiveMQ and Redis Streams (AWS ElastiCache)}
+\resumeItemWithoutTitle{Enhanced real-time data delivery for up to \textbf{7.5 Million monthly users} via subscription-based APIs using WebSockets. Used Test-Driven Development in Go to ensure a robust GraphQL API gateway}
 \resumeItemWithoutTitle{Engineered high-throughput data communication pipelines, processing over \textbf{2 Million messages per day} with latencies under \textbf{30 ms} using Apache ActiveMQ and Redis Streams on AWS ElastiCache}
-
-% \resumeItemWithoutTitle{Wrote comprehensive test suites and load-tested the microservice to ensure production-readiness}
-\resumeItemWithoutTitle{Achieved \textbf{95\% code coverage} with testing and load-tested \textbf{100,000 concurrent requests} to ensure production readiness}
-
-% \resumeItemWithoutTitle{Deployed microservices with Infrastructure as Code using Terraform and Kubernetes and monitored them using New Relic}
+% \resumeItemWithoutTitle{Achieved \textbf{95\% code coverage} with testing and load-tested \textbf{100,000 concurrent requests} to ensure production readiness}
 \resumeItemWithoutTitle{Automated microservice deployment with Terraform and Kubernetes. Maintained \textbf{99.9\% uptime} with New Relic monitoring}
-
 \resumeItemWithoutTitle{Expanded the legacy C\# (.NET Core) monolith with support for live streaming metadata for over \textbf{120,000 radio stations}}
-
-% \resumeItemWithoutTitle{Collaborated with Product and Data Engineering teams to plan and prioritize related Jira tickets }
-\resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
-
-
+% \resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
 \resumeItemListEnd
 
 \vspace{5pt}
 \resumeSubheading
 {Team AIBOD Inc}{Fukuoka City, Japan}
-{Software Engineer 2}{Nov 2021 - Apr 2022}
+{Software Engineer}{Nov 2021 - Apr 2022}
 \vspace{2pt}
 \resumeItemListStart
-
-% \resumeItemWithoutTitle{Developed a component library with React v16, CSS, and TypeScript for an unmanned store}
-\resumeItemWithoutTitle{Created a React component library, \textbf{eliminating 50\% of UI variants}, enhancing consistency in a POS system}
-
-% \resumeItemWithoutTitle{Engineered a full-stack information management system using Python, SQL, GraphQL, and React v16}
+\resumeItemWithoutTitle{Created an accessible, mobile-first React component library, promoting a consistent design language within the company}
 \resumeItemWithoutTitle{Engineered an information management system for serving up to \textbf{150,000 users daily},  with Python, SQL and GraphQL}
-
-% \resumeItemWithoutTitle{Led the development of a payment microservice with Python, Flask, and PostgreSQL with HTTPS/SSL for enhanced security}
 \resumeItemWithoutTitle{Led the development of a payment microservice, handling \textbf{200 transactions per hour}, with gRPC, Flask and PostgreSQL}
-
 \resumeItemWithoutTitle{Conducted A/B tests to understand user behavior, tailoring the information management system to better suit user needs}
-
-\resumeItemWithoutTitle{Engaged in cross-functional meetings with PMs and designers to ensure alignment between user needs and development tasks}
-
-
-% \resumeItemWithoutTitle{Deployed applications using Docker and AWS (ECR + ECS) and configured CloudWatch for monitoring}
-
-
-
-\resumeItemListEnd
-
-\vspace{2pt}
-\resumeSubheadingWithoutTitle
-{Software Engineer 1}{Feb 2020 - Oct 2021}
-\vspace{0pt}
-\resumeItemListStart
+\resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
 \resumeItemWithoutTitle{\textbf{Slashed total API calls by 80\%} by pioneering the use of Redux, contributing to a \textbf{20\% improvement} in app load times}
-\resumeItemWithoutTitle{\textbf{Integrated 30+ RESTful APIs} leveraging Apiary and Postman, resulting in enhanced app functionality}
+\resumeItemWithoutTitle{Built and documented \textbf{30+ RESTful APIs} leveraging Apiary and Postman, resulting in enhanced app functionality}
 \resumeItemWithoutTitle{Set up a Jenkins CI/CD pipeline that automated \textbf{100+ weekly builds}, while utilizing AWS services like ECR, ECS, S3, and AWS Fargate for seamless DevOps}
-% \resumeItemWithoutTitle{Developed a Unet-based AI image annotation tool, elevating data pre-processing rates from 20 to 200+ images/hour}
 \resumeItemListEnd
 
-% \vspace{2pt}
-% \resumeSubheadingWithoutTitle
-% {AI Engineer Intern}{Feb 2020 - Jun 2020}
-% \vspace{0pt}
-% \resumeItemListStart
-% \resumeItemWithoutTitle{Applied \textbf{Feature Engineering} to improve the accuracy of a \textbf{KNN-supervised classifier} by 7\%, resulting in more effective classification of products in an unmanned store}
-% \resumeItemWithoutTitle{Experimented with \textbf{BERT} using \textbf{PyTorch} for \textbf{Named Entity Recognition} to automate support request routing in an apartment intercom system and integrated it with the \textbf{Express API Server} to provide AI as a Service}
-% \resumeItemWithoutTitle{Expertly resolved more than 20 bugs in the API server using \textbf{NodeJS and Typescript}, resulting in improved stability and performance of the server, also contributed to ongoing full-stack applications}
-% \resumeItemListEnd
+
+
+%-------- SKILLS------------
+\shortSection{Skills}
+\skill {Frameworks}{React, Redux, NodeJS, LangChain, PostgreSQL, Express, MongoDB}
+\skill {Tools\hspace{32pt}}{Pinecone, ElasticSearch, Docker, Redis, AWS, gRPC, Sentry, LogRocket}
+\skill {Languages \hspace{4pt}}{Python, TypeScript, JavaScript, Go, Java, C\#, C++, GraphQL}
+\skill {Soft Skills\hspace{10pt}}{Communication (verbal and written), Leadership, Collaboration, Mentorship}
+
 
 %-----------PROJECTS-----------------
-
-
 
 \shortSection{Projects}
 
 \vspace{3pt}
 \projectHeading {AgentDocs}{OpenAI, React, TypeScript, Tailwind}{Sept 2023 - Present}
 \resumeItemListStart
-\resumeItemWithoutTitle{Hackathon Project: built an MVP for a collaborative text editor like Google Docs where you can @mention AI Agents specialising in different tasks, such as summarization, translation, and image generation. Used OpenAI's GPT-3.5 API to generate summaries of documents. This work is based on an open-source project called Novel.sh}
+\resumeItemWithoutTitle{Built an MVP for a collaborative text editor like Google Docs where you can @mention AI Agents specialising in different tasks, such as summarization, translation, and image generation. Used OpenAI's GPT-3.5 API to generate summaries of documents. This work is based on an open-source project called Novel.sh}
 \resumeItemListEnd
 
 
@@ -308,15 +258,11 @@
 \resumeItemListEnd
 
 
-
 % \vspace{3pt}
 % \projectHeading {Testing Apache Commons Text}{Java, JUnit, Mockito}{Sept 2022 - Dec 2022}
 % \resumeItemListStart
 % \resumeItemWithoutTitle{Wrote unit tests for the Open Source Apache Commons Text library using JUnit and Mockito. Used mutation testing to identify gaps in test coverage and improve the quality of the test suite}
 % \resumeItemListEnd
-
-
-
 
 
 % \vspace{3pt}
@@ -333,9 +279,9 @@
 % \resumeItemListEnd
 
 %-------- AWARDS------------
-\shortSection{Awards \& Leadership}
-\skill{Sakura Science Fellow}{Received a fully-funded scholarship from the Japan Science and Technology Agency to participate in a research internship at Ritsumeikan University, Japan}
-\skill{Teaching Assistant}{Demonstrated strong leadership and team collaboration skills as a Graduate Teaching Assistant for three courses: Foundations of Software Engineering, Software Requirements \& Interaction Design and Introduction to Graduate Studies}
+% \shortSection{Awards \& Leadership}
+% \skill{Sakura Science Fellow}{Received a fully-funded scholarship from the Japan Science and Technology Agency to participate in a research internship at Ritsumeikan University, Japan}
+% \skill{Teaching Assistant}{Demonstrated strong leadership and team collaboration skills as a Graduate Teaching Assistant for three courses: Foundations of Software Engineering, Software Requirements \& Interaction Design and Introduction to Graduate Studies}
 % \skill{Graduate Teaching Assistant}{Foundations of Software Engineering (CMU - Spring 2023)}
 % \skill{Student Leader}{ECE Graduate Organization (CMU - Fall 2022)}
 % \skill{Youth Icon (title)}{Won first place in a national public speaking competition among 5000 participants in March 2019}
