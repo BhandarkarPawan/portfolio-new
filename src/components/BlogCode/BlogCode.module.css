@@ -1,0 +1,19 @@
+.blogCode {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--color-background-dark);
+  color: var(--color-primary);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  line-height: 1.5;
+  display: inline-block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  transition: var(--transition);
+}
+
+.blogCode:hover {
+  background-color: var(--color-background-light);
+}
+
+

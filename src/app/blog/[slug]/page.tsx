@@ -11,7 +11,10 @@ import BlogTitle from "@/components/BlogTitle";
 import BlogText from "@/components/BlogText";
 import SideBySideCode from "@/components/SideBySideCode";
 import Caption from "@/components/Caption";
+import BlogList from "@/components/BlogList";
+import BlogCode from "@/components/BlogCode";
 import styles from "./blogPost.module.css";
+import Link from "@/components/Link";
 
 const getBlogData = React.cache(async (slug: string) => {
   return await loadBlogPost(slug);
@@ -47,6 +50,9 @@ async function BlogPost({ params }: Props) {
             h6: (props) => <Title as="h6" {...props} />,
             Paragraph,
             p: BlogText,
+            ul: BlogList,
+            code: BlogCode,
+            a: Link,
           }}
         />
       </article>

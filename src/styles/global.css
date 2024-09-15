@@ -33,6 +33,10 @@ html {
   --color-background-dark: hsl(214, 36%, 18%);
   --color-background-blur: hsl(214, 36%, 24%, 0.75);
   --color-footer: hsl(214, 36%, 12%);
+  --color-secondary: hsl(214, 36%, 70%);
+  --color-tertiary: hsl(214, 36%, 80%);
+  --color-quaternary: hsl(214, 36%, 90%);
+  --color-quinary: hsl(214, 36%, 98%);
 }
 
 body {

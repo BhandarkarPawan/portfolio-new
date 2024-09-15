@@ -46,7 +46,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
           <Header initialTheme={theme} />
           {children}
           <Footer />
-          <Splash logoUrl={logoUrl} />
+          {/* <Splash logoUrl={logoUrl} /> */}
         </ThemeProvider>
       </body>
     </html>
