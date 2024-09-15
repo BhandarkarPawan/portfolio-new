@@ -8,6 +8,7 @@ interface ImageWithAttributionProps extends React.ComponentProps<typeof Image> {
   attrUrl: string;
   attrHost?: string;
   attrHostUrl?: string;
+  alt: string;
 }
 
 export function ImageWithAttribution({
@@ -15,11 +16,12 @@ export function ImageWithAttribution({
   attrUrl,
   attrHost,
   attrHostUrl,
+  alt,
   ...delegated
 }: ImageWithAttributionProps) {
   return (
     <div className={styles.imageWithCaption}>
-      <Image className={styles.image} {...delegated} />
+      <Image className={styles.image} alt={alt} {...delegated} />
       <Caption>
         Image by{" "}
         <a className={styles.attrLink} href={attrUrl}>
@@ -34,15 +36,17 @@ export function ImageWithAttribution({
 
 interface CaptionedImageProps extends React.ComponentProps<typeof Image> {
   caption: string;
+  alt: string;
 }
 
 export const ImageWithCaption = ({
   caption,
+  alt,
   ...delegated
 }: CaptionedImageProps) => {
   return (
     <div className={styles.imageWithCaption}>
-      <Image className={styles.image} {...delegated} />
+      <Image className={styles.image} alt={alt} {...delegated} />
       <Caption>{caption}</Caption>
     </div>
   );

@@ -5,10 +5,10 @@
   color: var(--color-text-regular);
 }
 
-.blogListItem {
+.blogList li {
   margin-bottom: 8px;
 }
 
-.blogListItem:hover {
+.blogList li:hover {
   color: var(--color-primary);
 }

@@ -11,15 +11,7 @@ const BlogList = React.forwardRef<
       className={`${styles.blogList} ${className || ""}`}
       {...props}
     >
-      {React.Children.map(children, (child, index) => {
-        if (React.isValidElement(child) && child.type === "li") {
-          return React.cloneElement(child, {
-            className: `${styles.blogListItem} ${child.props.className || ""}`,
-            key: child.key || index,
-          });
-        }
-        return child;
-      })}
+      {children}
     </ul>
   );
 });
