@@ -48,13 +48,13 @@
 %-------------------------
 \newcommand{\resumeItem}[2]{
   \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
+    \textbf{#1}{: #2 \vspace{0pt}}
   }
 }
 
 \newcommand{\resumeItemWithoutTitle}[1]{
   \item\small{
-    {#1 \vspace{-2pt}}
+    {#1 \vspace{0pt}}
   }
 }
 
@@ -67,9 +67,8 @@
     \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
         \textbf{#1} & #2 \\
         \textbf{\textit{#3}} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-10pt}
+    \end{tabular*}\vspace{0pt}
 }
-
 
 
 \newcommand{\shortSection}[1]{
@@ -85,24 +84,18 @@
     \small{\textbf{Affiliations:}{#5}}
 }
 
-\newcommand{\projectHeading}[3]{
+\newcommand{\projectHeading}[1]{
   \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-        \textbf{#1} 
-        \hspace{-2pt} $\vert$ \hspace{-2pt} \small{\textit{#2}} 
-        & 
-        \textit{#3} \\
-    \end{tabular*}\vspace{-2pt}
+        \textbf{#1}
+    \end{tabular*}\vspace{0pt}
 }
 
 
 
-\newcommand{\projectHeadingWithLink}[4]{
+\newcommand{\projectHeadingWithLink}[2]{
   \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-        \textbf{\href{#4}{\color{blue}{#1}}}
-        \hspace{-2pt} $\vert$ \hspace{-2pt} \small{\textit{#2}} 
-        & 
-        \textit{#3} \\
-    \end{tabular*}\vspace{-2pt}
+        \textbf{\href{#2}{\color{blue}{#1}}}
+    \end{tabular*}\vspace{0pt}
 }
 
 \newcommand*{\skill}[2]{
@@ -130,11 +123,12 @@
   \textbf{{\LARGE Pawan Bhandarkar}}\\
   Redwood City, CA & \textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}} \\
   Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me}   &   Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}\\
-  Mobile : +1(650)537-7341 &  Linkedin: \href{https://www.linkedin.com/in/bhandarkar/}{bhandarkar.me/linkedin} \\
+  Mobile : +1(650)537-7341 &  Linkedin: \href{https://bhandarkar.me/linkedin/}{bhandarkar.me/linkedin} \\
 
 \end{tabular*}
 
 
+%----------HEADING With QR Code-----------------
 % \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 %     \textbf{{\LARGE Pawan Bhandarkar}} & \makebox[0pt][r]{\multirow{4}{*}{\qrcode[height=0.6in]{https://bhandarkar.me}}} \\
 %     Mountain View, CA & \makebox[0pt][r]{\textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}}}\hspace{5.4em} \\
@@ -150,133 +144,93 @@
 
 %-----------EDUCATION-----------------
 \shortSection{Education}
+\vspace{3pt}
 \educationHeading
-{Carnegie Mellon University}{Pittsburgh, PA}
+{Carnegie Mellon University}{Mountain View, CA}
 {Master's in Software Engineering}{Dec 2023}{
   Graduate Teaching Assistant, Research Associate
+}
+
+\vspace{5pt}
+\educationHeading
+{Visvesvaraya Technological University}{Nitte, India}
+{Bachelor's in Computer Science and Engineering}{Apr 2020}{
+  Sakura Science Fellow
 }
 
 
 %-----------EXPERIENCE-----------------
 \shortSection{Experience}
-\vspace{5pt}
+\vspace{3pt}
 \resumeSubheading
 {Converge Lab}{Sunnyvale, CA}
 {Founding Engineer}{Jan 2024 - Present}
-\vspace{2pt}
 \resumeItemListStart
-\resumeItemWithoutTitle{Built an LLM-powered hardware co-designer that allows Field Application Engineers to find, compare, and evaluate electronic components using natural-language}
-\resumeItemWithoutTitle{Designed and developed a frontend with generative UI, feedback for AI evaluation, tiered access control, and more, with state managed via Hooks + Context API and errors monitored via LogRocket}
-\resumeItemWithoutTitle{Contributed to developing a RAG backend with tools like Pinecone and Elasticsearch for context retrieval, DynamoDB for storage, and Langchain for the agent.}
-\resumeItemWithoutTitle{Rapidly iterated on prompt engineering using unit tests for the LLM calls as well as the providers' API consoles}
-\resumeItemWithoutTitle{Developed data extraction pipelines in Python for online processing of EC datasheets and use in LLM context}
+\resumeItemWithoutTitle{Rapidly built, launched and iterated on an LLM-powered hardware co-designer that allows Field Application Engineers to find, compare, and evaluate electronic components using natural-language}
+\resumeItemWithoutTitle{Designed and developed the frontend to support features like generative UI using server-sent events, ``Human-in-the-loop'' feedback for AI evaluation, tiered access control etc. using technologies like NextJS, React Context API, and TypeScript}
+\resumeItemWithoutTitle{Contributed to developing a FastAPI RAG backend with tools like Pinecone and Elasticsearch for context retrieval, DynamoDB for storage, and Langchain for the agent}
+\resumeItemWithoutTitle{Developed data extraction and parsing pipelines in Python for online processing of PDF datasheets and use in LLM contexts}
+% \resumeItemWithoutTitle{Helped secure a partnership with Nvidia and acquire the first 100 users}
 \resumeItemListEnd
 
+\vspace{3pt}
 \resumeSubheading
 {TuneIn Radio}{San Francisco, CA}
 {Software Engineer Intern, Platform}{Jun 2023 - Aug 2023}
-\vspace{2pt}
 \resumeItemListStart
-\resumeItemWithoutTitle{Enhanced real-time data delivery for up to \textbf{7.5 Million monthly users} via subscription-based APIs using WebSockets. Used Test-Driven Development in Go to ensure a robust GraphQL API gateway}
-\resumeItemWithoutTitle{Engineered high-throughput data communication pipelines, processing over \textbf{2 Million messages per day} with latencies under \textbf{30 ms} using Apache ActiveMQ and Redis Streams on AWS ElastiCache}
-% \resumeItemWithoutTitle{Achieved \textbf{95\% code coverage} with testing and load-tested \textbf{100,000 concurrent requests} to ensure production readiness}
-\resumeItemWithoutTitle{Automated microservice deployment with Terraform and Kubernetes. Maintained \textbf{99.9\% uptime} with New Relic monitoring}
-\resumeItemWithoutTitle{Expanded the legacy C\# (.NET Core) monolith with support for live streaming metadata for over \textbf{120,000 radio stations}}
-% \resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
+\resumeItemWithoutTitle{Enhanced real-time data delivery for up to 7.5 Million monthly users via subscription-based APIs using WebSockets. Used Test-Driven Development in Golang to ensure a robust GraphQL API gateway}
+\resumeItemWithoutTitle{Engineered high-throughput data communication pipelines, processing over 2 Million messages per day with latencies under 30ms using Apache ActiveMQ and Redis Streams on AWS ElastiCache}
+\resumeItemWithoutTitle{Automated microservice deployment with Terraform and Kubernetes. Maintained 99.9\% uptime with New Relic monitoring}
+\resumeItemWithoutTitle{Expanded the legacy C\# (.NET Core) monolith with support for live streaming metadata for over 120,000 radio stations}
 \resumeItemListEnd
 
-\vspace{5pt}
+\vspace{3pt}
 \resumeSubheading
 {Team AIBOD Inc}{Fukuoka City, Japan}
 {Software Engineer}{Nov 2021 - Apr 2022}
-\vspace{2pt}
 \resumeItemListStart
 \resumeItemWithoutTitle{Created an accessible, mobile-first React component library, promoting a consistent design language within the company}
-\resumeItemWithoutTitle{Engineered an information management system for serving up to \textbf{150,000 users daily},  with Python, SQL and GraphQL}
-\resumeItemWithoutTitle{Led the development of a payment microservice, handling \textbf{200 transactions per hour}, with gRPC, Flask and PostgreSQL}
-\resumeItemWithoutTitle{Conducted A/B tests to understand user behavior, tailoring the information management system to better suit user needs}
-\resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
-\resumeItemWithoutTitle{\textbf{Slashed total API calls by 80\%} by pioneering the use of Redux, contributing to a \textbf{20\% improvement} in app load times}
-\resumeItemWithoutTitle{Built and documented \textbf{30+ RESTful APIs} leveraging Apiary and Postman, resulting in enhanced app functionality}
-\resumeItemWithoutTitle{Set up a Jenkins CI/CD pipeline that automated \textbf{100+ weekly builds}, while utilizing AWS services like ECR, ECS, S3, and AWS Fargate for seamless DevOps}
+\resumeItemWithoutTitle{Engineered an information management system for serving up to 150,000 users daily,  with Python, SQL and GraphQL}
+\resumeItemWithoutTitle{Led the development of a payment microservice, handling 200 transactions per hour, with gRPC, Flask and PostgreSQL}
+% \resumeItemWithoutTitle{Conducted A/B tests to understand user behavior, tailoring the information management system to better suit user needs}
+% \resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
+% \resumeItemWithoutTitle{Slashed total API calls by 80\% by pioneering the use of Redux, contributing to a 20\% improvement in app load times}
+\resumeItemWithoutTitle{Built and documented 30+ RESTful APIs leveraging Apiary and Postman, resulting in enhanced app functionality}
+\resumeItemWithoutTitle{Set up a Jenkins CI/CD pipeline that automated 100+ weekly builds, while utilizing AWS services like ECR, ECS, S3, and AWS Fargate for seamless DevOps}
 \resumeItemListEnd
 
 
 
 %-------- SKILLS------------
 \shortSection{Skills}
-\skill {Frameworks}{React, Redux, NodeJS, LangChain, PostgreSQL, Express, MongoDB}
-\skill {Tools\hspace{32pt}}{Pinecone, ElasticSearch, Docker, Redis, AWS, gRPC, Sentry, LogRocket}
-\skill {Languages \hspace{4pt}}{Python, TypeScript, JavaScript, Go, Java, C\#, C++, GraphQL}
-\skill {Soft Skills\hspace{10pt}}{Communication (verbal and written), Leadership, Collaboration, Mentorship}
-
+\vspace{3pt}
+\skill {Languages \&Frameworks}{Python, TypeScript, JavaScript, Go, React, Redux, NodeJS, GraphQL}
+\skill {Databases \& AI}{PostgreSQL, MongoDB, Supabase, LangChain, Pinecone, ElasticSearch}
+\skill {DevOps \& Tools}{Docker, AWS, Redis, gRPC, Sentry, LogRocket, Git, Jira}
 
 %-----------PROJECTS-----------------
 
 \shortSection{Projects}
-
 \vspace{3pt}
-\projectHeading {AgentDocs}{OpenAI, React, TypeScript, Tailwind}{Sept 2023 - Present}
+\projectHeading {Journey}
 \resumeItemListStart
-\resumeItemWithoutTitle{Built an MVP for a collaborative text editor like Google Docs where you can @mention AI Agents specialising in different tasks, such as summarization, translation, and image generation. Used OpenAI's GPT-3.5 API to generate summaries of documents. This work is based on an open-source project called Novel.sh}
+\resumeItemWithoutTitle{Building the future of online education as an AI-powered platform that lets students generate personalized learning journeys based on their interests, prior knowledge, and learning goals. Allows users to learn on the go by generating dynamic podcasts from blogs and long-form text-content. Try it yourself: \href{https://getjourney.app/home}{\color{blue}{getjourney.app}}}
 \resumeItemListEnd
 
 
-% \vspace{3pt}
-% \projectHeading {Cloud Resource Optimization}{AWS, Terraform, Python}{Sept 2023 - Sept 2023}
-% \resumeItemListStart
-% \resumeItemWithoutTitle{Engineered an AWS-based auto-scaling solution simulating 24-hour traffic in 24 minutes for a web service. Utilized Auto Scaling Groups, CloudWatch Alarms, and Load Balancers to dynamically manage CPU utilization and traffic. Deployed and versioned the infrastructure using Terraform and a CI/CD pipeline}
-% \resumeItemListEnd
-
-
+\vspace{3pt}
+\projectHeading {AgentDocs}
+\resumeItemListStart
+\resumeItemWithoutTitle{Built an MVP for a collaborative text editor like Google Docs where you can tag AI Agents specialising in different tasks, such as summarization, translation, and image generation. Used OpenAI's API to generate summaries of documents. This work is based on an open-source project called Novel.sh}
+\resumeItemListEnd
 
 
 \vspace{3pt}
-\projectHeading {Incident Response}{React, CloudFront, Docker, Socket.IO, MongoDB, Jenkins}{Feb 2023 - May 2023}
+\projectHeading {Incident Response}
 \resumeItemListStart
-
-% % Backend
-% % \resumeItemWithoutTitle{Developed a communication platform for citizens and first responders during emergencies using Express.js, Socket.IO, and Mongoose. Refactored codebase and managed development in a scrum-of-scrums setting. Deployed the app using Docker, Jenkins, and AWS}
-% % Frontend
 \resumeItemWithoutTitle{Led the frontend development of a mobile-first communication platform for citizens and first responders during emergencies. Used Ant Design, Figma and Storybook for the UI, refactored the codebase and advised the team on best practices in UI development and accessibility. Deployed the app to S3 using Jenkins and CloudFront}
 \resumeItemListEnd
 
-
-% \vspace{3pt}
-% \projectHeading {Emergency Social Network}{HTML, CSS, TypeScript, NodeJS, MongoDB}{Aug 2022 - Dec 2022}
-% \resumeItemListStart
-% \resumeItemWithoutTitle{Built an emergency communication system for real-time SOS messaging during earthquakes with an MVC architecture. Utilized SCRUM and Kanban agile practices, object-oriented analysis (OOA) and test-driven development (TDD) in a fast-paced environment to create a user-friendly system with JSON-based RESTful APIs}
-% \resumeItemListEnd
-
-
-\vspace{3pt}
-\projectHeading {Kanban Task Manager}{React, EC2, ECR, Docker, NodeJS, MongoDB}{Jan 2023 - Jun 2023}
-% \projectHeadingWithLink {Kanban Task Manager}{React, EC2, ECR, Docker, NodeJS, MongoDB}{Jan 2023 - Present}{https://www.kanbhan.com}
-\resumeItemListStart
-% \resumeItemWithoutTitle{Developed a highly accessible Kanban Task Manager using Client-Server architecture with React Hooks and Context API focussing on A11y, Semantic HTML, and ARIA labels, which ensured usability with screen readers such as Apple Voice-Over. Generated clear API documentation with API Blueprint and Postman}
-\resumeItemWithoutTitle{Developed a responsive web app with pixel perfect user interfaces based on Figma designs. Used Client-Server architecture with dynamic theming and drag-and-drop UI, focusing on A11y, ARIA and Semantic HTML. Deployed to AWS EC2 using Docker and ECR with a CI/CD pipeline using Github Actions. Handled security with HTTPS/SSL on the AWS Load Balancer}
-\resumeItemListEnd
-
-
-% \vspace{3pt}
-% \projectHeading {Testing Apache Commons Text}{Java, JUnit, Mockito}{Sept 2022 - Dec 2022}
-% \resumeItemListStart
-% \resumeItemWithoutTitle{Wrote unit tests for the Open Source Apache Commons Text library using JUnit and Mockito. Used mutation testing to identify gaps in test coverage and improve the quality of the test suite}
-% \resumeItemListEnd
-
-
-% \vspace{3pt}
-% \projectHeading {Re:use}{React, Typescript, NodeJS, MongoDB, Figma}{Aug 2022 - Dec 2022}
-% \resumeItemListStart
-% \resumeItemWithoutTitle{Led the development of the MVP for a Resource Management application in the donation industry by generating style guides in Figma, and converting user requirements into working software using the MERN Stack}
-% \resumeItemWithoutTitle{\textbf{Ideated} a solution for problems faced by the donation industry through \textbf{usability studies} and \textbf{contextual inquiries} with Stakeholders. Generated \textbf{affinity diagrams}, \textbf{personas}, and \textbf{story boards} to envision a solution using the Dual-Track Agile process. Worked as an interaction designer to drive user research/interviews, create a core product vision and build a MVP}
-% \resumeItemListEnd
-
-% \vspace{3pt}
-% \projectHeading {Refriendo}{TypeScript, React, CSS, Figma}{Oct 2021 - Jul 2022}
-% \resumeItemListStart
-% \resumeItemWithoutTitle{Implemented a cross-platform Event Management Application for both Android and iOS using React and Ionic Capacitor. Designed and iteratively improved the user interface through high-fidelity Figma prototypes and think-aloud usability testing surveys, resulting in a clean, visually appealing design aesthetic}
-% \resumeItemListEnd
 
 %-------- AWARDS------------
 % \shortSection{Awards \& Leadership}
