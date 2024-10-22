@@ -35,7 +35,6 @@ const Header = ({ initialTheme }: { initialTheme: string }) => {
     };
   });
 
-  console.log(showHeader);
   React.useEffect(() => {
     const headerHeight = 64;
     if (scrollY < previousScrollY || scrollY < headerHeight) {

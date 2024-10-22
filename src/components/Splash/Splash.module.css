@@ -51,7 +51,7 @@
   height: 100px;
   flex-shrink: 0;
 
-  animation: zoomIn 800ms ease-in-out, zoomOut 500ms 2s ease-in-out forwards;
+  animation: zoomIn 600ms ease-in-out, zoomOut 300ms 2s ease-in-out forwards;
 }
 
 @media (min-width: 768px) {

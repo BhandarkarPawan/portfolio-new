@@ -1,7 +1,7 @@
 [
   {
     "name": "Journey",
-    "techs": ["GenAI", "NextJS", "Supabase"],
+    "techs": ["GenAI", "Exa AI", "NextJS", "Supabase"],
     "description": "Building the future of online education as an AI-powered platform that lets students generate personalized learning journeys based on their interests, prior knowledge, and learning goals. Allows users to learn on the go by generating dynamic podcasts from blogs and long-form text-content",
     "github": "",
     "website": "https://getjourney.app/",
@@ -10,11 +10,20 @@
   },
   {
     "name": "Seeker",
-    "techs": ["React", "Docker", "NodeJS", "MongoDB", "AWS"],
-    "description": "An accessible, responsive Kanban Task Manager built using Client-Server architecture with dynamic theming and drag-and-drop UI. Backend deployed on AWS and frontend on Netlify via CI/CD on using Github Actions. Security handled with HTTPS/SSL on AWS Application Load Balancer.",
+    "techs": ["React", "FastAPI", "Langchain", "Pinecone", "ElasticSearch"],
+    "description": "An AI copilot for hardware engineers to search, compare, and analyze electronic components using natural language. I led frontend design and development, while contributing to backend and prompt engineering. Seeker is my most sophisticated project to date.",
     "github": "",
     "website": "https://app.convergelab.ai",
     "imgSrc": "/images/seeker.png",
+    "type": "Featured Project"
+  },
+  {
+    "name": "BOM Optimizer",
+    "techs": ["recharts", "fastapi", "langchain", "dynamodb"],
+    "description": "A Bill-of-Materials (BOM) Optimizer for Electronics Engineers to streamline their component selection process. Leverages Large Language Models to parse BOMs from various sources, visualizes cost trends, and integrates with popular distributors for a seamless checkout experience. Empowers engineers to optimize their designs for cost, quantity, and availability with ease.",
+    "github": "",
+    "website": "https://tools.convergelab.ai",
+    "imgSrc": "/images/bom-optimizer.png",
     "type": "Featured Project"
   },
   {
@@ -70,6 +79,15 @@
     "website": "https://tipped.netlify.app/",
     "imgSrc": "/images/splitter.png",
     "type": "Side Project"
+  },
+  {
+    "name": "Refriendo",
+    "techs": ["React", "Typescript", "Go", "MongoDB", "Figma", "AWS", "Docker"],
+    "description": "I built a social media platform for people to create and host events in their neighbourhoods and friend circles. The project involved several features such as a feed, event creation, event hosting, management, discovery, and more. For this project, I designed the UI/UX with Figma, Frontend with React, and Backend with Go and MongoDB. ",
+    "github": "https://github.com/BhandarkarPawan/refriendo",
+    "website": "",
+    "imgSrc": "/images/refriendo-project.png",
+    "type": "Work in Progress"
   },
   {
     "name": "Whatsapp UI Clone",

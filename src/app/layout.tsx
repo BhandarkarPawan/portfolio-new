@@ -29,8 +29,6 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     theme === "light" ? "/images/logo-light.png" : "/images/logo.png";
   const showSplash = cookies().get("show-splash")?.value !== "false";
 
-  console.log("showSplash: ", showSplash);
-
   return (
     <html
       lang="en"

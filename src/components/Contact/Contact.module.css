@@ -30,7 +30,7 @@
   height: 100%;
   padding: 32px;
   color: black;
-  width: min(400px);
+  width: min(100%, 400px);
 }
 
 .input:focus {

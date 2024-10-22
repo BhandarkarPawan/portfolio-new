@@ -1,17 +1,20 @@
 import styles from "./Splash.module.css";
 import Image from "next/image";
-import Cookies from "js-cookie";
+import { cookies } from "next/headers";
 
 export interface IProps {
-  logoUrl: string;
   delegated?: any;
 }
 
 const Splash: React.FC<React.PropsWithChildren<IProps>> = ({
-  logoUrl,
   children,
   ...delegated
 }) => {
+  const theme = cookies().get("color-theme")?.value ?? "light";
+  const isDark = theme === "dark";
+  const logoUrl = isDark ? "/images/logo.png" : "/images/logo-light.png";
+
+  console.log(logoUrl);
   return (
     <div className={styles.splash} {...delegated}>
       <Image

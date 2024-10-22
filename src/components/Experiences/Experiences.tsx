@@ -32,7 +32,7 @@ const Experiences: React.FC = () => {
               ></Image>
               <p className={styles.time}>Jan 2024 - Present</p>
               <h4 className={styles.company}>Converge Lab</h4>
-              <h4 className={styles.role}>Software Engineer</h4>
+              <h4 className={styles.role}>Founding Engineer</h4>
               <p className={styles.description}>
                 Building a platform that serves as an AI Co-Designer for
                 Hardware Engineers to accelerate the design process of hardware
