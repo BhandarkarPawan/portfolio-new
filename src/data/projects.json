@@ -1,5 +1,23 @@
 [
   {
+    "name": "Journey",
+    "techs": ["GenAI", "NextJS", "Supabase"],
+    "description": "Building the future of online education as an AI-powered platform that lets students generate personalized learning journeys based on their interests, prior knowledge, and learning goals. Allows users to learn on the go by generating dynamic podcasts from blogs and long-form text-content",
+    "github": "",
+    "website": "https://getjourney.app/",
+    "imgSrc": "/images/journey.png",
+    "type": "Work in Progress"
+  },
+  {
+    "name": "Seeker",
+    "techs": ["React", "Docker", "NodeJS", "MongoDB", "AWS"],
+    "description": "An accessible, responsive Kanban Task Manager built using Client-Server architecture with dynamic theming and drag-and-drop UI. Backend deployed on AWS and frontend on Netlify via CI/CD on using Github Actions. Security handled with HTTPS/SSL on AWS Application Load Balancer.",
+    "github": "",
+    "website": "https://app.convergelab.ai",
+    "imgSrc": "/images/seeker.png",
+    "type": "Featured Project"
+  },
+  {
     "name": "Kanban Task Manager",
     "techs": ["React", "Docker", "NodeJS", "MongoDB", "AWS"],
     "description": "An accessible, responsive Kanban Task Manager built using Client-Server architecture with dynamic theming and drag-and-drop UI. Backend deployed on AWS and frontend on Netlify via CI/CD on using Github Actions. Security handled with HTTPS/SSL on AWS Application Load Balancer.",
@@ -16,15 +34,6 @@
     "website": "https://esn.onrender.com",
     "imgSrc": "/images/esn-app.png",
     "type": "Featured Project"
-  },
-  {
-    "name": "Refriendo",
-    "techs": ["React", "Typescript", "Go", "MongoDB", "Figma", "AWS", "Docker"],
-    "description": "I am building a social media platform for people to create and host events in their neighbourhoods and friend circles. The involves several features such as a feed, event creation, event hosting, management, discovery, and more. For this project, I designed the UI/UX with Figma, Frontend with React, and Backend with Go and MongoDB. This is my most ambitious project yet and I am excited to see where it goes.",
-    "github": "https://github.com/BhandarkarPawan/refriendo",
-    "website": "https://refriendo.netlify.app/",
-    "imgSrc": "/images/refriendo-project.png",
-    "type": "Work in Progress"
   },
   {
     "name": "Rock Paper Scissors Lizard Spock",
