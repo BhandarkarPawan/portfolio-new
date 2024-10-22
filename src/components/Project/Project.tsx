@@ -28,8 +28,9 @@ const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
             className={styles.tiltingImage}
             src={project.imgSrc}
             alt={project.name}
-            width={400}
-            height={300}
+            quality={100}
+            width={3600}
+            height={2700}
           />
         </a>
         <Image

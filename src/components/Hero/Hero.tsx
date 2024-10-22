@@ -18,15 +18,15 @@ const Hero = () => {
       <h2 className={styles.name}>Pawan Bhandarkar.</h2>
       <h3 className={styles.subText}>I build for everyone</h3>
       <p className={styles.description}>
-        I’m a full-stack engineer specialising in building (and sometimes
-        designing) highly accessible, human-centered applications for the web.
-        Currently, I’m pursuing a Master’s degree in Computer Science at{" "}
+        I’m a full-stack engineer specializing in building (and sometimes
+        designing) AI-powered software for the web. Currently, I’m currently
+        building something amazing at{" "}
         <Link
-          href="https://www.cmu.edu"
+          href="https://www.convergelab.ai"
           target="_blank"
           rel="noreferrer noopener"
         >
-          <Highlight>Carnegie Mellon University</Highlight>
+          <Highlight>Converge Lab</Highlight>
         </Link>
       </p>
       <Button className={styles.callToAction} onClick={scrollToContact}>

@@ -11,6 +11,7 @@ import Projects from "@/components/Projects";
 import Socials from "@/components/Socials";
 import Splash from "@/components/Splash";
 import Technical from "@/components/Technical";
+import Particles from "@/components/Particles";
 import styles from "./Home.module.css";
 import { cookies } from "next/headers";
 
@@ -22,9 +23,10 @@ const App = () => {
       <Socials />
       <Email />
       <div className={styles.grid}>
-        <Dots>
-          <Hero />
-        </Dots>
+        <Particles />
+        {/* <Dots> */}
+        <Hero />
+        {/* </Dots> */}
         <About />
         <Experiences />
         <Projects />

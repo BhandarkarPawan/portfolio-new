@@ -22,21 +22,16 @@ const About = ({ ...delegated }: Props) => {
       <div className={styles.aboutme}>
         <SectionTitle side={"left"}>About Me</SectionTitle>
         <p className={styles.description}>
-          Hi there! My name is Pawan, and I’m passionate about building
-          full-stack web applications that are not only{" "}
-          <Highlight>functional</Highlight> but also{" "}
-          <Highlight>intuitive</Highlight> and{" "}
-          <Highlight>visually stunning</Highlight>.
+          Hi there! My name is Pawan, and I’m passionate about building products
+          that people want. I particularly enjoy delivering{" "}
+          <Highlight>value</Highlight> through <Highlight>intuitive</Highlight>{" "}
+          and <Highlight>visually stunning</Highlight> products that solve real
+          problems.
         </p>
         <p className={styles.description}>
-          I have 2+ years of experience working as a Full-Stack developer and
-          recently, I’ve been diving deeper into Cloud Technology through my
-          course work at Carnegie Mellon University. My goal is to not only
-          write code that is <Highlight>clean, modular</Highlight>, and{" "}
-          <Highlight>well-tested</Highlight> but to build products that are{" "}
-          <Highlight>usable</Highlight>, <Highlight>performant</Highlight> and
-          can <Highlight>scale</Highlight> to meet the needs of your dynamic
-          business.
+          I generally prioritize getting products into the hands of my customers
+          quickly and iterating based on feedback, rather than sweating the
+          little things and trying to always be perfect
         </p>
         <p className={styles.description}>
           I’m always looking for new challenges and opportunities to learn and
