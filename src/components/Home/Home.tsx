@@ -16,8 +16,6 @@ import ProjectGrid from "@/components/ProjectGrid";
 import PROJECTS from "@/data/projects.json";
 
 const App = () => {
-  const savedTheme = cookies().get("color-theme")?.value ?? "light";
-
   return (
     <>
       <Splash />

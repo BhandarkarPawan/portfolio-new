@@ -10,7 +10,7 @@ const Splash: React.FC<React.PropsWithChildren<IProps>> = ({
   children,
   ...delegated
 }) => {
-  const theme = cookies().get("color-theme")?.value ?? "light";
+  const theme = cookies().get("color-theme")?.value ?? "dark";
   const isDark = theme === "dark";
   const logoUrl = isDark ? "/images/logo.png" : "/images/logo-light.png";
 
