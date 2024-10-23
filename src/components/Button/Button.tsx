@@ -48,6 +48,7 @@ const Button: React.FC<Props> = ({ children, className, ...delegated }) => {
   }, [isHovered, isPressed]);
 
   return (
+    // @ts-ignore
     <motion.button
       className={clsx(styles.button, className)}
       {...delegated}
