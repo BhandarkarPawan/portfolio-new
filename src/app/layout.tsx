@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https:bhandarkar.me",
     title: "Pawan Bhandarkar",
-    images: ["https://bhandarkar.me/images/hero.png"],
+    images: ["https://bhandarkar.me/images/Hero.png"],
   },
 };
 
