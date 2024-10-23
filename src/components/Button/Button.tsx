@@ -11,8 +11,6 @@ const Button: React.FC<Props> = ({ children, className, ...delegated }) => {
 
   const controls = useAnimation();
 
-  console.log(isPressed, isHovered);
-
   useEffect(() => {
     if (isPressed) {
       controls.start({
