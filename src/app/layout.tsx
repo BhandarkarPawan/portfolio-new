@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 function RootLayout({ children }: { children: React.ReactNode }) {
-  const theme = cookies().get("color-theme")?.value ?? "light";
+  const theme = cookies().get("color-theme")?.value ?? "dark";
   const themeColors = theme === "light" ? LIGHT_COLORS : DARK_COLORS;
   const logoUrl =
     theme === "light" ? "/images/logo-light.png" : "/images/logo.png";
