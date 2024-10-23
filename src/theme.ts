@@ -46,6 +46,8 @@ export const DARK_THEME: Theme = {
 
 export const DARK_COLORS = {
   "--color-primary": "hsl(44, 100%, 69%)",
+  "--color-primary-dark": "hsl(44, 100%, 69%, 0.75)",
+  "--color-primary-darker": "hsl(44, 100%, 69%, 0.65)",
   "--color-primary-hover": "hsl(44, 100%, 69%, 0.9)",
   "--color-text-regular": "hsl(0, 0%, 100%)",
   "--color-text-light": "hsla(0, 0%, 100%, 0.6)",
@@ -87,6 +89,8 @@ export const LIGHT_THEME: Theme = {
 export const LIGHT_COLORS = {
   "--color-primary": "hsl(202, 92%, 30%)",
   "--color-primary-hover": "hsla(202, 92%, 30%, 0.9)",
+  "--color-primary-dark": "hsl(202, 92%, 30%, 0.75)",
+  "--color-primary-darker": "hsl(202, 92%, 30%, 0.65)",
   "--color-text-regular": "hsl(202, 10%, 20%)",
   "--color-text-light": "hsl(202, 10%, 40%)",
   "--color-text-dark": "hsl(202, 92%, 30%)",

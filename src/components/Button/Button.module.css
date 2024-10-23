@@ -1,16 +1,11 @@
 .button {
-  color: var(--color-primary);
-  background-color: transparent;
+  
   border: 1px solid;
   border-radius: 8px;
   padding: 10px 16px;
-  transition: var(--transition);
+  font-weight: 800;
 }
 
-.button:hover {
-  background-color: var(--color-primary);
-  color: var(--color-background-light);
-}
 
 @media (min-width: 768px) {
   .button {

@@ -24,6 +24,7 @@ html {
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   --color-primary: hsl(44, 100%, 69%);
+  --color-primary-dark: hsl(44, 100%, 69%, 0.85);
   --color-primary-hover: hsl(44, 100%, 69%, 0.9);
   --color-text-regular: hsl(0, 0%, 100%);
   --color-text-light: hsla(0, 0%, 100%, 0.6);

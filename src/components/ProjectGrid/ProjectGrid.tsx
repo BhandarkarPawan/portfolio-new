@@ -60,7 +60,6 @@ const ActiveProject = ({
                   alt={selectedProject.name}
                   width={600}
                   height={400}
-                  objectFit="cover"
                 />
               </motion.div>
               <div className={styles.projectDetails}>
@@ -176,7 +175,6 @@ const ProjectGridCard = ({
           alt={project.name}
           width={400}
           height={300}
-          objectFit="cover"
           style={{}}
         />
       </motion.div>

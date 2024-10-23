@@ -22,10 +22,10 @@ const About = ({ ...delegated }: Props) => {
       <div className={styles.aboutme}>
         <SectionTitle side={"left"}>About Me</SectionTitle>
         <p className={styles.description}>
-          Hi there! My name is Pawan, and I’m passionate about building products
-          that people want. I particularly enjoy delivering{" "}
-          <Highlight>value</Highlight> through <Highlight>intuitive</Highlight>{" "}
-          and <Highlight>visually stunning</Highlight> products that solve real
+          I’m passionate about building products that people want. I
+          particularly enjoy delivering <Highlight>value</Highlight> through{" "}
+          <Highlight>intuitive</Highlight> and{" "}
+          <Highlight>visually stunning</Highlight> products that solve real
           problems.
         </p>
         <p className={styles.description}>
