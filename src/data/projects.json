@@ -15,7 +15,7 @@
     "github": "",
     "website": "https://app.convergelab.ai",
     "imgSrc": "/images/seeker.png",
-    "type": "Featured Project"
+    "type": "Converge Lab"
   },
   {
     "name": "BOM Optimizer",
@@ -24,7 +24,7 @@
     "github": "",
     "website": "https://tools.convergelab.ai",
     "imgSrc": "/images/bom-optimizer.png",
-    "type": "Featured Project"
+    "type": "Converge Lab"
   },
   {
     "name": "Kanban Task Manager",
