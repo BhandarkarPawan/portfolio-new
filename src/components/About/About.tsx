@@ -12,7 +12,7 @@ interface Props {
 
 const About = ({ ...delegated }: Props) => {
   const downloadResume = () => {
-    window.open("/files/resume.pdf", "_blank");
+    window.open("/files/Resume.pdf", "_blank");
   };
 
   const { aboutUrl, aboutUrlSmall } = useTheme();
