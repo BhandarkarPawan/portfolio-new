@@ -26,8 +26,9 @@ const Design: React.FC<IProps> = ({
       <a className={styles.imageWrapper} href={url} target="_blank">
         <Image
           className={styles.image}
-          height={200}
-          width={200}
+          height={400}
+          width={400}
+          quality={100}
           src={imgSrc}
           alt={description}
         />

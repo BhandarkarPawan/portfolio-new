@@ -9,11 +9,12 @@
   display: block;
   width: auto;
   height: 400px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.staticImage {
-  display: none;
-}
+
 
 .tilt {
   border-radius: 8px;
@@ -34,6 +35,7 @@
 .techs {
   margin-top: 16px;
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
   font-size: calc(20 / 16 * 1rem);
 }
@@ -190,12 +192,3 @@
   }
 }
 
-@media (prefers-reduced-motion) {
-  .staticImage {
-    display: block;
-  }
-
-  .tiltingImage {
-    display: none;
-  }
-}

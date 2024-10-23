@@ -121,6 +121,69 @@ const ActiveProject = ({
   );
 };
 
+const ProjectGridCard = ({
+  project,
+  setSelectedProject,
+}: {
+  project: IProject;
+  setSelectedProject: (project: IProject) => void;
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.button
+      key={project.name}
+      onClick={() => setSelectedProject(project)}
+      className={styles.projectButton}
+      whileHover={{
+        scale: 1.05,
+        transition: { type: "spring", stiffness: 250, damping: 10 },
+      }}
+    >
+      <motion.div
+        layoutId={`image-${project.name}`}
+        className={styles.imageWrapper}
+      >
+        <motion.div
+          animate={{
+            opacity: isHovered ? 1 : 0,
+            background: isHovered
+              ? "linear-gradient(to top left, rgba(0, 0, 0, 0.7), transparent)"
+              : "linear-gradient(to top left, rgba(0, 0, 0, 0), transparent)",
+          }}
+          transition={{ delay: 0.3, duration: 0.3 }}
+          onHoverStart={() => setIsHovered(true)}
+          onHoverEnd={() => setIsHovered(false)}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        />
+        <motion.p
+          className={styles.imageOverlayText}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ delay: 0.5, duration: 0.1 }}
+        >
+          View Project
+        </motion.p>
+        <Image
+          className={styles.image}
+          src={project.imgSrc}
+          alt={project.name}
+          width={400}
+          height={300}
+          objectFit="cover"
+          style={{}}
+        />
+      </motion.div>
+    </motion.button>
+  );
+};
+
 const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
   projects,
   children,
@@ -135,26 +198,11 @@ const ProjectGrid: React.FC<React.PropsWithChildren<IProps>> = ({
         setSelectedProject={setSelectedProject}
       />
       {projects.map((project) => (
-        <motion.button
+        <ProjectGridCard
           key={project.name}
-          onClick={() => setSelectedProject(project)}
-          className={styles.projectButton}
-        >
-          <motion.div
-            layoutId={`image-${project.name}`}
-            className={styles.imageWrapper}
-          >
-            <Image
-              className={styles.image}
-              src={project.imgSrc}
-              alt={project.name}
-              width={400}
-              height={300}
-              objectFit="cover"
-              style={{}}
-            />
-          </motion.div>
-        </motion.button>
+          project={project}
+          setSelectedProject={setSelectedProject}
+        />
       ))}
     </div>
   );

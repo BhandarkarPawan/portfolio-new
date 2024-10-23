@@ -1,9 +1,12 @@
+"use client";
+
 import { IconLink } from "@/components/Socials";
 import styles from "./Project.module.css";
 import clsx from "clsx";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { IoOpen } from "react-icons/io5";
+import { motion } from "framer-motion";
 export interface IProject {
   name: string;
   techs: string[];
@@ -24,22 +27,18 @@ const Project: React.FC<IProps> = ({ project, side, ...delegated }) => {
     <div className={clsx(styles.project, styles[side])} {...delegated}>
       <div className={styles.stretch}>
         <a href={project.website}>
-          <Image
+          <motion.img
             className={styles.tiltingImage}
             src={project.imgSrc}
             alt={project.name}
-            quality={100}
             width={3600}
             height={2700}
+            whileHover={{
+              scale: 1.03,
+              transition: { type: "spring", stiffness: 250, damping: 10 },
+            }}
           />
         </a>
-        <Image
-          width={100}
-          height={100}
-          className={styles.staticImage}
-          src={project.imgSrc}
-          alt={project.name}
-        />
       </div>
 
       <div className={clsx(styles.info, styles[side])}>
