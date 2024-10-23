@@ -12,7 +12,7 @@ import Splash from "@/components/Splash";
 export const metadata: Metadata = {
   title: "Pawan Bhandarkar",
   description:
-    "I'm a full-stack engineer specializing in building (and sometimes designing) highly accessible, human-centered applications for the web.",
+    " I’m a full-stack engineer specializing in building (and sometimes designing) AI-powered software for the web",
   openGraph: {
     type: "website",
     locale: "en_US",
