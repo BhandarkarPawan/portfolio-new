@@ -4,7 +4,7 @@
     "techs": ["GenAI", "Exa AI", "NextJS", "Supabase"],
     "description": "Building the future of online education as an AI-powered platform that lets students generate personalized learning journeys based on their interests, prior knowledge, and learning goals. Allows users to learn on the go by generating dynamic podcasts from blogs and long-form text-content",
     "github": "",
-    "website": "https://getjourney.app/",
+    "website": "https://getjourney.app/home",
     "imgSrc": "/images/journey.png",
     "type": "Work in Progress"
   },
