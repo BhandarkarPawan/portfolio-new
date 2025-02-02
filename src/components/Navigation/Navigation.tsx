@@ -21,10 +21,10 @@ const Navigation = () => {
         <p className={styles.navText}>contact</p>
         contact
       </Link>
-      <Link className={styles.navLink} href="/blog">
+      {/* <Link className={styles.navLink} href="/blog">
         <p className={styles.navText}>blog</p>
         blog
-      </Link>
+      </Link> */}
       <a className={styles.downloadLink} href="files/resume.pdf" download>
         resume
         <FaDownload />

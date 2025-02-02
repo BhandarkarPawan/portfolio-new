@@ -16,17 +16,13 @@ const Hero = () => {
         <Highlight>Hi, my name is</Highlight>
       </p>
       <h2 className={styles.name}>Pawan Bhandarkar.</h2>
-      <h3 className={styles.subText}>I build for everyone</h3>
+      <h3 className={styles.subText}>[catchphrase tbd]</h3>
       <p className={styles.description}>
         I’m a full-stack engineer specializing in building (and sometimes
-        designing) AI-powered software for the web. Currently, I’m currently
-        building something amazing at{" "}
-        <Link
-          href="https://www.convergelab.ai"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <Highlight>Converge Lab</Highlight>
+        designing) AI-powered software for the web. Currently, I’m building
+        helping make AGI happen at{" "}
+        <Link href="https://x.ai/" target="_blank" rel="noreferrer noopener">
+          <Highlight>xAI</Highlight>
         </Link>
       </p>
       <Button className={styles.callToAction} onClick={scrollToContact}>

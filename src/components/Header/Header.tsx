@@ -90,7 +90,7 @@ const Header = ({ initialTheme }: { initialTheme: string }) => {
           <Hamburger toggled={showSidebar} onToggle={toggleSidebar} />
         </div>
       </div>
-      <div className={styles.banner}>
+      {/* <div className={styles.banner}>
         I&apos;m currently building something awesome at{" "}
         <Link
           className={styles.aLink}
@@ -99,7 +99,7 @@ const Header = ({ initialTheme }: { initialTheme: string }) => {
         >
           Convergelab.ai
         </Link>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -15,6 +15,32 @@ const Experiences: React.FC = () => {
               className={styles.image}
               height={100}
               width={100}
+              src="/images/xai.jpg"
+              alt="xai"
+            />
+            <div className={styles.dotPrimary}>
+              <div className={styles.dotCore} />
+            </div>
+            <div className={styles.connector} />
+            <div className={styles.info}>
+              <Image
+                height={100}
+                width={100}
+                className={styles.mobileImage}
+                src="/images/xai.jpg"
+                alt="xai"
+              ></Image>
+              <p className={styles.time}>Dec 2024 - Present</p>
+              <h4 className={styles.company}>xAI</h4>
+              <h4 className={styles.role}>Member of Technical Staff</h4>
+              <p className={styles.description}>Helping make AGI happen</p>
+            </div>
+          </div>
+          <div className={styles.item}>
+            <Image
+              className={styles.image}
+              height={100}
+              width={100}
               src="/images/converge.png"
               alt="converge-lab"
             />
@@ -30,13 +56,18 @@ const Experiences: React.FC = () => {
                 src="/images/converge.png"
                 alt="converge-lab"
               ></Image>
-              <p className={styles.time}>Jan 2024 - Present</p>
+              <p className={styles.time}>Jan 2024 - Dec 2024</p>
               <h4 className={styles.company}>Converge Lab</h4>
               <h4 className={styles.role}>Founding Engineer</h4>
               <p className={styles.description}>
-                Building a platform that serves as an AI Co-Designer for
-                Hardware Engineers to accelerate the design process of hardware
-                circuits and systems
+                Rapidly built and launched an LLM-powered hardware co-designer
+                that helps Field Application Engineers find, compare, and
+                evaluate electronic components using natural language. Designed
+                and developed the frontend with features like generative UI,
+                human-in-the-loop feedback, and tiered access control.
+                Contributed to FastAPI RAG backend using Pinecone,
+                Elasticsearch, and Langchain. Built data extraction pipelines
+                for processing PDF datasheets.
               </p>
             </div>
           </div>
@@ -119,7 +150,7 @@ const Experiences: React.FC = () => {
                     Contributed to projects in various capacities, including
                     backend development with NodeJS and Python, Web GUI using
                     React and TypeScript and DevOps flows with AWS using EC2,
-                    ECS, Docker and CloudWatch in a fast-paced Agile/SCRUM
+                    ECS, Docker and CloudWatch in a fast-paced le/SCRUM
                     environment
                   </p>
                 </div>
