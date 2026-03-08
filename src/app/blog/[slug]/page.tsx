@@ -34,6 +34,7 @@ async function BlogPost({ params }: Props) {
       <article className={styles.blogPost}>
         <MDXRemote
           source={content}
+          options={{ blockJS: false }}
           components={{
             Caption,
             pre: CodeBlock,
