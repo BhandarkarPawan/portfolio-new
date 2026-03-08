@@ -33,7 +33,7 @@
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
 \addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\textheight}{1.2in}
 
 \urlstyle{rm}
 
@@ -42,8 +42,8 @@
 \setlength{\tabcolsep}{0in}
 
 \titleformat{\section}{
-  \vspace{-3pt}\scshape\raggedright\large\bfseries{}
-}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+  \vspace{-1pt}\scshape\raggedright\large\bfseries{}
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 %-------------------------
 \newcommand{\resumeItem}[2]{
@@ -54,7 +54,7 @@
 
 \newcommand{\resumeItemWithoutTitle}[1]{
   \item\small{
-    {#1 \vspace{0pt}}
+    {#1 \vspace{4pt}}
   }
 }
 
@@ -67,12 +67,12 @@
     \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
         \textbf{#1} & #2 \\
         \textbf{\textit{#3}} & \textit{\small #4} \\
-    \end{tabular*}\vspace{0pt}
+    \end{tabular*}\vspace{2pt}
 }
 
 
 \newcommand{\shortSection}[1]{
-    \vspace{-6pt}
+    \vspace{-2pt}
     \section{#1}
 }
 
@@ -120,44 +120,16 @@
 
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
 
-  \textbf{{\LARGE Pawan Bhandarkar}}\\
+  \textbf{{\LARGE Panambur Pawan Bhandarkar}}\\
   Redwood City, CA & \textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}} \\
   Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me}   &   Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}\\
   Mobile : +1(650)537-7341 &  Linkedin: \href{https://bhandarkar.me/linkedin/}{bhandarkar.me/linkedin} \\
 
 \end{tabular*}
 
-
-%----------HEADING With QR Code-----------------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%     \textbf{{\LARGE Pawan Bhandarkar}} & \makebox[0pt][r]{\multirow{4}{*}{\qrcode[height=0.6in]{https://bhandarkar.me}}} \\
-%     Mountain View, CA & \makebox[0pt][r]{\textbf{Portfolio:\href{https://bhandarkar.me/}{ \color{blue}{bhandarkar.me}}}}\hspace{5.4em} \\
-%     Email : \href{mailto:pawan@bhandarkar.me}{pawan@bhandarkar.me} & \makebox[0pt][r]{Github: \href{https://bhandarkar.me/github}{bhandarkar.me/github}}\hspace{5.4em} \\
-%     Mobile : +1(650)537-7341 & \makebox[0pt][r]{Linkedin: \href{https://www.linkedin.com/in/bhandarkar/}{bhandarkar.me/linkedin}}\hspace{5.4em} \\
-% \end{tabular*}
-
 %-----------SUMMARY-----------------
-% \shortSection {Summary}
-% \small Full-stack engineer experienced (2+ years) in building \textbf{responsive}, \textbf{accessible} web applications. I write \textbf{clean, modular}, \textbf{well-documented} and testable code that is easy for teams to \textbf{understand, extend}, and \textbf{integrate}. 
-
-
-
-%-----------EDUCATION-----------------
-\shortSection{Education}
-\vspace{3pt}
-\educationHeading
-{Carnegie Mellon University}{Mountain View, CA}
-{Master's in Software Engineering}{Dec 2023}{
-  Graduate Teaching Assistant, Research Associate
-}
-
-\vspace{5pt}
-\educationHeading
-{Visvesvaraya Technological University}{Nitte, India}
-{Bachelor's in Computer Science and Engineering}{Apr 2020}{
-  Sakura Science Fellow
-}
-
+\shortSection{Summary}
+\small Software engineer with 4+ years of experience building production AI infrastructure. At xAI, owned and scaled the model debugging and RL observability infrastructure as well as the human data platform that directly accelerated Grok model iterations.
 
 %-----------EXPERIENCE-----------------
 \shortSection{Experience}
@@ -166,23 +138,24 @@
 {xAI}{Palo Alto, CA}
 {Member of Technical Staff}{Dec 2024 - Present}
 \resumeItemListStart
-\resumeItemWithoutTitle{Built and maintained Starfleet, xAI's human data collection platform, directly enabling high-quality post-training data for frontier models like Grok-3 and Grok-4, supporting projects in personality, multilingual audio, and process supervision.}
-\resumeItemWithoutTitle{Developed Nebula, an in-house agent visualization platform, accelerating researcher analysis of model behavior and metrics (e.g., AIME benchmarks), reducing manual review time from hours to seconds via interactive dashboards and trace viewers.}
-\resumeItemWithoutTitle{Created Starfleet's Tutor Planner, an in-house tool for managing human resources, streamlining workstream planning, availability tracking, and overtime allocation to optimize data collection efficiency for critical sprints.}
-\resumeItemWithoutTitle{Built Starfleet Autograder, a Grok-powered system integrating error detection scripts for real-time feedback to human tutors, piloted successfully on multilingual audio projects to enhance data quality and diversity.}
-\resumeItemListEnd
 
+\resumeItemWithoutTitle{\textbf{Nebula Platform (Tier 0)} - Built a suite of internal tools for end-to-end model development and debugging, including file viewers, specialized trace viewers, benchmark queuing and automation services, production data debuggers, model deployment automations etc - xAI now spends over 7000 engineering hours per week on Nebula}
+\resumeItemWithoutTitle{\textbf{RL Data App} - Subsystem of the Nebula Platform delivering high-performance aggregation and analytics tools to track and debug RL training and evaluation metrics—now integral to all RL workflows at xAI.}
+\resumeItemWithoutTitle{\textbf{Starfleet} - Owned and scaled xAI's human-data platform powering human evals and high-quality data generation for post-training Grok, with features including multi-model arenas, QA pipelines, real-time analytics and performance management, auto-graders, HRIS-style operations management, and more.} 
+\resumeItemWithoutTitle{\textbf{Research Agent} - Built xAI's AI assistant with cursor-style UX hosted on Nebula Platform, enabling large-scale LLM-based analytics and data processing on training and evaluation data from RL runs using an MCP server with specialized model-debugging tools.}
+\resumeItemWithoutTitle{\textbf{Devbots} - Led a team of 3 to design and ship xAI's Remote Agents infrastructure, boosting engineering productivity by enabling all users to interact with agents via Slack App, Web UI, PR reviews, and more, to spin up sandboxed coding environments for feature development.}
+\resumeItemWithoutTitle{\textbf{Nebula Notebooks} - (Solo) Designed and shipped an in-house version of Google Colab with managed Jupyter kernels, custom UI/UX, and bespoke cell renderers specialized for visualizing agent traces, grader results, and more.}
+\resumeItemWithoutTitle{\textbf{Infrastructure \& Observability} - Built infrastructure and observability solutions such as Grafana dashboards and alerts to maintain high reliability and uptime of all critical platforms mentioned above.}
+\resumeItemListEnd
 
 \vspace{3pt}
 \resumeSubheading
 {Converge Lab}{Sunnyvale, CA}
 {Founding Engineer}{Jan 2024 - Dec 2024}
 \resumeItemListStart
-\resumeItemWithoutTitle{Rapidly built, launched and iterated on an LLM-powered hardware co-designer that allows Field Application Engineers to find, compare, and evaluate electronic components using natural-language}
-\resumeItemWithoutTitle{Designed and developed the frontend to support features like generative UI using server-sent events, ``Human-in-the-loop'' feedback for AI evaluation, tiered access control etc. using technologies like NextJS, React Context API, and TypeScript}
-\resumeItemWithoutTitle{Contributed to developing a FastAPI RAG backend with tools like Pinecone and Elasticsearch for context retrieval, DynamoDB for storage, and Langchain for the agent}
-\resumeItemWithoutTitle{Developed data extraction and parsing pipelines in Python for online processing of PDF datasheets and use in LLM contexts}
-\resumeItemWithoutTitle{Helped secure a partnership with Nvidia and acquire the first 100 users}
+\resumeItemWithoutTitle{Built and launched an LLM-powered hardware co-designer with generative UI, human-in-the-loop feedback, and tiered access control using Next.js, React, and TypeScript. Helped secure a partnership with Nvidia.}
+\resumeItemWithoutTitle{Developed a FastAPI RAG backend with Pinecone, Elasticsearch, and LangChain for semantic retrieval across electronic component datasheets, with DynamoDB for persistence.}
+\resumeItemWithoutTitle{Built Python pipelines for extracting and parsing PDF datasheets into structured data for LLM context windows.}
 \resumeItemListEnd
 
 \vspace{3pt}
@@ -190,66 +163,29 @@
 {TuneIn Radio}{San Francisco, CA}
 {Software Engineer Intern, Platform}{Jun 2023 - Aug 2023}
 \resumeItemListStart
-\resumeItemWithoutTitle{Enhanced real-time data delivery for up to 7.5 Million monthly users via subscription-based APIs using WebSockets. Used Test-Driven Development in Golang to ensure a robust GraphQL API gateway}
-\resumeItemWithoutTitle{Engineered high-throughput data communication pipelines, processing over 2 Million messages per day with latencies under 30ms using Apache ActiveMQ and Redis Streams on AWS ElastiCache}
-\resumeItemWithoutTitle{Automated microservice deployment with Terraform and Kubernetes. Maintained 99.9\% uptime with New Relic monitoring}
-\resumeItemWithoutTitle{Expanded the legacy C\# (.NET Core) monolith with support for live streaming metadata for over 120,000 radio stations}
+\resumeItemWithoutTitle{Engineered real-time data pipelines for \textbf{7.5M monthly users}, processing 2M+ messages/day at sub-30ms latency using WebSockets, Apache ActiveMQ, and Redis Streams. Automated deployments with Terraform and Kubernetes}
 \resumeItemListEnd
-
-\vspace{3pt}
-\resumeSubheading
-{Team AIBOD Inc}{Fukuoka City, Japan}
-{Software Engineer}{Feb 2020 - Apr 2022}
-\resumeItemListStart
-\resumeItemWithoutTitle{Created an accessible, mobile-first React component library, promoting a consistent design language within the company}
-\resumeItemWithoutTitle{Engineered an information management system for serving up to 150,000 users daily,  with Python, SQL and GraphQL}
-\resumeItemWithoutTitle{Led the development of a payment microservice, handling 200 transactions per hour, with gRPC, Flask and PostgreSQL}
-% \resumeItemWithoutTitle{Conducted A/B tests to understand user behavior, tailoring the information management system to better suit user needs}
-% \resumeItemWithoutTitle{Collaborated with Product Managers to translate business requirements into technical specifications}
-% \resumeItemWithoutTitle{Slashed total API calls by 80\% by pioneering the use of Redux, contributing to a 20\% improvement in app load times}
-\resumeItemWithoutTitle{Built and documented 30+ RESTful APIs leveraging Apiary and Postman, resulting in enhanced app functionality}
-\resumeItemWithoutTitle{Set up a Jenkins CI/CD pipeline that automated 100+ weekly builds, while utilizing AWS services like ECR, ECS, S3, and AWS Fargate for seamless DevOps}
-\resumeItemListEnd
-
-
 
 %-------- SKILLS------------
 \shortSection{Skills}
 \vspace{3pt}
-\skill {Languages \&Frameworks}{Python, TypeScript, JavaScript, Go, React, Redux, NodeJS, GraphQL}
-\skill {Databases \& AI}{PostgreSQL, MongoDB, Supabase, LangChain, Pinecone, ElasticSearch}
-\skill {DevOps \& Tools}{Docker, AWS, Redis, gRPC, Sentry, LogRocket, Git, Jira}
+\skill {Languages \& Frameworks}{TypeScript, Python, React, Next.js, Node.js, Go, FastAPI, GraphQL}
+\skill {AI/ML Infrastructure}{RLHF pipelines, model evaluation, LangChain, RAG, Pinecone, Elasticsearch}
+\skill {Data \& Observability}{PostgreSQL, Redis, ClickHouse, DynamoDB, IndexedDB, Sentry, Axiom, D3/Recharts}
+\skill {Infrastructure}{Kubernetes, Docker, AWS, GCS, gRPC, WebSockets, CI/CD, Terraform}
 
-%-----------PROJECTS-----------------
-
-\shortSection{Projects}
+%-----------EDUCATION-----------------
+\shortSection{Education}
 \vspace{3pt}
-\projectHeading {Journey}
-\resumeItemListStart
-\resumeItemWithoutTitle{Building the future of online education as an AI-powered platform that lets students generate personalized learning journeys based on their interests, prior knowledge, and learning goals. Allows users to learn on the go by generating dynamic podcasts from blogs and long-form text-content. Try it yourself: \href{https://getjourney.app/home}{\color{blue}{getjourney.app}}}
-\resumeItemListEnd
-
+\resumeSubheading
+{Carnegie Mellon University}{Mountain View, CA}
+{Master's in Software Engineering}{Dec 2023}
 
 \vspace{3pt}
-\projectHeading {AgentDocs}
-\resumeItemListStart
-\resumeItemWithoutTitle{Built an MVP for a collaborative text editor like Google Docs where you can tag AI Agents specialising in different tasks, such as summarization, translation, and image generation. Used OpenAI's API to generate summaries of documents. This work is based on an open-source project called Novel.sh}
-\resumeItemListEnd
-
-
-\vspace{3pt}
-\projectHeading {Incident Response}
-\resumeItemListStart
-\resumeItemWithoutTitle{Led the frontend development of a mobile-first communication platform for citizens and first responders during emergencies. Used Ant Design, Figma and Storybook for the UI, refactored the codebase and advised the team on best practices in UI development and accessibility. Deployed the app to S3 using Jenkins and CloudFront}
-\resumeItemListEnd
-
-
-%-------- AWARDS------------
-\shortSection{Awards \& Leadership}
-\skill{Sakura Science Fellow}{Received a fully-funded scholarship from the Japan Science and Technology Agency to participate in a research internship at Ritsumeikan University, Japan}
-\skill{Teaching Assistant}{Demonstrated strong leadership and team collaboration skills as a Graduate Teaching Assistant for three courses: Foundations of Software Engineering, Software Requirements \& Interaction Design and Introduction to Graduate Studies}
-\skill{Graduate Teaching Assistant}{Foundations of Software Engineering (CMU - Spring 2023)}
-\skill{Student Leader}{ECE Graduate Organization (CMU - Fall 2022)}
-\skill{Youth Icon (title)}{Won first place in a national public speaking competition among 5000 participants in March 2019}
+\resumeSubheading
+{Nitte Mahalinga Adyanthaya Memorial Institute of Technology}{Nitte, India}
+{Bachelor's in Computer Science and Engineering}{May 2020}
 
 \end{document}
+
+

@@ -25,7 +25,7 @@ const Navigation = () => {
         <p className={styles.navText}>blog</p>
         blog
       </Link> */}
-      <a className={styles.downloadLink} href="files/resume.pdf" download>
+      <a className={styles.downloadLink} href="/files/Resume.pdf" download>
         resume
         <FaDownload />
       </a>
