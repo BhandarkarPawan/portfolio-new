@@ -1,64 +1,71 @@
-// @ts-nocheck
+import type { Metadata } from "next";
+import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import React from "react";
-import { loadBlogPost } from "@/helpers/file-helpers";
-import CodeBlock from "@/components/CodeBlock";
-import { ImageWithAttribution, ImageWithCaption } from "@/components/BlogImage";
-import ReadableWithWrapper from "@/components/ReadableWidthWrapper";
-import Title from "@/components/Title";
-import Paragraph from "@/components/Paragraph";
-import BlogTitle from "@/components/BlogTitle";
-import BlogText from "@/components/BlogText";
-import SideBySideCode from "@/components/SideBySideCode";
-import Caption from "@/components/Caption";
-import BlogList from "@/components/BlogList";
-import BlogCode from "@/components/BlogCode";
-import styles from "./blogPost.module.css";
-import Link from "@/components/Link";
+import { formatDate, getPost, getPosts } from "@/lib/blog";
+import { mdxComponents } from "@/components/blog/mdx";
+import { PROFILE } from "@/data/profile";
 
-const getBlogData = React.cache(async (slug: string) => {
-  return await loadBlogPost(slug);
-});
+type Props = { params: Promise<{ slug: string }> };
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+export const dynamicParams = false;
 
-async function BlogPost({ params }: Props) {
-  const { frontmatter, content } = await getBlogData(params.slug);
-
-  return (
-    <ReadableWithWrapper>
-      <article className={styles.blogPost}>
-        <MDXRemote
-          source={content}
-          options={{ blockJS: false }}
-          components={{
-            Caption,
-            pre: CodeBlock,
-            SideBySideCode,
-            ImageWithAttribution,
-            ImageWithCaption,
-            h1: (props) => (
-              <BlogTitle publishedOn={frontmatter.publishedOn} {...props} />
-            ),
-            h2: (props) => <Title as="h2" {...props} />,
-            h3: (props) => <Title as="h3" {...props} />,
-            h4: (props) => <Title as="h4" {...props} />,
-            h5: (props) => <Title as="h5" {...props} />,
-            h6: (props) => <Title as="h6" {...props} />,
-            Paragraph,
-            p: BlogText,
-            ul: BlogList,
-            code: BlogCode,
-            a: Link,
-          }}
-        />
-      </article>
-    </ReadableWithWrapper>
-  );
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
-export default BlogPost;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const { meta } = await getPost(slug);
+  return {
+    title: meta.title,
+    description: meta.abstract,
+    // A page-level openGraph replaces the root one wholesale, so restate the shared fields.
+    openGraph: {
+      type: "article",
+      siteName: PROFILE.name,
+      locale: "en_US",
+      url: `/blog/${slug}`,
+      title: meta.title,
+      description: meta.abstract,
+      publishedTime: meta.publishedOn,
+    },
+  };
+}
+
+export default async function BlogPost({ params }: Props) {
+  const { slug } = await params;
+  const { meta, content } = await getPost(slug);
+  const minutes = Math.max(1, Math.round(content.split(/\s+/).length / 230));
+
+  return (
+    <main id="main" className="pb-28 pt-[calc(var(--nav-h)+4rem)]">
+      <header className="px-gutter">
+        <Link href="/blog" className="mono-label text-dim transition-colors hover:text-paper">
+          ← All writing
+        </Link>
+        <p className="mono-label mt-14 text-dim">
+          {formatDate(meta.publishedOn)} · {minutes} min read
+        </p>
+        <h1 data-split="lines" className="display mt-6 max-w-[20ch] text-[clamp(2.5rem,6vw,6.25rem)] leading-[0.95]">
+          {meta.title}
+        </h1>
+        <p data-fade className="mt-8 max-w-2xl text-xl leading-snug text-paper/65">
+          {meta.abstract}
+        </p>
+        <div data-rule aria-hidden className="mt-14 h-px bg-line" />
+      </header>
+      <article className="prose-pb mx-auto mt-16 max-w-[68ch] px-gutter">
+        <MDXRemote source={content} components={mdxComponents} options={{ blockJS: false }} />
+      </article>
+      <div className="mx-auto mt-24 max-w-[68ch] px-gutter">
+        <Link
+          href="/blog"
+          className="mono-label inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-paper transition-colors hover:border-signal hover:text-signal"
+        >
+          ← More writing
+        </Link>
+      </div>
+    </main>
+  );
+}

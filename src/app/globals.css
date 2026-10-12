@@ -1,0 +1,490 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+}
+
+@theme {
+  --color-ink: #08080a;
+  --color-ink-2: #0e0e11;
+  --color-ink-3: #16161b;
+  --color-paper: #ecebe6;
+  --color-dim: #8e8c86;
+  --color-faint: #55544f;
+  --color-line: rgb(236 235 230 / 0.1);
+  --color-signal: #ffb547;
+  --color-mint: #7fdcab;
+  --color-coral: #ff6b55;
+  --color-sky: #8ab4ff;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+:root {
+  --gutter: clamp(1rem, 3.2vw, 3rem);
+  --nav-h: 4.5rem;
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-ink);
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--color-signal);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ---------- Lenis ---------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* ---------- Boot states ---------- */
+
+/* Elements the hero reveals itself; hidden only when JS can reveal them. */
+html.js .js-hide {
+  visibility: hidden;
+}
+html.reveal-all .js-hide {
+  visibility: visible;
+}
+
+/* `intro-skip` comes from the boot script (repeat visit or reduced motion);
+   `intro-done` is added when the preloader hands off to the hero. Without JS,
+   or if the app never hydrates (`reveal-all` fallback), the page stays usable. */
+html.js:not(.intro-done):not(.reveal-all) body {
+  overflow: hidden;
+}
+html:not(.js) .preloader,
+html.intro-skip .preloader,
+html.reveal-all:not(.intro-done) .preloader {
+  display: none;
+}
+
+/* ---------- Typography helpers ---------- */
+.mono-label {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.serif-em {
+  font-family: var(--font-instrument), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.px-gutter {
+  padding-inline: var(--gutter);
+}
+
+/* SplitText mask wrappers must not clip descenders of the serif italics. */
+.split-mask {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* ---------- Grain ---------- */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+html.motion .grain {
+  animation: grain 0.9s steps(6) infinite;
+}
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-4%, 3%);
+  }
+  40% {
+    transform: translate(3%, -5%);
+  }
+  60% {
+    transform: translate(-6%, -2%);
+  }
+  80% {
+    transform: translate(5%, 4%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ---------- Cursor ---------- */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 999px;
+  background: #fff;
+}
+.cursor-ring {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 1px solid rgb(255 255 255 / 0.6);
+  border-radius: 999px;
+  transition:
+    width 0.45s var(--ease-expo),
+    height 0.45s var(--ease-expo),
+    margin 0.45s var(--ease-expo),
+    background-color 0.3s,
+    border-color 0.3s;
+}
+.cursor-ring[data-state="link"] {
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  background: #fff;
+  border-color: #fff;
+}
+.cursor-ring[data-state="label"] {
+  width: 92px;
+  height: 92px;
+  margin: -46px 0 0 -46px;
+  background: #fff;
+  border-color: #fff;
+}
+.cursor-ring[data-state="probe"] {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-style: dashed;
+}
+.cursor-label {
+  color: #000;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.cursor-ring[data-state="label"] .cursor-label,
+.cursor-ring[data-state="probe"] .cursor-label {
+  opacity: 1;
+}
+.cursor-ring[data-state="probe"] .cursor-label {
+  color: #fff;
+  transform: translateY(46px);
+  white-space: nowrap;
+}
+
+/* ---------- Hero optimizer labels ---------- */
+.opt-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  pointer-events: none;
+  will-change: transform;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.opt-label[data-visible="true"] {
+  opacity: 1;
+}
+.opt-label::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+.opt-label b {
+  font-weight: 400;
+  color: var(--color-signal);
+}
+
+/* ---------- Marquee ---------- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* ---------- Prose (blog) ---------- */
+.prose-pb {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: rgb(236 235 230 / 0.82);
+}
+.prose-pb > * + * {
+  margin-top: 1.5rem;
+}
+.prose-pb h2 {
+  margin-top: 4rem;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  color: var(--color-paper);
+}
+.prose-pb h3 {
+  margin-top: 3rem;
+  font-size: 1.375rem;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: var(--color-paper);
+}
+.prose-pb a {
+  color: var(--color-paper);
+  text-decoration: underline;
+  text-decoration-color: var(--color-signal);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.prose-pb a:hover {
+  color: var(--color-signal);
+}
+.prose-pb strong {
+  color: var(--color-paper);
+  font-weight: 600;
+}
+.prose-pb ul {
+  list-style: none;
+  padding: 0;
+}
+.prose-pb ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.prose-pb ul > li + li {
+  margin-top: 0.5rem;
+}
+.prose-pb ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--color-signal);
+}
+.prose-pb ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+.prose-pb :not(pre) > code {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.85em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: rgb(255 181 71 / 0.1);
+  color: var(--color-signal);
+}
+.prose-pb blockquote {
+  border-left: 1px solid var(--color-signal);
+  padding-left: 1.25rem;
+  font-family: var(--font-instrument), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--color-paper);
+}
+.code-block pre {
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  background: var(--color-ink-2) !important;
+}
+.code-block code {
+  counter-reset: line;
+}
+.code-block .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.75rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: var(--color-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes cue {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.01% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* ---------- Experience track ----------
+   Vertical by default; a pinned horizontal track on large screens with motion. */
+.xp-track {
+  display: flex;
+  flex-direction: column;
+}
+.xp-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem var(--gutter) 4rem;
+  border-top: 1px solid var(--color-line);
+}
+.xp-band,
+.xp-band-space {
+  display: none;
+}
+.xp-marker {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  margin: -5.5px 0 0 -5.5px;
+  border: 1px solid var(--color-faint);
+  border-radius: 999px;
+  background: var(--color-ink);
+  transition:
+    background-color 0.4s,
+    border-color 0.4s,
+    box-shadow 0.4s;
+}
+.xp-marker-label {
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--color-faint);
+  transition: color 0.4s;
+}
+.xp-marker[data-reached] {
+  background: var(--color-signal);
+  border-color: var(--color-signal);
+  box-shadow: 0 0 0 5px rgb(255 181 71 / 0.15);
+}
+.xp-marker[data-reached] .xp-marker-label {
+  color: var(--color-paper);
+}
+
+@media (min-width: 1024px) {
+  html.motion .xp-pin {
+    height: 100svh;
+    /* clip, not hidden: a hidden box is still scrollable, so focusing a link in
+       an off-screen panel would scroll it sideways behind GSAP's transform. */
+    overflow: clip;
+  }
+  html.motion .xp-track {
+    flex-direction: row;
+    width: max-content;
+    height: 100%;
+    padding-left: var(--gutter);
+  }
+  html.motion .xp-panel {
+    width: min(76vw, 1240px);
+    height: 100%;
+    padding: calc(var(--nav-h) + 1rem) 5vw 2.5rem 0;
+    border-top: 0;
+  }
+  html.motion .xp-panel--end {
+    width: min(60vw, 900px);
+  }
+  html.motion .xp-band {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(var(--nav-h) + 3rem);
+    height: 15svh;
+    pointer-events: none;
+  }
+  html.motion .xp-band-space {
+    display: block;
+    height: calc(15svh + 2.5rem);
+    flex-shrink: 0;
+  }
+}
