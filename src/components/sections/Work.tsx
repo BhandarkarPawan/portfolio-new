@@ -37,31 +37,51 @@ export default function Work() {
       const xTo = gsap.quickTo(preview.current, "x", { duration: 0.7, ease: "power3" });
       const yTo = gsap.quickTo(preview.current, "y", { duration: 0.7, ease: "power3" });
       const tilt = gsap.quickTo(preview.current, "rotation", { duration: 0.9, ease: "power3" });
-      let lastX = 0;
+      const pointer = { x: 0, y: 0 };
+      let current = -1;
 
-      const enter = (i: number) => () => {
-        gsap.to(strip.current, { yPercent: (-100 / PROJECTS.length) * i, duration: 0.8, ease: "expo.out" });
-        gsap.to(preview.current, { scale: 1, autoAlpha: 1, duration: 0.6, ease: "expo.out" });
+      const show = (i: number) => {
+        if (i === current) return;
+        if (current === -1)
+          gsap.to(preview.current, { scale: 1, autoAlpha: 1, duration: 0.6, ease: "expo.out", overwrite: "auto" });
+        current = i;
+        gsap.to(strip.current, {
+          yPercent: (-100 / PROJECTS.length) * i,
+          duration: 0.8,
+          ease: "expo.out",
+          overwrite: true,
+        });
       };
-      const leave = () => gsap.to(preview.current, { scale: 0.4, autoAlpha: 0, duration: 0.45, ease: "expo.out" });
+      const hide = () => {
+        if (current === -1) return;
+        current = -1;
+        gsap.to(preview.current, { scale: 0.4, autoAlpha: 0, duration: 0.45, ease: "expo.out", overwrite: "auto" });
+      };
+      // Resolve the row under the pointer from coordinates rather than enter/leave
+      // events: scrolling moves rows under a resting pointer without firing either.
+      const sync = () => {
+        const row = document.elementFromPoint(pointer.x, pointer.y)?.closest<HTMLElement>("[data-row]");
+        const i = row ? rows.indexOf(row) : -1;
+        if (i === -1) hide();
+        else show(i);
+      };
       const move = (e: PointerEvent) => {
+        tilt(gsap.utils.clamp(-14, 14, (e.clientX - pointer.x) * 0.7));
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
         xTo(e.clientX);
         yTo(e.clientY);
-        tilt(gsap.utils.clamp(-14, 14, (e.clientX - lastX) * 0.7));
-        lastX = e.clientX;
+        sync();
       };
+      const onScroll = () => current !== -1 && sync();
 
-      const handlers = rows.map((row, i) => {
-        const h = enter(i);
-        row.addEventListener("pointerenter", h);
-        return () => row.removeEventListener("pointerenter", h);
-      });
-      list.addEventListener("pointerleave", leave);
       list.addEventListener("pointermove", move);
+      list.addEventListener("pointerleave", hide);
+      window.addEventListener("scroll", onScroll, { passive: true });
       return () => {
-        handlers.forEach((off) => off());
-        list.removeEventListener("pointerleave", leave);
         list.removeEventListener("pointermove", move);
+        list.removeEventListener("pointerleave", hide);
+        window.removeEventListener("scroll", onScroll);
       };
     },
     { scope: root },
