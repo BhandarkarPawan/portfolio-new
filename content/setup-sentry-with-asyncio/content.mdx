@@ -17,8 +17,6 @@ publishedOn: "2024-09-14T12:00:00-0400"
   alt="Prompt: 'cover image of a sentry flighting a massive python'"
 />
 
-Published on: [Date]
-
 When integrating Sentry into a FastAPI application, especially one that utilizes asynchronous tasks, you might encounter an issue where spans from different tasks are incorrectly nested within each other. This can lead to confusing trace logs and make it difficult to debug performance issues or errors. In this blog post, we'll explore why this happens and how to resolve it using FastAPI's lifespan events.
 
 ## The Problem: Incorrect Span Nesting in Asynchronous Tasks
