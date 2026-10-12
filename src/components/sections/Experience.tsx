@@ -32,9 +32,10 @@ export default function Experience() {
       const mm = gsap.matchMedia();
 
       const reveal = (panel: HTMLElement, scrollTrigger: ScrollTrigger.Vars) => {
+        // Opacity only, so a link in an unrevealed panel stays focusable.
         gsap.from(panel.querySelectorAll("[data-xp-anim]"), {
           y: 40,
-          autoAlpha: 0,
+          opacity: 0,
           duration: 1.1,
           ease: "expo.out",
           stagger: 0.06,
@@ -118,6 +119,18 @@ export default function Experience() {
           );
           layout();
           follow(0);
+
+          // Tabbing into an off-screen panel scrolls the page to where the track shows it.
+          const onFocus = (e: FocusEvent) => {
+            const panel = (e.target as Element).closest<HTMLElement>("[data-panel]");
+            const st = tween?.scrollTrigger;
+            if (!panel || !st) return;
+            const max = track.scrollWidth - window.innerWidth;
+            const x = gsap.utils.clamp(0, max, panel.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft));
+            window.scrollTo({ top: st.start + (x / max) * (st.end - st.start), behavior: "instant" });
+          };
+          track.addEventListener("focusin", onFocus);
+          return () => track.removeEventListener("focusin", onFocus);
         },
       );
     },

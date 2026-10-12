@@ -60,6 +60,7 @@ export default function HalftonePortrait({
     let height = 0;
     let raf = 0;
     let intro = reduced ? INTRO_END : 0;
+    let started = false;
     let introStart = 0;
     const lens = { x: 0, y: 0, r: 0, tx: 0, ty: 0, tr: 0 };
 
@@ -157,14 +158,17 @@ export default function HalftonePortrait({
     };
 
     const frame = (now: number) => {
-      if (intro < INTRO_END) intro = Math.min(INTRO_END, ((now - introStart) / 1800) * INTRO_END);
+      // Scroll and hover redraw before the intro starts; they must not advance it.
+      if (started && intro < INTRO_END) intro = Math.min(INTRO_END, ((now - introStart) / 1800) * INTRO_END);
       const ease = reduced ? 1 : 0.18;
       lens.x += (lens.tx - lens.x) * ease;
       lens.y += (lens.ty - lens.y) * ease;
       lens.r += (lens.tr - lens.r) * (reduced ? 1 : 0.12);
       draw();
+      // Before the intro starts there is nothing to animate but the lens.
+      const introSettled = !started || intro >= INTRO_END;
       const settled =
-        intro >= INTRO_END && Math.abs(lens.tr - lens.r) < 0.5 && Math.hypot(lens.tx - lens.x, lens.ty - lens.y) < 0.5;
+        introSettled && Math.abs(lens.tr - lens.r) < 0.5 && Math.hypot(lens.tx - lens.x, lens.ty - lens.y) < 0.5;
       raf = settled ? 0 : requestAnimationFrame(frame);
     };
     const kick = () => {
@@ -187,7 +191,6 @@ export default function HalftonePortrait({
       kick();
     };
 
-    let started = false;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || started || !img.complete) return;

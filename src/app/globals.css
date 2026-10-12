@@ -82,11 +82,14 @@ html.reveal-all .js-hide {
 }
 
 /* `intro-skip` comes from the boot script (repeat visit or reduced motion);
-   `intro-done` is added when the preloader hands off to the hero. */
-html:not(.intro-done) body {
+   `intro-done` is added when the preloader hands off to the hero. Without JS,
+   or if the app never hydrates (`reveal-all` fallback), the page stays usable. */
+html.js:not(.intro-done):not(.reveal-all) body {
   overflow: hidden;
 }
-html.intro-skip .preloader {
+html:not(.js) .preloader,
+html.intro-skip .preloader,
+html.reveal-all:not(.intro-done) .preloader {
   display: none;
 }
 
@@ -451,7 +454,9 @@ html.has-cursor * {
 @media (min-width: 1024px) {
   html.motion .xp-pin {
     height: 100svh;
-    overflow: hidden;
+    /* clip, not hidden: a hidden box is still scrollable, so focusing a link in
+       an off-screen panel would scroll it sideways behind GSAP's transform. */
+    overflow: clip;
   }
   html.motion .xp-track {
     flex-direction: row;

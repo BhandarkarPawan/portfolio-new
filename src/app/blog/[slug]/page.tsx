@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { formatDate, getPost, getPosts } from "@/lib/blog";
 import { mdxComponents } from "@/components/blog/mdx";
+import { PROFILE } from "@/data/profile";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -19,7 +20,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: meta.title,
     description: meta.abstract,
-    openGraph: { type: "article", title: meta.title, description: meta.abstract, publishedTime: meta.publishedOn },
+    // A page-level openGraph replaces the root one wholesale, so restate the shared fields.
+    openGraph: {
+      type: "article",
+      siteName: PROFILE.name,
+      locale: "en_US",
+      url: `/blog/${slug}`,
+      title: meta.title,
+      description: meta.abstract,
+      publishedTime: meta.publishedOn,
+    },
   };
 }
 

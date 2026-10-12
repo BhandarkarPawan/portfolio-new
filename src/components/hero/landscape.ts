@@ -60,7 +60,7 @@ const WELLS = [
 
 const MAX_OPTIMIZERS = 3 + MAX_USER; // three resident optimizers plus visitor drops
 
-const LR: Record<Kind, number> = { adam: 0.0075, "sgd+m": 0.0007, rmsprop: 0.0055, lion: 0.005 };
+const LR: Record<Kind, number> = { adam: 0.006, "sgd+m": 0.0007, rmsprop: 0.0055, lion: 0.005 };
 const BASE_KINDS: Kind[] = ["adam", "sgd+m", "rmsprop"];
 const USER_KINDS: Kind[] = ["lion", "adam", "sgd+m", "rmsprop"];
 
@@ -343,7 +343,9 @@ export function createLandscape({ canvas, labels, reducedMotion, onTelemetry }: 
     o.y = y;
     o.m = [0, 0];
     const [gx, gy] = gradient(x, y);
-    o.v = [gx * gx, gy * gy];
+    // Adam's bias correction assumes v starts at zero; RMSProp has none, so seed
+    // it with the first gradient to avoid a huge opening step.
+    o.v = o.kind === "rmsprop" ? [gx * gx, gy * gy] : [0, 0];
     o.t = 0;
     o.count = 0;
     o.head = 0;

@@ -40,10 +40,12 @@ export default function Reveals() {
           });
         });
 
+        // Opacity, not autoAlpha: visibility:hidden would drop not-yet-revealed links
+        // from the tab order, while a transparent one can still take focus.
         gsap.utils.toArray<HTMLElement>("[data-fade]").forEach((el) => {
           gsap.from(el, {
             y: 36,
-            autoAlpha: 0,
+            opacity: 0,
             duration: 1.2,
             ease: "expo.out",
             delay: Number(el.dataset.delay ?? 0),

@@ -30,6 +30,7 @@ export default function Nav() {
   const header = useRef<HTMLElement>(null);
   const bar = useRef<HTMLDivElement>(null);
   const menu = useRef<HTMLDivElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const menuTl = useRef<gsap.core.Timeline | null>(null);
 
   const go = (id: string) => (e: React.MouseEvent) => {
@@ -107,16 +108,34 @@ export default function Nav() {
     const tl = menuTl.current;
     if (!tl) return;
     header.current!.dataset.menu = open ? "open" : "";
+    // The open menu is modal: the page behind it leaves the focus order.
+    document.querySelectorAll<HTMLElement>("main, footer").forEach((el) => (el.inert = open));
     if (open) {
       menuOpened.current = true;
       lenis?.stop();
       tl.timeScale(1).play();
-    } else if (menuOpened.current) {
+      const raf = requestAnimationFrame(() => menu.current?.querySelector("a")?.focus({ preventScroll: true }));
+      return () => cancelAnimationFrame(raf);
+    }
+    if (menuOpened.current) {
       // Only undo what opening did; Lenis is also paused during the intro.
       lenis?.start();
       tl.timeScale(1.6).reverse();
+      const focused = document.activeElement;
+      if (!focused || focused === document.body || menu.current?.contains(focused)) {
+        menuButton.current?.focus({ preventScroll: true });
+      }
     }
   }, [open, lenis]);
+
+  // The menu only exists below the desktop breakpoint; rotating or resizing past
+  // it while open would leave the page locked with no Close button.
+  useEffect(() => {
+    const desktop = matchMedia("(min-width: 1024px)");
+    const onChange = () => desktop.matches && setOpen(false);
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -172,6 +191,7 @@ export default function Nav() {
             Résumé <span aria-hidden>↗</span>
           </a>
           <button
+            ref={menuButton}
             data-nav-item
             type="button"
             onClick={() => setOpen((o) => !o)}

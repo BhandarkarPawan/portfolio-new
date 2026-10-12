@@ -92,6 +92,8 @@ export default function Hero() {
 
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(hidden, { visibility: "visible" });
+        // The landscape is a still frame, so there is nothing to click.
+        gsap.set(section.querySelectorAll("[data-motion-only]"), { visibility: "hidden" });
       });
 
       mm.add(MOTION_OK, () => {
@@ -141,7 +143,8 @@ export default function Hero() {
           lifts.forEach((lift) => lift(0));
           chars.forEach((c) => (c.style.color = ""));
         };
-        const onDown = (e: PointerEvent) => {
+        // click, not pointerdown: a touch that turns into a scroll never clicks.
+        const onClick = (e: MouseEvent) => {
           if ((e.target as Element).closest("a, button")) return;
           landscape.current?.drop(e.clientX, e.clientY);
         };
@@ -149,7 +152,7 @@ export default function Hero() {
 
         section.addEventListener("pointermove", onMove);
         section.addEventListener("pointerleave", onLeave);
-        section.addEventListener("pointerdown", onDown);
+        section.addEventListener("click", onClick);
         window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("resize", onScroll);
 
@@ -172,7 +175,7 @@ export default function Hero() {
           off();
           section.removeEventListener("pointermove", onMove);
           section.removeEventListener("pointerleave", onLeave);
-          section.removeEventListener("pointerdown", onDown);
+          section.removeEventListener("click", onClick);
           window.removeEventListener("scroll", onScroll);
           window.removeEventListener("resize", onScroll);
         };
@@ -228,7 +231,7 @@ export default function Hero() {
               —
             </span>
           </p>
-          <p data-hero="hud" className="js-hide hidden text-right md:block [html:not(.motion)_&]:invisible">
+          <p data-hero="hud" data-motion-only className="js-hide hidden text-right md:block">
             Click the surface
             <br />
             to drop an optimizer

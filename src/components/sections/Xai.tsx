@@ -28,7 +28,7 @@ export default function Xai() {
             stagger: 0.04,
           }).from(
             card.querySelectorAll("[data-pop]"),
-            { autoAlpha: 0, y: 12, duration: 0.6, ease: "expo.out", stagger: 0.08 },
+            { opacity: 0, y: 12, duration: 0.6, ease: "expo.out", stagger: 0.08 },
             0.2,
           );
         });
