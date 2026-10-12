@@ -57,7 +57,7 @@ export default function Toolkit() {
   return (
     <section ref={root} id="toolkit" className="overflow-hidden py-[clamp(5rem,12vh,8rem)]">
       <div className="px-gutter">
-        <SectionHeader index="06" label="Toolkit" aside={<span className="hidden sm:inline">Daily drivers</span>} />
+        <SectionHeader index="07" label="Toolkit" aside={<span className="hidden sm:inline">Daily drivers</span>} />
       </div>
       <div data-skew className="mt-14 space-y-4 md:mt-20">
         {SKILLS.map((group) => (

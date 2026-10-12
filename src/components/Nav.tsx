@@ -13,6 +13,7 @@ import Mark from "@/components/Mark";
 
 const LINKS = [
   { id: "now", label: "Now" },
+  { id: "xai", label: "xAI" },
   { id: "experience", label: "Experience" },
   { id: "about", label: "About" },
   { id: "work", label: "Work" },

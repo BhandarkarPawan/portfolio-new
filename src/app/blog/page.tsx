@@ -12,7 +12,7 @@ export default async function BlogIndex() {
   return (
     <main id="main" className="px-gutter pb-28 pt-[calc(var(--nav-h)+5rem)]">
       <p className="mono-label flex items-center gap-4 text-dim">
-        <span className="text-signal">(07)</span> Writing
+        <span className="text-signal">(08)</span> Writing
         <span data-rule aria-hidden className="h-px flex-1 bg-line" />
       </p>
       <h1 data-split="chars" className="display mt-10 text-[clamp(4.5rem,16vw,16rem)] leading-[0.85]">

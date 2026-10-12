@@ -91,12 +91,11 @@ export const ROLES: Role[] = [
     title: "Member of Technical Staff",
     location: "Palo Alto, CA",
     period: "Dec 2024 — Mar 2026",
-    summary:
-      "Built the platforms behind Grok's post-training data and the tools researchers used to inspect agent behavior.",
+    summary: "Owned the model-debugging, RL-observability and human-data platforms behind Grok's training.",
     highlights: [
-      "Built and maintained Starfleet, xAI's human data collection platform, enabling high-quality post-training data for Grok 3 and Grok 4 across personality, multilingual audio and process supervision.",
-      "Developed Nebula, whose dashboards and trace viewers cut researchers' manual review of agent behavior from hours to seconds, and Nebula Notebooks, an in-house Colab over cluster data.",
-      "Built the Nebula Agent and Trace Tools MCP server to analyze RL runs and large data collections through a Cursor-like interface with @mentions.",
+      "Owned and scaled Starfleet, xAI's human-data platform for human evals and post-training data behind Grok 3 and Grok 4.",
+      "Built Nebula, the tier-0 model-debugging and RL-observability platform where xAI spent 7,000+ engineering hours a week.",
+      "Shipped agents for researchers and engineers: the Nebula Research Agent, Nebula Notebooks (solo), and Devbots, which I led a team of three to build.",
     ],
     stack: ["TypeScript", "React", "Python", "MCP", "Notebooks"],
     metric: { kind: "text", display: "hrs → sec", label: "researchers' manual review of model behavior" },
@@ -116,6 +115,58 @@ export const ROLES: Role[] = [
     ],
     stack: ["React", "TypeScript", "FastAPI", "ClickHouse", "Kafka", "BigQuery"],
     current: true,
+  },
+];
+
+export type XaiPlatform = {
+  id: "nebula" | "starfleet" | "agents";
+  name: string;
+  kind: string;
+  summary: string;
+  points: string[];
+  stat: { value: string; label: string };
+};
+
+// The xAI chapter in more depth than the one-page résumé allows; these come
+// from the full résumé published on this site.
+export const XAI_PLATFORMS: XaiPlatform[] = [
+  {
+    id: "nebula",
+    name: "Nebula",
+    kind: "Model debugging & RL observability",
+    summary:
+      "xAI's tier-0 platform for end-to-end model development and debugging, and the first research platform I built.",
+    points: [
+      "File, trace and production-data viewers, benchmark queuing and automation, and model deployment automation.",
+      "The RL Data App: high-performance aggregation and analytics for RL training and eval metrics, used in every RL workflow at xAI.",
+      "Dashboards and trace viewers that cut researchers' manual review of agent behavior from hours to seconds.",
+    ],
+    stat: { value: "7,000+", label: "engineering hours a week spent in Nebula" },
+  },
+  {
+    id: "starfleet",
+    name: "Starfleet",
+    kind: "Human data platform",
+    summary:
+      "I owned and scaled xAI's human-data platform for human evals and the high-quality post-training data behind Grok 3 and Grok 4.",
+    points: [
+      "Multi-model arenas, QA pipelines and auto-graders across personality, multilingual audio and process-supervision projects.",
+      "Real-time analytics, performance management and HRIS-style operations for the teams producing the data.",
+      "Infrastructure, Grafana dashboards and alerts that kept it, and every platform here, reliable.",
+    ],
+    stat: { value: "Grok 3 & 4", label: "post-training data collected on Starfleet" },
+  },
+  {
+    id: "agents",
+    name: "Agents",
+    kind: "Tools that work alongside researchers",
+    summary: "Agents and notebooks that let researchers and engineers hand off the analysis and the busywork.",
+    points: [
+      "Research Agent: a Cursor-style assistant on Nebula that analyzes RL training and eval data through an MCP server of model-debugging tools.",
+      "Nebula Notebooks, built solo: an in-house Colab with managed Jupyter kernels and custom renderers for agent traces and grader results.",
+      "Devbots: I led a team of three to ship xAI's remote coding agents, reachable from Slack, the web and PR reviews, each in a sandboxed environment.",
+    ],
+    stat: { value: "Team of 3", label: "I led to ship Devbots" },
   },
 ];
 

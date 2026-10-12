@@ -1,6 +1,7 @@
 import Hero from "@/components/hero/Hero";
 import Thesis from "@/components/sections/Thesis";
 import Platform from "@/components/sections/Platform";
+import Xai from "@/components/sections/Xai";
 import Experience from "@/components/sections/Experience";
 import About from "@/components/sections/About";
 import Work from "@/components/sections/Work";
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Thesis />
       <Platform />
+      <Xai />
       <Experience />
       <About />
       <Work />

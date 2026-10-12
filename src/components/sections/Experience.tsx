@@ -128,7 +128,7 @@ export default function Experience() {
     <section ref={root} id="experience" className="relative">
       <div className="px-gutter pb-10 pt-[clamp(6rem,14vh,10rem)] lg:pb-4">
         <SectionHeader
-          index="03"
+          index="04"
           label="Experience"
           aside={<span>2020 → now</span>}
           title={

@@ -22,7 +22,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative px-gutter pb-[clamp(5rem,12vh,8rem)] pt-[clamp(5rem,12vh,8.5rem)]">
-      <SectionHeader index="08" label="Contact" />
+      <SectionHeader index="09" label="Contact" />
       <h2 data-split="chars" className="display mt-10 text-[clamp(4.5rem,17.5vw,20rem)] leading-[0.82]">
         Let&rsquo;s talk<span className="text-signal">.</span>
       </h2>

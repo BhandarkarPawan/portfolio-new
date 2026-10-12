@@ -207,7 +207,8 @@ export default function Platform() {
         />
         <p data-fade className="mt-8 max-w-xl text-lg leading-relaxed text-paper/70 md:ml-[33%] md:mt-12">
           I created and lead the platform researchers use to inspect training runs, RL rollouts, datasets and evals, and
-          built it end to end, from the database schema to the last pixel.
+          built it end to end, from the database schema to the last pixel. It&rsquo;s the second one I&rsquo;ve built;
+          the first was Nebula at xAI.
         </p>
       </div>
 

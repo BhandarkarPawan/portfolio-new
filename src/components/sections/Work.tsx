@@ -90,7 +90,7 @@ export default function Work() {
   return (
     <section ref={root} id="work" className="px-gutter py-[clamp(5rem,12vh,8.5rem)]">
       <SectionHeader
-        index="05"
+        index="06"
         label="Selected work"
         aside={<span className="hidden sm:inline">Before the labs</span>}
         title={

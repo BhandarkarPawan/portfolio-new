@@ -6,7 +6,7 @@ import Magnetic from "@/components/motion/Magnetic";
 export default function About() {
   return (
     <section id="about" className="px-gutter py-[clamp(5rem,12vh,8.5rem)]">
-      <SectionHeader index="04" label="About" />
+      <SectionHeader index="05" label="About" />
 
       <div className="mt-14 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
@@ -28,8 +28,8 @@ export default function About() {
             <p data-fade>
               I&rsquo;m Pawan, a full-stack engineer who cares as much about how a tool feels as about what it computes.
               For the past few years I&rsquo;ve built the software frontier labs use to understand their models: at xAI,
-              the human-data platform behind Grok&rsquo;s post-training and the trace viewers researchers used to
-              inspect agents; now at Thinking Machines Lab, a platform for runs, rollouts, datasets and evals.
+              Nebula for model debugging and RL observability, and Starfleet for the human data behind Grok&rsquo;s
+              post-training; now at Thinking Machines Lab, a platform for runs, rollouts, datasets and evals.
             </p>
             <p data-fade>
               Before that I was the founding engineer at Converge Lab, built real-time infrastructure at TuneIn, and

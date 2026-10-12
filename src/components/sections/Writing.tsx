@@ -7,7 +7,7 @@ export default async function Writing() {
   return (
     <section id="writing" className="px-gutter py-[clamp(5rem,12vh,8.5rem)]">
       <SectionHeader
-        index="07"
+        index="08"
         label="Writing"
         aside={
           <Link href="/blog" className="transition-colors hover:text-paper">
